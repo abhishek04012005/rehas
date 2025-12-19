@@ -36,12 +36,12 @@ export default function Hero() {
     };
   }, []);
 
-  // Generate consistent star positions using seeded random
+  // Generate consistent star positions using seeded random with fixed precision
   const generateStars = () => {
     return [...Array(20)].map((_, i) => ({
-      left: seededRandom(i * 12.9898) * 100,
-      top: seededRandom(i * 78.233) * 100,
-      delay: seededRandom(i * 43.614) * 3,
+      left: parseFloat((seededRandom(i * 12.9898) * 100).toFixed(2)),
+      top: parseFloat((seededRandom(i * 78.233) * 100).toFixed(2)),
+      delay: parseFloat((seededRandom(i * 43.614) * 3).toFixed(2)),
     }));
   };
 

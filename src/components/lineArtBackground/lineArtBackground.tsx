@@ -79,10 +79,10 @@ export default function LineArtBackground({
         {/* Zodiac Division Lines */}
         {[...Array(12)].map((_, i) => {
           const angle = (i * 30 * Math.PI) / 180;
-          const x1 = 600 + 150 * Math.cos(angle);
-          const y1 = 200 + 150 * Math.sin(angle);
-          const x2 = 600 + 180 * Math.cos(angle);
-          const y2 = 200 + 180 * Math.sin(angle);
+          const x1 = String((600 + 150 * Math.cos(angle)).toFixed(2));
+          const y1 = String((200 + 150 * Math.sin(angle)).toFixed(2));
+          const x2 = String((600 + 180 * Math.cos(angle)).toFixed(2));
+          const y2 = String((200 + 180 * Math.sin(angle)).toFixed(2));
           return (
             <line
               key={`zodiac-line-${i}`}
