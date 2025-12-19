@@ -1,0 +1,353 @@
+.about {
+  background: #ffffff;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Story Section */
+.storySection {
+  padding: 4rem 2rem;
+  background: #fafafa;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.storyGrid h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.storyGrid p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(86, 0, 103, 0.1);
+}
+
+.statItem {
+  text-align: center;
+  padding: 1rem;
+}
+
+.statItem h3 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+}
+
+.statItem p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Team Section */
+.teamSection {
+  padding: 4rem 2rem;
+}
+
+.teamSection h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 3rem 0;
+  font-weight: 700;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.teamCard {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(146, 72, 122, 0.03) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.teamCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(86, 0, 103, 0.12);
+  transform: translateY(-4px);
+}
+
+.avatar {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.teamCard h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.teamCard p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  margin: 0 0 2rem 0;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 0.9rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  background: white;
+  color: var(--primary);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .storySection,
+  .teamSection,
+  .ctaSection {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .storyGrid {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .storyGrid h2 {
+    font-size: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .statItem {
+    padding: 0.75rem;
+  }
+
+  .statItem h3 {
+    font-size: 1.5rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .teamSection h2,
+  .ctaSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .heroContent h1 {
+    font-size: 1.5rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .storySection,
+  .teamSection,
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .storyGrid h2 {
+    font-size: 1.3rem;
+  }
+
+  .storyGrid p {
+    font-size: 0.95rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .statItem h3 {
+    font-size: 1.3rem;
+  }
+
+  .statItem p {
+    font-size: 0.85rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .avatar {
+    font-size: 2.5rem;
+  }
+
+  .teamCard {
+    padding: 1.5rem;
+  }
+
+  .teamCard h3 {
+    font-size: 1rem;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.3rem;
+  }
+
+  .ctaSection p {
+    font-size: 1rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
