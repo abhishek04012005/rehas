@@ -19,7 +19,7 @@ export const servicesData = {
         'Year Forecast',
         'Vibration Check',
       ],
-      color: '#d4a5d9',
+      color: 'var(--accent)',
       position: 'left',
     },
     {
@@ -34,7 +34,7 @@ export const servicesData = {
         'Compatibility',
         'Horoscope',
       ],
-      color: '#92487a',
+      color: 'var(--secondary)',
       position: 'right',
     },
     {
@@ -49,7 +49,7 @@ export const servicesData = {
         'Distance Reiki',
         'Energy Cleanse',
       ],
-      color: '#560067',
+      color: 'var(--primary)',
       position: 'left',
     },
     {
@@ -64,7 +64,7 @@ export const servicesData = {
         'Binaural Beats',
         'Sound Bath',
       ],
-      color: '#d4a5d9',
+      color: 'var(--accent)',
       position: 'right',
     },
     {
@@ -79,7 +79,7 @@ export const servicesData = {
         'Energy Alignment',
         'Frequency Balance',
       ],
-      color: '#92487a',
+      color: 'var(--secondary)',
       position: 'left',
     },
     {
@@ -94,7 +94,7 @@ export const servicesData = {
         'Aura Strengthen',
         'Color Healing',
       ],
-      color: '#560067',
+      color: 'var(--primary)',
       position: 'right',
     },
   ],
