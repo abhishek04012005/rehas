@@ -5,11 +5,11 @@ import {
     Phone,
     Email,
     LocationOn,
-    AccessTime,
     Send,
     CheckCircle,
 } from '@mui/icons-material';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
+import { contactData } from '@/data/content';
 import styles from './contact.module.css';
 
 export default function Contact() {
@@ -46,6 +46,15 @@ export default function Contact() {
         }, 1500);
     };
 
+    const getIconComponent = (iconName: string) => {
+        const icons: { [key: string]: React.ReactNode } = {
+            Email: <Email />,
+            Phone: <Phone />,
+            LocationOn: <LocationOn />,
+        };
+        return icons[iconName] || null;
+    };
+
     return (
         <div className={styles.contact}>
             <div className={styles.heroBackground}>
@@ -53,126 +62,85 @@ export default function Contact() {
             </div>
             {/* Hero Section */}
             <section className={styles.hero}>
-
                 <div className={styles.heroContent}>
-                    <h1>Get in Touch</h1>
-                    <p>We'd love to hear from you. Reach out to us anytime.</p>
+                    <h1>{contactData.hero.title}</h1>
+                    <p>{contactData.hero.subtitle}</p>
                 </div>
             </section>
 
             {/* Main Content */}
             <div className={styles.container}>
-
                 <div className={styles.contactGrid}>
                     {/* Contact Information */}
                     <div className={styles.infoSection}>
-                        <h2>Contact Information</h2>
+                        <h2>{contactData.info.title}</h2>
                         <p className={styles.sectionDescription}>
-                            Have questions? We're here to help and answer any question you might have.
+                            {contactData.info.description}
                         </p>
 
                         <div className={styles.infoCards}>
-                            {/* Email */}
-                            <div className={styles.infoCard}>
-                                <div className={styles.iconWrapper}>
-                                    <Email />
+                            {contactData.info.cards.map((card, idx) => (
+                                <div className={styles.infoCard} key={idx}>
+                                    <div className={styles.iconWrapper}>
+                                        {getIconComponent(card.icon)}
+                                    </div>
+                                    <div>
+                                        <h3>{card.title}</h3>
+                                        <p>
+                                            {card.link ? (
+                                                <a href={card.link}>{card.value}</a>
+                                            ) : (
+                                                card.value
+                                            )}
+                                        </p>
+                                        <p className={styles.secondaryText}>{card.secondaryText}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3>Email</h3>
-                                    <p>
-                                        <a href="mailto:info@rehas.com">info@rehas.com</a>
-                                    </p>
-                                    <p className={styles.secondaryText}>We'll respond within 24 hours</p>
-                                </div>
-                            </div>
-
-                            {/* Phone */}
-                            <div className={styles.infoCard}>
-                                <div className={styles.iconWrapper}>
-                                    <Phone />
-                                </div>
-                                <div>
-                                    <h3>Phone</h3>
-                                    <p>
-                                        <a href="tel:+1234567890">+1 (234) 567-890</a>
-                                    </p>
-                                    <p className={styles.secondaryText}>Mon-Fri, 9AM-6PM UTC</p>
-                                </div>
-                            </div>
-
-                            {/* Location */}
-                            <div className={styles.infoCard}>
-                                <div className={styles.iconWrapper}>
-                                    <LocationOn />
-                                </div>
-                                <div>
-                                    <h3>Location</h3>
-                                    <p>123 Cosmic Street</p>
-                                    <p className={styles.secondaryText}>Universe City, UC 12345</p>
-                                </div>
-                            </div>
-
-
+                            ))}
                         </div>
-
-
                     </div>
 
                     {/* Contact Form */}
                     <div className={styles.formSection}>
-                        <h2>Send us a Message</h2>
+                        <h2>{contactData.form.title}</h2>
                         <p className={styles.sectionDescription}>
-                            Fill out the form below and we'll get back to you as soon as possible.
+                            {contactData.form.description}
                         </p>
 
                         {submitted && (
                             <div className={styles.successMessage}>
                                 <CheckCircle />
-                                <p>Thank you! Your message has been sent successfully.</p>
+                                <p>{contactData.form.successMessage}</p>
                             </div>
                         )}
 
                         <form onSubmit={handleSubmit} className={styles.form}>
-                            <div className={styles.formGroup}>
-                                <label htmlFor="name">Full Name *</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Your name"
-                                />
-                            </div>
-
-
-                            <div className={styles.formGroup}>
-                                <label htmlFor="phone">Phone Number</label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder="+1 (234) 567-890"
-                                />
-                            </div>
-
-
-
-                            <div className={styles.formGroup}>
-                                <label htmlFor="message">Message *</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Tell us more about your inquiry..."
-                                    rows={6}
-                                />
-                            </div>
+                            {contactData.form.fields.map((field, idx) => (
+                                <div className={styles.formGroup} key={idx}>
+                                    <label htmlFor={field.name}>{field.label}</label>
+                                    {field.type === 'textarea' ? (
+                                        <textarea
+                                            id={field.name}
+                                            name={field.name}
+                                            value={formData[field.name as keyof typeof formData]}
+                                            onChange={handleChange}
+                                            required={field.required}
+                                            placeholder={field.placeholder}
+                                            rows={field.rows}
+                                        />
+                                    ) : (
+                                        <input
+                                            type={field.type}
+                                            id={field.name}
+                                            name={field.name}
+                                            value={formData[field.name as keyof typeof formData]}
+                                            onChange={handleChange}
+                                            required={field.required}
+                                            placeholder={field.placeholder}
+                                        />
+                                    )}
+                                </div>
+                            ))}
 
                             <button
                                 type="submit"
@@ -187,7 +155,7 @@ export default function Contact() {
                                 ) : (
                                     <>
                                         <Send />
-                                        Send Message
+                                        {contactData.form.submitButton}
                                     </>
                                 )}
                             </button>

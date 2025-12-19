@@ -13,6 +13,7 @@ import {
   AccessTime,
   KeyboardArrowUp,
 } from '@mui/icons-material';
+import { footerData } from '@/data/content';
 import styles from './footer.module.css';
 
 export default function Footer() {
@@ -28,6 +29,16 @@ export default function Footer() {
     }
   };
 
+  const getIconComponent = (iconName: string) => {
+    const icons: { [key: string]: React.ReactNode } = {
+      Facebook: <Facebook fontSize="small" />,
+      Twitter: <Twitter fontSize="small" />,
+      Instagram: <Instagram fontSize="small" />,
+      LinkedIn: <LinkedIn fontSize="small" />,
+    };
+    return icons[iconName] || null;
+  };
+
   return (
     <footer className={styles.footer}>
       {/* Main Footer */}
@@ -37,86 +48,39 @@ export default function Footer() {
             {/* Brand Column */}
             <div className={styles.footerColumn}>
               <div className={styles.footerLogo}>
-                <span className={styles.logoIcon}>✨</span>
-                <h2>REHAS</h2>
+                <span className={styles.logoIcon}>{footerData.brand.icon}</span>
+                <h2>{footerData.brand.name}</h2>
               </div>
               <p className={styles.tagline}>
-                Bridging ancient cosmic wisdom with modern wellness for a better tomorrow.
+                {footerData.brand.tagline}
               </p>
               <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialIcon} title="Facebook">
-                  <Facebook fontSize="small" />
-                </a>
-                <a href="#" className={styles.socialIcon} title="Twitter">
-                  <Twitter fontSize="small" />
-                </a>
-                <a href="#" className={styles.socialIcon} title="Instagram">
-                  <Instagram fontSize="small" />
-                </a>
-                <a href="#" className={styles.socialIcon} title="LinkedIn">
-                  <LinkedIn fontSize="small" />
-                </a>
+                {footerData.brand.social.map((social, idx) => (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    className={styles.socialIcon}
+                    title={social.title}
+                  >
+                    {getIconComponent(social.icon)}
+                  </a>
+                ))}
               </div>
             </div>
 
-            {/* Services Column */}
-            <div className={styles.footerColumn}>
-              <h4>Services</h4>
-              <ul>
-                <li><Link href="/astrology/birth-chart">Birth Chart Reading</Link></li>
-                <li><Link href="/astrology/horoscope">Daily Horoscope</Link></li>
-                <li><Link href="/wellness/meditation">Meditation Guide</Link></li>
-                <li><Link href="/wellness/yoga">Yoga Classes</Link></li>
-                <li><Link href="/consultation">Book Consultation</Link></li>
-              </ul>
-            </div>
-
-            {/* Company Column */}
-            <div className={styles.footerColumn}>
-              <h4>Company</h4>
-              <ul>
-                <li><Link href="/about">About Us</Link></li>
-                <li><Link href="/blog">Blog</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
-                <li><Link href="/faq">FAQ</Link></li>
-                <li><Link href="/careers">Careers</Link></li>
-              </ul>
-            </div>
-
-            {/* Resources Column */}
-            <div className={styles.footerColumn}>
-              <h4>Resources</h4>
-              <ul>
-                <li><Link href="#privacy">Privacy Policy</Link></li>
-                <li><Link href="#terms">Terms of Service</Link></li>
-                <li><Link href="#disclaimer">Disclaimer</Link></li>
-                <li><Link href="#sitemap">Sitemap</Link></li>
-                <li><Link href="#support">Support</Link></li>
-              </ul>
-            </div>
-
-            {/* Contact Column */}
-            <div className={styles.footerColumn}>
-              <h4>Contact</h4>
-              <ul className={styles.contactList}>
-                <li>
-                  <Email className={styles.contactIcon} />
-                  <a href="mailto:info@rehas.com">info@rehas.com</a>
-                </li>
-                <li>
-                  <Phone className={styles.contactIcon} />
-                  <a href="tel:+1234567890">+1 (234) 567-890</a>
-                </li>
-                <li>
-                  <LocationOn className={styles.contactIcon} />
-                  <span>123 Cosmic St, Universe City, UC 12345</span>
-                </li>
-                <li>
-                  <AccessTime className={styles.contactIcon} />
-                  <span>Mon-Fri: 9AM - 6PM UTC</span>
-                </li>
-              </ul>
-            </div>
+            {/* Dynamic Sections */}
+            {footerData.sections.map((section, sectionIdx) => (
+              <div className={styles.footerColumn} key={sectionIdx}>
+                <h4>{section.title}</h4>
+                <ul>
+                  {section.links.map((link, linkIdx) => (
+                    <li key={linkIdx}>
+                      <Link href={link.href}>{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           {/* Footer Divider */}
@@ -124,13 +88,14 @@ export default function Footer() {
 
           {/* Bottom Footer */}
           <div className={styles.footerBottom}>
-            <p>&copy; 2024 REHAS. All rights reserved.</p>
+            <p>&copy; {footerData.copyright.year} {footerData.copyright.company}. {footerData.copyright.text}</p>
             <div className={styles.footerLinks}>
-              <a href="#privacy">Privacy</a>
-              <span>•</span>
-              <a href="#terms">Terms</a>
-              <span>•</span>
-              <a href="#cookies">Cookies</a>
+              {footerData.legal.map((legal, idx) => (
+                <span key={idx}>
+                  <a href={legal.href}>{legal.label}</a>
+                  {idx < footerData.legal.length - 1 && <span>•</span>}
+                </span>
+              ))}
             </div>
           </div>
         </div>

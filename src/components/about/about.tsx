@@ -1,6 +1,7 @@
 'use client';
 
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
+import { aboutData } from '@/data/content';
 import styles from './about.module.css';
 
 export default function About() {
@@ -12,8 +13,8 @@ export default function About() {
           <LineArtBackground variant="default" opacity={0.4} />
         </div>
         <div className={styles.heroContent}>
-          <h1>About REHAS</h1>
-          <p>Bridging ancient cosmic wisdom with modern wellness</p>
+          <h1>{aboutData.hero.title}</h1>
+          <p>{aboutData.hero.subtitle}</p>
         </div>
       </section>
 
@@ -24,38 +25,22 @@ export default function About() {
         </div>
         <div className={styles.container}>
           <div className={styles.storyGrid}>
-            <div className={styles.storyCard}>
-              <h2>Who We Are</h2>
-              <p>
-                REHAS empowers seekers through astrology and holistic wellness, serving thousands worldwide.
-              </p>
-            </div>
-            <div className={styles.storyCard}>
-              <h2>What We Do</h2>
-              <p>
-                We offer astrology readings, wellness coaching, and meditation guidance to help you live authentically.
-              </p>
-            </div>
+            {aboutData.story.cards.map((card, idx) => (
+              <div className={styles.storyCard} key={idx}>
+                <h2>{card.title}</h2>
+                <p>{card.description}</p>
+              </div>
+            ))}
           </div>
 
           {/* Quick Stats */}
           <div className={styles.statsGrid}>
-            <div className={styles.statItem}>
-              <span className={styles.number}>10K+</span>
-              <span className={styles.label}>Clients</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.number}>25+</span>
-              <span className={styles.label}>Countries</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.number}>4</span>
-              <span className={styles.label}>Experts</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.number}>15+</span>
-              <span className={styles.label}>Years</span>
-            </div>
+            {aboutData.stats.map((stat, idx) => (
+              <div className={styles.statItem} key={idx}>
+                <span className={styles.number}>{stat.number}</span>
+                <span className={styles.label}>{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -68,26 +53,13 @@ export default function About() {
         <div className={styles.container}>
           <h2>Meet Our Team</h2>
           <div className={styles.teamGrid}>
-            <div className={styles.teamCard}>
-              <div className={styles.avatar}>👩‍⚕️</div>
-              <h3>Sarah Chen</h3>
-              <p>Astrology Expert</p>
-            </div>
-            <div className={styles.teamCard}>
-              <div className={styles.avatar}>👨‍⚕️</div>
-              <h3>Dr. Rajesh</h3>
-              <p>Wellness Coach</p>
-            </div>
-            <div className={styles.teamCard}>
-              <div className={styles.avatar}>🧘‍♀️</div>
-              <h3>Emma Johnson</h3>
-              <p>Meditation Guide</p>
-            </div>
-            <div className={styles.teamCard}>
-              <div className={styles.avatar}>🥗</div>
-              <h3>Alex Rodriguez</h3>
-              <p>Nutrition Specialist</p>
-            </div>
+            {aboutData.team.map((member, idx) => (
+              <div className={styles.teamCard} key={idx}>
+                <div className={styles.avatar}>{member.avatar}</div>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -98,11 +70,18 @@ export default function About() {
           <LineArtBackground variant="minimal" opacity={0.25} />
         </div>
         <div className={styles.container}>
-          <h2>Ready to Transform?</h2>
-          <p>Join thousands discovering their cosmic path</p>
+          <h2>{aboutData.cta.title}</h2>
+          <p>{aboutData.cta.subtitle}</p>
           <div className={styles.ctaButtons}>
-            <a href="/consultation" className={styles.btnPrimary}>Book Consultation</a>
-            <a href="/contact" className={styles.btnSecondary}>Learn More</a>
+            {aboutData.cta.buttons.map((btn, idx) => (
+              <a
+                key={idx}
+                href={btn.href}
+                className={btn.type === 'primary' ? styles.btnPrimary : styles.btnSecondary}
+              >
+                {btn.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>

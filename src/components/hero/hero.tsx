@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { heroData } from '@/data/content';
 import styles from './hero.module.css';
 
 // Seeded random number generator for consistent values
@@ -89,11 +90,11 @@ export default function Hero() {
           {/* Heading */}
           <h1 className={styles.heading}>
             <span className={styles.gradientText}>
-              Discover Your Cosmic Path
+              {heroData.title}
             </span>
             <br />
             <span className={styles.secondaryText}>
-              to Health & Harmony
+              {heroData.subtitle}
             </span>
           </h1>
 
@@ -106,35 +107,35 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className={styles.ctaGroup}>
-            <Link href="/consultation" className={styles.primaryBtn}>
-              <span>Start Your Journey</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link href="/about" className={styles.secondaryBtn}>
-              <span>Learn More</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 16v-4M12 8h.01" />
-              </svg>
-            </Link>
+            {heroData.buttons.map((btn, idx) => (
+              <Link 
+                key={idx}
+                href={btn.href} 
+                className={btn.type === 'primary' ? styles.primaryBtn : styles.secondaryBtn}
+              >
+                <span>{btn.label}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  {btn.type === 'primary' ? (
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  ) : (
+                    <>
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 16v-4M12 8h.01" />
+                    </>
+                  )}
+                </svg>
+              </Link>
+            ))}
           </div>
 
           {/* Stats */}
           <div className={styles.stats}>
-            <div className={styles.stat}>
-              <div className={styles.statNumber}>10K+</div>
-              <div className={styles.statLabel}>Happy Clients</div>
-            </div>
-            <div className={styles.stat}>
-              <div className={styles.statNumber}>5000+</div>
-              <div className={styles.statLabel}>Readings</div>
-            </div>
-            <div className={styles.stat}>
-              <div className={styles.statNumber}>15+</div>
-              <div className={styles.statLabel}>Years Experience</div>
-            </div>
+            {heroData.stats.map((stat, idx) => (
+              <div className={styles.stat} key={idx}>
+                <div className={styles.statNumber}>{stat.number}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -157,18 +158,24 @@ export default function Hero() {
           </div>
 
           {/* Floating Cards */}
-          <div className={styles.floatingCard} style={{ top: '10%', right: '5%' }}>
-            <div className={styles.cardIcon}>🌙</div>
-            <div className={styles.cardText}>Moon Phase</div>
-          </div>
-          <div className={styles.floatingCard} style={{ bottom: '20%', right: '10%' }}>
-            <div className={styles.cardIcon}>⭐</div>
-            <div className={styles.cardText}>Star Reading</div>
-          </div>
-          <div className={styles.floatingCard} style={{ top: '50%', left: '-5%' }}>
-            <div className={styles.cardIcon}>🧘</div>
-            <div className={styles.cardText}>Meditation</div>
-          </div>
+          {heroData.floatingCards.map((card, idx) => {
+            const positions = [
+              { top: '10%', right: '5%' },
+              { bottom: '20%', right: '10%' },
+              { top: '50%', left: '-5%' },
+            ];
+            const position = positions[idx] || positions[0];
+            return (
+              <div 
+                key={idx}
+                className={styles.floatingCard} 
+                style={position}
+              >
+                <div className={styles.cardIcon}>{card.icon}</div>
+                <div className={styles.cardText}>{card.text}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
