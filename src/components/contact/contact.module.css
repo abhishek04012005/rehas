@@ -2,6 +2,15 @@
 .contact {
   background: #ffffff;
   min-height: 100vh;
+  position: relative;
+}
+
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.3;
 }
 
 .container {
@@ -12,9 +21,17 @@
 
 /* Hero Section */
 .hero {
+  position: relative;
   color: var(--primary);
   padding: 4rem 2rem;
   text-align: center;
+  overflow: hidden;
+}
+
+
+.heroContent {
+  position: relative;
+  z-index: 1;
 }
 
 .heroContent h1 {

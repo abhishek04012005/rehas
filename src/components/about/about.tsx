@@ -1,5 +1,6 @@
 'use client';
 
+import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './about.module.css';
 
 export default function About() {
@@ -7,6 +8,9 @@ export default function About() {
     <div className={styles.about}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <LineArtBackground variant="default" opacity={0.4} />
+        </div>
         <div className={styles.heroContent}>
           <h1>About REHAS</h1>
           <p>Bridging ancient cosmic wisdom with modern wellness</p>
@@ -15,22 +19,21 @@ export default function About() {
 
       {/* Story Section */}
       <section className={styles.storySection}>
+        <div className={styles.storyBackground}>
+          <LineArtBackground variant="minimal" opacity={0.3} />
+        </div>
         <div className={styles.container}>
           <div className={styles.storyGrid}>
-            <div>
+            <div className={styles.storyCard}>
               <h2>Who We Are</h2>
               <p>
-                REHAS is a trusted platform dedicated to helping you discover your cosmic purpose 
-                through astrology and holistic wellness. Since our founding, we've served thousands 
-                of seekers worldwide.
+                REHAS empowers seekers through astrology and holistic wellness, serving thousands worldwide.
               </p>
             </div>
-            <div>
+            <div className={styles.storyCard}>
               <h2>What We Do</h2>
               <p>
-                We offer personalized astrology readings, wellness coaching, meditation guidance, 
-                and nutritional support. Our mission is to empower you to live authentically 
-                aligned with your true self.
+                We offer astrology readings, wellness coaching, and meditation guidance to help you live authentically.
               </p>
             </div>
           </div>
@@ -38,20 +41,20 @@ export default function About() {
           {/* Quick Stats */}
           <div className={styles.statsGrid}>
             <div className={styles.statItem}>
-              <h3>10K+</h3>
-              <p>Happy Clients</p>
+              <span className={styles.number}>10K+</span>
+              <span className={styles.label}>Clients</span>
             </div>
             <div className={styles.statItem}>
-              <h3>25+</h3>
-              <p>Countries</p>
+              <span className={styles.number}>25+</span>
+              <span className={styles.label}>Countries</span>
             </div>
             <div className={styles.statItem}>
-              <h3>4</h3>
-              <p>Expert Practitioners</p>
+              <span className={styles.number}>4</span>
+              <span className={styles.label}>Experts</span>
             </div>
             <div className={styles.statItem}>
-              <h3>15+</h3>
-              <p>Years Experience</p>
+              <span className={styles.number}>15+</span>
+              <span className={styles.label}>Years</span>
             </div>
           </div>
         </div>
@@ -59,8 +62,11 @@ export default function About() {
 
       {/* Team Section */}
       <section className={styles.teamSection}>
+        <div className={styles.teamBackground}>
+          <LineArtBackground variant="default" opacity={0.35} />
+        </div>
         <div className={styles.container}>
-          <h2>Our Team</h2>
+          <h2>Meet Our Team</h2>
           <div className={styles.teamGrid}>
             <div className={styles.teamCard}>
               <div className={styles.avatar}>👩‍⚕️</div>
@@ -69,7 +75,7 @@ export default function About() {
             </div>
             <div className={styles.teamCard}>
               <div className={styles.avatar}>👨‍⚕️</div>
-              <h3>Dr. Rajesh Kumar</h3>
+              <h3>Dr. Rajesh</h3>
               <p>Wellness Coach</p>
             </div>
             <div className={styles.teamCard}>
@@ -88,12 +94,15 @@ export default function About() {
 
       {/* CTA Section */}
       <section className={styles.ctaSection}>
+        <div className={styles.ctaBackground}>
+          <LineArtBackground variant="minimal" opacity={0.25} />
+        </div>
         <div className={styles.container}>
-          <h2>Start Your Journey Today</h2>
-          <p>Connect with our experts for personalized guidance</p>
+          <h2>Ready to Transform?</h2>
+          <p>Join thousands discovering their cosmic path</p>
           <div className={styles.ctaButtons}>
             <a href="/consultation" className={styles.btnPrimary}>Book Consultation</a>
-            <a href="/contact" className={styles.btnSecondary}>Contact Us</a>
+            <a href="/contact" className={styles.btnSecondary}>Learn More</a>
           </div>
         </div>
       </section>

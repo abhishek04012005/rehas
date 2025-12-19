@@ -9,6 +9,7 @@ import {
     Send,
     CheckCircle,
 } from '@mui/icons-material';
+import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './contact.module.css';
 
 export default function Contact() {
@@ -47,8 +48,12 @@ export default function Contact() {
 
     return (
         <div className={styles.contact}>
+            <div className={styles.heroBackground}>
+                <LineArtBackground variant="default" opacity={0.4} />
+            </div>
             {/* Hero Section */}
             <section className={styles.hero}>
+
                 <div className={styles.heroContent}>
                     <h1>Get in Touch</h1>
                     <p>We'd love to hear from you. Reach out to us anytime.</p>
@@ -57,6 +62,7 @@ export default function Contact() {
 
             {/* Main Content */}
             <div className={styles.container}>
+
                 <div className={styles.contactGrid}>
                     {/* Contact Information */}
                     <div className={styles.infoSection}>
@@ -106,7 +112,7 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                           
+
                         </div>
 
 
@@ -153,7 +159,7 @@ export default function Contact() {
                                 />
                             </div>
 
-                           
+
 
                             <div className={styles.formGroup}>
                                 <label htmlFor="message">Message *</label>

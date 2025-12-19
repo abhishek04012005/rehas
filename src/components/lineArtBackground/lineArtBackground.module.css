@@ -1,0 +1,104 @@
+/* Line Art Background Component with Astrological Theme */
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.svgBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.iconContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.iconWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.icon {
+  font-size: 32px !important;
+  color: var(--primary);
+  opacity: 0.5;
+  filter: drop-shadow(0 0 8px rgba(86, 0, 103, 0.3));
+  transition: all 0.3s ease;
+}
+
+.iconWrapper:hover .icon {
+  opacity: 0.8;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 16px rgba(86, 0, 103, 0.6));
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Variants */
+.default {
+  /* Default variant - balanced opacity */
+}
+
+.minimal {
+  /* Minimal variant - lower opacity */
+}
+
+.dense {
+  /* Dense variant - higher opacity */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .svgBackground {
+    opacity: 0.3;
+  }
+
+  .icon {
+    font-size: 24px !important;
+  }
+
+  .iconWrapper:hover .icon {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .svgBackground {
+    opacity: 0.2;
+  }
+
+  .icon {
+    font-size: 20px !important;
+  }
+
+  .iconWrapper {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+

@@ -2,7 +2,6 @@
   background: #ffffff;
 }
 
-/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -11,10 +10,23 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
-  padding: 5rem 2rem;
+  position: relative;
+  color: var(--primary);
+  padding: 4rem 2rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
 }
 
 .heroContent h1 {
@@ -31,66 +43,111 @@
 
 /* Story Section */
 .storySection {
+  position: relative;
   padding: 4rem 2rem;
   background: #fafafa;
+  overflow: hidden;
+}
+
+.storyBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.3;
 }
 
 .storyGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+  gap: 3rem;
+  margin-bottom: 3rem;
 }
 
-.storyGrid h2 {
-  font-size: 1.8rem;
+.storyCard {
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.storyCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(86, 0, 103, 0.1);
+  transform: translateY(-4px);
+}
+
+.storyCard h2 {
+  font-size: 1.5rem;
   color: var(--primary);
   margin: 0 0 1rem 0;
   font-weight: 700;
 }
 
-.storyGrid p {
+.storyCard p {
   color: #666;
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
 }
 
 /* Stats Grid */
 .statsGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(86, 0, 103, 0.1);
+  gap: 1.5rem;
 }
 
 .statItem {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(146, 72, 122, 0.03) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-.statItem h3 {
-  font-size: 2rem;
+.statItem:hover {
+  border-color: var(--primary);
+  box-shadow: 0 6px 16px rgba(86, 0, 103, 0.1);
+}
+
+.number {
+  display: block;
+  font-size: 1.8rem;
   color: var(--primary);
-  margin: 0 0 0.5rem 0;
   font-weight: 800;
+  margin-bottom: 0.5rem;
 }
 
-.statItem p {
-  color: #999;
-  margin: 0;
+.label {
+  display: block;
+  color: #666;
   font-size: 0.9rem;
 }
 
 /* Team Section */
 .teamSection {
+  position: relative;
   padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.teamBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35;
 }
 
 .teamSection h2 {
+  position: relative;
+  z-index: 1;
   font-size: 2rem;
   color: var(--primary);
   text-align: center;
@@ -99,6 +156,8 @@
 }
 
 .teamGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -107,10 +166,11 @@
 .teamCard {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(146, 72, 122, 0.03) 100%);
+  background: white;
   border: 1px solid rgba(86, 0, 103, 0.1);
   border-radius: 12px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .teamCard:hover {
@@ -123,43 +183,63 @@
   font-size: 3rem;
   margin-bottom: 1rem;
   display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.teamCard:hover .avatar {
+  transform: scale(1.1);
 }
 
 .teamCard h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--primary);
-  margin: 0 0 0.5rem 0;
+  margin: 1rem 0 0.5rem 0;
   font-weight: 600;
 }
 
 .teamCard p {
-  color: #999;
+  color: #666;
   margin: 0;
   font-size: 0.9rem;
 }
 
 /* CTA Section */
 .ctaSection {
+  position: relative;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
   padding: 4rem 2rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.ctaBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.25;
 }
 
 .ctaSection h2 {
+  position: relative;
+  z-index: 1;
   color: white;
   font-size: 2rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.75rem 0;
   font-weight: 700;
 }
 
 .ctaSection p {
-  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
   margin: 0 0 2rem 0;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .ctaButtons {
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -176,6 +256,7 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  display: inline-block;
 }
 
 .btnPrimary {
@@ -196,9 +277,10 @@
 
 .btnSecondary:hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: white;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 1024px) {
   .storyGrid {
     grid-template-columns: 1fr;
@@ -207,10 +289,12 @@
 
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .teamGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -223,6 +307,10 @@
     font-size: 2rem;
   }
 
+  .heroContent p {
+    font-size: 1rem;
+  }
+
   .storySection,
   .teamSection,
   .ctaSection {
@@ -230,37 +318,66 @@
   }
 
   .storyGrid {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .storyGrid h2 {
-    font-size: 1.5rem;
+  .storyCard {
+    padding: 1.5rem;
+  }
+
+  .storyCard h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .storyCard p {
+    font-size: 0.9rem;
   }
 
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 1.5rem;
   }
 
   .statItem {
-    padding: 0.75rem;
+    padding: 1.25rem;
   }
 
-  .statItem h3 {
+  .number {
     font-size: 1.5rem;
+  }
+
+  .label {
+    font-size: 0.85rem;
   }
 
   .teamGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .teamCard {
+    padding: 1.5rem;
+  }
+
+  .avatar {
+    font-size: 2.5rem;
+  }
+
+  .teamCard h3 {
+    font-size: 1rem;
   }
 
   .teamSection h2,
   .ctaSection h2 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+  }
+
+  .ctaSection p {
+    font-size: 1rem;
   }
 
   .ctaButtons {
@@ -280,10 +397,15 @@
 
   .heroContent h1 {
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .heroContent p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 
   .storySection,
@@ -294,30 +416,41 @@
 
   .storyGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .storyGrid h2 {
-    font-size: 1.3rem;
+  .storyCard {
+    padding: 1.25rem;
   }
 
-  .storyGrid p {
-    font-size: 0.95rem;
+  .storyCard h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .storyCard p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   .statsGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .statItem {
     padding: 1rem;
+    border-radius: 8px;
   }
 
-  .statItem h3 {
+  .number {
     font-size: 1.3rem;
+    margin-bottom: 0.25rem;
   }
 
-  .statItem p {
-    font-size: 0.85rem;
+  .label {
+    font-size: 0.8rem;
   }
 
   .teamGrid {
@@ -325,29 +458,38 @@
     gap: 1rem;
   }
 
-  .avatar {
-    font-size: 2.5rem;
+  .teamCard {
+    padding: 1.25rem;
   }
 
-  .teamCard {
-    padding: 1.5rem;
+  .avatar {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
   }
 
   .teamCard h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin: 0.75rem 0 0.25rem 0;
   }
 
+  .teamCard p {
+    font-size: 0.8rem;
+  }
+
+  .teamSection h2,
   .ctaSection h2 {
     font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
 
   .ctaSection p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
 
   .btnPrimary,
   .btnSecondary {
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 2rem;
     font-size: 0.95rem;
   }
 }
