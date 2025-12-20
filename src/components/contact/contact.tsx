@@ -8,6 +8,8 @@ import {
     Send,
     CheckCircle,
 } from '@mui/icons-material';
+import { supabase } from '@/lib/supabase';
+import CompassLoader from '@/components/compassLoader/compassLoader';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { contactData } from '@/data/content';
 import styles from './contact.module.css';
@@ -15,13 +17,12 @@ import styles from './contact.module.css';
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
         phone: '',
-        subject: '',
         message: '',
     });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -31,19 +32,46 @@ export default function Contact() {
             ...prev,
             [name]: value,
         }));
+        setError('');
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
-        // Simulate form submission
-        setTimeout(() => {
+        try {
+            // Insert contact submission into Supabase
+            const { data, error: insertError } = await supabase
+                .from('contact_submissions')
+                .insert([
+                    {
+                        name: formData.name,
+                        phone: formData.phone,
+                        message: formData.message,
+                        status: 'new',
+                    },
+                ])
+                .select();
+
+            if (insertError) {
+                throw insertError;
+            }
+
+            // Success
             setSubmitted(true);
-            setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+            setFormData({ name: '', phone: '', message: '' });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => setSubmitted(false), 5000);
+        } catch (err: any) {
+            console.error('Error submitting form:', err);
+            setError(
+                err.message || 'An error occurred. Please try again later.'
+            );
+        } finally {
             setLoading(false);
-            setTimeout(() => setSubmitted(false), 3000);
-        }, 1500);
+        }
     };
 
     const getIconComponent = (iconName: string) => {
@@ -58,8 +86,8 @@ export default function Contact() {
     return (
         <div className={styles.contact}>
             {/* Hero Section */}
+                <LineArtBackground variant="minimal" opacity={0.05}/>
             <section className={styles.hero}>
-                <LineArtBackground variant="minimal" />
                 <div className={styles.heroContent}>
                     <h1>{contactData.hero.title}</h1>
                     <p>{contactData.hero.subtitle}</p>
@@ -112,6 +140,12 @@ export default function Contact() {
                             </div>
                         )}
 
+                        {error && (
+                            <div className={styles.errorMessage}>
+                                <p>{error}</p>
+                            </div>
+                        )}
+
                         <form onSubmit={handleSubmit} className={styles.form}>
                             {contactData.form.fields.map((field, idx) => (
                                 <div className={styles.formGroup} key={idx}>
@@ -146,10 +180,7 @@ export default function Contact() {
                                 disabled={loading}
                             >
                                 {loading ? (
-                                    <>
-                                        <span className={styles.loader}></span>
-                                        Sending...
-                                    </>
+                                    <CompassLoader size="small" />
                                 ) : (
                                     <>
                                         <Send />

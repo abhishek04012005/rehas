@@ -7,28 +7,15 @@ import {
   Twitter,
   Instagram,
   LinkedIn,
-  Email,
-  Phone,
-  LocationOn,
-  AccessTime,
   KeyboardArrowUp,
 } from '@mui/icons-material';
 import { footerData } from '@/data/content';
+import { rehasData } from '@/data/rehasData';
 import styles from './footer.module.css';
+import Image from 'next/image';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 3000);
-    }
-  };
-
+ 
   const getIconComponent = (iconName: string) => {
     const icons: { [key: string]: React.ReactNode } = {
       Facebook: <Facebook fontSize="small" />,
@@ -48,8 +35,13 @@ export default function Footer() {
             {/* Brand Column */}
             <div className={styles.footerColumn}>
               <div className={styles.footerLogo}>
-                <span className={styles.logoIcon}>{footerData.brand.icon}</span>
-                <h2>{footerData.brand.name}</h2>
+                <Image
+                src={rehasData.profile.logo}
+                alt={rehasData.profile.imageAlt}
+                width={48}
+                height={48}
+                />
+                <h2>{rehasData.profile.nameCompany}</h2>
               </div>
               <p className={styles.tagline}>
                 {footerData.brand.tagline}

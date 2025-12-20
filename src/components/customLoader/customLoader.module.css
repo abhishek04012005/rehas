@@ -1,0 +1,180 @@
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Size variants */
+.small {
+  gap: 0.75rem;
+}
+
+.small .orbitContainer {
+  width: 60px;
+  height: 60px;
+}
+
+.small .centerIcon {
+  font-size: 1.5rem;
+}
+
+.small .healingLabel {
+  font-size: 0.85rem;
+}
+
+.small .loadingText {
+  font-size: 0.75rem;
+}
+
+.medium {
+  gap: 1.5rem;
+}
+
+.medium .orbitContainer {
+  width: 100px;
+  height: 100px;
+}
+
+.medium .centerIcon {
+  font-size: 2.5rem;
+}
+
+.medium .healingLabel {
+  font-size: 1rem;
+}
+
+.medium .loadingText {
+  font-size: 0.9rem;
+}
+
+.large {
+  gap: 2rem;
+}
+
+.large .orbitContainer {
+  width: 140px;
+  height: 140px;
+}
+
+.large .centerIcon {
+  font-size: 3.5rem;
+}
+
+.large .healingLabel {
+  font-size: 1.2rem;
+}
+
+.large .loadingText {
+  font-size: 1rem;
+}
+
+/* Orbit container */
+.orbitContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated orbits */
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top-color: var(--primary);
+  border-right-color: var(--secondary);
+  border-radius: 50%;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Orbiting orbs */
+.orb {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px var(--primary), 0 0 16px rgba(86, 0, 103, 0.3);
+}
+
+/* Center icon with glow */
+.centerIcon {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 16px var(--secondary));
+  }
+}
+
+/* Text container */
+.textContainer {
+  text-align: center;
+}
+
+.healingLabel {
+  margin: 0;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.loadingText {
+  margin: 0.5rem 0 0 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .large .orbitContainer {
+    width: 100px;
+    height: 100px;
+  }
+
+  .large .centerIcon {
+    font-size: 2.5rem;
+  }
+
+  .large .healingLabel {
+    font-size: 1rem;
+  }
+}

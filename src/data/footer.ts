@@ -69,5 +69,6 @@ export const footerData = {
     { label: 'Privacy Policy', href: '#' },
     { label: 'Terms of Service', href: '#' },
     { label: 'Disclaimer', href: '#' },
+    { label: 'Admin', href: '/admin/login' },
   ],
 } as const;

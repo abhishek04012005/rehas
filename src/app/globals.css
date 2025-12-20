@@ -10,16 +10,7 @@
   --text-muted: #999999;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --light-bg: #1a1a1a;
-    --border: #333333;
-    --text-light: #999999;
-    --text-muted: #666666;
-  }
-}
+
 
 html,
 body {
@@ -37,6 +28,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  padding-top: 64px;
 }
 
 * {

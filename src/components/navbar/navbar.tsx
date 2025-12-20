@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from './navbar.module.css';
 import Image from 'next/image';
-import logoImage from '../../../public/logohalf.svg'
+import { rehasData } from '@/data/rehasData';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,13 +25,13 @@ export default function Navbar() {
                 <Link href="/" className={styles.logo} onClick={() => setIsMenuOpen(false)}>
                     <div className={styles.logoBadge}>
                         <Image
-                            src={logoImage}
-                            alt="REHAS Logo"
+                            src={rehasData.profile.logo}
+                            alt={rehasData.profile.imageAlt}
                             width={48}
                             height={48}
                         />
                     </div>
-                    <span className={styles.logoText}>REHAS</span>
+                    <span className={styles.logoText}>{rehasData.profile.nameCompany}</span>
                 </Link>
 
                 {/* Mobile Toggle */}

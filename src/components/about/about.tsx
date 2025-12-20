@@ -42,8 +42,12 @@ export default function About() {
             ))}
           </div>
         </section>
+      </div>
 
-        {/* Team Section */}
+      {/* Founder Section */}
+
+      {/* Team Section */}
+      <div className={styles.container}>
         <section className={styles.teamSection}>
           <h2>Our Team</h2>
           <div className={styles.teamGrid}>
