@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from './navbar.module.css';
 import Image from 'next/image';
-import logoImage from '../../../public/logo.svg'
+import logoImage from '../../../public/logohalf.svg'
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,14 +53,14 @@ export default function Navbar() {
                         <li className={styles.navGroup}>
                             <details>
                                 <summary>
-                                    Astrology
+                                    Healing
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path d="M6 9l6 6 6-6" strokeWidth="2" strokeLinecap="round"/>
                                     </svg>
                                 </summary>
                                 <div className={styles.submenu}>
-                                    <Link href="/astrology/birth-chart" onClick={() => setIsMenuOpen(false)}>
-                                        📊 Birth Chart Reading
+                                    <Link href="/astrology/reiki" onClick={() => setIsMenuOpen(false)}>
+                                        Reiki
                                     </Link>
                                     <Link href="/astrology/horoscope" onClick={() => setIsMenuOpen(false)}>
                                         🌙 Daily Horoscope

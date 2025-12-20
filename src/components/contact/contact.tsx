@@ -57,11 +57,9 @@ export default function Contact() {
 
     return (
         <div className={styles.contact}>
-            <div className={styles.heroBackground}>
-                <LineArtBackground variant="default" opacity={0.4} />
-            </div>
             {/* Hero Section */}
             <section className={styles.hero}>
+                <LineArtBackground variant="minimal" />
                 <div className={styles.heroContent}>
                     <h1>{contactData.hero.title}</h1>
                     <p>{contactData.hero.subtitle}</p>

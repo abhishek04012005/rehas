@@ -1,0 +1,586 @@
+/* Service Detail Page */
+.serviceDetail {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.backButtonContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.backBtn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateX(-4px);
+}
+
+.backBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(212, 165, 217, 0.08) 0%, rgba(146, 72, 122, 0.04) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.iconBox {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.iconBox:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.heroIcon {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.heroContent p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Overview Section */
+.overviewSection {
+  margin-bottom: 4rem;
+}
+
+.overviewSection h2 {
+  font-size: 2rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+}
+
+.longDescription {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  padding: 1.5rem;
+  background: #fafafa;
+  border-left: 4px solid;
+  border-radius: 8px;
+}
+
+/* Benefits Section */
+.benefitsSection {
+  margin-bottom: 4rem;
+}
+
+.benefitsSection h2 {
+  font-size: 2rem;
+  margin: 0 0 2rem 0;
+  font-weight: 700;
+}
+
+.benefitsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.benefitItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.benefitItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(86, 0, 103, 0.1);
+  background: white;
+}
+
+.benefitIcon {
+  width: 24px !important;
+  height: 24px !important;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefitItem p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Details Grid */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.detailCard {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(212, 165, 217, 0.08) 0%, rgba(146, 72, 122, 0.04) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.detailCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(86, 0, 103, 0.12);
+}
+
+.detailCard h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+}
+
+.includedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.includedList li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(86, 0, 103, 0.1);
+}
+
+.infoItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.infoItem svg {
+  width: 28px !important;
+  height: 28px !important;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Features Section */
+.featuresSection {
+  margin-bottom: 4rem;
+}
+
+.featuresSection h2 {
+  font-size: 2rem;
+  margin: 0 0 2rem 0;
+  font-weight: 700;
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.featureBox {
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featureBox:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(86, 0, 103, 0.12);
+  transform: translateY(-4px);
+}
+
+.featureBox svg {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.featureBox p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  border: 2px solid;
+  margin-bottom: 2rem;
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.ctaSection p {
+  font-size: 1.05rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.primaryBtn {
+  background: white;
+  color: white !important;
+  border: 2px solid;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(86, 0, 103, 0.3);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 2px solid;
+  color: var(--primary) !important;
+}
+
+.secondaryBtn:hover {
+  background: var(--primary);
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Not Found */
+.notFound {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.notFoundContent {
+  text-align: center;
+}
+
+.notFoundContent h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+}
+
+.notFoundContent p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefitsList {
+    grid-template-columns: 1fr;
+  }
+
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .backButtonContainer {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .heroContent {
+    gap: 1.5rem;
+  }
+
+  .iconBox {
+    width: 100px;
+    height: 100px;
+  }
+
+  .heroIcon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 2.5rem 1rem;
+  }
+
+  .overviewSection h2,
+  .benefitsSection h2,
+  .featuresSection h2 {
+    font-size: 1.6rem;
+  }
+
+  .featuresList {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+
+  .ctaSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .backBtn {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .backBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .iconBox {
+    width: 80px;
+    height: 80px;
+  }
+
+  .heroIcon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .heroContent h1 {
+    font-size: 1.5rem;
+  }
+
+  .heroContent p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .overviewSection,
+  .benefitsSection,
+  .featuresSection {
+    margin-bottom: 3rem;
+  }
+
+  .overviewSection h2,
+  .benefitsSection h2,
+  .featuresSection h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .longDescription {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+
+  .benefitItem {
+    padding: 1rem;
+  }
+
+  .detailCard {
+    padding: 1.5rem;
+  }
+
+  .featureBox {
+    padding: 1rem;
+  }
+
+  .ctaSection {
+    padding: 2rem 1rem;
+    border-radius: 12px;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .ctaSection p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .ctaButtons {
+    gap: 1rem;
+  }
+}

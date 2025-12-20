@@ -83,8 +83,8 @@ export default function Hero() {
         <div className={styles.content}>
           {/* Badge */}
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}>✨</span>
-            <span>Welcome to Cosmic Wellness</span>
+            <span className={styles.badgeIcon}></span>
+            <span className={styles.badgeText}>Welcome to Cosmic Wellness</span>
           </div>
 
           {/* Heading */}

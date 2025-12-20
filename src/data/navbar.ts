@@ -9,10 +9,10 @@ export const navbarData = {
   links: [
     { label: 'Home', href: '/' },
     {
-      label: 'Astrology',
-      href: '/astrology',
+      label: 'Healing',
+      href: '/healing',
       submenu: [
-        { label: 'Birth Chart', href: '/astrology/birth-chart', icon: '📊' },
+        { label: 'Reiki', href: '/healing/reiki', icon: '📊' },
         { label: 'Horoscope', href: '/astrology/horoscope', icon: '🌙' },
         { label: 'Compatibility', href: '/astrology/compatibility', icon: '💞' },
         { label: 'Transit', href: '/astrology/transit', icon: '🚀' },

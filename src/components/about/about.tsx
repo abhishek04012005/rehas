@@ -9,21 +9,17 @@ export default function About() {
     <div className={styles.about}>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.heroBackground}>
-          <LineArtBackground variant="default" opacity={0.4} />
-        </div>
+        <LineArtBackground variant="minimal" opacity={0.3} />
         <div className={styles.heroContent}>
           <h1>{aboutData.hero.title}</h1>
           <p>{aboutData.hero.subtitle}</p>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className={styles.storySection}>
-        <div className={styles.storyBackground}>
-          <LineArtBackground variant="minimal" opacity={0.3} />
-        </div>
-        <div className={styles.container}>
+      {/* Main Content */}
+      <div className={styles.container}>
+        {/* Story Cards */}
+        <section className={styles.storySection}>
           <div className={styles.storyGrid}>
             {aboutData.story.cards.map((card, idx) => (
               <div className={styles.storyCard} key={idx}>
@@ -32,8 +28,11 @@ export default function About() {
               </div>
             ))}
           </div>
+        </section>
 
-          {/* Quick Stats */}
+        {/* Stats Section */}
+        <section className={styles.statsSection}>
+          <h2>Our Impact</h2>
           <div className={styles.statsGrid}>
             {aboutData.stats.map((stat, idx) => (
               <div className={styles.statItem} key={idx}>
@@ -42,16 +41,11 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Team Section */}
-      <section className={styles.teamSection}>
-        <div className={styles.teamBackground}>
-          <LineArtBackground variant="default" opacity={0.35} />
-        </div>
-        <div className={styles.container}>
-          <h2>Meet Our Team</h2>
+        {/* Team Section */}
+        <section className={styles.teamSection}>
+          <h2>Our Team</h2>
           <div className={styles.teamGrid}>
             {aboutData.team.map((member, idx) => (
               <div className={styles.teamCard} key={idx}>
@@ -61,15 +55,10 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaBackground}>
-          <LineArtBackground variant="minimal" opacity={0.25} />
-        </div>
-        <div className={styles.container}>
+        {/* CTA Section */}
+        <section className={styles.ctaSection}>
           <h2>{aboutData.cta.title}</h2>
           <p>{aboutData.cta.subtitle}</p>
           <div className={styles.ctaButtons}>
@@ -83,8 +72,8 @@ export default function About() {
               </a>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

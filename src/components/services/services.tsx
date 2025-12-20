@@ -89,7 +89,7 @@ export default function Services() {
 
                   {/* CTA Button */}
                   <a 
-                    href="/consultation" 
+                    href={`/services/${service.id}`}
                     className={styles.ctaButton}
                     style={{
                       borderColor: service.color,
@@ -97,35 +97,13 @@ export default function Services() {
                       backgroundColor: isHovered ? service.color : 'transparent',
                     }}
                   >
-                    <span>Book Consultation</span>
+                    <span>Explore now</span>
                     <ArrowRight />
                   </a>
                 </div>
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaBackground}>
-          <LineArtBackground variant="minimal" opacity={0.3} />
-        </div>
-        <div className={styles.ctaContent}>
-          <h2>{servicesData.cta.title}</h2>
-          <p>{servicesData.cta.subtitle}</p>
-          <div className={styles.ctaButtons}>
-            {servicesData.cta.buttons.map((button, idx) => (
-              <a
-                key={idx}
-                href={button.href}
-                className={`${styles.btn} ${styles[button.type]}`}
-              >
-                {button.label}
-              </a>
-            ))}
-          </div>
         </div>
       </section>
     </div>

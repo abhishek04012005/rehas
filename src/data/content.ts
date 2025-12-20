@@ -12,3 +12,4 @@ export { navbarData } from './navbar';
 export { homepageData } from './homepage';
 export { servicesData } from './services';
 export { notFoundData } from './notfound';
+export { blogData } from './blog';

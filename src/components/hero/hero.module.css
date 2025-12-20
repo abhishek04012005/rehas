@@ -58,6 +58,12 @@
   animation: twinkle 3s ease-in-out infinite;
 }
 
+.badgeText {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
 @keyframes twinkle {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 1; }
@@ -462,7 +468,7 @@
   }
 
   .illustration {
-    display: none;
+    display: block;
   }
 
   .scrollIndicator {
