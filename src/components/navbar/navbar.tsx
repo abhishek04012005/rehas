@@ -6,11 +6,12 @@ import styles from './navbar.module.css';
 import Image from 'next/image';
 import { rehasData } from '@/data/rehasData';
 import { navbarData } from '@/data/navbar';
-import { WhatsApp } from '@mui/icons-material';
+import { WhatsApp, ExpandMore } from '@mui/icons-material';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,25 +59,29 @@ export default function Navbar() {
                             {navbarData.links.map((link, idx) => (
                                 <li key={idx} className={'submenu' in link ? styles.navGroup : ''}>
                                     {'submenu' in link ? (
-                                        <details>
-                                            <summary>
+                                        <div className={`${styles.dropdownContainer} ${openDropdown === idx ? styles.open : ''}`}>
+                                            <button 
+                                                className={styles.dropdownTrigger}
+                                                onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
+                                            >
                                                 {link.label}
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                    <path d="M6 9l6 6 6-6" strokeWidth="2" strokeLinecap="round"/>
-                                                </svg>
-                                            </summary>
+                                                <ExpandMore className={styles.dropdownIcon} />
+                                            </button>
                                             <div className={styles.submenu}>
                                                 {link.submenu.map((item, subIdx) => (
                                                     <Link 
                                                         key={subIdx}
                                                         href={item.href} 
-                                                        onClick={() => setIsMenuOpen(false)}
+                                                        onClick={() => {
+                                                            setIsMenuOpen(false);
+                                                            setOpenDropdown(null);
+                                                        }}
                                                     >
                                                         {item.icon} {item.label}
                                                     </Link>
                                                 ))}
                                             </div>
-                                        </details>
+                                        </div>
                                     ) : (
                                         <Link href={link.href} onClick={() => setIsMenuOpen(false)}>
                                             {link.label}

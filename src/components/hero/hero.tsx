@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { heroData } from '@/data/content';
 import styles from './hero.module.css';
+import { ArrowForward, Info, Star, DarkMode, AutoAwesome, SelfImprovement } from '@mui/icons-material';
+
+// Map icon names to MUI components
+const iconMap: Record<string, React.ComponentType<any>> = {
+  Sparkles: Star,
+  Nightlight: DarkMode,
+  AutoAwesome,
+  SelfImprovement,
+};
 
 // Seeded random number generator for consistent values
 const seededRandom = (seed: number) => {
@@ -114,16 +123,11 @@ export default function Hero() {
                 className={btn.type === 'primary' ? styles.primaryBtn : styles.secondaryBtn}
               >
                 <span>{btn.label}</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  {btn.type === 'primary' ? (
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  ) : (
-                    <>
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 16v-4M12 8h.01" />
-                    </>
-                  )}
-                </svg>
+                {btn.type === 'primary' ? (
+                  <ArrowForward className={styles.buttonIcon} />
+                ) : (
+                  <Info className={styles.buttonIcon} />
+                )}
               </Link>
             ))}
           </div>
@@ -165,13 +169,16 @@ export default function Hero() {
               { top: '50%', left: '-5%' },
             ];
             const position = positions[idx] || positions[0];
+            const IconComponent = iconMap[card.icon as keyof typeof iconMap];
             return (
               <div 
                 key={idx}
                 className={styles.floatingCard} 
                 style={position}
               >
-                <div className={styles.cardIcon}>{card.icon}</div>
+                <div className={styles.cardIcon}>
+                  {IconComponent && <IconComponent className={styles.cardIconMUI} />}
+                </div>
                 <div className={styles.cardText}>{card.text}</div>
               </div>
             );

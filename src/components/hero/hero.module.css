@@ -205,6 +205,17 @@
   transform: translateX(4px);
 }
 
+.buttonIcon {
+  width: 20px !important;
+  height: 20px !important;
+  transition: transform 0.3s ease;
+}
+
+.primaryBtn:hover .buttonIcon,
+.secondaryBtn:hover .buttonIcon {
+  transform: translateX(4px);
+}
+
 /* Stats */
 .stats {
   display: grid;
@@ -320,6 +331,14 @@
 
 .cardIcon {
   font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.cardIconMUI {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  font-size: 2.5rem !important;
+  color: var(--primary) !important;
 }
 
 .cardText {

@@ -7,7 +7,7 @@ export const heroData = {
   buttons: [
     {
       label: 'Start Your Journey',
-      href: '/consultation',
+      href: '/enquiry',
       type: 'primary',
     },
     {
@@ -22,9 +22,9 @@ export const heroData = {
     { number: '15+', label: 'Years Experience' },
   ],
   floatingCards: [
-    { icon: '✨', text: 'Birth Chart' },
-    { icon: '🌙', text: 'Horoscope' },
-    { icon: '💫', text: 'Star Reading' },
-    { icon: '🧘', text: 'Meditation' },
+    { icon: 'Sparkles', text: 'Birth Chart' },
+    { icon: 'Nightlight', text: 'Horoscope' },
+    { icon: 'AutoAwesome', text: 'Star Reading' },
+    { icon: 'SelfImprovement', text: 'Meditation' },
   ],
 } as const;

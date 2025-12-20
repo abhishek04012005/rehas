@@ -4,6 +4,7 @@ import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { aboutData } from '@/data/content';
 import { rehasData } from '@/data/rehasData';
 import styles from './about.module.css';
+import { GpsFixed, Lightbulb } from '@mui/icons-material';
 
 export default function About() {
   return (
@@ -50,12 +51,16 @@ export default function About() {
           <section className={styles.missionVisionSection}>
             <div className={styles.missionVisionContent}>
               <div className={styles.missionVisionCard}>
-                <div className={styles.missionVisionIcon}>🎯</div>
+                <div className={styles.missionVisionIcon}>
+                  <GpsFixed className={styles.missionVisionIconMUI} />
+                </div>
                 <h2>Our Mission</h2>
                 <p>{rehasData.about.missionStatement}</p>
               </div>
               <div className={styles.missionVisionCard}>
-                <div className={styles.missionVisionIcon}>✨</div>
+                <div className={styles.missionVisionIcon}>
+                  <Lightbulb className={styles.missionVisionIconMUI} />
+                </div>
                 <h2>Our Vision</h2>
                 <p>{rehasData.about.visionStatement}</p>
               </div>
