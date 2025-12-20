@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import styles from './navbar.module.css';
 import Image from 'next/image';
 import { rehasData } from '@/data/rehasData';
+import { navbarData } from '@/data/navbar';
 import { WhatsApp } from '@mui/icons-material';
 
 export default function Navbar() {
@@ -54,67 +55,42 @@ export default function Navbar() {
                     {/* Navigation Menu */}
                     <div className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>
                         <ul className={styles.navItems}>
-                            <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-                            
-                            <li className={styles.navGroup}>
-                                <details>
-                                    <summary>
-                                        Healing
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M6 9l6 6 6-6" strokeWidth="2" strokeLinecap="round"/>
-                                        </svg>
-                                    </summary>
-                                    <div className={styles.submenu}>
-                                        <Link href="/astrology/reiki" onClick={() => setIsMenuOpen(false)}>
-                                            Reiki
+                            {navbarData.links.map((link, idx) => (
+                                <li key={idx} className={'submenu' in link ? styles.navGroup : ''}>
+                                    {'submenu' in link ? (
+                                        <details>
+                                            <summary>
+                                                {link.label}
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path d="M6 9l6 6 6-6" strokeWidth="2" strokeLinecap="round"/>
+                                                </svg>
+                                            </summary>
+                                            <div className={styles.submenu}>
+                                                {link.submenu.map((item, subIdx) => (
+                                                    <Link 
+                                                        key={subIdx}
+                                                        href={item.href} 
+                                                        onClick={() => setIsMenuOpen(false)}
+                                                    >
+                                                        {item.icon} {item.label}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </details>
+                                    ) : (
+                                        <Link href={link.href} onClick={() => setIsMenuOpen(false)}>
+                                            {link.label}
                                         </Link>
-                                        <Link href="/astrology/horoscope" onClick={() => setIsMenuOpen(false)}>
-                                            🌙 Daily Horoscope
-                                        </Link>
-                                        <Link href="/astrology/compatibility" onClick={() => setIsMenuOpen(false)}>
-                                            💫 Compatibility
-                                        </Link>
-                                        <Link href="/astrology/transit" onClick={() => setIsMenuOpen(false)}>
-                                            ✨ Transit Analysis
-                                        </Link>
-                                    </div>
-                                </details>
-                            </li>
-
-                            <li className={styles.navGroup}>
-                                <details>
-                                    <summary>
-                                        Wellness
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M6 9l6 6 6-6" strokeWidth="2" strokeLinecap="round"/>
-                                        </svg>
-                                    </summary>
-                                    <div className={styles.submenu}>
-                                        <Link href="/wellness/meditation" onClick={() => setIsMenuOpen(false)}>
-                                            🧘 Meditation Guides
-                                        </Link>
-                                        <Link href="/wellness/yoga" onClick={() => setIsMenuOpen(false)}>
-                                            🤸 Yoga & Poses
-                                        </Link>
-                                        <Link href="/wellness/nutrition" onClick={() => setIsMenuOpen(false)}>
-                                            🥗 Nutrition
-                                        </Link>
-                                        <Link href="/wellness/mindfulness" onClick={() => setIsMenuOpen(false)}>
-                                            🌿 Mindfulness
-                                        </Link>
-                                    </div>
-                                </details>
-                            </li>
-
-                            <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
-                            <li><Link href="/blog" onClick={() => setIsMenuOpen(false)}>Blog</Link></li>
-                            <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
-
-                        <Link href="/consultation" className={styles.bookBtn} onClick={() => setIsMenuOpen(false)}>
-                            Book Consultation
-                        </Link>
                     </div>
+
+                    {/* CTA Button - Right Side */}
+                    <Link href={navbarData.cta.href} className={styles.bookBtn} onClick={() => setIsMenuOpen(false)}>
+                        {navbarData.cta.label}
+                    </Link>
                 </div>
             </nav>
 

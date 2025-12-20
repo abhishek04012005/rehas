@@ -1,12 +1,19 @@
 .about {
   background: #ffffff;
   min-height: 100vh;
+  position: relative;
+}
+
+.contentSection {
+  position: relative;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Hero Section */
@@ -130,63 +137,53 @@
   font-weight: 600;
 }
 
-/* Team Section */
-.teamSection {
+/* Mission & Vision Section */
+.missionVisionSection {
   padding: 4rem 2rem;
   border-bottom: 1px solid #eee;
 }
 
-.teamSection h2 {
-  font-size: 2rem;
-  color: var(--primary);
-  text-align: center;
-  margin: 0 0 3rem 0;
-  font-weight: 700;
-}
-
-.teamGrid {
+.missionVisionContent {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-.teamCard {
+.missionVisionCard {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.04) 0%, rgba(146, 72, 122, 0.03) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 16px;
   text-align: center;
-  padding: 2rem;
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
   transition: all 0.3s ease;
 }
 
-.teamCard:hover {
+.missionVisionCard:hover {
   border-color: var(--primary);
-  box-shadow: 0 8px 20px rgba(86, 0, 103, 0.1);
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.08) 0%, rgba(146, 72, 122, 0.06) 100%);
+  box-shadow: 0 8px 24px rgba(86, 0, 103, 0.12);
   transform: translateY(-4px);
 }
 
-.avatar {
-  font-size: 3.5rem;
+.missionVisionIcon {
+  font-size: 3rem;
   margin-bottom: 1rem;
   display: inline-block;
-  transition: transform 0.3s ease;
 }
 
-.teamCard:hover .avatar {
-  transform: scale(1.15);
-}
-
-.teamCard h3 {
-  font-size: 1.1rem;
+.missionVisionCard h2 {
+  font-size: 1.6rem;
   color: var(--primary);
-  margin: 1rem 0 0.5rem 0;
+  margin: 0 0 1.5rem 0;
   font-weight: 700;
 }
 
-.teamCard p {
-  color: #666;
+.missionVisionCard p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
   margin: 0;
-  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* CTA Section */
@@ -263,8 +260,8 @@
     gap: 1.5rem;
   }
 
-  .teamGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .missionVisionContent {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 }
@@ -288,7 +285,7 @@
 
   .storySection,
   .statsSection,
-  .teamSection,
+  .missionVisionSection,
   .ctaSection {
     padding: 3rem 1.5rem;
   }
@@ -308,7 +305,7 @@
   }
 
   .statsSection h2,
-  .teamSection h2,
+  .missionVisionSection h2,
   .ctaSection h2 {
     font-size: 1.6rem;
     margin-bottom: 2rem;
@@ -327,17 +324,27 @@
     font-size: 1.8rem;
   }
 
-  .teamGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .missionVisionContent {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  .teamCard {
-    padding: 1.5rem;
+  .missionVisionCard {
+    padding: 2rem;
   }
 
-  .avatar {
-    font-size: 3rem;
+  .missionVisionIcon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .missionVisionCard h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .missionVisionCard p {
+    font-size: 0.95rem;
   }
 
   .ctaSection p {
@@ -374,7 +381,7 @@
 
   .storySection,
   .statsSection,
-  .teamSection,
+  .missionVisionSection,
   .ctaSection {
     padding: 2rem 1rem;
   }
@@ -399,7 +406,7 @@
   }
 
   .statsSection h2,
-  .teamSection h2,
+  .missionVisionSection h2,
   .ctaSection h2 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
@@ -424,27 +431,29 @@
     font-size: 0.8rem;
   }
 
-  .teamGrid {
+  .missionVisionContent {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .teamCard {
-    padding: 1.25rem;
+  .missionVisionCard {
+    padding: 1.5rem;
+    border-radius: 12px;
   }
 
-  .avatar {
-    font-size: 2rem;
+  .missionVisionIcon {
+    font-size: 2.2rem;
     margin-bottom: 0.75rem;
   }
 
-  .teamCard h3 {
-    font-size: 0.95rem;
-    margin: 0.75rem 0 0.25rem 0;
+  .missionVisionCard h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
   }
 
-  .teamCard p {
-    font-size: 0.8rem;
+  .missionVisionCard p {
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
 
   .ctaSection p {

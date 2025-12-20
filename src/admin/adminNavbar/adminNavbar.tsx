@@ -50,6 +50,9 @@ export default function AdminNavbar() {
                     <a href="/admin/dashboard" className={styles.navLink}>
                         Contacts
                     </a>
+                    <a href="/admin/enquiries" className={styles.navLink}>
+                        Enquiries
+                    </a>
                 </div>
 
                 {/* Admin Info & Logout */}
@@ -80,6 +83,9 @@ export default function AdminNavbar() {
                         </a>
                         <a href="/admin/dashboard" className={styles.mobileLink}>
                             Contacts
+                        </a>
+                        <a href="/admin/enquiries" className={styles.mobileLink}>
+                            Enquiries
                         </a>
                         <button className={styles.mobileLogoutBtn} onClick={handleLogout}>
                             <Logout />

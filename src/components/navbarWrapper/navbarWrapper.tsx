@@ -7,8 +7,8 @@ import AdminNavbar from '@/admin/adminNavbar/adminNavbar';
 export default function NavbarWrapper() {
   const pathname = usePathname();
   
-  // Show AdminNavbar only on /admin/login and /admin/dashboard paths
-  const isAdminPath = pathname.startsWith('/admin/');
+  // Show AdminNavbar only on /admin/* paths except /admin/login
+  const isAdminPath = pathname.startsWith('/admin/') && pathname !== '/admin/login';
   
   return isAdminPath ? <AdminNavbar /> : <Navbar />;
 }

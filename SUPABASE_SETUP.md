@@ -125,7 +125,7 @@ CREATE POLICY "Allow delete enquiries" ON enquiries
 
 ---
 
-## 4. Create Admin Users & Generate Password Hash
+## 4. Create Admin Users Table
 
 ### Step A: Generate Password Hash
 
@@ -157,7 +157,7 @@ VALUES (
 
 ---
 
-## 5. Enable Row Level Security (RLS)
+## 4. Enable Row Level Security (RLS)
 
 ```sql
 -- Enable RLS on both tables
@@ -188,7 +188,7 @@ CREATE POLICY "Allow updating contact_submissions" ON contact_submissions
 
 ---
 
-## 6. Create Additional Admin Users (Optional)
+## 5. Create Additional Admin Users (Optional)
 
 ```bash
 # Generate hash for second admin
@@ -236,19 +236,6 @@ VALUES
 | updated_at | TIMESTAMP | DEFAULT now() | Last updated |
 | notes | TEXT | | Admin's notes |
 | admin_id | UUID | FK to admin_users | Assigned admin |
-
-### enquiries Table
-
-| Column | Type | Constraints | Notes |
-|--------|------|-------------|-------|
-| id | BIGSERIAL | PRIMARY KEY | Auto-incrementing |
-| name | VARCHAR(255) | NOT NULL | Enquirer's name |
-| phone | VARCHAR(20) | NOT NULL | Enquirer's phone number |
-| service_type | VARCHAR(100) | NOT NULL | Service enquired about |
-| status | VARCHAR(50) | DEFAULT 'new' | new/contacted/completed/spam |
-| submitted_from | VARCHAR(50) | NOT NULL | popup or page |
-| created_at | TIMESTAMP | DEFAULT NOW() | Submission time |
-| updated_at | TIMESTAMP | DEFAULT NOW() | Last updated |
 
 ---
 
@@ -305,21 +292,6 @@ SELECT id, name, phone, status, created_at FROM contact_submissions;
 
 -- Count by status
 SELECT status, COUNT(*) FROM contact_submissions GROUP BY status;
-
--- View all enquiries
-SELECT id, name, phone, service_type, status, submitted_from, created_at FROM enquiries;
-
--- Count enquiries by source (popup vs page)
-SELECT submitted_from, COUNT(*) as count FROM enquiries GROUP BY submitted_from;
-
--- Count enquiries by status
-SELECT status, COUNT(*) FROM enquiries GROUP BY status;
-
--- View recent enquiries (last 10)
-SELECT id, name, phone, service_type, status, submitted_from, created_at 
-FROM enquiries 
-ORDER BY created_at DESC 
-LIMIT 10;
 ```
 
 ---
