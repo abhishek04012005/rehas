@@ -1,9 +1,17 @@
-'use client';
-
 import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack, WarningAmber } from '@mui/icons-material';
 import styles from './page.module.css';
+
+export const metadata = {
+  title: 'Disclaimer | REHAS - Medical & Service Disclaimer',
+  description: 'Important disclaimer about REHAS services. Our guidance is not a substitute for professional medical advice. Understand our limitations and responsibilities.',
+  keywords: 'disclaimer, medical disclaimer, service terms, wellness disclaimer, liability',
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Disclaimer() {
   const currentYear = new Date().getFullYear();

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavbarWrapper from "@/components/navbarWrapper/navbarWrapper";
@@ -56,10 +56,15 @@ export const metadata: Metadata = {
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services.",
     images: ["https://rehas.com/og-image.png"],
   },
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   alternates: {
     canonical: "https://rehas.com",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

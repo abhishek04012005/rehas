@@ -1,9 +1,17 @@
-'use client';
-
 import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack, ChevronRight } from '@mui/icons-material';
 import styles from './page.module.css';
+
+export const metadata = {
+  title: 'Sitemap | REHAS - Website Navigation & Site Map',
+  description: 'Complete sitemap of REHAS website. Navigate through all pages including services, blog, support resources, and legal documentation.',
+  keywords: 'sitemap, site map, website navigation, site structure, all pages',
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Sitemap() {
   const currentYear = new Date().getFullYear();
