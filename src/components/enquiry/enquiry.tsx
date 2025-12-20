@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Send, CheckCircle } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
-import CompassLoader from '@/components/compassLoader/compassLoader';
+
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { servicesData } from '@/data/services';
 import styles from './enquiry.module.css';
@@ -200,10 +200,7 @@ export default function Enquiry() {
                   disabled={loading}
                 >
                   {loading ? (
-                    <>
-                      <CompassLoader size="small" />
-                      Submitting...
-                    </>
+                    "Submitting..."
                   ) : (
                     <>
                       <Send className={styles.submitIcon} />

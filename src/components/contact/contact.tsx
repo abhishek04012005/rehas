@@ -9,7 +9,7 @@ import {
     CheckCircle,
 } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
-import CompassLoader from '@/components/compassLoader/compassLoader';
+
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { contactData } from '@/data/content';
 import styles from './contact.module.css';
@@ -180,7 +180,7 @@ export default function Contact() {
                                 disabled={loading}
                             >
                                 {loading ? (
-                                    <CompassLoader size="small" />
+                                    "Sending..."
                                 ) : (
                                     <>
                                         <Send />

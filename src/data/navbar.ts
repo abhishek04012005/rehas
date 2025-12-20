@@ -35,6 +35,6 @@ export const navbarData = {
   ],
   cta: {
     label: 'Book Consultation',
-    href: '/consultation',
+    href: '/enquiry',
   },
 } as const;

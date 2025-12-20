@@ -5,7 +5,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import * as bcryptjs from 'bcryptjs';
-import CompassLoader from '@/components/compassLoader/compassLoader';
+
 import styles from './login.module.css';
 
 export default function AdminLogin() {
@@ -177,7 +177,7 @@ export default function AdminLogin() {
             disabled={loading}
           >
             {loading ? (
-              <CompassLoader size="small" />
+              'Logging in...'
             ) : (
               'Login to Dashboard'
             )}

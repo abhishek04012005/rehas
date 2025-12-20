@@ -5,6 +5,7 @@ import { Instagram, LinkedIn, Twitter, Star } from '@mui/icons-material';
 import { rehasData, profile, about, quote, expertise, social } from '@/data/rehasData';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import styles from './founder.module.css';
+import Image from 'next/image';
 
 export default function Founder() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -38,7 +39,15 @@ export default function Founder() {
               <div className={styles.imageBgOrb2}></div>
 
               {/* Founder Image */}
-              <div className={styles.founderImage}>{profile.image}</div>
+              <div className={styles.founderImage}>
+                <Image
+                  alt={profile.imageAlt}
+                  width={400}
+                  src={profile.image}
+                  className={styles.image}
+                />
+
+                </div>
 
               {/* Decorative Elements */}
               <div className={styles.glow}></div>

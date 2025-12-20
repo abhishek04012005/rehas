@@ -29,10 +29,10 @@ export default function Services() {
 
   return (
     <div className={styles.services}>
+          <LineArtBackground variant="default" opacity={0.05} />
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
-          <LineArtBackground variant="default" opacity={0.4} />
         </div>
         <div className={styles.heroContent}>
           <h1>{servicesData.hero.title}</h1>

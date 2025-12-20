@@ -14,7 +14,7 @@ import {
   CheckCircleOutline,
 } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
-import CompassLoader from '@/components/compassLoader/compassLoader';
+
 import styles from './contactDashboard.module.css';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 
@@ -250,7 +250,7 @@ export default function ContactDashboard() {
         <div className={styles.tableSection}>
           {loading ? (
             <div className={styles.loadingState}>
-              <CompassLoader size="large" text="Fetching contacts" />
+              <p>Fetching contacts...</p>
             </div>
           ) : filteredContacts.length > 0 ? (
             <div className={styles.tableWrapper}>

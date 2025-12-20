@@ -1,0 +1,419 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.backButton {
+  padding: 2rem 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backButton a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.backButton a:hover {
+  background: rgba(86, 0, 103, 0.08);
+  transform: translateX(-4px);
+}
+
+.backIcon {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.header {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: var(--primary);
+  margin: 0 0 0.75rem 0;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.supportSection,
+.faqSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 3rem 0;
+  font-weight: 700;
+}
+
+.channelsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.channelCard {
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.04) 0%, rgba(146, 72, 122, 0.02) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.channelCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(86, 0, 103, 0.12);
+  transform: translateY(-4px);
+}
+
+.channelIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.channelIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.channelIconMUI {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  color: var(--primary) !important;
+  font-size: 3.5rem !important;
+}
+
+.channelCard h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.channelCard p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.contact {
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 1rem !important;
+}
+
+.faqList {
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.02) 0%, rgba(146, 72, 122, 0.01) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba(86, 0, 103, 0.1);
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQuestion {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1.5rem 2rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.faqQuestion:hover {
+  background: rgba(86, 0, 103, 0.05);
+}
+
+.faqIcon {
+  width: 24px !important;
+  height: 24px !important;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--secondary);
+}
+
+.faqIcon.open {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding: 0 2rem 1.5rem 2rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+.faqAnswer p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.additionalHelp {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(146, 72, 122, 0.03) 100%);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 16px;
+}
+
+.additionalHelp h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+}
+
+.additionalHelp p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0 0 2rem 0;
+}
+
+.contactButton {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(86, 0, 103, 0.3);
+}
+
+.contactButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(86, 0, 103, 0.4);
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(86, 0, 103, 0.1);
+  background: rgba(86, 0, 103, 0.02);
+}
+
+.footer p {
+  color: var(--text-light);
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footerLinks a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+  color: var(--secondary);
+}
+
+.footerLinks span {
+  color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .channelsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .backButton {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .header {
+    padding: 2rem 1.5rem;
+  }
+
+  .supportSection,
+  .faqSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .channelsGrid {
+    gap: 1.5rem;
+  }
+
+  .channelCard {
+    padding: 2rem;
+  }
+
+  .faqQuestion {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .faqAnswer {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+  }
+
+  .additionalHelp {
+    padding: 2rem 1.5rem;
+  }
+
+  .additionalHelp h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .backButton {
+    padding: 1rem 1rem 0;
+  }
+
+  .backButton a {
+    font-size: 0.9rem;
+  }
+
+  .supportSection,
+  .faqSection {
+    padding: 1.5rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .channelsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .channelCard {
+    padding: 1.5rem;
+  }
+
+  .channelIcon {
+    font-size: 2.5rem;
+  }
+
+  .channelCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .faqQuestion {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .faqAnswer {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .faqAnswer p {
+    font-size: 0.9rem;
+  }
+
+  .additionalHelp {
+    padding: 1.5rem 1rem;
+  }
+
+  .additionalHelp h2 {
+    font-size: 1.2rem;
+  }
+
+  .additionalHelp p {
+    font-size: 0.95rem;
+  }
+
+  .contactButton {
+    padding: 0.85rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footerLinks {
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+}

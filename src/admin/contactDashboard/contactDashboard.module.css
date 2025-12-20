@@ -254,15 +254,13 @@
   color: var(--primary);
 }
 
-.phoneCell {
-  min-width: 200px;
-}
+
 
 .phoneActions {
   display: flex;
   align-items: center;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .phoneButtons {

@@ -1,4 +1,5 @@
 import Logo from '../../public/logohalf.svg'
+import Person from '../../public/assets/founder/1.jpg'
 
 export const rehasData = {
   // Basic Information
@@ -8,7 +9,7 @@ export const rehasData = {
     nameCompany: "REHAS",
     title: 'Founder & Visionary',
     subtitle: 'Cosmic Wellness Guide',
-    image: '✨', // Emoji representation - can be replaced with actual image path
+    image: Person, 
     imageAlt: 'Priya Sharma - Founder of REHAS',
     logo: Logo, 
     badge: 'Our Visionary',

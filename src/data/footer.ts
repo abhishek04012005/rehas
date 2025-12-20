@@ -38,11 +38,11 @@ export const footerData = {
     {
       title: 'Resources',
       links: [
-        { label: 'Privacy Policy', href: '#privacy' },
-        { label: 'Terms of Service', href: '#terms' },
-        { label: 'Disclaimer', href: '#disclaimer' },
-        { label: 'Sitemap', href: '#sitemap' },
-        { label: 'Support', href: '#support' },
+        { label: 'Privacy Policy', href: '/privacy-policy' },
+        { label: 'Terms of Service', href: '/terms-of-service' },
+        { label: 'Disclaimer', href: '/disclaimer' },
+        { label: 'Sitemap', href: '/sitemap' },
+        { label: 'Support', href: '/support' },
       ],
     },
     {
@@ -66,9 +66,9 @@ export const footerData = {
     text: 'All rights reserved.',
   },
   legal: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Disclaimer', href: '#' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms of Service', href: '/terms-of-service' },
+    { label: 'Disclaimer', href: '/disclaimer' },
     { label: 'Admin', href: '/admin/login' },
   ],
 } as const;
