@@ -186,11 +186,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className={styles.scrollIndicator}>
-        <div className={styles.scrollDot} />
-        <span>Scroll to explore</span>
-      </div>
     </section>
   );
 }
