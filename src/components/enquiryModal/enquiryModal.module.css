@@ -306,8 +306,8 @@
     width: 100%;
     max-width: 100%;
     border-radius: 20px 20px 0 0;
-    top: auto;
-    bottom: 0;
+    top: 20%;
+    left: 0;
     transform: translate(0, 0);
     animation: slideUpMobile 0.3s ease;
   }
