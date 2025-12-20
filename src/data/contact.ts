@@ -14,8 +14,8 @@ export const contactData = {
       {
         icon: 'Email',
         title: 'Email',
-        value: 'info@rehas.com',
-        link: 'mailto:info@rehas.com',
+        value: 'info@rehas.in',
+        link: 'mailto:info@rehas.in',
         secondaryText: 'We\'ll respond within 24 hours',
       },
       {
