@@ -346,51 +346,39 @@ export default function ContactDashboard() {
 
       {/* Detail Modal */}
       {showModal && selectedContact && (
-        <div className={styles.modal} onClick={() => setShowModal(false)}>
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className={styles.modalBackdrop} onClick={() => setShowModal(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h2>Contact Details</h2>
               <button
-                className={styles.closeBtn}
                 onClick={() => setShowModal(false)}
+                className={styles.closeBtn}
               >
-                ✕
+                ×
               </button>
             </div>
 
             <div className={styles.modalBody}>
-              <div className={styles.detailGroup}>
+              <div className={styles.infoGroup}>
                 <label>Name</label>
                 <p>{selectedContact.name}</p>
               </div>
 
-              <div className={styles.detailGroup}>
+              <div className={styles.infoGroup}>
                 <label>Phone</label>
-                <div className={styles.phoneDetail}>
-                  <p>{selectedContact.phone}</p>
-                  <a href={`tel:${selectedContact.phone}`} className={styles.phoneAction}>
-                    <Phone /> Call
+                <p>
+                  <a href={`tel:${selectedContact.phone}`}>
+                    {selectedContact.phone}
                   </a>
-                  <a
-                    href={`https://wa.me/${selectedContact.phone.replace(/\D/g, '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.whatsappAction}
-                  >
-                    <WhatsApp /> WhatsApp
-                  </a>
-                </div>
+                </p>
               </div>
 
-              <div className={styles.detailGroup}>
+              <div className={styles.infoGroup}>
                 <label>Message</label>
-                <p className={styles.fullMessage}>{selectedContact.message}</p>
+                <p className={styles.messageContent}>{selectedContact.message}</p>
               </div>
 
-              <div className={styles.detailGroup}>
+              <div className={styles.infoGroup}>
                 <label>Status</label>
                 <select
                   value={selectedContact.status}
@@ -401,9 +389,7 @@ export default function ContactDashboard() {
                       status: e.target.value,
                     });
                   }}
-                  className={`${styles.statusSelect} ${getStatusColor(
-                    selectedContact.status
-                  )}`}
+                  className={styles.statusSelect}
                 >
                   <option value="new">New</option>
                   <option value="contacted">Contacted</option>
@@ -412,16 +398,27 @@ export default function ContactDashboard() {
                 </select>
               </div>
 
-              <div className={styles.detailGroup}>
+              <div className={styles.infoGroup}>
                 <label>Date Submitted</label>
-                <p>{new Date(selectedContact.created_at).toLocaleString()}</p>
+                <p>{new Date(selectedContact.created_at).toLocaleString('en-IN')}</p>
               </div>
-            </div>
 
-            <div className={styles.modalFooter}>
-              <button className={styles.closeModalBtn} onClick={() => setShowModal(false)}>
-                Close
-              </button>
+              <div className={styles.modalActions}>
+                <a
+                  href={`tel:${selectedContact.phone}`}
+                  className={`${styles.actionBtn} ${styles.callBtn}`}
+                >
+                  <Phone /> Call Now
+                </a>
+                <a
+                  href={`https://wa.me/${selectedContact.phone.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.actionBtn} ${styles.whatsappActionBtn}`}
+                >
+                  <WhatsApp /> Send WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import styles from './navbar.module.css';
 import Image from 'next/image';
 import { rehasData } from '@/data/rehasData';
 import { navbarData } from '@/data/navbar';
-import { WhatsApp, ExpandMore } from '@mui/icons-material';
+import { WhatsApp, ExpandMore, Edit } from '@mui/icons-material';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -110,6 +110,16 @@ export default function Navbar() {
             >
                 <WhatsApp className={styles.whatsappIcon} />
             </a>
+
+            {/* Enquiry Fixed Button */}
+            <Link
+                href="/enquiry"
+                className={styles.enquiryButton}
+                aria-label="Submit enquiry"
+                title="Submit enquiry"
+            >
+                <Edit className={styles.enquiryIcon} />
+            </Link>
         </>
     );
 }
