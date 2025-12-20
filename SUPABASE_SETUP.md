@@ -76,7 +76,56 @@ CREATE INDEX idx_contact_submissions_phone ON contact_submissions(phone);
 
 ---
 
-## 3. Create Admin User
+## 3. Create Enquiries Table
+
+```sql
+CREATE TABLE enquiries (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  service_type VARCHAR(100) NOT NULL,
+  status VARCHAR(50) DEFAULT 'new',
+  submitted_from VARCHAR(50) NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  CONSTRAINT valid_status CHECK (status IN ('new', 'contacted', 'completed', 'spam')),
+  CONSTRAINT valid_submitted_from CHECK (submitted_from IN ('popup', 'page'))
+);
+
+-- Create indexes for better query performance
+CREATE INDEX idx_enquiries_status ON enquiries(status);
+CREATE INDEX idx_enquiries_created_at ON enquiries(created_at DESC);
+CREATE INDEX idx_enquiries_service_type ON enquiries(service_type);
+CREATE INDEX idx_enquiries_phone ON enquiries(phone);
+
+-- Enable Row Level Security
+ALTER TABLE enquiries ENABLE ROW LEVEL SECURITY;
+
+-- Allow public insert (for form submissions)
+CREATE POLICY "Allow public insert on enquiries" ON enquiries
+  FOR INSERT
+  WITH CHECK (true);
+
+-- Allow public read
+CREATE POLICY "Allow public read enquiries" ON enquiries
+  FOR SELECT
+  USING (true);
+
+-- Allow updating enquiries
+CREATE POLICY "Allow update enquiries" ON enquiries
+  FOR UPDATE
+  USING (true)
+  WITH CHECK (true);
+
+-- Allow deleting enquiries (admin only)
+CREATE POLICY "Allow delete enquiries" ON enquiries
+  FOR DELETE
+  USING (true);
+```
+
+---
+
+## 4. Create Admin Users & Generate Password Hash
 
 ### Step A: Generate Password Hash
 
@@ -108,7 +157,7 @@ VALUES (
 
 ---
 
-## 4. Enable Row Level Security (RLS)
+## 5. Enable Row Level Security (RLS)
 
 ```sql
 -- Enable RLS on both tables
@@ -139,7 +188,7 @@ CREATE POLICY "Allow updating contact_submissions" ON contact_submissions
 
 ---
 
-## 5. Create Additional Admin Users (Optional)
+## 6. Create Additional Admin Users (Optional)
 
 ```bash
 # Generate hash for second admin
@@ -187,6 +236,19 @@ VALUES
 | updated_at | TIMESTAMP | DEFAULT now() | Last updated |
 | notes | TEXT | | Admin's notes |
 | admin_id | UUID | FK to admin_users | Assigned admin |
+
+### enquiries Table
+
+| Column | Type | Constraints | Notes |
+|--------|------|-------------|-------|
+| id | BIGSERIAL | PRIMARY KEY | Auto-incrementing |
+| name | VARCHAR(255) | NOT NULL | Enquirer's name |
+| phone | VARCHAR(20) | NOT NULL | Enquirer's phone number |
+| service_type | VARCHAR(100) | NOT NULL | Service enquired about |
+| status | VARCHAR(50) | DEFAULT 'new' | new/contacted/completed/spam |
+| submitted_from | VARCHAR(50) | NOT NULL | popup or page |
+| created_at | TIMESTAMP | DEFAULT NOW() | Submission time |
+| updated_at | TIMESTAMP | DEFAULT NOW() | Last updated |
 
 ---
 
@@ -243,6 +305,21 @@ SELECT id, name, phone, status, created_at FROM contact_submissions;
 
 -- Count by status
 SELECT status, COUNT(*) FROM contact_submissions GROUP BY status;
+
+-- View all enquiries
+SELECT id, name, phone, service_type, status, submitted_from, created_at FROM enquiries;
+
+-- Count enquiries by source (popup vs page)
+SELECT submitted_from, COUNT(*) as count FROM enquiries GROUP BY submitted_from;
+
+-- Count enquiries by status
+SELECT status, COUNT(*) FROM enquiries GROUP BY status;
+
+-- View recent enquiries (last 10)
+SELECT id, name, phone, service_type, status, submitted_from, created_at 
+FROM enquiries 
+ORDER BY created_at DESC 
+LIMIT 10;
 ```
 
 ---
