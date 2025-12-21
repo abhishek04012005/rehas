@@ -3,7 +3,7 @@
 // ============================================
 export const heroData = {
   title: 'Welcome to REHAS',
-  subtitle: 'Discover Your Cosmic Path Through Astrology & Wellness',
+  subtitle: 'Let your being harmonize and your path be illuminated',
   buttons: [
     {
       label: 'Start Your Journey',

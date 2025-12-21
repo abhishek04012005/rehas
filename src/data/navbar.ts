@@ -13,9 +13,8 @@ export const navbarData = {
       href: '/healing',
       submenu: [
         { label: 'Reiki', href: '/healing/reiki', icon: '📊' },
-        { label: 'Horoscope', href: '/astrology/horoscope', icon: '🌙' },
-        { label: 'Compatibility', href: '/astrology/compatibility', icon: '💞' },
-        { label: 'Transit', href: '/astrology/transit', icon: '🚀' },
+        { label: 'Mantra', href: '/healing/mantra', icon: '🌙' },
+        { label: 'Tantra', href: '/healing/tantra', icon: '💞' },
       ],
     },
     {

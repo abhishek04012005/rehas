@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { heroData } from '@/data/content';
 import styles from './hero.module.css';
-import { ArrowForward, Info, Star, DarkMode, AutoAwesome, SelfImprovement } from '@mui/icons-material';
+import { ArrowForward, Info, Star, DarkMode, AutoAwesome, SelfImprovement, KeyboardDoubleArrowRight } from '@mui/icons-material';
 
 // Map icon names to MUI components
 const iconMap: Record<string, React.ComponentType<any>> = {
@@ -27,7 +27,7 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true);
-    
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -60,13 +60,13 @@ export default function Hero() {
     <section className={styles.hero}>
       {/* Animated Background */}
       <div className={styles.background}>
-        <div 
+        <div
           className={styles.gradientOrb}
           style={{
             transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * 0.03}px)`
           }}
         />
-        <div 
+        <div
           className={styles.gradientOrbSecondary}
           style={{
             transform: `translate(${-mousePosition.x * 0.02}px, ${-mousePosition.y * 0.02}px)`
@@ -74,8 +74,8 @@ export default function Hero() {
         />
         <div className={styles.starField}>
           {stars.map((star, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className={styles.star}
               style={{
                 left: `${star.left}%`,
@@ -92,8 +92,8 @@ export default function Hero() {
         <div className={styles.content}>
           {/* Badge */}
           <div className={styles.badge}>
-            <span className={styles.badgeIcon}></span>
-            <span className={styles.badgeText}>Welcome to Cosmic Wellness</span>
+            <span className={styles.badgeIcon}><KeyboardDoubleArrowRight /></span>
+            <span className={styles.badgeText}> Dicover Your Cosmic Path  </span>
           </div>
 
           {/* Heading */}
@@ -109,17 +109,17 @@ export default function Hero() {
 
           {/* Description */}
           <p className={styles.description}>
-            Explore the universe within you through ancient astrology wisdom 
-            and modern wellness practices. Transform your life with personalized 
+            Explore the universe within you through ancient wisdom
+            and modern wellness practices. Transform your life with personalized
             cosmic guidance and holistic healing.
           </p>
 
           {/* CTA Buttons */}
           <div className={styles.ctaGroup}>
             {heroData.buttons.map((btn, idx) => (
-              <Link 
+              <Link
                 key={idx}
-                href={btn.href} 
+                href={btn.href}
                 className={btn.type === 'primary' ? styles.primaryBtn : styles.secondaryBtn}
               >
                 <span>{btn.label}</span>
@@ -171,9 +171,9 @@ export default function Hero() {
             const position = positions[idx] || positions[0];
             const IconComponent = iconMap[card.icon as keyof typeof iconMap];
             return (
-              <div 
+              <div
                 key={idx}
-                className={styles.floatingCard} 
+                className={styles.floatingCard}
                 style={position}
               >
                 <div className={styles.cardIcon}>

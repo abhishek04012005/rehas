@@ -27,9 +27,9 @@ export const aboutData = {
     { number: '15+', label: 'Years' },
   ],
   founder: {
-    name: 'Priya Sharma',
+    name: 'Rudra Aabhi Singh',
     title: 'Founder & Visionary',
-    bio: 'With 15+ years of experience in astrology and holistic wellness, Priya founded REHAS to democratize cosmic wisdom and make transformative guidance accessible to everyone. Her passion for bridging ancient practices with modern science has helped thousands discover their true path.',
+    bio: 'With 15+ years of experience in astrology and holistic wellness, Rudra founded REHAS to democratize cosmic wisdom and make transformative guidance accessible to everyone. His passion for bridging ancient practices with modern science has helped thousands discover their true path.',
     expertise: [
       'Vedic Astrology',
       'Numerology',

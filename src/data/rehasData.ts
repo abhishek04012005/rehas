@@ -4,13 +4,13 @@ import Person from '../../public/assets/founder/1.jpg'
 export const rehasData = {
   // Basic Information
   profile: {
-    id: 'founder-priya-sharma',
-    name: 'Priya Sharma',
+    id: 'founder-rudra-aabhi-singh',
+    name: 'Rudra Aabhi Singh',
     nameCompany: "REHAS",
     title: 'Founder & Visionary',
     subtitle: 'Cosmic Wellness Guide',
     image: Person, 
-    imageAlt: 'Priya Sharma - Founder of REHAS',
+    imageAlt: 'Rudra Aabhi Singh - Founder of REHAS',
     logo: Logo, 
     badge: 'Our Visionary',
   },
@@ -42,9 +42,9 @@ export const rehasData = {
   // About and Credentials
   about: {
     shortBio:
-      'With 15+ years of experience in astrology and holistic wellness, Priya founded REHAS to democratize cosmic wisdom and make transformative guidance accessible to everyone.',
+      'With 15+ years of experience in astrology and holistic wellness, Rudra founded REHAS to democratize cosmic wisdom and make transformative guidance accessible to everyone.',
     longBio:
-      'Priya Sharma is a passionate wellness advocate and cosmic guide with over 15 years of experience in astrology, numerology, and holistic healing. Her journey began at a young age when she discovered the profound connection between celestial bodies and human destiny. With a deep commitment to bridging ancient practices and modern science, Priya founded REHAS to democratize cosmic wisdom and make transformative guidance accessible to everyone. Her compassionate approach and personalized consultations have helped thousands of individuals discover their true path, heal emotional wounds, and align with their cosmic blueprint. Beyond her consulting work, Priya is dedicated to education and has trained numerous practitioners in various wellness disciplines.',
+      'Rudra Aabhi Singh is a passionate wellness advocate and cosmic guide with over 15 years of experience in astrology, numerology, and holistic healing. His journey began at a young age when he discovered the profound connection between celestial bodies and human destiny. With a deep commitment to bridging ancient practices and modern science, Rudra founded REHAS to democratize cosmic wisdom and make transformative guidance accessible to everyone. His compassionate approach and personalized consultations have helped thousands of individuals discover their true path, heal emotional wounds, and align with their cosmic blueprint. Beyond his consulting work, Rudra is dedicated to education and has trained numerous practitioners in various wellness disciplines.',
     missionStatement:
       'To democratize cosmic wisdom and empower individuals to discover their infinite potential through the intersection of ancient practices and modern science.',
     visionStatement:
@@ -54,7 +54,7 @@ export const rehasData = {
   // Inspirational Quote
   quote: {
     text: '"The stars are not just distant lights; they are mirrors reflecting our infinite potential. At REHAS, we help you read your cosmic blueprint."',
-    attribution: 'Priya Sharma',
+    attribution: 'Rudra Aabhi Singh',
     context: 'On the mission of REHAS',
   },
 
@@ -108,13 +108,13 @@ export const rehasData = {
 
   // Social Media Links
   social: {
-    instagram: 'https://instagram.com/priyasharma.rehas',
-    linkedin: 'https://linkedin.com/in/priya-sharma-rehas',
-    twitter: 'https://twitter.com/priyarehas',
+    instagram: 'https://instagram.com/rudraaabhisingh.rehas',
+    linkedin: 'https://linkedin.com/in/rudra-aabhi-singh-rehas',
+    twitter: 'https://twitter.com/rudraaabhisingh',
     facebook: 'https://facebook.com/rehascosmic',
     youtube: 'https://youtube.com/@rehascosmic',
     website: 'https://rehas.com',
-    email: 'priya@rehas.com',
+    email: 'info@rehas.in',
     phone: '+91-XXXXXXXXXX',
   },
 
@@ -227,7 +227,7 @@ export const rehasData = {
 
   // Contact Information
   contact: {
-    email: 'priya@rehas.com',
+    email: 'info@rehas.in',
     phone: '+91-XXXXXXXXXX',
     address: {
       street: 'Cosmic Wellness Center',
