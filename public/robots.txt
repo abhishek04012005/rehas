@@ -1,0 +1,40 @@
+# Robots.txt for REHAS Website
+# https://rehas.in
+
+# Allow all bots
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Disallow bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://rehas.in/sitemap.xml
+Sitemap: https://rehas.in/sitemap-0.xml
+Sitemap: https://rehas.in/sitemap-index.xml
+
+# Cache directive
+Cache-Control: max-age=604800

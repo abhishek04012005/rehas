@@ -1,16 +1,27 @@
+import { Metadata } from 'next';
 import Testimonial from '@/components/testimonial/testimonial';
 
-export const metadata = {
-  title: 'Client Testimonials | REHAS - Cosmic Wellness',
+export const metadata: Metadata = {
+  title: 'Client Testimonials | REHAS Success Stories',
   description:
-    'Discover real stories of transformation from our clients. Learn how REHAS wellness services have changed lives through astrology, numerology, and energy healing.',
-  keywords:
-    'testimonials, client reviews, cosmic wellness, transformation stories, astrology, numerology, energy healing',
+    'Read real transformation stories from our clients. Discover how REHAS astrology, numerology, and energy healing services have enriched lives.',
+  keywords: [
+    'Testimonials',
+    'Client Reviews',
+    'Success Stories',
+    'Cosmic Wellness',
+    'Transformation Stories',
+    'Healing Results',
+    'Client Feedback',
+  ],
   openGraph: {
-    title: 'Client Testimonials | REHAS - Cosmic Wellness',
+    title: 'Client Testimonials | REHAS Success Stories',
     description: 'Real stories of transformation and cosmic awakening from our clients.',
-    url: 'https://rehas.com/testimonials',
+    url: 'https://rehas.in/testimonials',
     type: 'website',
+  },
+  alternates: {
+    canonical: 'https://rehas.in/testimonials',
   },
 };
 

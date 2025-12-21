@@ -1,15 +1,26 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack, ChevronRight } from '@mui/icons-material';
 import styles from './page.module.css';
 
-export const metadata = {
-  title: 'Sitemap | REHAS - Website Navigation & Site Map',
-  description: 'Complete sitemap of REHAS website. Navigate through all pages including services, blog, support resources, and legal documentation.',
-  keywords: 'sitemap, site map, website navigation, site structure, all pages',
+export const metadata: Metadata = {
+  title: 'Sitemap | REHAS Wellness Services',
+  description: 'Complete sitemap of REHAS website. Navigate through all astrology services, healing therapies, wellness articles, and support resources.',
+  keywords: [
+    'Sitemap',
+    'Site Map',
+    'Website Navigation',
+    'Site Structure',
+    'All Pages',
+    'Service Directory',
+  ],
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: 'https://rehas.in/sitemap',
   },
 };
 

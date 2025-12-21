@@ -1,16 +1,29 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack, MailOutline, Phone, ChatBubbleOutline, Description } from '@mui/icons-material';
 import styles from './page.module.css';
 import SupportFAQClient from './supportFAQClient';
 
-export const metadata = {
-  title: 'Support & FAQ | REHAS - Customer Support & Help Center',
-  description: 'Get help with REHAS services. Access FAQs, support channels including email, phone, live chat, and comprehensive help for your enquiries.',
-  keywords: 'support, FAQ, help center, customer support, contact support, frequently asked questions',
+export const metadata: Metadata = {
+  title: 'Support & FAQ | REHAS Help Center',
+  description: 'Get support with REHAS wellness services. Access comprehensive FAQs, contact options including email, phone, and live chat support for your queries.',
+  keywords: [
+    'Support',
+    'FAQ',
+    'Help Center',
+    'Customer Support',
+    'Contact Support',
+    'Frequently Asked Questions',
+    'Help',
+    'Assistance',
+  ],
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: 'https://rehas.in/support',
   },
 };
 
@@ -21,13 +34,13 @@ export default function Support() {
     {
       title: 'Email Support',
       description: 'Send us an email and we\'ll respond within 24 hours.',
-      contact: 'support@rehas.com',
+      contact: 'support@rehas.in',
       icon: <MailOutline className={styles.channelIconMUI} />,
     },
     {
       title: 'Phone Support',
       description: 'Call our support team during business hours (Mon-Fri, 9AM-6PM).',
-      contact: '+1 (234) 567-890',
+      contact: '+91-XXXXXXXXXX',
       icon: <Phone className={styles.channelIconMUI} />,
     },
     {

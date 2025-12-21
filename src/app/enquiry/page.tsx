@@ -1,9 +1,20 @@
+import { Metadata } from 'next';
 import Enquiry from '@/components/enquiry/enquiry';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata = {
-  title: 'Send Enquiry | REHAS - Cosmic Wellness',
-  description: 'Send an enquiry to REHAS and let our experts help you discover the perfect wellness service for your journey.',
-};
+export const metadata: Metadata = createMetadata(
+  'Book Consultation | REHAS Enquiry Form',
+  'Send an enquiry to REHAS and connect with our cosmic wellness experts. Discover personalized astrology readings, healing services, and spiritual guidance.',
+  [
+    'Book Consultation',
+    'Enquiry Form',
+    'Astrology Reading',
+    'Healing Service',
+    'Wellness Consultation',
+    'Spiritual Guidance',
+  ],
+  '/enquiry'
+);
 
 export default function EnquiryPage() {
   return <Enquiry />;

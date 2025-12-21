@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Discover personalized astrology readings, meditation guidance, and wellness services. Connect with cosmic wisdom for spiritual transformation and healing.",
   keywords: "astrology, birth chart reading, meditation, wellness, spiritual guidance, yoga, cosmic wisdom, horoscope",
   alternates: {
-    canonical: "https://rehas.com",
+    canonical: "https://rehas.in",
   },
 };
 

@@ -9,7 +9,7 @@ export const blogData = {
   posts: [
     {
       id: 'mercury-retrograde-guide',
-      title: 'Understanding Mercury Retrograde: A Complete Guide',
+      title: 'Mercury Retrograde 2024-2025: Complete Guide to Effects on Communication & Technology',
       excerpt: 'Learn how Mercury retrograde affects your communication, technology, and relationships. Discover practical tips to navigate this cosmic event with ease.',
       category: 'Astrology',
       author: 'Sarah Chen',
@@ -53,7 +53,7 @@ Remember, while astrology provides guidance, your free will and intentional acti
     },
     {
       id: 'numerology-life-path',
-      title: 'Discover Your Life Path Number: What It Reveals About You',
+      title: 'Life Path Number Calculator: What Your Numerology Number Reveals About Destiny & Personality',
       excerpt: 'Your life path number is one of the most important numbers in numerology. Learn what your number reveals about your personality and destiny.',
       category: 'Numerology',
       author: 'Dr. Rajesh',
@@ -99,7 +99,7 @@ Your life path number provides profound insights into your journey and purpose.`
     },
     {
       id: 'chakra-healing-guide',
-      title: 'The Seven Chakras: A Beginner\'s Guide to Energy Healing',
+      title: 'Seven Chakras: Complete Chakra Healing Guide for Energy Balance & Spiritual Wellness',
       excerpt: 'Explore the seven chakras and learn how to balance them for optimal health and well-being. A comprehensive guide to chakra healing.',
       category: 'Energy Healing',
       author: 'Emma Johnson',
@@ -184,7 +184,7 @@ Regular chakra balancing can lead to improved physical health, emotional stabili
     },
     {
       id: 'full-moon-rituals',
-      title: 'Powerful Full Moon Rituals for Manifestation and Release',
+      title: 'Full Moon Rituals for Manifestation & Release: Lunar Healing Ceremonies Guide',
       excerpt: 'Harness the energy of the full moon with these powerful rituals for manifestation, release, and transformation.',
       category: 'Astrology',
       author: 'Sarah Chen',
@@ -235,7 +235,7 @@ Different full moons have different energies. Research your specific full moon d
     },
     {
       id: 'reiki-benefits',
-      title: 'What Is Reiki and How Can It Transform Your Health?',
+      title: 'Reiki Healing Benefits: How Reiki Energy Treatment Transforms Physical & Emotional Health',
       excerpt: 'Discover the science and spirituality of Reiki healing. Learn how this ancient practice can improve your physical and emotional well-being.',
       category: 'Healing',
       author: 'Emma Johnson',
@@ -305,7 +305,7 @@ Whether approached spiritually or as complementary medicine, Reiki offers benefi
     },
     {
       id: 'sound-frequency-healing',
-      title: 'Sound Healing Frequencies: Ancient Wisdom Meets Modern Science',
+      title: 'Sound Healing Frequencies & Solfeggio: Sacred Frequencies for Cell Repair & Wellness',
       excerpt: 'Explore how different sound frequencies can heal your body and mind. Learn about the science behind sound therapy and its applications.',
       category: 'Sound Therapy',
       author: 'Dr. Rajesh',

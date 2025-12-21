@@ -37,13 +37,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "REHAS - Ancient Cosmic Wisdom Meets Modern Wellness",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services. Book your consultation with REHAS experts.",
-    url: "https://rehas.com",
+    url: "https://rehas.in",
     siteName: "REHAS",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://rehas.com/og-image.png",
+        url: "https://rehas.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "REHAS - Cosmic Wellness Platform",
@@ -54,10 +54,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "REHAS - Ancient Cosmic Wisdom Meets Modern Wellness",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services.",
-    images: ["https://rehas.com/og-image.png"],
+    images: ["https://rehas.in/og-image.png"],
   },
   alternates: {
-    canonical: "https://rehas.com",
+    canonical: "https://rehas.in",
   },
 };
 

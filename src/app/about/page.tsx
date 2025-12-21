@@ -1,9 +1,22 @@
+import { Metadata } from 'next';
 import About from '@/components/about/about';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata = {
-  title: 'About REHAS | Cosmic Wellness & Astrology',
-  description: 'Learn about REHAS mission, vision, and our journey in providing cosmic wellness guidance through astrology and holistic healing.',
-};
+export const metadata: Metadata = createMetadata(
+  'About REHAS | Cosmic Wellness & Astrology Services',
+  'Discover REHAS mission and vision. Learn how we bridge ancient cosmic wisdom with modern wellness through astrology, healing, and spiritual guidance services in India.',
+  [
+    'About REHAS',
+    'Cosmic Wellness',
+    'Astrology Services',
+    'Spiritual Healing',
+    'Wellness Center',
+    'Holistic Health',
+    'Ancient Wisdom',
+    'Modern Wellness',
+  ],
+  '/about'
+);
 
 export default function AboutPage() {
   return <About />;

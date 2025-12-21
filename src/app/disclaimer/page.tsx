@@ -1,15 +1,26 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack, WarningAmber } from '@mui/icons-material';
 import styles from './page.module.css';
 
-export const metadata = {
-  title: 'Disclaimer | REHAS - Medical & Service Disclaimer',
-  description: 'Important disclaimer about REHAS services. Our guidance is not a substitute for professional medical advice. Understand our limitations and responsibilities.',
-  keywords: 'disclaimer, medical disclaimer, service terms, wellness disclaimer, liability',
+export const metadata: Metadata = {
+  title: 'Disclaimer | REHAS Wellness Services',
+  description: 'Important disclaimer about REHAS astrology and wellness services. Our guidance is not a substitute for professional medical or legal advice. Please read our full disclaimer.',
+  keywords: [
+    'Disclaimer',
+    'Medical Disclaimer',
+    'Service Terms',
+    'Wellness Disclaimer',
+    'Liability',
+    'Important Notice',
+  ],
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: 'https://rehas.in/disclaimer',
   },
 };
 
