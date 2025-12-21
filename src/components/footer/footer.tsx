@@ -82,6 +82,14 @@ export default function Footer() {
                     {/* Bottom Footer */}
                     <div className={styles.footerBottom}>
                         <p>&copy; {currentYear} {footerData.copyright.company}. {footerData.copyright.text}</p>
+                        <div className={styles.poweredBy}>
+                            <p>
+                                {footerData.poweredBy.text}{' '}
+                                <a href={footerData.poweredBy.url} target="_blank" rel="noopener noreferrer">
+                                    {footerData.poweredBy.company}
+                                </a>
+                            </p>
+                        </div>
                         <div className={styles.footerLinks}>
                             {footerData.legal.map((legal, idx) => (
                                 <span key={idx}>
@@ -91,6 +99,9 @@ export default function Footer() {
                             ))}
                         </div>
                     </div>
+
+                    {/* Powered By */}
+
                 </div>
             </section>
 

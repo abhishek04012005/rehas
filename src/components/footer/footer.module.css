@@ -95,10 +95,11 @@
 
 .footerGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1.2fr repeat(6, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
 }
+
 
 .footerColumn {
   display: flex;
@@ -287,6 +288,29 @@
 
 .footerLinks span {
   color: #ddd;
+}
+
+/* Powered By */
+.poweredBy {
+  text-align: center;
+}
+
+.poweredBy p {
+  margin: 0;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.poweredBy a {
+  color: #999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.poweredBy a:hover {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
 /* Scroll to Top Button */

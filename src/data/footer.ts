@@ -44,14 +44,13 @@ export const footerData = {
       ],
     },
     {
-      title: 'M.Y.T Wisdom',
+      title: 'Wisdom',
       links: [
         { label: 'Mantra', href: '/myt/mantra' },
         { label: 'Yantra', href: '/myt/yantra' },
         { label: 'Tantra', href: '/myt/tantra' },
         { label: 'Mantra Manipulation', href: '/myt/mantra-manipulation' },
         { label: 'Himalayan Tantra', href: '/myt/himalayan-tantra' },
-        { label: 'Tantric & Esoteric Wisdom', href: '/myt/esoteric' },
       ],
     },
     {
@@ -71,8 +70,10 @@ export const footerData = {
         { label: 'Blog', href: '/blog' },
         { label: 'Contact', href: '/contact' },
         { label: 'Support', href: '/support' },
+        { label: 'Sitemap', href: '/sitemap' },
       ],
     },
+    
   ],
   newsletter: {
     title: 'Subscribe to Our Newsletter',
@@ -83,6 +84,11 @@ export const footerData = {
     year: 2024,
     company: 'REHAS',
     text: 'All rights reserved.',
+  },
+  poweredBy: {
+    text: 'Powered by',
+    company: 'Ditvi Technologies',
+    url: 'https://technologies.ditvi.org',
   },
   legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
