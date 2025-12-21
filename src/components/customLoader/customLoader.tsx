@@ -1,6 +1,14 @@
 'use client';
 
 import styles from './customLoader.module.css';
+import {
+  Star,
+  Numbers,
+  SelfImprovement,
+  VolumeUp,
+  LocalFireDepartment,
+  Visibility,
+} from '@mui/icons-material';
 
 interface CustomLoaderProps {
   size?: 'small' | 'medium' | 'large';
@@ -8,13 +16,13 @@ interface CustomLoaderProps {
   healingType?: 'astrology' | 'numerology' | 'reiki' | 'sound' | 'chakra' | 'aura';
 }
 
-const healingIcons = {
-  astrology: '✨',
-  numerology: '🔢',
-  reiki: '🙌',
-  sound: '🔊',
-  chakra: '⚡',
-  aura: '🌈',
+const healingIcons: Record<string, React.ComponentType<any>> = {
+  astrology: Star,
+  numerology: Numbers,
+  reiki: SelfImprovement,
+  sound: VolumeUp,
+  chakra: LocalFireDepartment,
+  aura: Visibility,
 };
 
 const healingLabels = {
@@ -36,6 +44,7 @@ export default function CustomLoader({
   // Rotate through healing types
   const types = healingType ? [healingType] : healingTypes;
   const currentType = types[0];
+  const IconComponent = healingIcons[currentType];
 
   return (
     <div className={`${styles.loaderContainer} ${styles[size]}`}>
@@ -53,7 +62,7 @@ export default function CustomLoader({
 
         {/* Center icon */}
         <div className={styles.centerIcon}>
-          {healingIcons[currentType]}
+          <IconComponent />
         </div>
       </div>
 

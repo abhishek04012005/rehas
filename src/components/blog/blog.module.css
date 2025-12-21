@@ -92,6 +92,12 @@
   height: 200px;
 }
 
+.featuredImage .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .featuredContent {
   display: flex;
   flex-direction: column;

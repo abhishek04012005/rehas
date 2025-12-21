@@ -37,7 +37,7 @@ export const aboutData = {
       'Life Coaching',
       'Meditation',
     ],
-    image: '✨',
+    image: 'Star',
     social: {
       instagram: 'https://instagram.com',
       linkedin: 'https://linkedin.com',
@@ -48,22 +48,22 @@ export const aboutData = {
   },
   team: [
     {
-      avatar: '👩‍⚕️',
+      avatar: 'Woman',
       name: 'Sarah Chen',
       role: 'Astrology Expert',
     },
     {
-      avatar: '👨‍⚕️',
+      avatar: 'Man',
       name: 'Dr. Rajesh',
       role: 'Wellness Coach',
     },
     {
-      avatar: '🧘‍♀️',
+      avatar: 'SelfImprovement',
       name: 'Emma Johnson',
       role: 'Meditation Guide',
     },
     {
-      avatar: '🥗',
+      avatar: 'LocalDining',
       name: 'Alex Rodriguez',
       role: 'Nutrition Specialist',
     },

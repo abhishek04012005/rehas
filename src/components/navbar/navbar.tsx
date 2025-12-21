@@ -6,8 +6,61 @@ import styles from './navbar.module.css';
 import Image from 'next/image';
 import { rehasData } from '@/data/rehasData';
 import { navbarData } from '@/data/navbar';
-import { WhatsApp, ExpandMore } from '@mui/icons-material';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import {
+    WhatsApp,
+    ExpandMore,
+    ContactSupport,
+    Brightness3,
+    Nightlight,
+    FavoriteBorder,
+    RoomService,
+    PublicOutlined,
+    Description,
+    CreditCard,
+    PanTool,
+    MedicalInformation,
+    LocalHospital,
+    Grain,
+    Notifications,
+    Diamond,
+    AutoAwesome,
+    Terrain,
+    AccountBalance,
+    SchoolOutlined,
+    Numbers,
+    MicOutlined,
+    MenuBook,
+    Star,
+} from '@mui/icons-material';
+
+const iconMap: Record<string, React.ComponentType<any>> = {
+    Brightness3,
+    Nightlight,
+    FavoriteBorder,
+    RoomService,
+    PublicOutlined,
+    Description,
+    CreditCard,
+    PanTool,
+    MedicalInformation,
+    LocalHospital,
+    Grain,
+    Notifications,
+    Diamond,
+    AutoAwesome,
+    Terrain,
+    AccountBalance,
+    SchoolOutlined,
+    Numbers,
+    MicOutlined,
+    MenuBook,
+    Star,
+};
+
+const getIconComponent = (iconName: string) => {
+    const IconComponent = iconMap[iconName as keyof typeof iconMap];
+    return IconComponent ? <IconComponent fontSize="small" /> : null;
+};
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,7 +131,7 @@ export default function Navbar() {
                                                             setOpenDropdown(null);
                                                         }}
                                                     >
-                                                        {item.icon} {item.label}
+                                                        {getIconComponent(item.icon)} {item.label}
                                                     </Link>
                                                 ))}
                                             </div>
@@ -119,7 +172,7 @@ export default function Navbar() {
                 aria-label="Submit enquiry"
                 title="Submit enquiry"
             >
-                <ContactSupportIcon className={styles.enquiryIcon} />
+                <ContactSupport className={styles.enquiryIcon} />
             </Link>
         </>
     );

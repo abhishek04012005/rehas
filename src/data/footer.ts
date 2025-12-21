@@ -3,7 +3,7 @@
 // ============================================
 export const footerData = {
   brand: {
-    icon: '✨',
+    icon: 'Star',
     name: 'REHAS',
     tagline:
       'Bridging ancient cosmic wisdom with modern wellness for a better tomorrow.',
@@ -16,13 +16,52 @@ export const footerData = {
   },
   sections: [
     {
+      title: 'Healing',
+      links: [
+        { label: 'Reiki', href: '/healing/reiki' },
+        { label: 'Mantra', href: '/healing/mantra' },
+        { label: 'Tantra', href: '/healing/tantra' },
+      ],
+    },
+    {
       title: 'Services',
       links: [
-        { label: 'Birth Chart Reading', href: '/astrology/birth-chart' },
-        { label: 'Daily Horoscope', href: '/astrology/horoscope' },
-        { label: 'Meditation Guide', href: '/wellness/meditation' },
-        { label: 'Yoga Classes', href: '/wellness/yoga' },
-        { label: 'Book Consultation', href: '/consultation' },
+        { label: 'General Service', href: '/service/general' },
+        { label: 'Healing Service', href: '/service/healing' },
+        { label: 'Astro Report', href: '/service/astro-report' },
+        { label: 'Kundli Analysis', href: '/service/kundli-analysis' },
+        { label: 'Tarot', href: '/service/tarot' },
+      ],
+    },
+    {
+      title: 'Therapy',
+      links: [
+        { label: 'Reiki Therapy', href: '/therapy/reiki' },
+        { label: 'Acupressure', href: '/therapy/acupressure' },
+        { label: 'Acupuncture', href: '/therapy/acupuncture' },
+        { label: 'Physiotherapy', href: '/therapy/physiotherapy' },
+        { label: 'Magnet Therapy', href: '/therapy/magnet' },
+      ],
+    },
+    {
+      title: 'M.Y.T Wisdom',
+      links: [
+        { label: 'Mantra', href: '/myt/mantra' },
+        { label: 'Yantra', href: '/myt/yantra' },
+        { label: 'Tantra', href: '/myt/tantra' },
+        { label: 'Mantra Manipulation', href: '/myt/mantra-manipulation' },
+        { label: 'Himalayan Tantra', href: '/myt/himalayan-tantra' },
+        { label: 'Tantric & Esoteric Wisdom', href: '/myt/esoteric' },
+      ],
+    },
+    {
+      title: 'Astrology',
+      links: [
+        { label: 'Course', href: '/astrology/course' },
+        { label: 'Vedic Astro', href: '/astrology/vedic' },
+        { label: 'Numerology', href: '/astrology/numerology' },
+        { label: 'Counselling', href: '/astrology/counselling' },
+        { label: 'Reading', href: '/astrology/reading' },
       ],
     },
     {
@@ -31,27 +70,7 @@ export const footerData = {
         { label: 'About Us', href: '/about' },
         { label: 'Blog', href: '/blog' },
         { label: 'Contact', href: '/contact' },
-        { label: 'FAQ', href: '/faq' },
-        { label: 'Careers', href: '/careers' },
-      ],
-    },
-    {
-      title: 'Resources',
-      links: [
-        { label: 'Privacy Policy', href: '/privacy-policy' },
-        { label: 'Terms of Service', href: '/terms-of-service' },
-        { label: 'Disclaimer', href: '/disclaimer' },
-        { label: 'Sitemap', href: '/sitemap' },
         { label: 'Support', href: '/support' },
-      ],
-    },
-    {
-      title: 'Contact',
-      links: [
-        { label: 'Email: info@rehas.com', href: 'mailto:info@rehas.com' },
-        { label: 'Phone: +1 (234) 567-890', href: 'tel:+1234567890' },
-        { label: 'Address: 123 Cosmic Street', href: '#' },
-        { label: 'Hours: Mon-Fri, 9AM-6PM', href: '#' },
       ],
     },
   ],

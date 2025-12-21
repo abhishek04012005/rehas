@@ -5,6 +5,7 @@ import { Search, Bookmark, BookmarkBorder, ChevronRight } from '@mui/icons-mater
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { blogData } from '@/data/content';
 import styles from './blog.module.css';
+import Image from 'next/image';
 
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -54,7 +55,15 @@ export default function Blog() {
                   href={`/blog/${post.id}`}
                   className={styles.featuredCard}
                 >
-                  <div className={styles.featuredImage}>{post.image}</div>
+                  <div className={styles.featuredImage}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      className={styles.image}
+                      height={400}
+                      width={200}
+                    />
+                    </div>
                   <div className={styles.featuredContent}>
                     <span className={styles.category}>{post.category}</span>
                     <h3>{post.title}</h3>
@@ -108,7 +117,16 @@ export default function Blog() {
             <div className={styles.articlesGrid}>
               {filteredPosts.map((post) => (
                 <article className={styles.articleCard} key={post.id}>
-                  <div className={styles.articleImage}>{post.image}</div>
+                  <div className={styles.articleImage}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+  
+                      className={styles.imageGrid}
+                      height={200}
+                      width={400}
+                    />
+                  </div>
                   <div className={styles.articleContent}>
                     <span className={styles.articleCategory}>{post.category}</span>
                     <a href={`/blog/${post.id}`} className={styles.articleTitle}>

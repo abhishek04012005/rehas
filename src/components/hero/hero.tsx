@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { heroData } from '@/data/content';
 import styles from './hero.module.css';
-import { ArrowForward, Info, Star, DarkMode, AutoAwesome, SelfImprovement, KeyboardDoubleArrowRight } from '@mui/icons-material';
+import { ArrowForward, Info, Star, AutoAwesome, SelfImprovement, KeyboardDoubleArrowRight, Public } from '@mui/icons-material';
 
 // Map icon names to MUI components
 const iconMap: Record<string, React.ComponentType<any>> = {
   Sparkles: Star,
-  Nightlight: DarkMode,
+  Nightlight: Public,
   AutoAwesome,
   SelfImprovement,
 };

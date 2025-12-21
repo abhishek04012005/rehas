@@ -1,0 +1,31 @@
+import { Metadata } from 'next';
+import HealingService from '@/components/healingService/healingService';
+import { tantraData } from '@/data/tantra';
+
+export const metadata: Metadata = {
+  title: 'Tantra Healing | REHAS',
+  description:
+    'Explore the ancient wisdom of Tantra for holistic healing and spiritual awakening. Balance energy, enhance consciousness, and transform your life with tantric practices.',
+  keywords: [
+    'Tantra',
+    'Tantric Healing',
+    'Energy Work',
+    'Spiritual Practices',
+    'Consciousness',
+    'Kundalini',
+    'Sacred Rituals',
+    'Healing Practices',
+    'Spiritual Growth',
+    'Mind-Body Balance',
+  ],
+  openGraph: {
+    title: 'Tantra Healing | REHAS',
+    description:
+      'Explore the ancient wisdom of Tantra for holistic healing and spiritual awakening.',
+    type: 'website',
+  },
+};
+
+export default function TantraPage() {
+  return <HealingService data={tantraData} />;
+}

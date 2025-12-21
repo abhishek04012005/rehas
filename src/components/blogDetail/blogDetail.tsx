@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ArrowBack, Share, Bookmark, BookmarkBorder, ChevronRight } from '@mui/icons-material';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { blogData } from '@/data/content';
@@ -74,7 +75,15 @@ export default function BlogDetail() {
             <span className={styles.readTime}>{post.readTime}</span>
           </div>
         </div>
-        <div className={styles.featuredImage}>{post.image}</div>
+        <div className={styles.featuredImage}>
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className={styles.image}
+            priority
+          />
+        </div>
       </section>
 
       {/* Article Content */}
@@ -185,7 +194,14 @@ export default function BlogDetail() {
                   href={`/blog/${relatedPost.id}`}
                   className={styles.relatedCard}
                 >
-                  <div className={styles.relatedImage}>{relatedPost.image}</div>
+                  <div className={styles.relatedImage}>
+                    <Image
+                      src={relatedPost.image}
+                      alt={relatedPost.title}
+                      fill
+                      className={styles.image}
+                    />
+                  </div>
                   <div className={styles.relatedContent}>
                     <h3>{relatedPost.title}</h3>
                     <p>{relatedPost.excerpt}</p>

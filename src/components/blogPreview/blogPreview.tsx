@@ -3,6 +3,7 @@
 import { ChevronRight } from '@mui/icons-material';
 import { blogData } from '@/data/content';
 import styles from './blogPreview.module.css';
+import Image from 'next/image';
 
 export default function BlogPreview() {
   // Show only the first 4 blog posts on the homepage
@@ -28,7 +29,14 @@ export default function BlogPreview() {
               href={`/blog/${post.id}`}
               className={styles.postCard}
             >
-              <div className={styles.postImage}>{post.image}</div>
+              <div className={styles.postImage}>
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={400}
+                  height={200}
+                />
+              </div>
               <div className={styles.postContent}>
                 <span className={styles.category}>{post.category}</span>
                 <h3>{post.title}</h3>

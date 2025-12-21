@@ -15,7 +15,7 @@ export const blogData = {
       author: 'Sarah Chen',
       date: '2024-12-15',
       readTime: '8 min read',
-      image: '🌙',
+      image: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=400&fit=crop',
       featured: true,
       content: 'Mercury retrograde is one of the most talked about astrological events. Occurring three to four times per year, this phenomenon happens when Mercury appears to move backward in the sky from our perspective on Earth. Many astrologers believe this planetary movement can affect communication, technology, and relationships. During Mercury retrograde, it\'s advisable to double-check important documents, backup your digital files, and be mindful of miscommunications. However, this is also an excellent time for reflection and revisiting past projects or relationships that deserve closure or renewal.',
       fullContent: `Mercury retrograde occurs when Mercury appears to move backward in its orbit relative to Earth. This optical illusion happens because Mercury orbits the Sun faster than Earth, causing it to periodically "lap" our planet.
@@ -59,7 +59,7 @@ Remember, while astrology provides guidance, your free will and intentional acti
       author: 'Dr. Rajesh',
       date: '2024-12-10',
       readTime: '6 min read',
-      image: '✨',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
       featured: true,
       content: 'Your life path number is calculated from your birth date and represents your natural talents, abilities, and life purpose. This single digit reveals your core personality traits and the lessons you\'re meant to learn in this lifetime. Each life path number carries unique characteristics and challenges.',
       fullContent: `Your Life Path Number is one of the most significant numbers in numerology. Derived from your complete birth date, it reveals your natural talents, abilities, and life purpose.
@@ -105,7 +105,7 @@ Your life path number provides profound insights into your journey and purpose.`
       author: 'Emma Johnson',
       date: '2024-12-05',
       readTime: '10 min read',
-      image: '🌈',
+      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
       featured: false,
       content: 'The chakra system is an ancient energy framework that originated in India thousands of years ago. These seven energy centers run along your spine and correspond to different aspects of your physical, emotional, and spiritual well-being.',
       fullContent: `The chakra system is a profound framework for understanding human energy and consciousness. Chakra, a Sanskrit word meaning "wheel," refers to the seven spinning energy centers located along your spine.
@@ -190,7 +190,7 @@ Regular chakra balancing can lead to improved physical health, emotional stabili
       author: 'Sarah Chen',
       date: '2024-11-30',
       readTime: '7 min read',
-      image: '🌕',
+      image: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80',
       featured: false,
       content: 'The full moon is a powerful time for releasing what no longer serves you and manifesting your deepest desires. Learn rituals to amplify your intentions during this potent lunar phase.',
       fullContent: `The full moon represents completion, culmination, and illumination. It's a powerful time to release old patterns and manifest your desires.
@@ -241,7 +241,7 @@ Different full moons have different energies. Research your specific full moon d
       author: 'Emma Johnson',
       date: '2024-11-25',
       readTime: '9 min read',
-      image: '💫',
+      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
       featured: false,
       content: 'Reiki is a gentle energy healing practice that originated in Japan. It works by channeling universal life force energy to promote healing and balance.',
       fullContent: `Reiki is a Japanese healing technique that uses universal life force energy (ki) to promote physical and emotional healing.
@@ -311,7 +311,7 @@ Whether approached spiritually or as complementary medicine, Reiki offers benefi
       author: 'Dr. Rajesh',
       date: '2024-11-20',
       readTime: '8 min read',
-      image: '🎵',
+      image: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=800&q=80',
       featured: false,
       content: 'Sound has been used for healing across cultures for thousands of years. Modern science is now validating what ancient healers knew about the power of vibration.',
       fullContent: `Sound is vibration, and vibration is the fundamental nature of the universe. Every object, including our bodies, vibrates at specific frequencies.

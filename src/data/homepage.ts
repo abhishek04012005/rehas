@@ -4,32 +4,32 @@
 export const homepageData = {
   features: [
     {
-      icon: '🌟',
+      icon: 'Star',
       title: 'Birth Chart Analysis',
       description: 'Deep insights into your cosmic blueprint',
     },
     {
-      icon: '🔮',
+      icon: 'CreditCard',
       title: 'Daily Horoscope',
       description: 'Personalized guidance for each day',
     },
     {
-      icon: '💑',
+      icon: 'Favorite',
       title: 'Compatibility Check',
       description: 'Understand relationship dynamics',
     },
     {
-      icon: '🧘',
+      icon: 'SelfImprovement',
       title: 'Meditation Guides',
       description: 'Inner peace through guided practice',
     },
     {
-      icon: '🥗',
+      icon: 'LocalDining',
       title: 'Nutrition Plans',
       description: 'Wellness aligned with your nature',
     },
     {
-      icon: '🏃',
+      icon: 'DirectionsRun',
       title: 'Yoga Sessions',
       description: 'Balance body, mind, and spirit',
     },
