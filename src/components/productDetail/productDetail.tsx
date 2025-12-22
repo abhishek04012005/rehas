@@ -1,5 +1,9 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ShoppingCart, CheckCircle, ChevronRight } from '@mui/icons-material';
+import { useCheckout } from '@/context/CheckoutContext';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './productDetail.module.css';
 
@@ -20,11 +24,20 @@ export default function ProductDetail({
   use,
   price = '₹999',
 }: ProductDetailProps) {
+  const router = useRouter();
+  const { setProductData } = useCheckout();
   const categoryPath = `/products/${category}`;
   const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1);
   
   // Extract numeric amount from price string (e.g., "₹1,500" -> 1500)
   const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;
+
+  const handleCheckout = () => {
+    // Store product data in context
+    setProductData({ productTitle: productName, amount });
+    // Navigate to checkout without URL parameters
+    router.push('/checkout');
+  };
 
   return (
     <main className={styles.container}>
@@ -99,13 +112,13 @@ export default function ProductDetail({
 
             {/* Action Buttons */}
             <div className={styles.actionButtons}>
-              <Link 
-                href={`/checkout?product=${encodeURIComponent(productName)}&amount=${amount}`}
+              <button 
+                onClick={handleCheckout}
                 className={styles.checkoutBtn}
               >
                 <ShoppingCart sx={{ fontSize: 18 }} />
                 Proceed to Checkout
-              </Link>
+              </button>
               <Link href={categoryPath} className={styles.continueBtn}>
                 Continue Shopping
               </Link>
@@ -148,13 +161,13 @@ export default function ProductDetail({
         <div className={styles.ctaContent}>
           <h2>Ready to Transform Your Wellness Journey?</h2>
           <p>Order this product today and experience the difference</p>
-          <Link 
-            href={`/checkout?product=${encodeURIComponent(productName)}`}
+          <button 
+            onClick={handleCheckout}
             className={styles.ctaButton}
           >
             <ShoppingCart sx={{ fontSize: 20 }} />
             Order Now
-          </Link>
+          </button>
         </div>
       </section>
     </main>

@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronRight, ShoppingCart, Check, ArrowBack } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
+import { useCheckout } from '@/context/CheckoutContext';
 import PaymentForm from '../paymentForm/paymentForm';
 import styles from './checkoutForm.module.css';
 

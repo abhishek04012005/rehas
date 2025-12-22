@@ -192,3 +192,10 @@ p {
     padding: 0 1rem;
   }
 }
+/* Print Styles */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -22,7 +22,7 @@ export default function Founder() {
             <span>{profile.badge}</span>
           </div>
           <h2>
-            Meet <span className={styles.gradientText}>{profile.name}</span>
+            Meet <span className={styles.gradientText}>Our Mentor</span>
           </h2>
         </div>
 

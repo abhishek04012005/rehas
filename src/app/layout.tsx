@@ -5,6 +5,7 @@ import NavbarWrapper from "@/components/navbarWrapper/navbarWrapper";
 import PageLoadingWrapper from "@/components/pageLoadingWrapper/pageLoadingWrapper";
 import AutoEnquiryPopup from "@/components/autoEnquiryPopup/autoEnquiryPopup";
 import Footer from "@/components/footer/footer";
+import { CheckoutProvider } from "@/context/CheckoutContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,11 +76,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <PageLoadingWrapper />
-        <AutoEnquiryPopup />
-        <NavbarWrapper />
-        {children}
-        <Footer />
+        <CheckoutProvider>
+          <PageLoadingWrapper />
+          <AutoEnquiryPopup />
+          <NavbarWrapper />
+          {children}
+          <Footer />
+        </CheckoutProvider>
       </body>
     </html>
   );

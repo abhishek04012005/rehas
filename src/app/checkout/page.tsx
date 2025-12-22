@@ -1,31 +1,35 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import CheckoutForm from '@/components/checkoutForm/checkoutForm';
+import { useCheckout } from '@/context/CheckoutContext';
 
-type SearchParams = Promise<{
-  product?: string;
-  amount?: string;
-}>;
+export default function CheckoutPage() {
+  const router = useRouter();
+  const { productData } = useCheckout();
 
-interface CheckoutPageProps {
-  searchParams: SearchParams;
-}
+  useEffect(() => {
+    // If no product data in context, redirect back to products
+    if (!productData) {
+      router.push('/products/healing');
+    }
+  }, [productData, router]);
 
-export const metadata: Metadata = {
-  title: 'Checkout | Shipping Address | REHAS',
-  description: 'Enter your shipping address details to complete your order at REHAS.',
-  keywords: ['checkout', 'shipping', 'address', 'order', 'REHAS'],
-  openGraph: {
-    title: 'Checkout | REHAS',
-    description: 'Complete your order with shipping details.',
-    type: 'website',
-  },
-};
+  // Show loading while checking context
+  if (!productData) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '18px'
+      }}>
+        Loading...
+      </div>
+    );
+  }
 
-export default async function CheckoutPage(props: CheckoutPageProps) {
-  const searchParams = await props.searchParams;
-  const productTitle = searchParams.product || 'REHAS Product';
-  const amount = parseFloat(searchParams.amount || '999');
-  const decodedProduct = decodeURIComponent(productTitle);
-
-  return <CheckoutForm productTitle={decodedProduct} amount={amount} />;
+  return <CheckoutForm productTitle={productData.productTitle} amount={productData.amount} />;
 }
