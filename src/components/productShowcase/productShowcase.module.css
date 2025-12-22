@@ -318,17 +318,6 @@
   box-shadow: 0 6px 16px rgba(86, 0, 103, 0.25);
 }
 
-/* Packages Section - REMOVED */
-
-/* CTA Section */
-.ctaSection {
-  padding: 100px 40px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-
 /* CTA Section */
 .ctaSection {
   padding: 80px 40px;

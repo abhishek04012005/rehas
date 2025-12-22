@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function TherapyProductsPage() {
-  return <ProductShowcase data={productTherapyData} />;
+  return <ProductShowcase data={productTherapyData} category="therapy" />;
 }

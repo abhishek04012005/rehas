@@ -10,9 +10,10 @@ import { HealingServiceData } from '../healingService/healingService';
 
 interface ProductShowcaseProps {
   data: HealingServiceData;
+  category?: string;
 }
 
-export default function ProductShowcase({ data }: ProductShowcaseProps) {
+export default function ProductShowcase({ data, category }: ProductShowcaseProps) {
   const { hero, practices, cta } = data;
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -99,7 +100,10 @@ export default function ProductShowcase({ data }: ProductShowcaseProps) {
                   </div>
 
                   {/* Buy Now Button */}
-                  <Link href="/enquiry" className={styles.buyNowBtn}>
+                  <Link 
+                    href={`/product/${category || 'healing'}/${encodeURIComponent(product.name.toLowerCase().replace(/\s+/g, '-'))}`}
+                    className={styles.buyNowBtn}
+                  >
                     <ShoppingCart sx={{ fontSize: 16 }} />
                     Buy Now
                   </Link>

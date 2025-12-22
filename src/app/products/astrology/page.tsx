@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function AstrologyProductsPage() {
-  return <ProductShowcase data={productAstrologyData} />;
+  return <ProductShowcase data={productAstrologyData} category="astrology" />;
 }
