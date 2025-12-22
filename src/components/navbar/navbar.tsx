@@ -31,6 +31,11 @@ import {
     MicOutlined,
     MenuBook,
     Star,
+    ElectricBolt,
+    Healing,
+    Hearing,
+    Casino,
+    BackHand,
 } from '@mui/icons-material';
 
 const iconMap: Record<string, React.ComponentType<any>> = {
@@ -55,6 +60,11 @@ const iconMap: Record<string, React.ComponentType<any>> = {
     MicOutlined,
     MenuBook,
     Star,
+    ElectricBolt,
+    Healing,
+    Hearing,
+    Casino,
+    BackHand,
 };
 
 const getIconComponent = (iconName: string) => {
