@@ -9,6 +9,7 @@ interface ProductDetailProps {
   meaning: string;
   benefit: string;
   use: string;
+  price?: string;
 }
 
 export default function ProductDetail({
@@ -17,10 +18,13 @@ export default function ProductDetail({
   meaning,
   benefit,
   use,
+  price = '₹999',
 }: ProductDetailProps) {
   const categoryPath = `/products/${category}`;
-  const price = '₹999';
   const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1);
+  
+  // Extract numeric amount from price string (e.g., "₹1,500" -> 1500)
+  const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;
 
   return (
     <main className={styles.container}>
@@ -96,7 +100,7 @@ export default function ProductDetail({
             {/* Action Buttons */}
             <div className={styles.actionButtons}>
               <Link 
-                href={`/checkout?product=${encodeURIComponent(productName)}`}
+                href={`/checkout?product=${encodeURIComponent(productName)}&amount=${amount}`}
                 className={styles.checkoutBtn}
               >
                 <ShoppingCart sx={{ fontSize: 18 }} />

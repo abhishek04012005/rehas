@@ -3,6 +3,7 @@ import CheckoutForm from '@/components/checkoutForm/checkoutForm';
 
 type SearchParams = Promise<{
   product?: string;
+  amount?: string;
 }>;
 
 interface CheckoutPageProps {
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
 export default async function CheckoutPage(props: CheckoutPageProps) {
   const searchParams = await props.searchParams;
   const productTitle = searchParams.product || 'REHAS Product';
+  const amount = parseFloat(searchParams.amount || '999');
   const decodedProduct = decodeURIComponent(productTitle);
 
-  return <CheckoutForm productTitle={decodedProduct} />;
+  return <CheckoutForm productTitle={decodedProduct} amount={amount} />;
 }

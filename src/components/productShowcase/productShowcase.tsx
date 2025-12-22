@@ -96,7 +96,7 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
                   {/* Price Box */}
                   <div className={styles.priceBox}>
                     <span className={styles.priceLabel}>Price</span>
-                    <span className={styles.price}>₹999</span>
+                    <span className={styles.price}>{product.price}</span>
                   </div>
 
                   {/* Buy Now Button */}

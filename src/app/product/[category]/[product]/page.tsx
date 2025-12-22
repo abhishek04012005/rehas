@@ -20,7 +20,9 @@ const getAllProducts = () => {
   const products: any[] = [];
   allProducts.forEach(({ category, data }) => {
     if (data.practices?.list) {
-      data.practices.list.forEach((product: any) => {
+      data.practices.list.forEach((product: any, index: number) => {
+        // Get price from sessions if available
+        const sessionPrice = data.sessions?.types?.[index]?.price || '₹999';
         products.push({
           category,
           name: product.name,
@@ -28,6 +30,7 @@ const getAllProducts = () => {
           meaning: product.meaning,
           benefit: product.benefit,
           use: product.use,
+          price: sessionPrice,
         });
       });
     }
@@ -110,6 +113,7 @@ export default async function ProductPage(props: {
       meaning={productData.meaning}
       benefit={productData.benefit}
       use={productData.use}
+      price={productData.price}
     />
   );
 }

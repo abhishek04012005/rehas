@@ -9,6 +9,7 @@ import styles from './checkoutForm.module.css';
 
 interface CheckoutFormProps {
   productTitle: string;
+  amount?: number;
 }
 
 const INDIAN_STATES = [
@@ -42,7 +43,7 @@ const INDIAN_STATES = [
   'West Bengal',
 ];
 
-export default function CheckoutForm({ productTitle }: CheckoutFormProps) {
+export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFormProps) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
@@ -159,7 +160,9 @@ export default function CheckoutForm({ productTitle }: CheckoutFormProps) {
               <h2>Order Confirmed!</h2>
               <p>Your order has been placed successfully. When the item reaches you, please pay the amount to the delivery person.</p>
               <div className={styles.codMessage}>
-                <strong>Payment Amount:</strong> ₹999.00
+                <strong>Order Number:</strong> #{createdOrderId}
+                <br />
+                <strong>Payment Amount:</strong> ₹{amount.toFixed(2)}
                 <br />
                 <strong>Payment Method:</strong> Cash on Delivery
               </div>
@@ -168,6 +171,9 @@ export default function CheckoutForm({ productTitle }: CheckoutFormProps) {
             <>
               <h2>Payment Successful!</h2>
               <p>Thank you for your order. Your payment has been processed successfully.</p>
+              <div className={styles.orderNumberBox}>
+                <strong>Order Number:</strong> #{createdOrderId}
+              </div>
             </>
           )}
           <div className={styles.orderDetails}>
@@ -202,7 +208,7 @@ export default function CheckoutForm({ productTitle }: CheckoutFormProps) {
       <div className={styles.paymentWrapper}>
         <PaymentForm
           orderId={createdOrderId}
-          amount={999}
+          amount={amount}
           customerEmail={formData.email}
           customerPhone={formData.phone}
           customerName={formData.fullName}

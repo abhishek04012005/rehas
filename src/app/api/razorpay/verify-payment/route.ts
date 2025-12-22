@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
 
     // Verify Razorpay signature
     const body_sha = crypto
-      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET || '')
+      .createHmac('sha256', process.env.RAZORPAY_SECRET_KEY_ID || '')
       .update(`${razorpayOrderId}|${razorpayPaymentId}`)
       .digest('hex');
 

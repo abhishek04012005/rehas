@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
     // Check if Razorpay credentials are set
     const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-    const keySecret = process.env.RAZORPAY_KEY_SECRET;
+    const keySecret = process.env.RAZORPAY_SECRET_KEY_ID;
 
     console.log('Checking credentials...');
     console.log('Key ID exists:', !!keyId);
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
 
     if (!keySecret) {
       return NextResponse.json(
-        { error: 'Razorpay Key Secret not configured in environment variables (RAZORPAY_KEY_SECRET)' },
+        { error: 'Razorpay Key Secret not configured in environment variables (RAZORPAY_SECRET_KEY_ID)' },
         { status: 500 }
       );
     }
