@@ -84,9 +84,9 @@ export const navbarData = {
       label: 'Products',
       href: '/products',
       submenu: [
-        { label: 'Healing', href: '/courses/healing', icon: 'SchoolOutlined' },
-        { label: 'Therapy', href: '/courses/therapy', icon: 'Numbers' },
-        { label: 'Astrology', href: '/courses/astrology', icon: 'PublicOutlined' },
+        { label: 'Healing', href: '/products/healing', icon: 'SchoolOutlined' },
+        { label: 'Therapy', href: '/products/therapy', icon: 'Numbers' },
+        { label: 'Astrology', href: '/products/astrology', icon: 'PublicOutlined' },
       ],
     },
 
