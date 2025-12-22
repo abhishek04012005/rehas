@@ -95,7 +95,10 @@ export default function ProductDetail({
 
             {/* Action Buttons */}
             <div className={styles.actionButtons}>
-              <Link href="/enquiry" className={styles.checkoutBtn}>
+              <Link 
+                href={`/checkout?product=${encodeURIComponent(productName)}`}
+                className={styles.checkoutBtn}
+              >
                 <ShoppingCart sx={{ fontSize: 18 }} />
                 Proceed to Checkout
               </Link>
@@ -141,7 +144,10 @@ export default function ProductDetail({
         <div className={styles.ctaContent}>
           <h2>Ready to Transform Your Wellness Journey?</h2>
           <p>Order this product today and experience the difference</p>
-          <Link href="/enquiry" className={styles.ctaButton}>
+          <Link 
+            href={`/checkout?product=${encodeURIComponent(productName)}`}
+            className={styles.ctaButton}
+          >
             <ShoppingCart sx={{ fontSize: 20 }} />
             Order Now
           </Link>
