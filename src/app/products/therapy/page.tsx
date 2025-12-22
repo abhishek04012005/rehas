@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HealingService from '@/components/healingService/healingService';
+import ProductShowcase from '@/components/productShowcase/productShowcase';
 import { productTherapyData } from '@/data/productTherapy';
 
 export const metadata: Metadata = {
@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function TherapyProductsPage() {
-  return <HealingService data={productTherapyData} />;
+  return <ProductShowcase data={productTherapyData} />;
 }

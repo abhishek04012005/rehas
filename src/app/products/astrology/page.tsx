@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HealingService from '@/components/healingService/healingService';
+import ProductShowcase from '@/components/productShowcase/productShowcase';
 import { productAstrologyData } from '@/data/productAstrology';
 
 export const metadata: Metadata = {
@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function AstrologyProductsPage() {
-  return <HealingService data={productAstrologyData} />;
+  return <ProductShowcase data={productAstrologyData} />;
 }
