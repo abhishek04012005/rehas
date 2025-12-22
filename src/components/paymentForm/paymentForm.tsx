@@ -13,7 +13,7 @@ interface PaymentFormProps {
   customerPhone: string;
   customerName: string;
   productTitle: string;
-  onPaymentSuccess: () => void;
+  onPaymentSuccess: (method: 'razorpay' | 'cod') => void;
 }
 
 declare global {
@@ -80,7 +80,7 @@ export default function PaymentForm({
           throw new Error(responseData.error || 'Failed to process COD order');
         }
 
-        onPaymentSuccess();
+        onPaymentSuccess('cod');
       } catch (err: any) {
         setError(err.message || 'Failed to process COD order');
         console.error('COD error:', err);
@@ -106,11 +106,15 @@ export default function PaymentForm({
         }),
       });
 
+      const responseData = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to create payment order');
+        const errorMsg = responseData.error || 'Failed to create payment order';
+        console.error('Create order error response:', responseData);
+        throw new Error(errorMsg);
       }
 
-      const { razorpayOrderId, key } = await response.json();
+      const { razorpayOrderId, key } = responseData;
 
       // Open Razorpay checkout
       const options = {
@@ -150,7 +154,7 @@ export default function PaymentForm({
             }
 
             // Payment successful
-            onPaymentSuccess();
+            onPaymentSuccess('razorpay');
           } catch (err: any) {
             setError('Payment verification failed. Please contact support.');
             console.error('Payment verification error:', err);
