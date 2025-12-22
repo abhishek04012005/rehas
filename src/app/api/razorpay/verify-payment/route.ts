@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
         .update({
           payment_status: 'pending',
           payment_method: 'cod',
+          transaction_id: `COD-${orderId}-${new Date().getTime()}`,
           status: 'confirmed',
           updated_at: new Date().toISOString(),
         })

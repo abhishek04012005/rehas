@@ -105,6 +105,7 @@ export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFor
         .insert([
           {
             product_title: productTitle,
+            amount: amount,
             full_name: formData.fullName,
             email: formData.email,
             phone: formData.phone,

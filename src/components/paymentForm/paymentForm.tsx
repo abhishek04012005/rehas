@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ShoppingCart, Check, Lock, LocalShipping } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 import styles from './paymentForm.module.css';
@@ -31,6 +32,7 @@ export default function PaymentForm({
   productTitle,
   onPaymentSuccess,
 }: PaymentFormProps) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
@@ -81,10 +83,15 @@ export default function PaymentForm({
         }
 
         onPaymentSuccess('cod');
+        // Redirect to success page for COD
+        router.push(`/payment/success?orderId=${orderId}&amount=${amount.toFixed(2)}&method=cod`);
       } catch (err: any) {
-        setError(err.message || 'Failed to process COD order');
+        const errorMsg = err.message || 'Failed to process COD order';
         console.error('COD error:', err);
-        setLoading(false);
+        // Redirect to failed page
+        router.push(
+          `/payment/failed?orderId=${orderId}&reason=${encodeURIComponent(errorMsg)}&errorCode=COD_FAILED`
+        );
       }
       return;
     }
@@ -143,26 +150,37 @@ export default function PaymentForm({
               },
               body: JSON.stringify({
                 orderId,
-                razorpayOrderId: response.order_id,
+                razorpayOrderId: response.razorpay_order_id,
                 razorpayPaymentId: response.razorpay_payment_id,
                 razorpaySignature: response.razorpay_signature,
               }),
             });
 
+            const verifyData = await verifyResponse.json();
+
             if (!verifyResponse.ok) {
-              throw new Error('Payment verification failed');
+              throw new Error(verifyData.error || 'Payment verification failed');
             }
 
-            // Payment successful
+            // Payment successful - redirect to success page
             onPaymentSuccess('razorpay');
+            router.push(
+              `/payment/success?orderId=${orderId}&transactionId=${response.razorpay_payment_id}&amount=${amount.toFixed(2)}`
+            );
           } catch (err: any) {
-            setError('Payment verification failed. Please contact support.');
+            const errorMsg = err.message || 'Payment verification failed';
             console.error('Payment verification error:', err);
+            // Redirect to failed page
+            router.push(
+              `/payment/failed?orderId=${orderId}&reason=${encodeURIComponent(errorMsg)}&errorCode=VERIFICATION_FAILED`
+            );
           }
         },
         modal: {
           ondismiss: () => {
             setLoading(false);
+            // User cancelled the payment
+            router.push(`/payment/cancel?orderId=${orderId}`);
           },
         },
       };

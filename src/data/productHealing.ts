@@ -88,7 +88,7 @@ export const productHealingData: HealingServiceData = {
         meaning: 'Natural crystals for energy and chakra healing',
         benefit: 'Energy alignment and vibration healing',
         use: 'Personal healing and space clearing',
-        price: '₹1,500',
+        price: '₹1',
       },
       {
         name: 'Essential Oils',
@@ -134,7 +134,7 @@ export const productHealingData: HealingServiceData = {
         name: 'Crystal Starter Set',
         duration: 'Includes 5 crystals',
         description: 'Essential healing crystals for beginners.',
-        price: '₹1,500',
+        price: '₹1',
         includes: [
           '5 genuine healing crystals',
           'Crystal guide booklet',
