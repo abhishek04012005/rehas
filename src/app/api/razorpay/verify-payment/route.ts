@@ -7,60 +7,18 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const {
       orderId,
-      isCOD,
-      paymentMethod,
       razorpayOrderId,
       razorpayPaymentId,
       razorpaySignature,
     } = body;
 
-    console.log('Verify payment request:', { orderId, isCOD, paymentMethod });
+    console.log('Verify payment request:', { orderId });
 
     if (!orderId) {
       return NextResponse.json(
         { error: 'Missing order ID' },
         { status: 400 }
       );
-    }
-
-    // Handle Cash on Delivery
-    if (isCOD || paymentMethod === 'cod') {
-      console.log('Processing COD order:', orderId);
-      
-      const { data, error } = await supabase
-        .from('orders')
-        .update({
-          payment_status: 'pending',
-          payment_method: 'cod',
-          transaction_id: `COD-${orderId}-${new Date().getTime()}`,
-          status: 'confirmed',
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', orderId)
-        .select();
-
-      console.log('COD update response:', { data, error });
-
-      if (error) {
-        console.error('Supabase COD update error:', error);
-        return NextResponse.json(
-          { error: `Failed to update order: ${error.message}` },
-          { status: 500 }
-        );
-      }
-
-      if (!data || data.length === 0) {
-        return NextResponse.json(
-          { error: 'Order not found in database' },
-          { status: 404 }
-        );
-      }
-
-      return NextResponse.json({
-        success: true,
-        message: 'COD order confirmed successfully',
-        orderId: orderId,
-      });
     }
 
     // Handle Razorpay payment

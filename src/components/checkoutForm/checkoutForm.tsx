@@ -49,7 +49,7 @@ export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFor
   const [submitted, setSubmitted] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
   const [createdOrderId, setCreatedOrderId] = useState<number | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState<'razorpay' | 'cod' | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<'razorpay' | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -144,40 +144,23 @@ export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFor
     }
   };
 
-  const handlePaymentSuccess = (method: 'razorpay' | 'cod') => {
+  const handlePaymentSuccess = (method: 'razorpay') => {
     setPaymentMethod(method);
     setShowPayment(false);
   };
 
   if (submitted && !showPayment) {
-    const isCOD = paymentMethod === 'cod';
     return (
       <div className={styles.successContainer}>
         <div className={styles.successContent}>
           <div className={styles.successIcon}>
             <Check sx={{ fontSize: 60 }} />
           </div>
-          {isCOD ? (
-            <>
-              <h2>Order Confirmed!</h2>
-              <p>Your order has been placed successfully. When the item reaches you, please pay the amount to the delivery person.</p>
-              <div className={styles.codMessage}>
-                <strong>Order Number:</strong> #{createdOrderId}
-                <br />
-                <strong>Payment Amount:</strong> ₹{amount.toFixed(2)}
-                <br />
-                <strong>Payment Method:</strong> Cash on Delivery
-              </div>
-            </>
-          ) : (
-            <>
-              <h2>Payment Successful!</h2>
-              <p>Thank you for your order. Your payment has been processed successfully.</p>
-              <div className={styles.orderNumberBox}>
-                <strong>Order Number:</strong> #{createdOrderId}
-              </div>
-            </>
-          )}
+          <h2>Payment Successful!</h2>
+          <p>Thank you for your order. Your payment has been processed successfully.</p>
+          <div className={styles.orderNumberBox}>
+            <strong>Order Number:</strong> #{createdOrderId}
+          </div>
           <div className={styles.orderDetails}>
             <p>
               <strong>Product:</strong> {productTitle}
@@ -189,7 +172,7 @@ export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFor
               <strong>Email:</strong> {formData.email}
             </p>
             <p>
-              <strong>Order Status:</strong> {isCOD ? 'Awaiting Delivery' : 'Confirmed'}
+              <strong>Order Status:</strong> Confirmed
             </p>
           </div>
           <div className={styles.successActions}>

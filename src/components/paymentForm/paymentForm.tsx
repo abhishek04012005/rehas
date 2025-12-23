@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ShoppingCart, Check, Lock, LocalShipping } from '@mui/icons-material';
+import { ShoppingCart, Check, Lock } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 import styles from './paymentForm.module.css';
 
@@ -14,7 +14,7 @@ interface PaymentFormProps {
   customerPhone: string;
   customerName: string;
   productTitle: string;
-  onPaymentSuccess: (method: 'razorpay' | 'cod') => void;
+  onPaymentSuccess: (method: 'razorpay') => void;
 }
 
 declare global {
@@ -36,7 +36,6 @@ export default function PaymentForm({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<'razorpay' | 'cod' | null>(null);
 
   // Load Razorpay script
   useEffect(() => {
@@ -53,48 +52,8 @@ export default function PaymentForm({
   }, []);
 
   const handlePayment = async () => {
-    if (!paymentMethod) {
-      setError('Please select a payment method');
-      return;
-    }
-
     setLoading(true);
     setError(null);
-
-    // Handle Cash on Delivery
-    if (paymentMethod === 'cod') {
-      try {
-        const response = await fetch('/api/razorpay/verify-payment', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            orderId,
-            paymentMethod: 'cod',
-            isCOD: true,
-          }),
-        });
-
-        const responseData = await response.json();
-
-        if (!response.ok) {
-          throw new Error(responseData.error || 'Failed to process COD order');
-        }
-
-        onPaymentSuccess('cod');
-        // Redirect to success page for COD
-        router.push(`/payment/success?orderId=${orderId}&amount=${amount.toFixed(2)}&method=cod`);
-      } catch (err: any) {
-        const errorMsg = err.message || 'Failed to process COD order';
-        console.error('COD error:', err);
-        // Redirect to failed page
-        router.push(
-          `/payment/failed?orderId=${orderId}&reason=${encodeURIComponent(errorMsg)}&errorCode=COD_FAILED`
-        );
-      }
-      return;
-    }
 
     try {
       // Create Razorpay order
@@ -235,40 +194,10 @@ export default function PaymentForm({
 
       {error && <div className={styles.errorMessage}>{error}</div>}
 
-      <div className={styles.paymentMethodSection}>
-        <h3>Choose Payment Method</h3>
-        
-        <div className={styles.paymentMethodsGrid}>
-          <div
-            className={`${styles.paymentMethodCard} ${paymentMethod === 'razorpay' ? styles.selected : ''}`}
-            onClick={() => setPaymentMethod('razorpay')}
-          >
-            <div className={styles.methodIcon}>
-              <ShoppingCart sx={{ fontSize: 32 }} />
-            </div>
-            <h4>Online Payment</h4>
-            <p>Pay securely with Razorpay</p>
-            <small>Credit Card, Debit Card, Net Banking, UPI</small>
-          </div>
-
-          <div
-            className={`${styles.paymentMethodCard} ${paymentMethod === 'cod' ? styles.selected : ''}`}
-            onClick={() => setPaymentMethod('cod')}
-          >
-            <div className={styles.methodIcon}>
-              <LocalShipping sx={{ fontSize: 32 }} />
-            </div>
-            <h4>Cash on Delivery</h4>
-            <p>Pay when you receive</p>
-            <small>Available for select locations</small>
-          </div>
-        </div>
-      </div>
-
       <div className={styles.paymentActions}>
         <button
           onClick={handlePayment}
-          disabled={loading || (!scriptLoaded && paymentMethod === 'razorpay') || !paymentMethod}
+          disabled={loading || !scriptLoaded}
           className={styles.payButton}
         >
           {loading ? (
@@ -276,15 +205,10 @@ export default function PaymentForm({
               <CircularProgress size={18} sx={{ color: 'white' }} />
               Processing...
             </>
-          ) : paymentMethod === 'cod' ? (
-            <>
-              <LocalShipping sx={{ fontSize: 18 }} />
-              Confirm Cash on Delivery
-            </>
           ) : (
             <>
               <ShoppingCart sx={{ fontSize: 18 }} />
-              Pay ₹{amount.toFixed(2)} with Razorpay
+              Pay Now - ₹{amount.toFixed(2)}
             </>
           )}
         </button>
