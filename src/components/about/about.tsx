@@ -24,14 +24,16 @@ const CHAKRA_ICONS = [
   TrendingUp  // Crown chakra
 ];
 
-const CHAKRA_COLORS = [
-  '#e74c3c', // Red
-  '#e67e22', // Orange
-  '#f39c12', // Yellow
-  '#27ae60', // Green
-  '#3498db', // Blue
-  '#9b59b6', // Purple
-  '#2c3e50'  // Violet
+const PLANET_COLORS = [
+  '#8c7853', // Mercury - Grayish brown
+  '#ffc649', // Venus - Golden yellow
+  '#4a90e2', // Earth - Blue
+  '#e27b58', // Mars - Reddish
+  '#c88b3a', // Jupiter - Brown with bands
+  '#fad5a5', // Saturn - Pale yellow
+  '#4fd0e7', // Uranus - Cyan
+  '#4166f5', // Neptune - Deep blue
+  '#9ca9a8'  // Pluto - Gray/white
 ];
 
 export default function About() {
@@ -68,48 +70,48 @@ export default function About() {
               <div className={styles.orbit} style={{ '--orbit-size': '440px' } as any}></div>
               
               {/* Planets */}
-              {/* Mercury - Red/Root Chakra */}
-              <div className={styles.planet} style={{ '--orbit-size': '120px', '--duration': '4s', '--size': '8px', '--color': '#e74c3c' } as any}>
+              {/* Mercury - Grayish Brown */}
+              <div className={styles.planet} style={{ '--orbit-size': '120px', '--duration': '4s', '--size': '8px', '--color': '#8c7853' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Venus - Orange/Sacral Chakra */}
-              <div className={styles.planet} style={{ '--orbit-size': '160px', '--duration': '7s', '--size': '14px', '--color': '#e67e22' } as any}>
+              {/* Venus - Golden Yellow */}
+              <div className={styles.planet} style={{ '--orbit-size': '160px', '--duration': '7s', '--size': '14px', '--color': '#ffc649' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Earth - Yellow/Solar Plexus Chakra */}
-              <div className={styles.planet} style={{ '--orbit-size': '200px', '--duration': '10s', '--size': '15px', '--color': '#f39c12' } as any}>
+              {/* Earth - Blue */}
+              <div className={styles.planet} style={{ '--orbit-size': '200px', '--duration': '10s', '--size': '15px', '--color': '#4a90e2' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Mars - Green/Heart Chakra */}
-              <div className={styles.planet} style={{ '--orbit-size': '240px', '--duration': '13s', '--size': '12px', '--color': '#27ae60' } as any}>
+              {/* Mars - Reddish */}
+              <div className={styles.planet} style={{ '--orbit-size': '240px', '--duration': '13s', '--size': '12px', '--color': '#e27b58' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Jupiter - Blue/Throat Chakra */}
-              <div className={styles.planet} style={{ '--orbit-size': '280px', '--duration': '16s', '--size': '28px', '--color': '#3498db' } as any}>
+              {/* Jupiter - Brown with Bands */}
+              <div className={styles.planet} style={{ '--orbit-size': '280px', '--duration': '16s', '--size': '28px', '--color': '#c88b3a' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Saturn - Purple/Third Eye Chakra with rings */}
-              <div className={styles.planet} style={{ '--orbit-size': '320px', '--duration': '19s', '--size': '24px', '--color': '#9b59b6' } as any}>
+              {/* Saturn - Pale Yellow with Rings */}
+              <div className={styles.planet} style={{ '--orbit-size': '320px', '--duration': '19s', '--size': '24px', '--color': '#fad5a5' } as any}>
                 <div className={styles.planetBody + ' ' + styles.withRing}></div>
               </div>
               
-              {/* Uranus - Deep Purple/Crown Chakra */}
-              <div className={styles.planet} style={{ '--orbit-size': '360px', '--duration': '22s', '--size': '18px', '--color': '#2c3e50' } as any}>
+              {/* Uranus - Cyan */}
+              <div className={styles.planet} style={{ '--orbit-size': '360px', '--duration': '22s', '--size': '18px', '--color': '#4fd0e7' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Neptune - Primary Theme Color */}
-              <div className={styles.planet} style={{ '--orbit-size': '400px', '--duration': '25s', '--size': '18px', '--color': '#560067' } as any}>
+              {/* Neptune - Deep Blue */}
+              <div className={styles.planet} style={{ '--orbit-size': '400px', '--duration': '25s', '--size': '18px', '--color': '#4166f5' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
-              {/* Pluto - Secondary Theme Color */}
-              <div className={styles.planet} style={{ '--orbit-size': '440px', '--duration': '28s', '--size': '6px', '--color': '#924a7a' } as any}>
+              {/* Pluto - Gray/White */}
+              <div className={styles.planet} style={{ '--orbit-size': '440px', '--duration': '28s', '--size': '6px', '--color': '#9ca9a8' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
             </div>

@@ -129,7 +129,7 @@ export const tantraData = {
       {
         name: 'Tantra Introduction',
         duration: '90 minutes',
-        price: '$99',
+        price: '₹7,200',
         description:
           'Begin your tantric journey with foundational teachings and safe, guided practices to awaken your subtle energies.',
         includes: [
@@ -143,7 +143,7 @@ export const tantraData = {
       {
         name: 'Advanced Tantra Course',
         duration: '6 weeks (2 hours/week)',
-        price: '$499',
+        price: '₹36,500',
         description:
           'Deep transformation through comprehensive tantric teachings, practices, and personal guidance.',
         includes: [
@@ -158,7 +158,7 @@ export const tantraData = {
       {
         name: 'Couples Tantra Workshop',
         duration: '120 minutes',
-        price: '$179',
+        price: '₹13,100',
         description:
           'Deepen intimate connection through sacred tantric practices designed for couples seeking spiritual and sensual harmony.',
         includes: [

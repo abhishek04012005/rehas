@@ -136,7 +136,7 @@ export const reikiData = {
       {
         name: 'In-Person Reiki',
         duration: '60 minutes',
-        price: '$89',
+        price: '₹6,500',
         description:
           'Experience hands-on Reiki treatment in our peaceful healing sanctuary. Full body healing with personalized chakra balancing.',
         includes: [
@@ -150,7 +150,7 @@ export const reikiData = {
       {
         name: 'Extended Reiki',
         duration: '90 minutes',
-        price: '$129',
+        price: '₹1',
         description:
           'Deeper healing experience with extended energy work and meditation guidance for maximum transformation.',
         includes: [
@@ -165,7 +165,7 @@ export const reikiData = {
       {
         name: 'Distance Reiki',
         duration: '60 minutes',
-        price: '$69',
+        price: '₹5,000',
         description:
           'Receive Reiki healing energy from anywhere in the world. Energy transcends physical distance and works equally effectively.',
         includes: [

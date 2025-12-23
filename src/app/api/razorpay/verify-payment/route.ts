@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await supabase
       .from('orders')
       .update({
-        payment_status: 'completed',
+        payment_status: 'paid',
         payment_method: 'razorpay',
         transaction_id: razorpayPaymentId,
         razorpay_order_id: razorpayOrderId,

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   SelfImprovement,
   Spa,
@@ -19,6 +20,7 @@ import {
   PublicOutlined,
 } from '@mui/icons-material';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
+import { useCheckout } from '@/context/CheckoutContext';
 import styles from './healingService.module.css';
 
 const iconMap = {
@@ -128,7 +130,21 @@ interface HealingServiceProps {
 }
 
 export default function HealingService({ data }: HealingServiceProps) {
+  const router = useRouter();
+  const { setProductData } = useCheckout();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const handleBookSession = (sessionName: string, price: string) => {
+    // Extract numeric amount from price string
+    const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;
+    
+    setProductData({ 
+      productTitle: sessionName, 
+      amount,
+      type: 'service'
+    });
+    router.push('/checkout');
+  };
 
   return (
     <div className={styles.healingService}>
@@ -139,9 +155,12 @@ export default function HealingService({ data }: HealingServiceProps) {
           <h1>{data.hero.title}</h1>
           <p className={styles.subtitle}>{data.hero.subtitle}</p>
           <p className={styles.description}>{data.hero.description}</p>
-          <a href="/enquiry" className={styles.ctaBtn}>
+          <button 
+            onClick={() => handleBookSession(data.hero.title, '₹999')}
+            className={styles.ctaBtn}
+          >
             Book Your Session <ChevronRight />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -317,9 +336,12 @@ export default function HealingService({ data }: HealingServiceProps) {
                     ))}
                   </ul>
                 </div>
-                <a href="/enquiry" className={styles.bookBtn}>
+                <button 
+                  onClick={() => handleBookSession(session.name, session.price)}
+                  className={styles.bookBtn}
+                >
                   Book Now <ChevronRight />
-                </a>
+                </button>
               </div>
             ))}
           </div>

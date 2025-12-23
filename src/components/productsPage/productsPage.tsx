@@ -268,7 +268,7 @@ export default function ProductsPage() {
               <ShoppingCart sx={{ fontSize: 20 }} />
               Shop Now
             </Link>
-            <Link href="/enquiry" className={styles.secondaryBtn}>
+            <Link href="/checkout" className={styles.secondaryBtn}>
               Need Help?
             </Link>
           </div>

@@ -123,7 +123,7 @@ export const mantraData = {
       {
         name: 'Mantra Initiation',
         duration: '60 minutes',
-        price: '$79',
+        price: '₹5,800',
         description:
           'Receive a personalized mantra selected specifically for your spiritual goals and current life situation.',
         includes: [
@@ -137,7 +137,7 @@ export const mantraData = {
       {
         name: 'Mantra Intensive Workshop',
         duration: '120 minutes',
-        price: '$149',
+        price: '₹10,900',
         description:
           'Deep dive into multiple sacred mantras and their transformative applications for different life areas.',
         includes: [
@@ -152,7 +152,7 @@ export const mantraData = {
       {
         name: 'Online Mantra Sessions',
         duration: '45 minutes',
-        price: '$59',
+        price: '₹4,300',
         description:
           'Learn and practice sacred mantras in the comfort of your home with expert guidance.',
         includes: [
