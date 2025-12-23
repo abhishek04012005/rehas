@@ -9,9 +9,9 @@ export const rehasData = {
     nameCompany: "REHAS",
     title: 'Founder & Visionary',
     subtitle: 'Cosmic Wellness Guide',
-    image: Person, 
+    image: Person,
     imageAlt: 'Rudra Aabhi Singh - Founder of REHAS',
-    logo: Logo, 
+    logo: Logo,
     badge: 'Our Visionary',
   },
 
@@ -19,6 +19,7 @@ export const rehasData = {
   professional: {
     yearsOfExperience: 15,
     specializations: [
+      'Astrology',
       'Vedic Astrology',
       'Numerology',
       'Energy Healing',
@@ -62,7 +63,7 @@ export const rehasData = {
   expertise: {
     primary: [
       {
-        name: 'Vedic Astrology',
+        name: 'Astrology',
         description:
           'Ancient Indian system of astronomy and astrology to understand life patterns',
         yearsOfExpertise: 15,
@@ -70,14 +71,27 @@ export const rehasData = {
           '5000+ birth chart readings and personalized guidance sessions',
       },
       {
-        name: 'Numerology',
+        name: 'Energy Healing',
+        description: 'Holistic healing techniques to balance energy and promote wellness',
+        yearsOfExpertise: 10,
+        experience: '2000+ energy healing sessions across multiple modalities',
+      },
+      {
+        name: 'Yoga',
         description:
           'Study of numbers and their mystical significance in human life',
         yearsOfExpertise: 12,
         experience: '3000+ numerology consultations and life path readings',
       },
       {
-        name: 'Energy Healing',
+        name: 'Meditation',
+        description:
+          'Ancient meditation practices adapted for modern wellness seekers',
+        yearsOfExpertise: 16,
+        experience: '6000+ meditation workshop participants trained',
+      },
+      {
+        name: 'Tantra',
         description: 'Holistic healing techniques to balance energy and promote wellness',
         yearsOfExpertise: 10,
         experience: '2000+ energy healing sessions across multiple modalities',
@@ -87,14 +101,7 @@ export const rehasData = {
         description: 'Personalized guidance for career, relationships, and personal growth',
         yearsOfExpertise: 14,
         experience: '4000+ individuals transformed through life coaching',
-      },
-      {
-        name: 'Meditation',
-        description:
-          'Ancient meditation practices adapted for modern wellness seekers',
-        yearsOfExpertise: 16,
-        experience: '6000+ meditation workshop participants trained',
-      },
+      }
     ],
     secondary: [
       'Tarot Reading',
@@ -240,7 +247,7 @@ export const rehasData = {
     bookingUrl: 'https://rehas.com/book-consultation',
   },
 
-  
+
 };
 
 // Export individual sections for easier access

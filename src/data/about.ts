@@ -11,12 +11,12 @@ export const aboutData = {
       {
         title: 'Who We Are',
         description:
-          'REHAS empowers seekers through astrology and holistic wellness, serving thousands worldwide.',
+          'REHAS is a trusted platform dedicated to bridging ancient cosmic wisdom with modern wellness practices. Founded on the belief that everyone deserves access to transformative guidance, we serve thousands of seekers worldwide. Our team of experienced astrologers, wellness coaches, and meditation guides are passionate about helping individuals discover their true potential and live authentically aligned with their cosmic blueprint.',
       },
       {
         title: 'What We Do',
         description:
-          'We offer astrology readings, wellness coaching, and meditation guidance to help you live authentically.',
+          'We offer comprehensive astrology readings, personalized wellness coaching, and guided meditation sessions tailored to your unique needs. From Vedic astrology consultations and numerology insights to energy healing and life coaching, our services help you navigate life\'s challenges with clarity and confidence. We combine ancient practices with modern understanding to create transformative experiences that empower you to achieve your goals and embrace your fullest self.',
       },
     ],
   },

@@ -47,7 +47,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Main Content - Left Chakra, Right Content */}
+      {/* Main Content - Left Solar System, Right Story */}
       <div className={styles.mainContent}>
         {/* Left Side - Solar System Visualization */}
         <div className={styles.chakraSection}>
@@ -116,12 +116,12 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right Side - All Content */}
+        {/* Right Side - Story Cards Only */}
         <div className={styles.contentContainer}>
           {/* Story Cards */}
           <section className={styles.storySection}>
             <div className={styles.sectionHeader}>
-              <h2>Our Story</h2>
+              {/* <h2>Our Story</h2> */}
               <div className={styles.headerUnderline}></div>
             </div>
             <div className={styles.contentGrid}>
@@ -133,41 +133,44 @@ export default function About() {
               ))}
             </div>
           </section>
-
-          {/* Stats Section */}
-          <section className={styles.statsSection}>
-            <div className={styles.sectionHeader}>
-              <h2>Our Impact</h2>
-              <div className={styles.headerUnderline}></div>
-            </div>
-            <div className={styles.statsGrid}>
-              {aboutData.stats.map((stat, idx) => (
-                <div className={styles.statCard} key={idx}>
-                  <div className={styles.statNumber}>{stat.number}</div>
-                  <div className={styles.statLabel}>{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Mission & Vision Section */}
-          <section className={styles.missionVisionSection}>
-            <div className={styles.sectionHeader}>
-              <h2>Our Purpose</h2>
-              <div className={styles.headerUnderline}></div>
-            </div>
-            <div className={styles.purposeGrid}>
-              <div className={styles.purposeCard}>
-                <h3>Our Mission</h3>
-                <p>{rehasData.about.missionStatement}</p>
-              </div>
-              <div className={styles.purposeCard}>
-                <h3>Our Vision</h3>
-                <p>{rehasData.about.visionStatement}</p>
-              </div>
-            </div>
-          </section>
         </div>
+      </div>
+
+      {/* Impact & Purpose Section - Below Both */}
+      <div className={styles.belowContainer}>
+        {/* Stats Section */}
+        <section className={styles.statsSection}>
+          <div className={styles.sectionHeader}>
+            {/* <h2>Our Impact</h2> */}
+            <div className={styles.headerUnderline}></div>
+          </div>
+          <div className={styles.statsGrid}>
+            {aboutData.stats.map((stat, idx) => (
+              <div className={styles.statCard} key={idx}>
+                <div className={styles.statNumber}>{stat.number}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Mission & Vision Section */}
+        <section className={styles.missionVisionSection}>
+          <div className={styles.sectionHeader}>
+            {/* <h2>Our Purpose</h2> */}
+            <div className={styles.headerUnderline}></div>
+          </div>
+          <div className={styles.purposeGrid}>
+            <div className={styles.purposeCard}>
+              <h3>Our Mission</h3>
+              <p>{rehasData.about.missionStatement}</p>
+            </div>
+            <div className={styles.purposeCard}>
+              <h3>Our Vision</h3>
+              <p>{rehasData.about.visionStatement}</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

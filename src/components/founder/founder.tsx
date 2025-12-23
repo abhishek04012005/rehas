@@ -17,12 +17,12 @@ export default function Founder() {
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          <div className={styles.headerBadge}>
+          {/* <div className={styles.headerBadge}>
             <Star className={styles.badgeIcon} />
             <span>{profile.badge}</span>
-          </div>
+          </div> */}
           <h2>
-            Meet <span className={styles.gradientText}>Our Mentor</span>
+            Meet <span className={styles.gradientText}>Our Founder</span>
           </h2>
         </div>
 
@@ -52,6 +52,13 @@ export default function Founder() {
               {/* Decorative Elements */}
               <div className={styles.glow}></div>
               <div className={styles.imageFrame}></div>
+            </div>
+
+            {/* Name and Title Below Image */}
+            <div className={styles.nameCard}>
+              <h3 className={styles.founderName}>{profile.name}</h3>
+              <p className={styles.founderTitle}>{profile.title}</p>
+              <div className={styles.titleUnderline}></div>
             </div>
 
             {/* Social Links */}
@@ -88,13 +95,6 @@ export default function Founder() {
 
           {/* Right Side - About Content */}
           <div className={styles.bioSection}>
-            {/* Name and Title */}
-            <div className={styles.nameCard}>
-              <h3 className={styles.founderName}>{profile.name}</h3>
-              <p className={styles.founderTitle}>{profile.title}</p>
-              <div className={styles.titleUnderline}></div>
-            </div>
-
             {/* Quote */}
             <blockquote className={styles.quote}>{quote.text}</blockquote>
 
@@ -130,9 +130,9 @@ export default function Founder() {
             </div>
 
             {/* CTA Button */}
-            <a href="/contact" className={styles.ctaBtn}>
+            {/* <a href="/contact" className={styles.ctaBtn}>
               Connect with Founder
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

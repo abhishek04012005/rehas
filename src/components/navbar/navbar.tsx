@@ -176,14 +176,14 @@ export default function Navbar() {
             </a>
 
             {/* Enquiry Fixed Button */}
-            <Link
+            {/* <Link
                 href="/enquiry"
                 className={styles.enquiryButton}
                 aria-label="Submit enquiry"
                 title="Submit enquiry"
             >
                 <ContactSupport className={styles.enquiryIcon} />
-            </Link>
+            </Link> */}
         </>
     );
 }
