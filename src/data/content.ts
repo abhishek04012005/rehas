@@ -11,5 +11,7 @@ export { footerData } from './footer';
 export { navbarData } from './navbar';
 export { homepageData } from './homepage';
 export { servicesData } from './services';
+export { healingData } from './healing';
+export { therapyData } from './therapy';
 export { notFoundData } from './notfound';
 export { blogData } from './blog';
