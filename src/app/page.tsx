@@ -26,7 +26,7 @@ export default function Home() {
       <Founder />
       <Services />
       <BlogPreview />
-      <TestimonialSlider/>
+      <TestimonialSlider />
       <Contact />
     </>
   );

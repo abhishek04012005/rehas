@@ -4,10 +4,6 @@
   position: relative;
 }
 
-.contentSection {
-  position: relative;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -44,239 +40,447 @@
   color: #666;
 }
 
-/* Story Section */
-.storySection {
-  padding: 4rem 2rem;
-  border-bottom: 1px solid #eee;
-}
-
-.storyGrid {
+/* Main Content Layout - Left Chakra, Right Content */
+.mainContent {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: stretch;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
-.storyCard {
-  padding: 2rem;
-  background: #fafafa;
-  border-radius: 12px;
-  border: 1px solid #eee;
+.chakraSection {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+
+.chakraContainer {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.chakraCircle {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solarSystem {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #ffd700, #ffa500);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8),
+              0 0 80px rgba(255, 165, 0, 0.4);
+  z-index: 10;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(86, 0, 103, 0.5);
+  border-radius: 50%;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
+}
+
+.planet {
+  position: absolute;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  left: 50%;
+  top: 50%;
+  margin-left: calc(var(--orbit-size) / -2);
+  margin-top: calc(var(--orbit-size) / -2);
+  animation: orbitPlanet var(--duration) linear infinite;
+}
+
+@keyframes orbitPlanet {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.planetBody {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: var(--color);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  margin-left: calc(var(--size) / -2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
+              0 0 20px var(--color);
   transition: all 0.3s ease;
 }
 
-.storyCard:hover {
-  border-color: var(--primary);
-  background: white;
-  box-shadow: 0 6px 16px rgba(86, 0, 103, 0.08);
-  transform: translateY(-2px);
+.planetBody:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5),
+              0 0 30px var(--color),
+              0 0 40px var(--color);
+  filter: brightness(1.2);
 }
 
-.storyCard h2 {
+.withRing::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--size) * 2.2);
+  height: calc(var(--size) * 0.6);
+  border: 2px solid rgba(155, 89, 182, 0.7);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: calc(var(--size) * -1.1);
+  margin-top: calc(var(--size) * -0.3);
+  box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+}
+
+.chakraInner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(146, 72, 122, 0.05) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #f0f0f0;
+  color: var(--primary);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 20px 60px rgba(86, 0, 103, 0.08),
+              0 20px 60px rgba(86, 0, 103, 0.1);
+}
+
+.chakraOrbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.chakraPoint {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 0 0 20px var(--color);
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  animation: orbitChakra 8s linear infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes orbitChakra {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spinIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.sectionHeader {
+  text-align: left;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.sectionHeader h2 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.headerUnderline {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 2px;
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60px;
+    opacity: 1;
+  }
+}
+
+/* Story Section */
+.storySection {
+  position: relative;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.contentCard {
+  padding: 2rem;
+  background: linear-gradient(135deg, white 0%, #fafafa 100%);
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.contentCard:hover {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, white 0%, #f5f5f5 100%);
+  box-shadow: 0 12px 32px rgba(86, 0, 103, 0.15);
+  transform: translateY(-6px);
+}
+
+.contentCard h3 {
   font-size: 1.4rem;
   color: var(--primary);
   margin: 0 0 1rem 0;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-.storyCard p {
+.contentCard p {
   color: #666;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
 }
 
 /* Stats Section */
 .statsSection {
-  padding: 4rem 2rem;
-  border-bottom: 1px solid #eee;
-}
-
-.statsSection h2 {
-  font-size: 2rem;
-  color: var(--primary);
-  text-align: center;
-  margin: 0 0 3rem 0;
-  font-weight: 700;
+  position: relative;
 }
 
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
 }
 
-.statItem {
+.statCard {
+  padding: 2.5rem;
+  background: linear-gradient(135deg, white 0%, #f9f9f9 100%);
+  border: 2px solid #f0f0f0;
+  border-radius: 16px;
   text-align: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(86, 0, 103, 0.03) 0%, rgba(146, 72, 122, 0.02) 100%);
-  border: 1px solid rgba(86, 0, 103, 0.08);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-.statItem:hover {
+.statCard:hover {
   border-color: var(--primary);
-  background: white;
-  box-shadow: 0 8px 20px rgba(86, 0, 103, 0.1);
-  transform: translateY(-4px);
+  background: linear-gradient(135deg, #f9f9f9 0%, white 100%);
+  box-shadow: 0 16px 40px rgba(86, 0, 103, 0.12);
+  transform: translateY(-8px);
 }
 
-.number {
-  display: block;
-  font-size: 2.2rem;
+.statNumber {
+  font-size: 3rem;
   color: var(--primary);
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 0.5rem;
+  animation: countUp 0.6s ease-out;
 }
 
-.label {
-  display: block;
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statLabel {
   color: #666;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Mission & Vision Section */
 .missionVisionSection {
-  padding: 4rem 2rem;
-  border-bottom: 1px solid #eee;
+  position: relative;
 }
 
-.missionVisionContent {
+.purposeGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
-.missionVisionCard {
-  padding: 2.5rem;
-  background: linear-gradient(135deg, rgba(86, 0, 103, 0.04) 0%, rgba(146, 72, 122, 0.03) 100%);
-  border: 1px solid rgba(86, 0, 103, 0.1);
+.purposeCard {
+  padding: 3rem;
+  background: linear-gradient(135deg, white 0%, #fafafa 100%);
+  border: 2px solid #f0f0f0;
   border-radius: 16px;
-  text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.missionVisionCard:hover {
+.purposeCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(86, 0, 103, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.purposeCard:hover {
   border-color: var(--primary);
-  background: linear-gradient(135deg, rgba(86, 0, 103, 0.08) 0%, rgba(146, 72, 122, 0.06) 100%);
-  box-shadow: 0 8px 24px rgba(86, 0, 103, 0.12);
-  transform: translateY(-4px);
+  background: linear-gradient(135deg, white 0%, white 100%);
+  box-shadow: 0 20px 50px rgba(86, 0, 103, 0.15);
+  transform: translateY(-8px);
 }
 
-.missionVisionIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: inline-block;
-  color: var(--primary);
+.purposeCard:hover::before {
+  top: -25%;
+  right: 0%;
 }
 
-.missionVisionIconMUI {
-  width: 3rem !important;
-  height: 3rem !important;
-  font-size: 3rem !important;
-  color: var(--primary) !important;
-}
-
-.missionVisionCard h2 {
-  font-size: 1.6rem;
+.purposeCard h3 {
+  font-size: 1.8rem;
   color: var(--primary);
   margin: 0 0 1.5rem 0;
-  font-weight: 700;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
 }
 
-.missionVisionCard p {
+.purposeCard p {
   color: #555;
   font-size: 1rem;
-  line-height: 1.8;
+  line-height: 1.9;
   margin: 0;
   font-weight: 500;
-}
-
-/* CTA Section */
-.ctaSection {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.ctaSection h2 {
-  color: white;
-  font-size: 2rem;
-  margin: 0 0 0.75rem 0;
-  font-weight: 700;
-}
-
-.ctaSection p {
-  font-size: 1.05rem;
-  margin: 0 0 2rem 0;
-  opacity: 0.9;
-}
-
-.ctaButtons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btnPrimary,
-.btnSecondary {
-  padding: 0.95rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.btnPrimary {
-  background: white;
-  color: var(--primary);
-}
-
-.btnPrimary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btnSecondary {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-
-.btnSecondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .storyGrid {
+  .mainContent {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 3rem;
+    padding: 3rem 2rem;
   }
 
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+  .chakraSection {
+    position: relative;
+    top: auto;
   }
 
-  .missionVisionContent {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .chakraContainer {
+    max-width: 400px;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.8rem;
+  }
+
+  .contentCard {
+    padding: 1.5rem;
+  }
+
+  .contentCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .contentCard p {
+    font-size: 0.9rem;
+  }
+
+  .statCard {
+    padding: 2rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .purposeCard {
+    padding: 2rem;
+  }
+
+  .purposeCard h3 {
+    font-size: 1.5rem;
+  }
+
+  .purposeCard p {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 3.5rem 1.5rem;
+    padding: 3rem 1.5rem;
   }
 
   .heroContent h1 {
@@ -287,36 +491,43 @@
     font-size: 1rem;
   }
 
-  .container {
-    padding: 0 1.5rem;
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
   }
 
-  .storySection,
-  .statsSection,
-  .missionVisionSection,
-  .ctaSection {
-    padding: 3rem 1.5rem;
+  .chakraContainer {
+    max-width: 300px;
   }
 
-  .storyGrid {
+  .chakraPoint {
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+  }
+
+  @keyframes orbitChakra {
+    0% {
+      transform: rotate(0deg) translateX(90px) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: rotate(360deg) translateX(90px) rotate(-360deg);
+      opacity: 1;
+    }
+  }
+
+  .contentGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-bottom: 0;
   }
 
-  .storyCard {
+  .contentCard {
     padding: 1.5rem;
-  }
-
-  .storyCard h2 {
-    font-size: 1.2rem;
-  }
-
-  .statsSection h2,
-  .missionVisionSection h2,
-  .ctaSection h2 {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
   }
 
   .statsGrid {
@@ -324,154 +535,127 @@
     gap: 1.5rem;
   }
 
-  .statItem {
-    padding: 1.5rem;
+  .statNumber {
+    font-size: 2rem;
   }
 
-  .number {
-    font-size: 1.8rem;
+  .statLabel {
+    font-size: 0.85rem;
   }
 
-  .missionVisionContent {
+  .purposeGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  .missionVisionCard {
-    padding: 2rem;
+  .purposeCard {
+    padding: 1.75rem;
   }
 
-  .missionVisionIcon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .missionVisionCard h2 {
+  .purposeCard h3 {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
   }
 
-  .missionVisionCard p {
-    font-size: 0.95rem;
-  }
-
-  .ctaSection p {
-    font-size: 1rem;
-  }
-
-  .ctaButtons {
-    flex-direction: column;
-  }
-
-  .btnPrimary,
-  .btnSecondary {
-    width: 100%;
+  .purposeCard p {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 2.5rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .heroContent h1 {
     font-size: 1.5rem;
-    margin-bottom: 0.75rem;
   }
 
   .heroContent p {
     font-size: 0.95rem;
   }
 
-  .container {
-    padding: 0 1rem;
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
   }
 
-  .storySection,
-  .statsSection,
-  .missionVisionSection,
-  .ctaSection {
-    padding: 2rem 1rem;
+  .chakraContainer {
+    max-width: 250px;
   }
 
-  .storyGrid {
+  .chakraPoint {
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+  }
+
+  @keyframes orbitChakra {
+    0% {
+      transform: rotate(0deg) translateX(70px) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: rotate(360deg) translateX(70px) rotate(-360deg);
+      opacity: 1;
+    }
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.4rem;
+  }
+
+  .contentGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
-    margin-bottom: 1.5rem;
   }
 
-  .storyCard {
+  .contentCard {
     padding: 1.25rem;
   }
 
-  .storyCard h2 {
+  .contentCard h3 {
     font-size: 1.1rem;
-    margin-bottom: 0.75rem;
   }
 
-  .storyCard p {
-    font-size: 0.9rem;
-  }
-
-  .statsSection h2,
-  .missionVisionSection h2,
-  .ctaSection h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+  .contentCard p {
+    font-size: 0.85rem;
   }
 
   .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .statItem {
-    padding: 1rem;
-    border-radius: 8px;
-  }
-
-  .number {
-    font-size: 1.3rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .label {
-    font-size: 0.8rem;
-  }
-
-  .missionVisionContent {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .missionVisionCard {
+  .statCard {
     padding: 1.5rem;
-    border-radius: 12px;
   }
 
-  .missionVisionIcon {
-    font-size: 2.2rem;
-    margin-bottom: 0.75rem;
+  .statNumber {
+    font-size: 1.8rem;
   }
 
-  .missionVisionCard h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
+  .statLabel {
+    font-size: 0.75rem;
   }
 
-  .missionVisionCard p {
+  .purposeGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .purposeCard {
+    padding: 1.5rem;
+  }
+
+  .purposeCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .purposeCard p {
     font-size: 0.85rem;
-    line-height: 1.6;
-  }
-
-  .ctaSection p {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .btnPrimary,
-  .btnSecondary {
-    padding: 0.8rem 2rem;
-    font-size: 0.95rem;
   }
 }

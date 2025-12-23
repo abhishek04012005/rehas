@@ -80,16 +80,16 @@ export const navbarData = {
         // { label: 'Reading', href: '/courses/reading', icon: 'MenuBook' },
       ],
     },
-     {
-      label: 'Products',
-      href: '/products',
-      submenu: [
-        { label: 'Healing', href: '/products/healing', icon: 'SchoolOutlined' },
-        { label: 'Therapy', href: '/products/therapy', icon: 'Numbers' },
-        { label: 'Astrology', href: '/products/astrology', icon: 'PublicOutlined' },
-      ],
-    },
-
+    //  {
+    //   label: 'Products',
+    //   href: '/products',
+    //   submenu: [
+    //     { label: 'Healing', href: '/products/healing', icon: 'SchoolOutlined' },
+    //     { label: 'Therapy', href: '/products/therapy', icon: 'Numbers' },
+    //     { label: 'Astrology', href: '/products/astrology', icon: 'PublicOutlined' },
+    //   ],
+    // },
+    {label: 'Blog', href: '/blog' },
   ],
   cta: {
     label: 'Book Consultation',

@@ -1,5 +1,5 @@
 import Logo from '../../public/logohalf.svg'
-import Person from '../../public/assets/founder/1.jpg'
+import Person from '../../public/assets/founder/1.png'
 
 export const rehasData = {
   // Basic Information
