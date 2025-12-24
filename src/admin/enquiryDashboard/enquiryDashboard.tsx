@@ -39,6 +39,8 @@ export default function EnquiryDashboard() {
   const [sourceFilter, setSourceFilter] = useState('all');
   const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Stats
   const [stats, setStats] = useState({
@@ -113,7 +115,19 @@ export default function EnquiryDashboard() {
     }
 
     setFilteredEnquiries(filtered);
+    setCurrentPage(1); // Reset to first page on filter change
   }, [searchTerm, statusFilter, sourceFilter, enquiries]);
+
+  // Pagination calculation
+  const totalPages = Math.ceil(filteredEnquiries.length / itemsPerPage);
+  const paginatedEnquiries = filteredEnquiries.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
 
   const handleStatusChange = async (
     enquiryId: number,
@@ -295,7 +309,7 @@ export default function EnquiryDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredEnquiries.map((enquiry) => (
+                  {paginatedEnquiries.map((enquiry) => (
                     <tr key={enquiry.id} className={styles.tableRow}>
                       <td className={styles.nameCell}>{enquiry.name}</td>
                       <td className={`${styles.phoneCell} ${styles.hideOnTablet}`}>
@@ -360,6 +374,48 @@ export default function EnquiryDashboard() {
                   ))}
                 </tbody>
               </table>
+
+              {/* Pagination Controls */}
+              {filteredEnquiries.length > 0 && (
+                <div className={styles.paginationContainer}>
+                  <div className={styles.paginationLeft}>
+                    <button
+                      className={styles.paginationBtn}
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      Previous
+                    </button>
+                    <button
+                      className={styles.paginationBtn}
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                    >
+                      Next
+                    </button>
+                  </div>
+
+                  <div className={styles.paginationRight}>
+                    <label htmlFor="itemsPerPage">Items per page:</label>
+                    <select
+                      id="itemsPerPage"
+                      className={styles.itemsPerPageSelect}
+                      value={itemsPerPage}
+                      onChange={(e) => {
+                        setItemsPerPage(Number(e.target.value));
+                        setCurrentPage(1);
+                      }}
+                    >
+                      <option value={10}>10</option>
+                      <option value={20}>20</option>
+                      <option value={100}>100</option>
+                    </select>
+                    <span className={styles.paginationInfo}>
+                      Page {currentPage} of {totalPages} ({filteredEnquiries.length} total)
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className={styles.emptyState}>

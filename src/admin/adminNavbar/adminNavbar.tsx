@@ -47,6 +47,12 @@ export default function AdminNavbar() {
                     <a href="/admin/dashboard" className={styles.navLink}>
                         Dashboard
                     </a>
+                    <a href="/admin/payments" className={styles.navLink}>
+                        Payments
+                    </a>
+                    <a href="/admin/orders" className={styles.navLink}>
+                        Orders
+                    </a>
                     <a href="/admin/dashboard" className={styles.navLink}>
                         Contacts
                     </a>
@@ -80,6 +86,12 @@ export default function AdminNavbar() {
                     <div className={styles.mobileMenu}>
                         <a href="/admin/dashboard" className={styles.mobileLink}>
                             Dashboard
+                        </a>
+                        <a href="/admin/payments" className={styles.mobileLink}>
+                            Payments
+                        </a>
+                        <a href="/admin/orders" className={styles.mobileLink}>
+                            Orders
                         </a>
                         <a href="/admin/dashboard" className={styles.mobileLink}>
                             Contacts

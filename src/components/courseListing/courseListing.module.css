@@ -162,6 +162,30 @@
   gap: 10px;
 }
 
+.sortButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.sortButton {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid var(--primary);
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.sortIcon {
+  font-size: 24px !important;
+  vertical-align: middle;
+  font-weight: bolder;
+}
+
 .sortLabel {
   font-size: 14px;
   font-weight: 600;
@@ -203,6 +227,8 @@
   border-radius: 12px;
   border: 1px solid rgba(86, 0, 103, 0.1);
   max-width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .filterHeader {

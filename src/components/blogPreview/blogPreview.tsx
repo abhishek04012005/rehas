@@ -14,10 +14,10 @@ export default function BlogPreview() {
       <div className={styles.container}>
         {/* Header Section - Centered */}
         <div className={styles.header}>
-          <h2>Latest Insights & Articles</h2>
-          <p>Explore our curated collection of articles on astrology, numerology, and holistic wellness</p>
+          <h2>Blogs</h2>
+          <p>Explore our curated collection of blogs on astrology, numerology, and holistic wellness</p>
           <a href="/blog" className={styles.viewAllBtn}>
-            View All Articles <ChevronRight />
+            View All Blogs <ChevronRight />
           </a>
         </div>
 

@@ -39,6 +39,8 @@ export default function ContactDashboard() {
     null
   );
   const [showModal, setShowModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Stats
   const [stats, setStats] = useState({
@@ -105,7 +107,19 @@ export default function ContactDashboard() {
     }
 
     setFilteredContacts(filtered);
+    setCurrentPage(1); // Reset to first page on filter change
   }, [searchTerm, statusFilter, contacts]);
+
+  // Pagination calculation
+  const totalPages = Math.ceil(filteredContacts.length / itemsPerPage);
+  const paginatedContacts = filteredContacts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
 
   const handleStatusChange = async (
     contactId: string,
@@ -266,7 +280,7 @@ export default function ContactDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredContacts.map((contact) => (
+                  {paginatedContacts.map((contact) => (
                     <tr key={contact.id} className={styles.tableRow}>
                       <td className={styles.nameCell}>{contact.name}</td>
                       <td className={styles.phoneCell}>
@@ -333,6 +347,48 @@ export default function ContactDashboard() {
                   ))}
                 </tbody>
               </table>
+
+              {/* Pagination Controls */}
+              {filteredContacts.length > 0 && (
+                <div className={styles.paginationContainer}>
+                  <div className={styles.paginationLeft}>
+                    <button
+                      className={styles.paginationBtn}
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      Previous
+                    </button>
+                    <button
+                      className={styles.paginationBtn}
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                    >
+                      Next
+                    </button>
+                  </div>
+
+                  <div className={styles.paginationRight}>
+                    <label htmlFor="itemsPerPage">Items per page:</label>
+                    <select
+                      id="itemsPerPage"
+                      className={styles.itemsPerPageSelect}
+                      value={itemsPerPage}
+                      onChange={(e) => {
+                        setItemsPerPage(Number(e.target.value));
+                        setCurrentPage(1);
+                      }}
+                    >
+                      <option value={10}>10</option>
+                      <option value={20}>20</option>
+                      <option value={100}>100</option>
+                    </select>
+                    <span className={styles.paginationInfo}>
+                      Page {currentPage} of {totalPages} ({filteredContacts.length} total)
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className={styles.emptyState}>

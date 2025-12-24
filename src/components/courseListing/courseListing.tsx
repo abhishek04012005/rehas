@@ -136,53 +136,78 @@ export default function CourseListing({
               )}
             </div>
 
-            {/* Sort Filter */}
-            <div className={styles.sortWrapper}>
-              <label htmlFor="courseSortSelect" className={styles.sortLabel}>Sort by Price:</label>
-              <select
-                id="courseSortSelect"
-                className={styles.sortSelect}
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as 'none' | 'asc' | 'desc')}
-              >
-                <option value="none">Default</option>
-                <option value="asc">Low to High</option>
-                <option value="desc">High to Low</option>
-              </select>
-            </div>
+
           </div>
 
           {/* Filter Section */}
           {uniqueLevels.length > 0 && (
             <div className={styles.filterContainer}>
-              <div className={styles.filterHeader}>
-                <FilterList sx={{ fontSize: 20, color: 'var(--primary)' }} />
-                <h3>Filter by Level</h3>
+              <div className={styles.filters}>
+                <div className={styles.filterHeader}>
+                  <FilterList sx={{ fontSize: 20, color: 'var(--primary)' }} />
+                  <h3>Filter by Level</h3>
+                </div>
+                <div className={styles.filterButtons}>
+                  {uniqueLevels.map((level) => (
+                    <button
+                      key={level}
+                      onClick={() => toggleLevelFilter(level)}
+                      className={`${styles.filterButton} ${selectedLevels.includes(level) ? styles.activeFilter : ''
+                        }`}
+                    >
+                      {level}
+                    </button>
+                  ))}
+                </div>
+                {(selectedLevels.length > 0 || searchQuery) && (
+                  <div className={styles.filterStats}>
+                    <p>
+                      Showing {filteredCourses.length} of {courses.length} courses
+                      {selectedLevels.length > 0 && ` • ${selectedLevels.length} level(s) selected`}
+                    </p>
+                    <button onClick={handleClearFilters} className={styles.clearFiltersButton}>
+                      Clear All Filters
+                    </button>
+
+                  </div>
+
+                )}
               </div>
-              <div className={styles.filterButtons}>
-                {uniqueLevels.map((level) => (
+              {/* Sort Filter */}
+              {/* <div className={styles.sortWrapper}>
+                <label htmlFor="courseSortSelect" className={styles.sortLabel}>Sort by Price:</label>
+                <select
+                  id="courseSortSelect"
+                  className={styles.sortSelect}
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as 'none' | 'asc' | 'desc')}
+                >
+                  <option value="none">Default</option>
+                  <option value="asc">Low to High</option>
+                  <option value="desc">High to Low</option>
+                </select>
+              </div> */}
+
+              <div className={styles.sortWrapper}>
+                <span className={styles.sortLabel}>Sort by Price:</span>
+                <div className={styles.sortButtons}>
                   <button
-                    key={level}
-                    onClick={() => toggleLevelFilter(level)}
-                    className={`${styles.filterButton} ${
-                      selectedLevels.includes(level) ? styles.activeFilter : ''
-                    }`}
+                    type="button"
+                    className={`${styles.sortButton} ${sortBy === 'asc' ? styles.active : ''}`}
+                    onClick={() => setSortBy('asc')}
                   >
-                    {level}
+                    <span className={styles.sortIcon}>↑</span> Low to High
                   </button>
-                ))}
-              </div>
-              {(selectedLevels.length > 0 || searchQuery) && (
-                <div className={styles.filterStats}>
-                  <p>
-                    Showing {filteredCourses.length} of {courses.length} courses
-                    {selectedLevels.length > 0 && ` • ${selectedLevels.length} level(s) selected`}
-                  </p>
-                  <button onClick={handleClearFilters} className={styles.clearFiltersButton}>
-                    Clear All Filters
+                  <button
+                    type="button"
+                    className={`${styles.sortButton} ${sortBy === 'desc' ? styles.active : ''}`}
+                    onClick={() => setSortBy('desc')}
+                  >
+                    <span className={styles.sortIcon}>↓</span> High to Low
                   </button>
                 </div>
-              )}
+              </div>
+
             </div>
           )}
 
