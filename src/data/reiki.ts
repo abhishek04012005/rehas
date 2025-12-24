@@ -1,6 +1,3 @@
-// ============================================
-// REIKI SERVICE PAGE DATA
-// ============================================
 export const reikiData = {
   hero: {
     title: 'Reiki Healing',
@@ -12,7 +9,7 @@ export const reikiData = {
     title: 'What is Reiki?',
     description:
       'Reiki is a Japanese healing technique that channels universal life force energy (Ki) through a practitioner to promote physical, emotional, and spiritual healing. The word "Reiki" comes from two Japanese words: "Rei" (universal spirit) and "Ki" (life force energy).',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=400&fit=crop',
+    image: '/assets/service/reiki.png',
   },
   benefits: {
     title: 'Benefits of Reiki',
@@ -166,7 +163,7 @@ export const reikiData = {
         ],
       },
       {
-        name: 'KARUNA Reiki',
+        name: 'Karuna Reiki',
         duration: 'Advanced Specialization',
         price: '₹10,000',
         originalPrice: '₹15,000',

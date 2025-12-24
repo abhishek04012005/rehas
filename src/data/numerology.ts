@@ -11,7 +11,7 @@ export const numerologyData: HealingServiceData = {
     title: 'The Science of Sacred Numbers',
     description:
       'Numerology is an ancient science that studies the mystical significance of numbers and their influence on human life. Every number carries a unique vibration and energy. From your birth date to your name, numbers shape your personality, relationships, and destiny. Our expert numerologists decode these numbers to provide profound insights into your life purpose and future path.',
-    image: 'https://images.unsplash.com/photo-1509994905960-f2e1c42e3ed1?w=500&h=400&fit=crop',
+    image: '/assets/service/numerlogy.png',
   },
   benefits: {
     title: 'Benefits of Numerology',

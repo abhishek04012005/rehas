@@ -11,7 +11,7 @@ export const marmaTherapyData: HealingServiceData = {
     title: 'What is Marma Therapy?',
     description:
       'Marma therapy is an ancient Ayurvedic healing technique that works with 108 vital points (marmas) located throughout the body. These points are where the five elements (earth, water, fire, air, space) intersect and where vital life force (prana) concentrates. By applying specific techniques to these points, marma therapy releases physical and emotional blockages, restores energy flow, and promotes deep healing. This powerful therapy addresses the root causes of disease by balancing doshas (body constitutions) and restoring the mind-body connection.',
-    image: 'https://images.unsplash.com/photo-1549465820-7c41f1c20407?w=500&h=400&fit=crop',
+    image: '/assets/service/marma_therapy.png',
   },
   benefits: {
     title: 'Benefits of Marma Therapy',

@@ -90,6 +90,14 @@
     width: 100%;
 }
 
+.navLink.active {
+    color: var(--primary);
+}
+
+.navLink.active::after {
+    width: 100%;
+}
+
 /* Admin Section */
 .adminSection {
     display: flex;
@@ -175,12 +183,22 @@
     color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
-    padding: 0.75rem 0;
+    padding: 0.75rem 1rem;
     transition: all 0.3s ease;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    display: block;
 }
 
 .mobileLink:hover {
     color: var(--primary);
+    background: var(--light-bg);
+}
+
+.mobileLink.active {
+    color: var(--primary);
+    background: var(--light-bg);
+    border-left-color: var(--primary);
 }
 
 .mobileLogoutBtn {

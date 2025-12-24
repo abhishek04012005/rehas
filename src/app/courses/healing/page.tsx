@@ -25,7 +25,7 @@ export default function HealingCoursesPage() {
   const courses = [
     {
       name: 'Reiki Mastery Program',
-      description: 'Master the complete Reiki system including Basic Reiki, up to Master Level, KARUNA Reiki, and Word Master courses',
+      description: 'Master the complete Reiki system including Basic Reiki, up to Master Level, Karuna Reiki, and Word Master courses',
       price: '₹8,000 - ₹35,000',
       href: '/courses/healing/reiki',
       image: 'Favorite',

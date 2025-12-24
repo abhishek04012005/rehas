@@ -11,7 +11,7 @@ export const auricularTherapyData: HealingServiceData = {
     title: 'What is Auricular Therapy?',
     description:
       'Auricular therapy, also known as ear acupuncture or otoacupuncture, is a micro-system therapy based on the principle that the ear contains reflex points corresponding to all organs and systems in the body. Like the foot in reflexology, the ear is a complete map of the human body. By stimulating specific points on the ear using acupuncture needles, seeds, pellets, or massage, auricular therapy treats various conditions and restores systemic balance. This powerful, non-invasive therapy is especially effective for pain management, addiction recovery, and stress reduction.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=400&fit=crop',
+    image: '/assets/service/auricular_therapy.png',
   },
   benefits: {
     title: 'Benefits of Auricular Therapy',

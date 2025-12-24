@@ -12,7 +12,7 @@ export const tantraData = {
     title: 'What is Tantra?',
     description:
       'Tantra is an ancient esoteric spiritual tradition that celebrates all aspects of existence as sacred. Rather than rejecting the physical world, Tantra teaches that everything—including energy, sensation, and pleasure—can be a path to enlightenment. Tantric practices activate dormant energy (kundalini), align chakras, and harmonize the divine masculine and feminine energies within every individual, leading to profound spiritual awakening and personal transformation.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=400&fit=crop',
+    image: '/assets/service/tantra.png',
   },
   benefits: {
     title: 'Benefits of Tantric Practice',

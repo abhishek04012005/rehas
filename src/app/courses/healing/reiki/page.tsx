@@ -63,7 +63,7 @@ export default function ReikiCoursePage() {
           ],
         },
         {
-          name: 'KARUNA Reiki',
+          name: 'Karuna Reiki',
           duration: 'Advanced Specialization',
           description: 'Advanced Karuna Reiki training focusing on compassion and advanced healing techniques.',
           price: '₹10,000',

@@ -11,10 +11,13 @@ export default function AdminNavbar() {
     const router = useRouter();
     const [adminUsername, setAdminUsername] = useState('');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeRoute, setActiveRoute] = useState('');
 
     useEffect(() => {
         const username = localStorage.getItem('adminUsername');
         setAdminUsername(username || '');
+        // Get current route from pathname
+        setActiveRoute(window.location.pathname);
     }, []);
 
     const handleLogout = () => {
@@ -44,19 +47,19 @@ export default function AdminNavbar() {
 
                 {/* Navigation Links */}
                 <div className={styles.navLinks}>
-                    <a href="/admin/dashboard" className={styles.navLink}>
+                    <a href="/admin/dashboard" className={`${styles.navLink} ${activeRoute === '/admin/dashboard' ? styles.active : ''}`}>
                         Overview
                     </a>
-                    <a href="/admin/orders" className={styles.navLink}>
+                    <a href="/admin/orders" className={`${styles.navLink} ${activeRoute === '/admin/orders' ? styles.active : ''}`}>
                         Orders
                     </a>
-                    <a href="/admin/payments" className={styles.navLink}>
+                    <a href="/admin/payments" className={`${styles.navLink} ${activeRoute === '/admin/payments' ? styles.active : ''}`}>
                         Payments
                     </a>
-                    <a href="/admin/contacts" className={styles.navLink}>
+                    <a href="/admin/contacts" className={`${styles.navLink} ${activeRoute === '/admin/contacts' ? styles.active : ''}`}>
                         Contacts
                     </a>
-                    <a href="/admin/enquiries" className={styles.navLink}>
+                    <a href="/admin/enquiries" className={`${styles.navLink} ${activeRoute === '/admin/enquiries' ? styles.active : ''}`}>
                         Enquiries
                     </a>
                 </div>
@@ -84,19 +87,19 @@ export default function AdminNavbar() {
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div className={styles.mobileMenu}>
-                        <a href="/admin/dashboard" className={styles.mobileLink}>
+                        <a href="/admin/dashboard" className={`${styles.mobileLink} ${activeRoute === '/admin/dashboard' ? styles.active : ''}`}>
                             Overview
                         </a>
-                        <a href="/admin/orders" className={styles.mobileLink}>
+                        <a href="/admin/orders" className={`${styles.mobileLink} ${activeRoute === '/admin/orders' ? styles.active : ''}`}>
                             Orders
                         </a>
-                        <a href="/admin/payments" className={styles.mobileLink}>
+                        <a href="/admin/payments" className={`${styles.mobileLink} ${activeRoute === '/admin/payments' ? styles.active : ''}`}>
                             Payments
                         </a>
-                        <a href="/admin/contacts" className={styles.mobileLink}>
+                        <a href="/admin/contacts" className={`${styles.mobileLink} ${activeRoute === '/admin/contacts' ? styles.active : ''}`}>
                             Contacts
                         </a>
-                        <a href="/admin/enquiries" className={styles.mobileLink}>
+                        <a href="/admin/enquiries" className={`${styles.mobileLink} ${activeRoute === '/admin/enquiries' ? styles.active : ''}`}>
                             Enquiries
                         </a>
                         <button className={styles.mobileLogoutBtn} onClick={handleLogout}>

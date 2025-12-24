@@ -5,6 +5,8 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import * as bcryptjs from 'bcryptjs';
+import logoImage from '../../../public/logo.png'
+import Image from 'next/image';
 
 import styles from './login.module.css';
 
@@ -119,10 +121,12 @@ export default function AdminLogin() {
       <div className={styles.loginCard}>
         {/* Header */}
         <div className={styles.header}>
+          <div className={styles.loginLogo}>
+            <Image src={logoImage} alt="REHAS Logo" width={40} height={50} />
+          </div>
           <h1>
             <span className={styles.gradientText}>Admin</span> Login
           </h1>
-          <p>Manage REHAS Contact Submissions</p>
         </div>
 
         {/* Error Message */}
