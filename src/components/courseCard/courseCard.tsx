@@ -10,6 +10,7 @@ interface CourseCardProps {
   name: string;
   description: string;
   price: string;
+  originalPrice?: string;
   image?: string;
   imageUrl?: string;
   href: string;
@@ -20,6 +21,7 @@ export default function CourseCard({
   name,
   description,
   price,
+  originalPrice,
   image = 'AutoStoriesOutlined',
   imageUrl,
   href,
@@ -64,7 +66,12 @@ export default function CourseCard({
               <EmojiEvents sx={{ fontSize: 14 }} />
               {level}
             </span>
-            <span className={styles.price}>{price}</span>
+            <div className={styles.priceWrapper}>
+              {originalPrice && (
+                <span className={styles.originalPrice}>{originalPrice}</span>
+              )}
+              <span className={styles.price}>{price}</span>
+            </div>
           </div>
         </div>
 

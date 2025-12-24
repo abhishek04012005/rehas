@@ -104,6 +104,20 @@
   font-size: 14px !important;
 }
 
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.originalPrice {
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
 .price {
   color: var(--primary);
   font-size: 16px;

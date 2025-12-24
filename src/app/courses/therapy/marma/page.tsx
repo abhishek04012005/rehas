@@ -29,64 +29,24 @@ export default function MarmaTherapyCoursePage() {
       meaning="Marma therapy is an ancient Ayurvedic healing system that works with 108 vital energy points on the body. These marma points are junctions of consciousness and matter where disease can be prevented and health promoted. Our course teaches the science of marmas, how to locate and stimulate them for deep therapeutic benefits, and how to create effective treatment protocols for various conditions."
       benefit="Understanding of 108 vital marma points; Energy system knowledge; Deep healing capabilities; Treatment for chronic conditions; Prevention and wellness promotion; Integration with modern healthcare"
       use="Therapeutic healing practice; Wellness and preventive care; Integration with massage and bodywork; Ayurvedic healing services; Professional marma therapy practice; Spiritual health optimization"
-      price="₹7,000-₹14,000"
-      duration="8-12 weeks"
+      price="₹10,000"
+      duration="Foundation & Intermediate"
       level="All Levels"
       image="PanToolOutlined"
       sessions={[
         {
-          name: 'Weekend Intensive',
-          duration: '3-4 weekends',
-          description: 'Deep immersion into marma science with location and stimulation techniques.',
-          price: '₹7,000-₹11,000',
+          name: 'Marma Therapy Basic & Practice Course',
+          duration: 'Foundation & Intermediate Level',
+          description: 'Comprehensive marma therapy training from fundamentals to professional practice.',
+          price: '₹10,000',
           includes: [
-            'Complete marma point training',
-            'Anatomy and energy system study',
-            'Stimulation technique practice',
-            'Ayurvedic principles',
-            'Professional certification',
-          ],
-        },
-        {
-          name: 'Weekly Classes',
-          duration: '8-12 weeks',
-          description: 'Comprehensive weekly training with theory and hands-on practice.',
-          price: '₹9,000-₹13,000',
-          includes: [
-            'Detailed marma point location training',
-            'Weekly practical sessions',
-            'Ayurvedic assessment techniques',
-            'Treatment protocol development',
-            'Client case management',
-            'Professional certification',
-          ],
-        },
-        {
-          name: 'Online Course',
-          duration: 'Self-paced',
-          description: 'Video learning with marma point diagrams and guided protocols.',
-          price: '₹4,500-₹8,500',
-          includes: [
-            'Complete video training',
-            'Marma point diagrams',
-            'Treatment templates',
-            'Lifetime access',
-            'Email support',
-            'Digital certificate',
-          ],
-        },
-        {
-          name: 'Private Training',
-          duration: 'Customized',
-          description: 'One-on-one personalized marma therapy training.',
-          price: '₹1,300-₹2,200/hour',
-          includes: [
-            'Personalized learning path',
-            'One-on-one coaching',
-            'Flexible timing',
-            'Direct mentorship',
-            'Custom protocols',
-            'Certification upon completion',
+            'Ayurvedic principles and marma philosophy',
+            'Anatomy of 108 vital marma points',
+            'Assessment and diagnostics',
+            'Traditional marma therapy techniques',
+            'Hands-on practice and case studies',
+            'Professional practice protocols',
+            'Certification in Marma Therapy',
           ],
         },
       ]}
