@@ -123,7 +123,7 @@ export const courseAstrologyData: HealingServiceData = {
         name: 'Foundation Course',
         duration: '50 hours',
         description: 'Learn astrology basics and natal chart reading.',
-        price: '₹8,000-₹12,000',
+        price: '₹8,000',
         includes: [
           'Zodiac and planetary fundamentals',
           'Birth chart creation',

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SchoolOutlined, EmojiEventsOutlined, CheckCircle, ChevronRight, AutoStories, AccessTime, Group, EmojiEvents } from '@mui/icons-material';
+import * as MuiIcons from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './courseDetail.module.css';
@@ -47,12 +48,15 @@ export default function CourseDetail({
   sessions = [],
   curriculum = [],
   level = 'Beginner to Advanced',
-  image = '📚',
+  image = 'AutoStoriesOutlined',
 }: CourseDetailProps) {
   const router = useRouter();
   const { setProductData } = useCheckout();
   const categoryPath = `/courses/${category}`;
   const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1);
+
+  // Get the MUI icon component by name
+  const IconComponent = (MuiIcons as any)[image] || MuiIcons.AutoStoriesOutlined;
 
   // Extract numeric amount from price string (e.g., "₹8,000" -> 8000)
   const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;
@@ -112,7 +116,7 @@ export default function CourseDetail({
           <div className={styles.imageSection}>
             <div className={styles.courseImageWrapper}>
               <div className={styles.courseImagePlaceholder}>
-                <div className={styles.courseIcon}>{image}</div>
+                <IconComponent sx={{ fontSize: 120 }} />
               </div>
               <div className={styles.priceBox}>
                 <span className={styles.priceLabel}>Starting From</span>

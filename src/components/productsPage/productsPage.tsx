@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight, ShoppingCart, ArrowRight } from '@mui/icons-material';
+import { ChevronRight, ShoppingCart, ArrowRight, Diamond, BuildOutlined, Brightness3, CheckCircle } from '@mui/icons-material';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './productsPage.module.css';
 
@@ -179,32 +179,32 @@ export default function ProductsPage() {
           <h2>Why Choose Our Products?</h2>
           <div className={styles.reasonsGrid}>
             <div className={styles.reason}>
-              <div className={styles.reasonIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h4>100% Authentic</h4>
               <p>All products are genuine, tested, and sourced from verified suppliers</p>
             </div>
             <div className={styles.reason}>
-              <div className={styles.reasonIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h4>Quality Assured</h4>
               <p>Every item undergoes rigorous quality checks before reaching you</p>
             </div>
             <div className={styles.reason}>
-              <div className={styles.reasonIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h4>Expert Selection</h4>
               <p>Curated by experienced practitioners and healers</p>
             </div>
             <div className={styles.reason}>
-              <div className={styles.reasonIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h4>Fast Delivery</h4>
               <p>Quick and secure home delivery across India</p>
             </div>
             <div className={styles.reason}>
-              <div className={styles.reasonIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h4>30-Day Returns</h4>
               <p>Satisfaction guaranteed with easy returns policy</p>
             </div>
             <div className={styles.reason}>
-              <div className={styles.reasonIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h4>Expert Support</h4>
               <p>Dedicated support for product selection and usage guidance</p>
             </div>
@@ -217,7 +217,7 @@ export default function ProductsPage() {
         <h2>Our Product Categories</h2>
         <div className={styles.categoriesGrid}>
           <div className={styles.categoryInfo}>
-            <h3>💎 Healing Products</h3>
+            <h3><Diamond sx={{ fontSize: 24, verticalAlign: 'middle', marginRight: '8px' }} />Healing Products</h3>
             <ul>
               <li>Authentic healing crystals</li>
               <li>Pure essential oils</li>
@@ -230,7 +230,7 @@ export default function ProductsPage() {
             </Link>
           </div>
           <div className={styles.categoryInfo}>
-            <h3>🛠️ Therapy Equipment</h3>
+            <h3><BuildOutlined sx={{ fontSize: 24, verticalAlign: 'middle', marginRight: '8px' }} />Therapy Equipment</h3>
             <ul>
               <li>Acupressure mats</li>
               <li>Massage equipment</li>
@@ -243,7 +243,7 @@ export default function ProductsPage() {
             </Link>
           </div>
           <div className={styles.categoryInfo}>
-            <h3>🌙 Astrology Resources</h3>
+            <h3><Brightness3 sx={{ fontSize: 24, verticalAlign: 'middle', marginRight: '8px' }} />Astrology Resources</h3>
             <ul>
               <li>Tarot card decks</li>
               <li>Astrology software</li>

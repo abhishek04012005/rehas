@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronRight, ArrowBack, FavoriteBorder, PhoneInTalk, Mail } from '@mui/icons-material';
+import { ChevronRight, ArrowBack, FavoriteBorder, PhoneInTalk, Mail, CheckCircle, Clear } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import PaymentForm from '../paymentForm/paymentForm';
 import styles from './enhancedCheckoutForm.module.css';
@@ -296,13 +296,15 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
 
       {successMessage && (
         <div className={styles.successAlert}>
-          ✓ {successMessage}
+          <CheckCircle sx={{ fontSize: 20, marginRight: '8px', verticalAlign: 'middle' }} />
+          {successMessage}
         </div>
       )}
 
       {errors.submit && (
         <div className={styles.errorAlert}>
-          ✕ {errors.submit}
+          <Clear sx={{ fontSize: 20, marginRight: '8px', verticalAlign: 'middle' }} />
+          {errors.submit}
         </div>
       )}
 

@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ShoppingCart, CheckCircle, ChevronRight } from '@mui/icons-material';
+import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './productDetail.module.css';
@@ -64,7 +64,7 @@ export default function ProductDetail({
           <div className={styles.imageSection}>
             <div className={styles.productImageWrapper}>
               <div className={styles.productImagePlaceholder}>
-                <div className={styles.productIcon}>🏆</div>
+                <EmojiEvents sx={{ fontSize: 80 }} />
               </div>
             </div>
           </div>
@@ -133,22 +133,22 @@ export default function ProductDetail({
           <h2>Why Choose This Product?</h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
-              <div className={styles.featureIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h3>Premium Quality</h3>
               <p>Sourced and tested for highest standards</p>
             </div>
             <div className={styles.featureCard}>
-              <div className={styles.featureIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h3>Authentic</h3>
               <p>100% genuine products with certificates</p>
             </div>
             <div className={styles.featureCard}>
-              <div className={styles.featureIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h3>Expert Support</h3>
               <p>Guidance on usage and benefits included</p>
             </div>
             <div className={styles.featureCard}>
-              <div className={styles.featureIcon}>✓</div>
+              <CheckCircle sx={{ fontSize: 32, color: 'var(--primary)' }} />
               <h3>Fast Delivery</h3>
               <p>Quick shipping across the country</p>
             </div>

@@ -123,7 +123,7 @@ export const courseHealingData: HealingServiceData = {
         name: 'Weekend Intensive',
         duration: '2-3 days',
         description: 'Immersive learning over intensive weekends.',
-        price: '₹8,000-₹15,000',
+        price: '₹8,000',
         includes: [
           'Complete course material',
           'Hands-on practice',
@@ -135,7 +135,7 @@ export const courseHealingData: HealingServiceData = {
         name: 'Weekly Classes',
         duration: '8-12 weeks',
         description: 'Gradual learning with practice between classes.',
-        price: '₹12,000-₹25,000',
+        price: '₹12,000',
         includes: [
           'Structured curriculum',
           'Weekly live classes',
@@ -148,7 +148,7 @@ export const courseHealingData: HealingServiceData = {
         name: 'Online Course',
         duration: 'Self-paced',
         description: 'Learn from home with video modules and assignments.',
-        price: '₹5,000-₹18,000',
+        price: '₹5,000',
         includes: [
           'All video modules',
           'Downloadable materials',
@@ -161,7 +161,7 @@ export const courseHealingData: HealingServiceData = {
         name: 'Private Training',
         duration: 'Customized',
         description: 'One-on-one mentorship and personalized learning.',
-        price: '₹1,500-₹2,500/hour',
+        price: '₹1,500',
         includes: [
           'Personalized curriculum',
           'One-on-one sessions',

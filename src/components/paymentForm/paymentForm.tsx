@@ -215,7 +215,7 @@ export default function PaymentForm({
       </div>
 
       <div className={styles.securityInfo}>
-        <div className={styles.securityIcon}>✓</div>
+        <Check sx={{ fontSize: 32, color: 'var(--primary)' }} />
         <div className={styles.securityText}>
           <p>Your payment information is secure and encrypted</p>
           <small>Powered by Razorpay - India's most trusted payment gateway</small>

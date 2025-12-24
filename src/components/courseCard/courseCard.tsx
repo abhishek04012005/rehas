@@ -1,7 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import { ChevronRight, EmojiEvents } from '@mui/icons-material';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { ChevronRight, EmojiEvents, AutoStories } from '@mui/icons-material';
+import * as MuiIcons from '@mui/icons-material';
 import styles from './courseCard.module.css';
 
 interface CourseCardProps {
@@ -9,6 +11,7 @@ interface CourseCardProps {
   description: string;
   price: string;
   image?: string;
+  imageUrl?: string;
   href: string;
   level?: string;
 }
@@ -17,14 +20,38 @@ export default function CourseCard({
   name,
   description,
   price,
-  image = '📚',
+  image = 'AutoStoriesOutlined',
+  imageUrl,
   href,
   level = 'All Levels',
 }: CourseCardProps) {
+  const router = useRouter();
+
+  const handleViewCourse = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push(href);
+  };
+
+  // Get the MUI icon component by name
+  const IconComponent = (MuiIcons as any)[image] || MuiIcons.AutoStoriesOutlined;
+
   return (
-    <Link href={href} className={styles.card}>
+    <div className={styles.card}>
       <div className={styles.imageArea}>
-        <div className={styles.imagePlaceholder}>{image}</div>
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={400}
+            height={240}
+            className={styles.courseImage}
+            priority={false}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            <IconComponent sx={{ fontSize: 56 }} />
+          </div>
+        )}
       </div>
 
       <div className={styles.content}>
@@ -39,11 +66,14 @@ export default function CourseCard({
             </span>
             <span className={styles.price}>{price}</span>
           </div>
-          <div className={styles.arrow}>
-            <ChevronRight sx={{ fontSize: 20 }} />
-          </div>
         </div>
+
+        <button onClick={handleViewCourse} className={styles.viewButton}>
+          <AutoStories sx={{ fontSize: 16 }} />
+          View Course
+          <ChevronRight sx={{ fontSize: 18 }} />
+        </button>
       </div>
-    </Link>
+    </div>
   );
 }
