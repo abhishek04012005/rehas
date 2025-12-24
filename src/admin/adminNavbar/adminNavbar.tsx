@@ -45,15 +45,15 @@ export default function AdminNavbar() {
                 {/* Navigation Links */}
                 <div className={styles.navLinks}>
                     <a href="/admin/dashboard" className={styles.navLink}>
-                        Dashboard
-                    </a>
-                    <a href="/admin/payments" className={styles.navLink}>
-                        Payments
+                        Overview
                     </a>
                     <a href="/admin/orders" className={styles.navLink}>
                         Orders
                     </a>
-                    <a href="/admin/dashboard" className={styles.navLink}>
+                    <a href="/admin/payments" className={styles.navLink}>
+                        Payments
+                    </a>
+                    <a href="/admin/contacts" className={styles.navLink}>
                         Contacts
                     </a>
                     <a href="/admin/enquiries" className={styles.navLink}>
@@ -85,15 +85,15 @@ export default function AdminNavbar() {
                 {mobileMenuOpen && (
                     <div className={styles.mobileMenu}>
                         <a href="/admin/dashboard" className={styles.mobileLink}>
-                            Dashboard
-                        </a>
-                        <a href="/admin/payments" className={styles.mobileLink}>
-                            Payments
+                            Overview
                         </a>
                         <a href="/admin/orders" className={styles.mobileLink}>
                             Orders
                         </a>
-                        <a href="/admin/dashboard" className={styles.mobileLink}>
+                        <a href="/admin/payments" className={styles.mobileLink}>
+                            Payments
+                        </a>
+                        <a href="/admin/contacts" className={styles.mobileLink}>
                             Contacts
                         </a>
                         <a href="/admin/enquiries" className={styles.mobileLink}>

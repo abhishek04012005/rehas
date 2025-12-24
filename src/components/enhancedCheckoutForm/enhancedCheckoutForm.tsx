@@ -48,8 +48,6 @@ interface FormData {
   fullName: string;
   email: string;
   phoneNumber: string;
-  birthDate: string;
-  age: number | null;
   addressLine1: string;
   addressLine2: string;
   city: string;
@@ -76,8 +74,6 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     fullName: '',
     email: '',
     phoneNumber: '',
-    birthDate: '',
-    age: null,
     addressLine1: '',
     addressLine2: '',
     city: '',
@@ -86,29 +82,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     country: 'India',
   });
 
-  // Calculate age when birth date changes
-  useEffect(() => {
-    if (formData.birthDate) {
-      const birthDate = new Date(formData.birthDate);
-      const today = new Date();
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const monthDiff = today.getMonth() - birthDate.getMonth();
-      
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      
-      setFormData((prev) => ({
-        ...prev,
-        age: age >= 0 ? age : null,
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        age: null,
-      }));
-    }
-  }, [formData.birthDate]);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     let { name, value } = e.target;
@@ -153,15 +127,15 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       newErrors.phoneNumber = 'Phone number must start with 6, 7, 8, or 9';
     }
 
-    if (!formData.birthDate) {
-      newErrors.birthDate = 'Birth date is required';
-    } else {
-      const birthDate = new Date(formData.birthDate);
-      const today = new Date();
-      if (birthDate > today) {
-        newErrors.birthDate = 'Birth date cannot be in the future';
-      }
-    }
+    // if (!formData.birthDate) {
+    //   newErrors.birthDate = 'Birth date is required';
+    // } else {
+    //   const birthDate = new Date(formData.birthDate);
+    //   const today = new Date();
+    //   if (birthDate > today) {
+    //     newErrors.birthDate = 'Birth date cannot be in the future';
+    //   }
+    // }
 
     // Address validation only if it's a product
     if (isProduct) {
@@ -207,8 +181,6 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
           fullName: formData.fullName,
           email: formData.email,
           phoneNumber: formData.phoneNumber,
-          birthDate: formData.birthDate,
-          age: formData.age,
           addressLine1: formData.addressLine1,
           addressLine2: formData.addressLine2,
           city: formData.city,
@@ -227,14 +199,14 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       if (!response.ok) {
         const errorData = await response.json();
         const errorMsg = errorData.error || 'Failed to create order';
-        
+
         // Check if it's a database setup error
         if (response.status === 503 || errorMsg.includes('Database not initialized')) {
           throw new Error(
             'Database not initialized. Contact admin to execute database migration. See DATABASE_SETUP_INSTRUCTIONS.md'
           );
         }
-        
+
         throw new Error(errorMsg);
       }
 
@@ -361,131 +333,103 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
             </div>
           </div>
 
-          <div className={styles.formRow}>
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="birthDate">
-                Date of Birth *
-              </label>
-              <input
-                type="date"
-                id="birthDate"
-                name="birthDate"
-                value={formData.birthDate}
-                onChange={handleChange}
-                className={errors.birthDate ? styles.inputError : ''}
-              />
-              {errors.birthDate && <span className={styles.errorText}>{errors.birthDate}</span>}
-            </div>
 
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="age">Age</label>
-              <input
-                type="text"
-                id="age"
-                name="age"
-                value={formData.age !== null ? `${formData.age} years` : ''}
-                readOnly
-                placeholder="Auto-calculated"
-                className={styles.inputReadonly}
-              />
-            </div>
-          </div>
         </div>
 
         {/* Shipping Address Section - Only for products */}
         {isProduct && (
-        <div className={styles.formSection}>
-          <h3>Shipping Address</h3>
+          <div className={styles.formSection}>
+            <h3>Shipping Address</h3>
 
-          <div className={styles.formGroup}>
-            <label htmlFor="addressLine1">Address Line 1 *</label>
-            <input
-              type="text"
-              id="addressLine1"
-              name="addressLine1"
-              value={formData.addressLine1}
-              onChange={handleChange}
-              placeholder="House number, street address"
-              className={errors.addressLine1 ? styles.inputError : ''}
-            />
-            {errors.addressLine1 && <span className={styles.errorText}>{errors.addressLine1}</span>}
-          </div>
-
-          <div className={styles.formGroup}>
-            <label htmlFor="addressLine2">Address Line 2</label>
-            <input
-              type="text"
-              id="addressLine2"
-              name="addressLine2"
-              value={formData.addressLine2}
-              onChange={handleChange}
-              placeholder="Apartment, floor, building name (optional)"
-            />
-          </div>
-
-          <div className={styles.formRow}>
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="city">City *</label>
+            <div className={styles.formGroup}>
+              <label htmlFor="addressLine1">Address Line 1 *</label>
               <input
                 type="text"
-                id="city"
-                name="city"
-                value={formData.city}
+                id="addressLine1"
+                name="addressLine1"
+                value={formData.addressLine1}
                 onChange={handleChange}
-                placeholder="City"
-                className={errors.city ? styles.inputError : ''}
+                placeholder="House number, street address"
+                className={errors.addressLine1 ? styles.inputError : ''}
               />
-              {errors.city && <span className={styles.errorText}>{errors.city}</span>}
+              {errors.addressLine1 && <span className={styles.errorText}>{errors.addressLine1}</span>}
             </div>
 
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="state">State *</label>
-              <select
-                id="state"
-                name="state"
-                value={formData.state}
-                onChange={handleChange}
-                className={errors.state ? styles.inputError : ''}
-              >
-                <option value="">Select State</option>
-                {INDIAN_STATES.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-              {errors.state && <span className={styles.errorText}>{errors.state}</span>}
-            </div>
-          </div>
-
-          <div className={styles.formRow}>
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="postalCode">Postal Code *</label>
+            <div className={styles.formGroup}>
+              <label htmlFor="addressLine2">Address Line 2</label>
               <input
                 type="text"
-                id="postalCode"
-                name="postalCode"
-                value={formData.postalCode}
+                id="addressLine2"
+                name="addressLine2"
+                value={formData.addressLine2}
                 onChange={handleChange}
-                placeholder="6-digit postal code"
-                className={errors.postalCode ? styles.inputError : ''}
+                placeholder="Apartment, floor, building name (optional)"
               />
-              {errors.postalCode && <span className={styles.errorText}>{errors.postalCode}</span>}
             </div>
 
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="country">Country</label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value={formData.country}
-                readOnly
-                className={styles.inputReadonly}
-              />
+            <div className={styles.formRow}>
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label htmlFor="city">City *</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="City"
+                  className={errors.city ? styles.inputError : ''}
+                />
+                {errors.city && <span className={styles.errorText}>{errors.city}</span>}
+              </div>
+
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label htmlFor="state">State *</label>
+                <select
+                  id="state"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  className={errors.state ? styles.inputError : ''}
+                >
+                  <option value="">Select State</option>
+                  {INDIAN_STATES.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+                {errors.state && <span className={styles.errorText}>{errors.state}</span>}
+              </div>
+            </div>
+
+            <div className={styles.formRow}>
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label htmlFor="postalCode">Postal Code *</label>
+                <input
+                  type="text"
+                  id="postalCode"
+                  name="postalCode"
+                  value={formData.postalCode}
+                  onChange={handleChange}
+                  placeholder="6-digit postal code"
+                  className={errors.postalCode ? styles.inputError : ''}
+                />
+                {errors.postalCode && <span className={styles.errorText}>{errors.postalCode}</span>}
+              </div>
+
+              <div className={styles.formGroup} style={{ flex: 1 }}>
+                <label htmlFor="country">Country</label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  readOnly
+                  className={styles.inputReadonly}
+                />
+              </div>
             </div>
           </div>
-        </div>
         )}
 
         {/* Submit Button */}

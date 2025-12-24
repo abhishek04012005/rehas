@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
-import ContactDashboard from '@/admin/contactDashboard/contactDashboard';
+import OverviewDashboard from '@/admin/overviewDashboard/overviewDashboard';
 
 export const metadata: Metadata = {
-  title: 'Contact Dashboard - REHAS Admin',
-  description: 'Manage contact form submissions and track communication',
+  title: 'Admin Overview Dashboard - REHAS',
+  description: 'Quick summary of all dashboard metrics and statistics',
   robots: 'noindex, nofollow',
 };
 
 export default function DashboardPage() {
-  return <ContactDashboard />;
+  return <OverviewDashboard />;
 }

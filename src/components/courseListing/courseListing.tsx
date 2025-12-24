@@ -40,7 +40,7 @@ export default function CourseListing({
 }: CourseListingProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<'none' | 'asc' | 'desc'>('none');
+  const [sortBy, setSortBy] = useState<'none' | 'asc' | 'desc'>('asc');
 
   // Extract unique levels from courses
   const uniqueLevels = Array.from(
