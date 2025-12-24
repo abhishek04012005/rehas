@@ -73,7 +73,7 @@ Each service has multiple session types with their own pricing:
 All using INR format consistently:
 - Healing Service: ₹2,500-₹3,500
 - Astro Reports: ₹2,000-₹5,500
-- Kundli Analysis: ₹2,500-₹6,500
+- Kundali: ₹2,500-₹6,500
 - Tarot Readings: ₹1,200-₹4,500
 - Courses: ₹5,000-₹100,000+
 - Products: ₹1-₹12,000

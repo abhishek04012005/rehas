@@ -11,7 +11,7 @@ export const tarotData: HealingServiceData = {
     title: 'What is Tarot Reading?',
     description:
       'Tarot is a powerful divination tool that uses a deck of 78 symbolic cards to gain insight into past, present, and future situations. Each card carries profound meaning and can be interpreted in various ways depending on context. A professional tarot reading provides clarity, guidance, and perspective on life challenges and decisions.',
-    image: 'https://images.unsplash.com/photo-1484995114411-c89e6c3f3149?w=500&h=400&fit=crop',
+    image: '/assets/service/tarot_reading1.png',
   },
   benefits: {
     title: 'Benefits of Tarot Reading',

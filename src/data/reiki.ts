@@ -133,7 +133,7 @@ export const reikiData = {
       {
         name: 'Basic Reiki Healing',
         duration: 'Introductory',
-        price: 'Free',
+        price: '₹1',
         originalPrice: '₹10,000',
         description:
           'Introduction to Reiki healing fundamentals and energy basics. Perfect for beginners who want to experience Reiki.',

@@ -29,7 +29,7 @@ export const footerData = {
         { label: 'General Service', href: '/service/general' },
         { label: 'Healing Service', href: '/service/healing' },
         { label: 'Astro Report', href: '/service/astro-report' },
-        { label: 'Kundli Analysis', href: '/service/kundli-analysis' },
+        { label: 'Kundali', href: '/service/kundli-analysis' },
         { label: 'Tarot', href: '/service/tarot' },
       ],
     },

@@ -2,19 +2,19 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const kundliAnalysisData: HealingServiceData = {
   hero: {
-    title: 'Kundli Analysis',
+    title: 'Kundali',
     subtitle: 'Decode Your Destiny Through Vedic Astrology',
     description:
       'Unlock the secrets of your life through comprehensive Kundli (birth chart) analysis. Our expert Vedic astrologers provide deep insights into your personality, life events, and spiritual path.',
   },
   overview: {
-    title: 'What is Kundli Analysis?',
+    title: 'What is Kundali?',
     description:
       'Kundli, also known as birth chart or horoscope, is the foundation of Vedic astrology. It represents the positions of celestial bodies at your moment of birth. A detailed Kundli analysis reveals your inherent nature, life patterns, challenges, and opportunities. It serves as a cosmic mirror reflecting your destiny and life purpose.',
-    image: 'https://images.unsplash.com/photo-1505249585337-5b82c48fa8e6?w=500&h=400&fit=crop',
+    image: '/assets/service/kundli.png',
   },
   benefits: {
-    title: 'Transform Your Life With Kundli Analysis',
+    title: 'Transform Your Life With Kundali',
     description: 'Gain profound understanding through Vedic astrological insights',
     items: [
       {
@@ -50,7 +50,7 @@ export const kundliAnalysisData: HealingServiceData = {
     ],
   },
   process: {
-    title: 'Kundli Analysis Process',
+    title: 'Kundali Process',
     steps: [
       {
         number: '01',
@@ -75,10 +75,10 @@ export const kundliAnalysisData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'Kundli Analysis Services',
+    title: 'Kundali Services',
     types: [
       {
-        name: 'Basic Kundli Analysis',
+        name: 'Basic Kundali',
         duration: '20 Pages',
         price: '₹2,500',
         originalPrice: '₹3,750',
@@ -92,7 +92,7 @@ export const kundliAnalysisData: HealingServiceData = {
         ],
       },
       {
-        name: 'Detailed Kundli Analysis',
+        name: 'Detailed Kundali',
         duration: '30 Pages',
         price: '₹4,000',
         originalPrice: '₹6,000',
@@ -127,7 +127,7 @@ export const kundliAnalysisData: HealingServiceData = {
     ],
   },
   faq: {
-    title: 'Kundli Analysis FAQ',
+    title: 'Kundali FAQ',
     questions: [
       {
         question: 'What is the difference between Kundli and astro report?',
@@ -166,7 +166,7 @@ export const kundliAnalysisData: HealingServiceData = {
     subtitle: 'Get your detailed Kundli analysis and discover your life path through Vedic wisdom.',
     buttons: [
       {
-        label: 'Get Kundli Analysis',
+        label: 'Get Kundali',
         href: '/enquiry',
         type: 'primary',
       },

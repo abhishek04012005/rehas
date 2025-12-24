@@ -11,7 +11,7 @@ export const palmReadingData: HealingServiceData = {
     title: 'What is Palm Reading?',
     description:
       'Palm reading, also known as palmistry or chiromancy, is an ancient divination art that interprets the lines, mounts, and marks on your hands to reveal your life story. Each line, curve, and mark represents different aspects of your life—career, relationships, health, spirituality, and destiny. The art combines ancient wisdom from Indian, Chinese, and Western traditions to provide comprehensive life insights. A skilled palm reader can perceive past patterns, current situations, and future possibilities with remarkable accuracy.',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&h=400&fit=crop',
+    image: '/assets/service/palm_reading1.png',
   },
   benefits: {
     title: 'Benefits of Palm Reading',

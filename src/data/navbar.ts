@@ -24,7 +24,7 @@ export const navbarData = {
     //     { label: 'General Service', href: '/service/general', icon: 'RoomService' },
     //     { label: 'Healing Service', href: '/service/healing', icon: 'Brightness3' },
     //     { label: 'Aura & Chakra Report', href: '/service/aura-chakra-report', icon: 'PublicOutlined' },
-    //     { label: 'Kundli Analysis', href: '/service/kundli-analysis', icon: 'Description' },
+    //     { label: 'Kundali', href: '/service/kundli-analysis', icon: 'Description' },
     //     { label: 'Tarot', href: '/service/tarot', icon: 'CreditCard' },
     //   ],
     // },

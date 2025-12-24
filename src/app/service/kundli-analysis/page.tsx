@@ -3,12 +3,12 @@ import HealingService from '@/components/healingService/healingService';
 import { kundliAnalysisData } from '@/data/kundliAnalysis';
 
 export const metadata: Metadata = {
-  title: 'Kundli Analysis | REHAS',
+  title: 'Kundali | REHAS',
   description:
     'Decode your destiny through Vedic astrology. Get comprehensive Kundli analysis for marriage compatibility, career, health, and life guidance.',
   keywords: [
     'Kundli',
-    'Kundli Analysis',
+    'Kundali',
     'Birth Chart',
     'Vedic Astrology',
     'Marriage Matching',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'Destiny Analysis',
   ],
   openGraph: {
-    title: 'Kundli Analysis | REHAS',
+    title: 'Kundali | REHAS',
     description: 'Decode your destiny through comprehensive Vedic astrological analysis.',
     type: 'website',
   },

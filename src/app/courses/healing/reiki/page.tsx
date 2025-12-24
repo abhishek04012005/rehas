@@ -39,7 +39,7 @@ export default function ReikiCoursePage() {
           name: 'Basic Reiki Healing',
           duration: 'Introductory',
           description: 'Introduction to Reiki healing fundamentals and energy basics.',
-          price: 'Free',
+          price: '1',
           includes: [
             'Basic Reiki introduction',
             'Energy awareness training',
