@@ -123,6 +123,7 @@ export const esotericWisdomData: HealingServiceData = {
         name: 'Secret Teachings Intro',
         duration: 'By Invitation',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description: 'Introduction to esoteric wisdom (invitation required).',
         includes: [
           'Lineage history and philosophy',
@@ -136,6 +137,7 @@ export const esotericWisdomData: HealingServiceData = {
         name: 'Advanced Esoteric Training',
         duration: 'Customized',
         price: '₹30,000',
+        originalPrice: '₹45,000',
         description: 'Deep esoteric training with master guidance.',
         includes: [
           'Complete secret teachings',
@@ -150,6 +152,7 @@ export const esotericWisdomData: HealingServiceData = {
         name: 'Ultimate Mastery Program',
         duration: '1 Year +',
         price: '₹100,000+',
+        originalPrice: '₹150,000+',
         description: 'Complete enlightenment path with direct master transmission.',
         includes: [
           'All esoteric teachings',

@@ -123,6 +123,7 @@ export const mytTantraData: HealingServiceData = {
         name: 'Tantra Foundation Course',
         duration: '6 Weeks',
         price: '₹5,500',
+        originalPrice: '₹8,250',
         description: 'Introduction to tantric philosophy and basic practices.',
         includes: [
           'Tantric philosophy and principles',
@@ -136,6 +137,7 @@ export const mytTantraData: HealingServiceData = {
         name: 'Advanced Tantra Training',
         duration: '12 Weeks',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description: 'Deep tantric practice with advanced techniques.',
         includes: [
           'Complete tantric system',
@@ -150,6 +152,7 @@ export const mytTantraData: HealingServiceData = {
         name: 'Master Tantra Program',
         duration: '6 Months + Personal Guidance',
         price: '₹25,000',
+        originalPrice: '₹37,500',
         description: 'Complete mastery of M.Y.T Tantra with personalized guidance.',
         includes: [
           'Complete M.Y.T Tantra curriculum',

@@ -378,16 +378,33 @@
 .sessionMeta {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .duration,
 .price {
   font-weight: 600;
   color: var(--primary);
+}
+
+.originalPrice {
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: line-through;
 }
 
 .sessionDescription {

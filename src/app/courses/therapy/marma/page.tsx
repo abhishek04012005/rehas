@@ -39,6 +39,7 @@ export default function MarmaTherapyCoursePage() {
           duration: 'Foundation & Intermediate Level',
           description: 'Comprehensive marma therapy training from fundamentals to professional practice.',
           price: '₹10,000',
+          originalPrice: '₹15,000',
           includes: [
             'Ayurvedic principles and marma philosophy',
             'Anatomy of 108 vital marma points',

@@ -81,6 +81,7 @@ export const tarotData: HealingServiceData = {
         name: 'Quick Reading',
         duration: '15 Minutes',
         price: '₹1,200',
+        originalPrice: '₹1,800',
         description: 'Quick tarot reading for a specific question or concern.',
         includes: [
           'Simple 3-card spread',
@@ -93,6 +94,7 @@ export const tarotData: HealingServiceData = {
         name: 'Standard Reading',
         duration: '45 Minutes',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         description: 'In-depth tarot reading exploring multiple aspects of your situation.',
         includes: [
           'Comprehensive card spread',
@@ -106,6 +108,7 @@ export const tarotData: HealingServiceData = {
         name: 'Extended Reading with Guidance',
         duration: '90 Minutes',
         price: '₹4,500',
+        originalPrice: '₹6,750',
         description: 'Complete tarot session with multiple spreads and detailed guidance.',
         includes: [
           'Multiple card spreads',

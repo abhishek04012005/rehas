@@ -376,6 +376,17 @@
   padding: 16px;
   background: rgba(86, 0, 103, 0.08);
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.originalPrice {
+  color: #999;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: line-through;
 }
 
 .sessionPrice {

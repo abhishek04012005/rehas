@@ -123,6 +123,7 @@ export const numerologyData: HealingServiceData = {
         name: 'Basic Numerology Reading',
         duration: '45 Minutes',
         price: '₹1,500',
+        originalPrice: '₹2,250',
         description: 'Essential numerology interpretation.',
         includes: [
           'Life path number analysis',
@@ -135,6 +136,7 @@ export const numerologyData: HealingServiceData = {
         name: 'Complete Numerology Analysis',
         duration: '60 Minutes',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         description: 'Comprehensive numerology reading with all key numbers.',
         includes: [
           'Life path, destiny, expression numbers',
@@ -148,6 +150,7 @@ export const numerologyData: HealingServiceData = {
         name: 'Advanced Numerology Consultation',
         duration: '90 Minutes + Follow-up',
         price: '₹4,000',
+        originalPrice: '₹6,000',
         description: 'In-depth consultation with advanced numerological techniques.',
         includes: [
           'Complete numerology profile',

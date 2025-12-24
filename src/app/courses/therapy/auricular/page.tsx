@@ -38,7 +38,8 @@ export default function AuricularTherapyCoursePage() {
           name: 'Weekend Intensive',
           duration: '2-3 weekends',
           description: 'Focused auricular point training with needle and non-needle techniques.',
-          price: '₹6,000-₹9,000',
+          price: '₹6,000',
+          originalPrice: '₹9,000',
           includes: [
             'Ear anatomy study',
             'Auricular point location',
@@ -51,7 +52,8 @@ export default function AuricularTherapyCoursePage() {
           name: 'Weekly Classes',
           duration: '6-10 weeks',
           description: 'Comprehensive weekly training in auricular therapy theory and practice.',
-          price: '₹8,000-₹11,000',
+          price: '₹10,000',
+          originalPrice: '₹15,000',
           includes: [
             'Complete auricular mapping',
             'Weekly practice sessions',
@@ -65,7 +67,8 @@ export default function AuricularTherapyCoursePage() {
           name: 'Online Course',
           duration: 'Self-paced',
           description: 'Video-based auricular therapy learning with point charts.',
-          price: '₹4,000-₹7,000',
+          price: '₹4,000',
+          originalPrice: '₹6,000',
           includes: [
             'Complete video modules',
             'Detailed ear point charts',
@@ -79,7 +82,8 @@ export default function AuricularTherapyCoursePage() {
           name: 'Private Training',
           duration: 'Customized',
           description: 'One-on-one personalized auricular therapy training.',
-          price: '₹1,200-₹2,000/hour',
+          price: '₹1,200',
+          originalPrice: '₹1,800',
           includes: [
             'Personal learning plan',
             'One-on-one mentoring',

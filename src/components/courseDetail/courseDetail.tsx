@@ -13,6 +13,7 @@ interface CourseSession {
   duration: string;
   description: string;
   price: string;
+  originalPrice?: string;
   includes: string[];
 }
 
@@ -207,6 +208,9 @@ export default function CourseDetail({
                   <p className={styles.sessionDescription}>{session.description}</p>
 
                   <div className={styles.priceSection}>
+                    {session.originalPrice && (
+                      <span className={styles.originalPrice}>{session.originalPrice}</span>
+                    )}
                     <span className={styles.sessionPrice}>{session.price}</span>
                   </div>
 

@@ -129,6 +129,7 @@ export const cowrieReadingData: HealingServiceData = {
         duration: '30 minutes',
         description: 'Answer one specific question with spiritual guidance.',
         price: '₹1,200',
+        originalPrice: '₹1,800',
         includes: [
           'Sacred space preparation',
           'Intention setting',
@@ -141,6 +142,7 @@ export const cowrieReadingData: HealingServiceData = {
         duration: '60 minutes',
         description: 'Comprehensive guidance on your current life situation.',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         includes: [
           'Full situation assessment',
           'Multiple shell castings',

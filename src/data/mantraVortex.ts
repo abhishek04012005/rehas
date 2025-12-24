@@ -129,6 +129,7 @@ export const mantraVortexData: HealingServiceData = {
         duration: '60 minutes',
         description: 'Experience your first mantra vortex activation.',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         includes: [
           'Vortex alignment',
           'Single spiral mantra practice',
@@ -141,6 +142,7 @@ export const mantraVortexData: HealingServiceData = {
         duration: '90 minutes',
         description: 'Multi-mantra vortex for profound transformation.',
         price: '₹4,000',
+        originalPrice: '₹6,000',
         includes: [
           'Multi-layer vortex creation',
           'Twin or trinity spiral practice',
@@ -153,6 +155,7 @@ export const mantraVortexData: HealingServiceData = {
         duration: '120 minutes',
         description: 'Cosmic vortex activation with master guidance.',
         price: '₹6,500',
+        originalPrice: '₹9,750',
         includes: [
           'Full cosmic vortex initiation',
           'Advanced spiral techniques',
@@ -165,6 +168,7 @@ export const mantraVortexData: HealingServiceData = {
         duration: '90 minutes',
         description: 'Collective consciousness amplification through synchronized vortexes.',
         price: '₹1,500 per person',
+        originalPrice: '₹2,250 per person',
         includes: [
           'Collective vortex creation',
           'Group healing field',

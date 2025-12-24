@@ -38,7 +38,8 @@ export default function AcupressureCoursePage() {
           name: 'Weekend Intensive',
           duration: '3-4 weekends',
           description: 'Intensive acupressure training with hands-on point location and technique practice.',
-          price: '₹8,000',
+          price: '₹6,000',
+          originalPrice: '₹9,000',
           includes: [
             'Complete acupressure point training',
             'Meridian system study',
@@ -52,6 +53,7 @@ export default function AcupressureCoursePage() {
           duration: '8-12 weeks',
           description: 'Structured weekly sessions with theory and practical application.',
           price: '₹10,000',
+          originalPrice: '₹15,000',
           includes: [
             'Comprehensive point location training',
             'Weekly practice sessions',
@@ -66,6 +68,7 @@ export default function AcupressureCoursePage() {
           duration: 'Self-paced',
           description: 'Video-based learning with acupressure charts and detailed guides.',
           price: '₹5,000',
+          originalPrice: '₹7,500',
           includes: [
             'Complete video modules',
             'Acupressure point charts',
@@ -80,6 +83,7 @@ export default function AcupressureCoursePage() {
           duration: 'Customized',
           description: 'One-on-one personalized acupressure training.',
           price: '₹1,500',
+          originalPrice: '₹2,250',
           includes: [
             'Personal training plan',
             'One-on-one mentorship',

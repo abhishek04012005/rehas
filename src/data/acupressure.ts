@@ -123,6 +123,7 @@ export const acupressureData: HealingServiceData = {
         name: 'Basic Acupressure Certification',
         duration: 'Beginner Level',
         price: '₹6,000',
+        originalPrice: '₹9,000',
         description: 'Foundation course in acupressure techniques and basic point therapy.',
         includes: [
           'Introduction to acupressure principles',
@@ -136,6 +137,7 @@ export const acupressureData: HealingServiceData = {
         name: 'Practice Acupressure Course',
         duration: 'Intermediate Level',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description: 'Advanced techniques and practical applications for therapeutic practice.',
         includes: [
           'Advanced pressure point techniques',
@@ -150,6 +152,7 @@ export const acupressureData: HealingServiceData = {
         name: 'Master Acupressure Certification',
         duration: 'Advanced Mastery',
         price: '₹20,000',
+        originalPrice: '₹30,000',
         description: 'Complete mastery of acupressure healing with advanced therapeutic applications.',
         includes: [
           'Complete pressure point mastery (360+ points)',

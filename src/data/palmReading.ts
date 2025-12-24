@@ -129,6 +129,7 @@ export const palmReadingData: HealingServiceData = {
         duration: '30 minutes',
         description: 'Quick overview of your life lines and destiny.',
         price: '₹1,200',
+        originalPrice: '₹1,800',
         includes: [
           'Hand analysis',
           'Main lines interpretation',
@@ -141,6 +142,7 @@ export const palmReadingData: HealingServiceData = {
         duration: '60 minutes',
         description: 'Deep analysis of all lines, mounts, and patterns.',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         includes: [
           'Complete hand assessment',
           'All line interpretations',

@@ -137,6 +137,7 @@ export const reikiData = {
         name: 'Basic Reiki Healing',
         duration: 'Introductory',
         price: 'Free',
+        originalPrice: '₹10,000',
         description:
           'Introduction to Reiki healing fundamentals and energy basics. Perfect for beginners who want to experience Reiki.',
         includes: [
@@ -151,6 +152,7 @@ export const reikiData = {
         name: 'Reiki up to Master Level',
         duration: 'Comprehensive',
         price: '₹20,000',
+        originalPrice: '₹30,000',
         description:
           'Complete Reiki training from Level 1 to Master certification with full attunements and professional credentials.',
         includes: [
@@ -167,6 +169,7 @@ export const reikiData = {
         name: 'KARUNA Reiki',
         duration: 'Advanced Specialization',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description:
           'Advanced Karuna Reiki training focusing on compassion and advanced healing techniques for deeper transformation.',
         includes: [
@@ -183,6 +186,7 @@ export const reikiData = {
         name: 'Word Master',
         duration: 'Intensive Specialization',
         price: '₹35,000',
+        originalPrice: '₹52,500',
         description:
           'Master the power of sacred words and manifestation through advanced Reiki principles and consciousness expansion.',
         includes: [

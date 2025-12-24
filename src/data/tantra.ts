@@ -130,6 +130,7 @@ export const tantraData = {
         name: 'Meditation Based on Tantra Workshop (Basic)',
         duration: 'Foundation Workshop',
         price: '₹6,000',
+        originalPrice: '₹9,000',
         description:
           'Begin your tantric meditation journey with foundational teachings and guided practices to awaken your subtle energies safely.',
         includes: [
@@ -146,6 +147,7 @@ export const tantraData = {
         name: 'Tantra Sadhana – Shirir Bandhan, Aasan Siddhi Sadhana',
         duration: 'Intermediate Program',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description:
           'Deep tantric practice combining body locks (bandhan), postural mastery (asana siddhi), and advanced energy work for transformation.',
         includes: [
@@ -163,6 +165,7 @@ export const tantraData = {
         name: 'Tantra Esoteric Wisdom Course',
         duration: 'Advanced Mastery',
         price: '₹20,000',
+        originalPrice: '₹30,000',
         description:
           'Comprehensive esoteric tantric teachings covering secret wisdom, advanced practices, and profound spiritual transformation.',
         includes: [

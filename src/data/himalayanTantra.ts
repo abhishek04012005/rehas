@@ -123,6 +123,7 @@ export const himalayanTantraData: HealingServiceData = {
         name: 'Foundation Intensive',
         duration: '7 Days Retreat',
         price: '₹8,000',
+        originalPrice: '₹12,000',
         description: 'Introduction to Himalayan tantric practices.',
         includes: [
           'Mountain tradition philosophy',
@@ -136,6 +137,7 @@ export const himalayanTantraData: HealingServiceData = {
         name: 'Advanced Mountain Training',
         duration: '30 Days Immersion',
         price: '₹25,000',
+        originalPrice: '₹37,500',
         description: 'Deep immersion in Himalayan tantra.',
         includes: [
           'Complete pranayama system',
@@ -150,6 +152,7 @@ export const himalayanTantraData: HealingServiceData = {
         name: 'Master Level Initiation',
         duration: '90 Days + Lifetime Support',
         price: '₹60,000',
+        originalPrice: '₹90,000',
         description: 'Complete mastery with direct master transmission.',
         includes: [
           'Full Himalayan tantra curriculum',

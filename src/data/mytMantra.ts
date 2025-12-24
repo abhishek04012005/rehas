@@ -123,6 +123,7 @@ export const mytMantraData: HealingServiceData = {
         name: 'Basic Mantra Course',
         duration: '4 Weeks',
         price: '₹3,500',
+        originalPrice: '₹5,250',
         description: 'Introduction to mantra theory and practice basics.',
         includes: [
           'Mantra fundamentals and theory',
@@ -135,6 +136,7 @@ export const mytMantraData: HealingServiceData = {
         name: 'Intensive Mantra Program',
         duration: '8 Weeks',
         price: '₹6,500',
+        originalPrice: '₹9,750',
         description: 'Deep understanding and mastery of sacred mantras.',
         includes: [
           'Complete mantra philosophy',
@@ -149,6 +151,7 @@ export const mytMantraData: HealingServiceData = {
         name: 'Master M.Y.T Mantra',
         duration: '12 Weeks + 1-on-1 Guidance',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description: 'Comprehensive mastery with personal spiritual guidance.',
         includes: [
           'Complete M.Y.T Mantra system',

@@ -103,6 +103,7 @@ export interface HealingServiceData {
       name: string;
       duration: string;
       price: string;
+      originalPrice?: string;
       description: string;
       includes: readonly string[];
     }[];
@@ -325,7 +326,12 @@ export default function HealingService({ data }: HealingServiceProps) {
                 <h3>{session.name}</h3>
                 <div className={styles.sessionMeta}>
                   <span className={styles.duration}>{session.duration}</span>
-                  <span className={styles.price}>{session.price}</span>
+                  <div className={styles.priceWrapper}>
+                    {session.originalPrice && (
+                      <span className={styles.originalPrice}>{session.originalPrice}</span>
+                    )}
+                    <span className={styles.price}>{session.price}</span>
+                  </div>
                 </div>
                 <p className={styles.sessionDescription}>{session.description}</p>
                 <div className={styles.includes}>

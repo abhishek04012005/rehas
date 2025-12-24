@@ -81,6 +81,7 @@ export const kundliAnalysisData: HealingServiceData = {
         name: 'Basic Kundli Analysis',
         duration: '20 Pages',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         description: 'Essential Kundli interpretation covering major life aspects.',
         includes: [
           'Birth chart creation',
@@ -94,6 +95,7 @@ export const kundliAnalysisData: HealingServiceData = {
         name: 'Detailed Kundli Analysis',
         duration: '30 Pages',
         price: '₹4,000',
+        originalPrice: '₹6,000',
         description: 'Comprehensive Kundli analysis with in-depth interpretations.',
         includes: [
           'Complete Kundli chart analysis',
@@ -109,6 +111,7 @@ export const kundliAnalysisData: HealingServiceData = {
         name: 'Premium Kundli with Consultation',
         duration: '40 Pages + 90 Min Consultation',
         price: '₹6,500',
+        originalPrice: '₹9,750',
         description: 'Ultra-detailed analysis with expert consultation and personalized guidance.',
         includes: [
           'Ultra-detailed Kundli analysis',

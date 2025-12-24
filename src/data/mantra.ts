@@ -124,6 +124,7 @@ export const mantraData = {
         name: '(Bijhure) Mantra Manifestation Work',
         duration: 'Foundation Course',
         price: '₹6,000',
+        originalPrice: '₹9,000',
         description:
           'Learn the Bijhure mantras for manifestation and achieving your goals through sacred sound vibrations and manifestation principles.',
         includes: [
@@ -140,6 +141,7 @@ export const mantraData = {
         name: 'Practice Star Mantra Sadhna Course',
         duration: 'Intermediate Program',
         price: '₹15,000',
+        originalPrice: '₹22,500',
         description:
           'Intensive practice course for developing mantra mastery through daily sadhna, spiritual discipline, and star mantra techniques.',
         includes: [
@@ -157,6 +159,7 @@ export const mantraData = {
         name: 'Master GR Mantravartive Sadhan Course',
         duration: 'Advanced Mastery',
         price: '₹25,000',
+        originalPrice: '₹37,500',
         description:
           'Advanced mantra mastery course covering GR mantras and tantric mantra applications for profound spiritual awakening and transformation.',
         includes: [

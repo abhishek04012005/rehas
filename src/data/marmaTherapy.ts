@@ -128,6 +128,7 @@ export const marmaTherapyData: HealingServiceData = {
         name: 'Marma Therapy Basic & Practice Course',
         duration: 'Foundation & Intermediate Level',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description: 'Comprehensive marma therapy training from fundamentals to professional practice.',
         includes: [
           'Ayurvedic principles and marma philosophy',

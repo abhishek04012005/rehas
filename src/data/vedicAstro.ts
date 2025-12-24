@@ -123,6 +123,7 @@ export const vedicAstroData: HealingServiceData = {
         name: 'Birth Chart Reading',
         duration: '60 Minutes',
         price: '₹2,500',
+        originalPrice: '₹3,750',
         description: 'Complete Vedic natal chart interpretation.',
         includes: [
           'Detailed chart analysis',
@@ -135,6 +136,7 @@ export const vedicAstroData: HealingServiceData = {
         name: 'Comprehensive Analysis',
         duration: '90 Minutes',
         price: '₹4,000',
+        originalPrice: '₹6,000',
         description: 'In-depth Vedic analysis with all major techniques.',
         includes: [
           'Complete natal chart analysis',
@@ -148,6 +150,7 @@ export const vedicAstroData: HealingServiceData = {
         name: 'Complete Life Consultation',
         duration: '2 Hours + Follow-up',
         price: '₹6,500',
+        originalPrice: '₹9,750',
         description: 'Comprehensive life guidance with detailed analysis.',
         includes: [
           'Ultra-detailed chart analysis',
