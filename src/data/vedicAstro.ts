@@ -11,7 +11,7 @@ export const vedicAstroData: HealingServiceData = {
     title: 'The Science of Vedic Astrology',
     description:
       'Vedic astrology, also known as Jyotisha, is the ancient Indian system of astrology with roots in the Vedas. More precise than Western astrology, it uses the sidereal zodiac and advanced mathematical calculations. Vedic astrology provides detailed insights into past karma, current circumstances, and future possibilities. It guides life decisions, relationships, careers, and spiritual growth.',
-    image: '/assets/service/vedic_astrology.png',
+    image: '/assets/service/vedic_astro.png',
   },
   benefits: {
     title: 'Benefits of Vedic Astrology',

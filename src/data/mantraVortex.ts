@@ -11,7 +11,7 @@ export const mantraVortexData: HealingServiceData = {
     title: 'What is Mantra Vortex?',
     description:
       'Mantra Vortex is an advanced practice that combines multiple mantras in spiral formations to create electromagnetic vortexes of spiritual power. These sacred sound vortexes amplify healing frequencies, accelerate consciousness expansion, and create dimensional portals for direct spiritual communion. By chanting mantras in specific geometric patterns and rhythmic spirals, practitioners activate the latent power of sound to transform reality at the quantum level.',
-    image: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=500&h=400&fit=crop',
+    image: '/assets/service/mantravortex.png',
   },
   benefits: {
     title: 'Benefits of Mantra Vortex',

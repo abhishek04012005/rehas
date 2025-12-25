@@ -11,7 +11,7 @@ export const yanthaData: HealingServiceData = {
     title: 'The Science of Yantra',
     description:
       'Yantra is the visual and geometric counterpart to mantra. These sacred diagrams contain cosmic principles encoded in geometric patterns. When meditated upon, yantras activate the nervous system and align consciousness with universal frequencies. In M.Y.T Wisdom, yantras serve as meditation tools that create energetic shifts and facilitate spiritual awakening through visual resonance.',
-    image: 'https://images.unsplash.com/photo-1577401132019-2a782f4a88c6?w=500&h=400&fit=crop',
+    image: '/assets/service/yantramyt.png',
   },
   benefits: {
     title: 'Benefits of Yantra Meditation',

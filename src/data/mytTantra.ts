@@ -11,7 +11,7 @@ export const mytTantraData: HealingServiceData = {
     title: 'The Essence of M.Y.T Tantra',
     description:
       'Tantra, the third pillar of M.Y.T Wisdom, is the practical path of integration. It teaches that all aspects of existence—body, mind, energy, and consciousness—can be harnessed for spiritual transformation. Unlike paths that renounce the world, tantra embraces it while transcending it. Through specific practices, rituals, and meditations, tantra practitioners awaken dormant kundalini energy and achieve ultimate liberation while living in the world.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=400&fit=crop',
+    image: '/assets/service/tantramyt.png',
   },
   benefits: {
     title: 'Benefits of M.Y.T Tantra Practice',

@@ -11,7 +11,7 @@ export const himalayanTantraData: HealingServiceData = {
     title: 'The Legacy of Himalayan Tantra',
     description:
       'Himalayan Tantra represents the purest lineage of tantric teachings, preserved in the sacred mountains for millennia. These teachings combine the best of tantric science with practical life wisdom. The Himalayan masters developed techniques specifically adapted to the harsh mountain environment, creating robust practices that work under any circumstances. Modern practitioners benefit from this time-tested wisdom that has guided countless seekers to enlightenment.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=400&fit=crop',
+    image: '/assets/service/himalyamyt.png',
   },
   benefits: {
     title: 'Benefits of Himalayan Tantra',

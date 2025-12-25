@@ -11,7 +11,7 @@ export const mytMantraData: HealingServiceData = {
     title: 'Understanding Mantra in M.Y.T Wisdom',
     description:
       'Mantra is the mystical science of sacred sounds and syllables. Each mantra carries specific vibrations that resonate with cosmic forces and internal energy centers. In M.Y.T (Mantra-Yantra-Tantra) Wisdom tradition, mantras form the foundational practice for spiritual awakening, healing, and manifestation. Through proper chanting and understanding, practitioners align their consciousness with universal forces.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=400&fit=crop',
+    image: '/assets/service/mantramyt.png',
   },
   benefits: {
     title: 'Benefits of Sacred Mantras',

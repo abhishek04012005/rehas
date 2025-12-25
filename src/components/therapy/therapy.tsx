@@ -12,6 +12,7 @@ import {
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { therapyData } from '@/data/content';
 import styles from './therapy.module.css';
+import Image from 'next/image';
 
 const iconMap = {
   PanTool,
@@ -40,7 +41,7 @@ export default function Therapy() {
       <section className={styles.servicesSection}>
         <div className={styles.container}>
           {therapyData.items.map((item) => {
-            const IconComponent = iconMap[item.muiIcon as keyof typeof iconMap];
+            // const IconComponent = iconMap[item.muiIcon as keyof typeof iconMap];
             const isHovered = hoveredItem === item.id;
 
             return (
@@ -57,9 +58,16 @@ export default function Therapy() {
                       className={styles.iconBox}
                       style={{ borderColor: item.color, backgroundColor: `${item.color}15` }}
                     >
-                      <IconComponent 
+                      {/* <IconComponent 
                         className={styles.serviceIcon}
                         style={{ color: item.color }}
+                      /> */}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={400}
+                        height={400}
+                        className={styles.serviceImage}
                       />
                     </div>
                   </div>

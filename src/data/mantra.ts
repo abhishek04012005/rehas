@@ -12,7 +12,7 @@ export const mantraData = {
     title: 'What are Mantras?',
     description:
       'Mantras are sacred words, phrases, or sounds that have been used for thousands of years to focus the mind, elevate consciousness, and create positive transformation. Derived from Sanskrit, mantras work through the power of sound vibration, accessing the deepest layers of consciousness. When repeated with intention and awareness, they align your mind, body, and spirit with universal harmony.',
-    image: '/assets/service/mantra.png',
+    image: '/assets/service/mantra1.png',
   },
   benefits: {
     title: 'Benefits of Mantra Practice',

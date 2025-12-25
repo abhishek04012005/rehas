@@ -12,7 +12,7 @@ export const healingData = {
       title: 'Reiki',
       description:
         'Experience the healing power of universal life force energy. Our certified Reiki practitioners channel positive energy to balance your chakras, release blockages, and promote deep physical, emotional, and spiritual healing.',
-      muiIcon: 'PanTool',
+      image: '/assets/service/reiki1.png',
       features: [
         'Full Body Healing',
         'Chakra Balance',
@@ -47,7 +47,7 @@ export const healingData = {
       title: 'Mantra',
       description:
         'Unlock the transformative power of sacred sound vibrations. Our mantra practitioners guide you through personalized mantras designed to align your consciousness, elevate your vibration, and manifest your deepest intentions.',
-      muiIcon: 'MusicNote',
+      image: '/assets/service/mantra1.png',
       features: [
         'Personalized Mantra',
         'Sound Vibration',
@@ -82,7 +82,7 @@ export const healingData = {
       title: 'Tantra',
       description:
         'Embrace the ancient path of energy mastery and spiritual integration. Tantra combines breathwork, visualization, and sacred practices to unite body, mind, and spirit, awakening dormant energy and facilitating profound transformation.',
-      muiIcon: 'FlashOn',
+      image: '/assets/service/tantra.png',
       features: [
         'Energy Activation',
         'Spiritual Integration',

@@ -9,7 +9,7 @@ export const reikiData = {
     title: 'What is Reiki?',
     description:
       'Reiki is a Japanese healing technique that channels universal life force energy (Ki) through a practitioner to promote physical, emotional, and spiritual healing. The word "Reiki" comes from two Japanese words: "Rei" (universal spirit) and "Ki" (life force energy).',
-    image: '/assets/service/reiki.png',
+    image: '/assets/service/reiki1.png',
   },
   benefits: {
     title: 'Benefits of Reiki',

@@ -11,7 +11,7 @@ export const esotericWisdomData: HealingServiceData = {
     title: 'Esoteric Wisdom & Tantric Mastery',
     description:
       'Tantric & Esoteric Wisdom encompasses the most advanced and secret teachings transmitted from enlightened masters to sincere disciples. This knowledge includes hidden tantric practices, advanced consciousness expansion techniques, and direct methods to enlightenment. Esoteric wisdom is traditionally guarded because its power requires ethical practice and proper preparation. Through REHAS, you gain access to these teachings with proper guidance and safety protocols.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=400&fit=crop',
+    image: '/assets/service/tantricmyt.png',
   },
   benefits: {
     title: 'Benefits of Esoteric Wisdom',

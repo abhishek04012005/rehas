@@ -14,6 +14,7 @@ import {
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { healingData } from '@/data/content';
 import styles from './healing.module.css';
+import Image from 'next/image';
 
 const iconMap = {
   PanTool,
@@ -44,7 +45,7 @@ export default function Healing() {
       <section className={styles.servicesSection}>
         <div className={styles.container}>
           {healingData.items.map((item) => {
-            const IconComponent = iconMap[item.muiIcon as keyof typeof iconMap];
+            // const IconComponent = iconMap[item.muiIcon as keyof typeof iconMap];
             const isHovered = hoveredItem === item.id;
 
             return (
@@ -61,9 +62,16 @@ export default function Healing() {
                       className={styles.iconBox}
                       style={{ borderColor: item.color, backgroundColor: `${item.color}15` }}
                     >
-                      <IconComponent 
+                      {/* <IconComponent 
                         className={styles.serviceIcon}
                         style={{ color: item.color }}
+                      /> */}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={400}
+                        height={400}
+                        className={styles.serviceImage}
                       />
                     </div>
                   </div>

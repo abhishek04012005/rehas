@@ -121,10 +121,11 @@
   box-sizing: border-box;
 }
 
+
 .iconBox {
-  width: 220px;
-  height: 220px;
-  border: 3px solid;
+  width: 450px;
+  height: 450px;
+  /* border: 3px solid; */
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -133,6 +134,11 @@
   transition: all 0.3s ease;
   box-shadow: 0 8px 24px rgba(86, 0, 103, 0.1);
   flex-shrink: 0;
+}
+
+.iconBox .serviceImage {
+  width: 100%;
+  height: auto;
 }
 
 .serviceItem:hover .iconBox {
