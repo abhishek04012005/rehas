@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import CourseDetail from '@/components/courseDetail/courseDetail';
 
 export const metadata: Metadata = {
-  title: 'Reiki Mastery Program | Professional Healing Certification | REHAS',
+  title: 'Reiki & Mind Power Course | Professional Healing Certification | REHAS',
   description:
-    'Master Reiki from Level 1 to Master certification with our comprehensive program. Learn from certified experts with hands-on healing training.',
+    'Master Reiki and Mind Power from foundational to Master level certification. Learn from certified experts with hands-on healing training.',
   keywords: [
     'Reiki Training',
-    'Reiki Mastery',
+    'Reiki & Mind Power',
     'Reiki Certification',
     'Energy Healing',
     'Reiki Master',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     'Healing Certification',
   ],
   openGraph: {
-    title: 'Reiki Mastery Program | REHAS',
-    description: 'Complete Reiki training from Level 1 to Master certification.',
+    title: 'Reiki & Mind Power Course | REHAS',
+    description: 'Complete Reiki and Mind Power training from foundational to Master certification.',
     type: 'website',
   },
 };
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
 export default function ReikiCoursePage() {
   return (
     <CourseDetail
-      courseName="Reiki Mastery Program"
+      courseName="Reiki & Mind Power Course"
       category="healing"
-      description="Master the complete Reiki system from fundamentals to advanced practices"
-      meaning="Reiki is a Japanese technique for stress reduction and healing that uses universal life force energy. Our comprehensive program teaches you to become a certified Reiki practitioner and master, capable of healing yourself and others. Through hands-on training, attunements, and practical applications, you'll develop the ability to channel healing energy effectively."
-      benefit="Hands-on healing ability; Energy perception and channeling; Spiritual growth and awareness; Stress reduction techniques; Personal transformation; Ability to help others heal"
-      use="Personal wellness and healing; Professional healing practice; Complementary therapy; Spiritual development; Building a healing business; Family and friend healing"
+      description="Master the complete Reiki system combined with Mind Power techniques from fundamentals to advanced practices"
+      meaning="Reiki is a Japanese technique for stress reduction and healing that uses universal life force energy, enhanced with Mind Power practices. Our comprehensive program teaches you to become a certified Reiki and Mind Power practitioner and master, capable of healing yourself and others. Through hands-on training, attunements, meditation, and practical applications, you'll develop the ability to channel healing energy and harness the power of your mind effectively."
+      benefit="Hands-on healing ability; Energy perception and channeling; Mind power and consciousness control; Spiritual growth and awareness; Stress reduction techniques; Personal transformation; Ability to help others heal"
+      use="Personal wellness and healing; Professional healing practice; Complementary therapy; Spiritual development; Building a healing business; Family and friend healing; Consciousness expansion"
       price="₹8,000"
       duration="2-3 months (varies by format)"
       level="Beginner to Master"
@@ -80,9 +80,9 @@ export default function ReikiCoursePage() {
           ],
         },
         {
-          name: 'Word Master',
+          name: 'Grand Master',
           duration: 'Intensive Specialization',
-          description: 'Master the power of sacred words and manifestation through Reiki principles.',
+          description: 'Master the power of sacred words and manifestation through Reiki and Mind Power principles.',
           price: '₹35,000',
           originalPrice: '₹52,500',
           includes: [

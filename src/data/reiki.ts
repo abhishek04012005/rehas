@@ -128,15 +128,15 @@ export const reikiData = {
     ],
   },
   sessions: {
-    title: 'Our Reiki Sessions & Courses',
+    title: 'Reiki & Mind Power Course',
     types: [
       {
         name: 'Basic Reiki Healing',
         duration: 'Introductory',
         price: '₹1',
-        originalPrice: '₹10,000',
+        originalPrice: '₹5,000',
         description:
-          'Introduction to Reiki healing fundamentals and energy basics. Perfect for beginners who want to experience Reiki.',
+          'Introduction to Reiki healing fundamentals and energy basics. Perfect for beginners who want to experience Reiki and discover its transformative power.',
         includes: [
           'Basic Reiki introduction',
           'Energy awareness training',
@@ -163,7 +163,7 @@ export const reikiData = {
         ],
       },
       {
-        name: 'Karuna Reiki',
+        name: 'KARUNA Reiki',
         duration: 'Advanced Specialization',
         price: '₹10,000',
         originalPrice: '₹15,000',
@@ -180,21 +180,21 @@ export const reikiData = {
         ],
       },
       {
-        name: 'Word Master',
+        name: 'Grand Master',
         duration: 'Intensive Specialization',
         price: '₹35,000',
         originalPrice: '₹52,500',
         description:
-          'Master the power of sacred words and manifestation through advanced Reiki principles and consciousness expansion.',
+          'Master the highest levels of Reiki practice and become a Grand Master with advanced techniques and teaching credentials.',
         includes: [
-          'Sacred word mastery',
-          'Manifestation techniques',
-          'Consciousness expansion',
-          'Advanced energy work',
+          'Grand Master level training',
+          'Advanced spiritual practices',
           'Professional certification',
           'Complete training materials',
           'Lifetime instructor support',
           'Teaching credential training',
+          'Advanced initiation rituals',
+          'Personal mentorship',
         ],
       },
     ],

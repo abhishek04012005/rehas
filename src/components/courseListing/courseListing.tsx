@@ -25,6 +25,7 @@ interface CourseListingProps {
     name: string;
     description: string;
     price: string;
+    originalPrice?: string;
     href: string;
     image: string;
     imageUrl?: string;
@@ -207,6 +208,7 @@ export default function CourseListing({
                   name={course.name}
                   description={course.description}
                   price={course.price}
+                  originalPrice={course.originalPrice}
                   href={course.href}
                   image={course.image}
                   imageUrl={course.imageUrl}

@@ -70,7 +70,7 @@ export default function CourseCard({
               {originalPrice && (
                 <span className={styles.originalPrice}>{originalPrice}</span>
               )}
-              {/* <span className={styles.price}>{price}</span> */}
+              <span className={styles.price}>{price}</span>
             </div>
           </div>
         </div>
