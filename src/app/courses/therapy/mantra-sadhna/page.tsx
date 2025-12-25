@@ -33,7 +33,7 @@ export default function MantaSadhnaPage() {
       originalPrice="₹22,500"
       duration="8-10 weeks"
       level="All Levels"
-      image="AutoAwesome"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Practice Star Mantra Sadhna Course',

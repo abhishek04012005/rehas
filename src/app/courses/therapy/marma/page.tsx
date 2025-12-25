@@ -32,7 +32,7 @@ export default function MarmaTherapyCoursePage() {
       price="₹10,000"
       duration="Foundation & Intermediate"
       level="All Levels"
-      image="PanToolOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Marma Therapy Basic & Practice Course',

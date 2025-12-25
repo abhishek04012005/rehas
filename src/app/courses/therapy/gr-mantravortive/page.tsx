@@ -33,7 +33,7 @@ export default function GRMantravortivePage() {
       originalPrice="₹37,500"
       duration="12-16 weeks"
       level="Advanced"
-      image="EmojiEventsOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Masters GR Mantravortive Sadhan Course',

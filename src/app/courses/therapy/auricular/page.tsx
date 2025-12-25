@@ -32,7 +32,7 @@ export default function AuricularTherapyCoursePage() {
       price="₹6,000-₹12,000"
       duration="6-10 weeks"
       level="Intermediate"
-      image="HearingOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Weekend Intensive',

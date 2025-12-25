@@ -34,7 +34,7 @@ export default function TantraCoursePage() {
       originalPrice="₹12,000"
       duration="10-14 weeks"
       level="Intermediate"
-      image="ControlPoint"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Weekend Intensive',

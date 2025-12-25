@@ -34,7 +34,7 @@ export default function NumerologyCoursePage() {
       price={coursePrice}
       duration="6-10 weeks"
       level="All Levels"
-      image="CalculateOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Weekend Intensive',

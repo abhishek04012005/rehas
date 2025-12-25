@@ -34,7 +34,7 @@ export default function VedicAstrologyCoursePage() {
       price={coursePrice}
       duration="12-16 weeks"
       level="Beginner to Master"
-      image="StarOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Weekend Intensive',

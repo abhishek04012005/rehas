@@ -2,14 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { 
-  SchoolOutlined, 
-  EmojiEventsOutlined, 
-  CheckCircle, 
-  ChevronRight, 
-  AutoStories, 
-  AccessTime, 
-  Group, 
+import {
+  SchoolOutlined,
+  EmojiEventsOutlined,
+  CheckCircle,
+  ChevronRight,
+  AutoStories,
+  AccessTime,
+  Group,
   EmojiEvents,
   School,
   EmojiEventsRounded,
@@ -101,171 +101,121 @@ export default function CourseDetail({
     <main className={styles.container}>
       {/* Header */}
       <section className={styles.hero}>
-        <LineArtBackground />
         <div className={styles.heroContent}>
           <div className={styles.breadcrumb}>
             <span>Courses</span>
-            <ChevronRight sx={{ fontSize: 20 }} />
+            <span>/</span>
             <span>{categoryDisplay}</span>
-            <ChevronRight sx={{ fontSize: 20 }} />
+            <span>/</span>
             <span>{courseName}</span>
           </div>
-          <h1 className={styles.courseTitle}>{courseName}</h1>
-          <p className={styles.courseSubtitle}>{description}</p>
-          <div className={styles.heroMeta}>
-            <div className={styles.metaItem}>
-              <AccessTime sx={{ fontSize: 20 }} />
-              <span>{duration}</span>
-            </div>
-            <div className={styles.metaItem}>
-              <EmojiEvents sx={{ fontSize: 20 }} />
-              <span>{level}</span>
-            </div>
-            <div className={styles.metaItem}>
-              <AutoStories sx={{ fontSize: 20 }} />
-              <span>Certification Included</span>
-            </div>
+          <div className={styles.heroMain}>
+            <h1>{courseName}</h1>
+            <p>{description}</p>
           </div>
         </div>
       </section>
 
       {/* Course Details Section */}
       <section className={styles.detailsSection}>
-        <div className={styles.detailsContainer}>
-          {/* Course Image Section */}
-          <div className={styles.imageSection}>
-            <div className={styles.courseImageWrapper}>
-              <div className={styles.courseImagePlaceholder}>
-                <Image
-                src={image}
-                alt={courseName}
-                width={400}
-                height={400}
-                className={styles.courseImage}
-              />
-              </div>
-              
-              <div className={styles.priceBox}>
-                <div className={styles.originalPriceBox}>
-                  <span className={styles.originalPriceprice}>{originalPrice}</span>
-                  <span className={styles.price}>{price}</span>
-                </div>
-                <button
-                  onClick={() => handleEnrollNow()}
-                  className={styles.enrollBtnSmall}
-                >
-                  Enroll Now
-                </button>
-              </div>
+        <div className={styles.container}>
+          {/* Left Column */}
+          <div className={styles.leftColumn}>
+            {/* About Section */}
+            <div className={styles.section}>
+              <h2>About This Course</h2>
+              <p>{meaning}</p>
             </div>
+
+            {/* What You'll Learn */}
+            <div className={styles.section}>
+              <h2>What You'll Learn</h2>
+              <ul className={styles.simpleList}>
+                {benefit.split(';').slice(0, 6).map((item, index) => (
+                  <li key={index}>{item.trim()}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Best For */}
+            <div className={styles.section}>
+              <h2>Best For</h2>
+              <ul className={styles.simpleList}>
+                {use.split(';').slice(0, 6).map((item, index) => (
+                  <li key={index}>{item.trim()}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.section}>
+              <h2>Includes</h2>
+              <ul className={styles.simpleList}>
+                {sessions.length > 0 && sessions[0].includes.map((item, idx) => (
+                  <li key={idx}>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
 
-          {/* Course Information Section */}
-          <div className={styles.infoSection}>
-            {/* Overview */}
+          {/* Right Column */}
+          <aside className={styles.rightColumn}>
+            {/* Course Image */}
+            <div className={styles.imageBox}>
+              {image  ? (
+                <Image
+                  src={image}
+                  alt={courseName}
+                  width={300}
+                  height={300}
+                  className={styles.courseImage}
+                />
+              ) : (
+                <div className={styles.iconBox}>
+                  <IconComponent sx={{ fontSize: 60 }} />
+                </div>
+              )}
+            </div>
+
+            {/* Quick Info */}
             <div className={styles.infoBox}>
-              <h2 className={styles.boxTitle}>Course Overview</h2>
-              <p className={styles.boxContent}>{meaning}</p>
-            </div>
-
-            {/* Benefits Grid */}
-            <div className={styles.benefitsGrid}>
-              <div className={styles.benefitBox}>
-                <h3 className={styles.boxTitle}>
-                  <EmojiEventsOutlined sx={{ fontSize: 20 }} />
-                  What You'll Learn
-                </h3>
-                <ul className={styles.benefitList}>
-                  {benefit.split(';').map((item, index) => (
-                    <li key={index}>
-                      <CheckCircle sx={{ fontSize: 16 }} />
-                      <span>{item.trim()}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Duration</span>
+                <span className={styles.value}>{duration}</span>
               </div>
-
-              <div className={styles.useBox}>
-                <h3 className={styles.boxTitle}>
-                  <SchoolOutlined sx={{ fontSize: 20 }} />
-                  Best For
-                </h3>
-                <ul className={styles.benefitList}>
-                  {use.split(';').map((item, index) => (
-                    <li key={index}>
-                      <CheckCircle sx={{ fontSize: 16 }} />
-                      <span>{item.trim()}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Level</span>
+                <span className={styles.value}>{level}</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Certificate</span>
+                <span className={styles.value}>Included</span>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className={styles.actionButtons}>
+            {/* Price Section */}
+            <div className={styles.priceBox}>
+              <div className={styles.priceDisplay}>
+                {originalPrice && (
+                  <span className={styles.originalPriceText}>{originalPrice}</span>
+                )}
+                <span className={styles.priceText}>{price}</span>
+              </div>
               <button
                 onClick={() => handleEnrollNow()}
-                className={styles.enrollBtn}
+                className={styles.enrollButton}
               >
-                <AutoStories sx={{ fontSize: 18 }} />
                 Enroll Now
               </button>
-              <Link href={categoryPath} className={styles.continueBtn}>
-                Back to {categoryDisplay} Courses
+              <Link href={categoryPath} className={styles.backLink}>
+                Back to {categoryDisplay}
               </Link>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
-
-      {/* Course Formats Section */}
-      {sessions && sessions.length > 0 && (
-        <section className={styles.formatsSection}>
-          <div className={styles.formatsContainer}>
-            <h2>Choose Your Learning Format</h2>
-            <p className={styles.formatsSubtitle}>
-              Select the format that best suits your schedule and learning style
-            </p>
-            <div className={styles.sessionGrid}>
-              {sessions.map((session, index) => (
-                <div key={index} className={styles.sessionCard}>
-                  <div className={styles.sessionHeader}>
-                    <h3>{session.name}</h3>
-                    <span className={styles.duration}>{session.duration}</span>
-                  </div>
-                  <p className={styles.sessionDescription}>{session.description}</p>
-
-                  <div className={styles.priceSection}>
-                    {session.originalPrice && (
-                      <span className={styles.originalPrice}>{session.originalPrice}</span>
-                    )}
-                    <span className={styles.sessionPrice}>{session.price}</span>
-                  </div>
-
-                  <div className={styles.includesList}>
-                    <h4>Includes:</h4>
-                    <ul>
-                      {session.includes.map((item, idx) => (
-                        <li key={idx}>
-                          <CheckCircle sx={{ fontSize: 14 }} />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <button
-                    onClick={() => handleEnrollNow(session.name, session.price)}
-                    className={styles.sessionEnrollBtn}
-                  >
-                    Enroll in {session.name}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Curriculum Section */}
       {curriculum && curriculum.length > 0 && (

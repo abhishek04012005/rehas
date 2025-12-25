@@ -32,7 +32,7 @@ export default function AcupressureCoursePage() {
       price="₹8,000"
       duration="8-12 weeks"
       level="Beginner to Advanced"
-      image="TouchAppOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Weekend Intensive',

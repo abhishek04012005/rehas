@@ -33,7 +33,7 @@ export default function ReikiCoursePage() {
       price="₹8,000"
       duration="2-3 months (varies by format)"
       level="Beginner to Master"
-      image="Favorite"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Basic Reiki Healing',

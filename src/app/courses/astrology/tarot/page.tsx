@@ -34,7 +34,7 @@ export default function TarotCoursePage() {
       price={coursePrice}
       duration="6-10 weeks"
       level="Beginner to Intermediate"
-      image="PokerOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Weekend Intensive',

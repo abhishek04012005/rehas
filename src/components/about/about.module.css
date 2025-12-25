@@ -45,7 +45,7 @@
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 4rem;
-  align-items: stretch;
+  align-items: center;
   max-width: 1400px;
   margin: 0 auto;
   padding: 4rem 2rem;
@@ -103,8 +103,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(50px, 12vw, 80px);
-  height: clamp(50px, 12vw, 80px);
+  width: clamp(144px, 12vw, 96px);
+  height: clamp(144px, 12vw, 96px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -112,8 +112,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(80px, 18vw, 120px);
-  height: clamp(80px, 18vw, 120px);
+  width: clamp(192px, 18vw, 144px);
+  height: clamp(192px, 18vw, 144px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -121,8 +121,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(110px, 24vw, 150px);
-  height: clamp(110px, 24vw, 150px);
+  width: clamp(240px, 24vw, 180px);
+  height: clamp(240px, 24vw, 180px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -130,8 +130,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(140px, 30vw, 180px);
-  height: clamp(140px, 30vw, 180px);
+  width: clamp(288px, 30vw, 216px);
+  height: clamp(288px, 30vw, 216px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -139,8 +139,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(170px, 36vw, 210px);
-  height: clamp(170px, 36vw, 210px);
+  width: clamp(336px, 36vw, 252px);
+  height: clamp(336px, 36vw, 252px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -148,8 +148,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(200px, 42vw, 240px);
-  height: clamp(200px, 42vw, 240px);
+  width: clamp(384px, 42vw, 288px);
+  height: clamp(384px, 42vw, 288px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -157,8 +157,8 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(230px, 48vw, 270px);
-  height: clamp(230px, 48vw, 270px);
+  width: clamp(432px, 48vw, 324px);
+  height: clamp(432px, 48vw, 324px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
@@ -166,97 +166,97 @@
   position: absolute;
   border: 1px solid rgba(86, 0, 103, 0.5);
   border-radius: 50%;
-  width: clamp(260px, 54vw, 300px);
-  height: clamp(260px, 54vw, 300px);
+  width: clamp(480px, 54vw, 360px);
+  height: clamp(480px, 54vw, 360px);
   box-shadow: 0 0 15px rgba(86, 0, 103, 0.3);
 }
 
 /* Individual Planet Classes */
 .planet1 {
   position: absolute;
-  width: clamp(50px, 12vw, 80px);
-  height: clamp(50px, 12vw, 80px);
+  width: clamp(144px, 12vw, 96px);
+  height: clamp(144px, 12vw, 96px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(50px, 12vw, 80px) / -2);
-  margin-top: calc(clamp(50px, 12vw, 80px) / -2);
+  margin-left: calc(clamp(144px, 12vw, 96px) / -2);
+  margin-top: calc(clamp(144px, 12vw, 96px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet2 {
   position: absolute;
-  width: clamp(80px, 18vw, 120px);
-  height: clamp(80px, 18vw, 120px);
+  width: clamp(192px, 18vw, 144px);
+  height: clamp(192px, 18vw, 144px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(80px, 18vw, 120px) / -2);
-  margin-top: calc(clamp(80px, 18vw, 120px) / -2);
+  margin-left: calc(clamp(192px, 18vw, 144px) / -2);
+  margin-top: calc(clamp(192px, 18vw, 144px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet3 {
   position: absolute;
-  width: clamp(110px, 24vw, 150px);
-  height: clamp(110px, 24vw, 150px);
+  width: clamp(240px, 24vw, 180px);
+  height: clamp(240px, 24vw, 180px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(110px, 24vw, 150px) / -2);
-  margin-top: calc(clamp(110px, 24vw, 150px) / -2);
+  margin-left: calc(clamp(240px, 24vw, 180px) / -2);
+  margin-top: calc(clamp(240px, 24vw, 180px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet4 {
   position: absolute;
-  width: clamp(140px, 30vw, 180px);
-  height: clamp(140px, 30vw, 180px);
+  width: clamp(288px, 30vw, 216px);
+  height: clamp(288px, 30vw, 216px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(140px, 30vw, 180px) / -2);
-  margin-top: calc(clamp(140px, 30vw, 180px) / -2);
+  margin-left: calc(clamp(288px, 30vw, 216px) / -2);
+  margin-top: calc(clamp(288px, 30vw, 216px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet5 {
   position: absolute;
-  width: clamp(170px, 36vw, 210px);
-  height: clamp(170px, 36vw, 210px);
+  width: clamp(336px, 36vw, 252px);
+  height: clamp(336px, 36vw, 252px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(170px, 36vw, 210px) / -2);
-  margin-top: calc(clamp(170px, 36vw, 210px) / -2);
+  margin-left: calc(clamp(336px, 36vw, 252px) / -2);
+  margin-top: calc(clamp(336px, 36vw, 252px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet6 {
   position: absolute;
-  width: clamp(200px, 42vw, 240px);
-  height: clamp(200px, 42vw, 240px);
+  width: clamp(384px, 42vw, 288px);
+  height: clamp(384px, 42vw, 288px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(200px, 42vw, 240px) / -2);
-  margin-top: calc(clamp(200px, 42vw, 240px) / -2);
+  margin-left: calc(clamp(384px, 42vw, 288px) / -2);
+  margin-top: calc(clamp(384px, 42vw, 288px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet7 {
   position: absolute;
-  width: clamp(230px, 48vw, 270px);
-  height: clamp(230px, 48vw, 270px);
+  width: clamp(432px, 48vw, 324px);
+  height: clamp(432px, 48vw, 324px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(230px, 48vw, 270px) / -2);
-  margin-top: calc(clamp(230px, 48vw, 270px) / -2);
+  margin-left: calc(clamp(432px, 48vw, 324px) / -2);
+  margin-top: calc(clamp(432px, 48vw, 324px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
 .planet8 {
   position: absolute;
-  width: clamp(260px, 54vw, 300px);
-  height: clamp(260px, 54vw, 300px);
+  width: clamp(480px, 54vw, 360px);
+  height: clamp(480px, 54vw, 360px);
   left: 50%;
   top: 50%;
-  margin-left: calc(clamp(260px, 54vw, 300px) / -2);
-  margin-top: calc(clamp(260px, 54vw, 300px) / -2);
+  margin-left: calc(clamp(480px, 54vw, 360px) / -2);
+  margin-top: calc(clamp(480px, 54vw, 360px) / -2);
   animation: orbitPlanet var(--duration) linear infinite;
 }
 
@@ -741,6 +741,102 @@
     box-shadow: 0 0 8px rgba(155, 89, 182, 0.4);
   }
 
+  .orbit1 {
+    width: clamp(84px, 12vw, 36px);
+    height: clamp(84px, 12vw, 36px);
+  }
+
+  .orbit2 {
+    width: clamp(132px, 18vw, 84px);
+    height: clamp(132px, 18vw, 84px);
+  }
+
+  .orbit3 {
+    width: clamp(180px, 24vw, 120px);
+    height: clamp(180px, 24vw, 120px);
+  }
+
+  .orbit4 {
+    width: clamp(228px, 30vw, 156px);
+    height: clamp(228px, 30vw, 156px);
+  }
+
+  .orbit5 {
+    width: clamp(276px, 36vw, 192px);
+    height: clamp(276px, 36vw, 192px);
+  }
+
+  .orbit6 {
+    width: clamp(324px, 42vw, 228px);
+    height: clamp(324px, 42vw, 228px);
+  }
+
+  .orbit7 {
+    width: clamp(372px, 48vw, 264px);
+    height: clamp(372px, 48vw, 264px);
+  }
+
+  .orbit8 {
+    width: clamp(420px, 54vw, 300px);
+    height: clamp(420px, 54vw, 300px);
+  }
+
+  .planet1 {
+    width: clamp(84px, 12vw, 36px);
+    height: clamp(84px, 12vw, 36px);
+    margin-left: calc(clamp(84px, 12vw, 36px) / -2);
+    margin-top: calc(clamp(84px, 12vw, 36px) / -2);
+  }
+
+  .planet2 {
+    width: clamp(132px, 18vw, 84px);
+    height: clamp(132px, 18vw, 84px);
+    margin-left: calc(clamp(132px, 18vw, 84px) / -2);
+    margin-top: calc(clamp(132px, 18vw, 84px) / -2);
+  }
+
+  .planet3 {
+    width: clamp(180px, 24vw, 120px);
+    height: clamp(180px, 24vw, 120px);
+    margin-left: calc(clamp(180px, 24vw, 120px) / -2);
+    margin-top: calc(clamp(180px, 24vw, 120px) / -2);
+  }
+
+  .planet4 {
+    width: clamp(228px, 30vw, 156px);
+    height: clamp(228px, 30vw, 156px);
+    margin-left: calc(clamp(228px, 30vw, 156px) / -2);
+    margin-top: calc(clamp(228px, 30vw, 156px) / -2);
+  }
+
+  .planet5 {
+    width: clamp(276px, 36vw, 192px);
+    height: clamp(276px, 36vw, 192px);
+    margin-left: calc(clamp(276px, 36vw, 192px) / -2);
+    margin-top: calc(clamp(276px, 36vw, 192px) / -2);
+  }
+
+  .planet6 {
+    width: clamp(324px, 42vw, 228px);
+    height: clamp(324px, 42vw, 228px);
+    margin-left: calc(clamp(324px, 42vw, 228px) / -2);
+    margin-top: calc(clamp(324px, 42vw, 228px) / -2);
+  }
+
+  .planet7 {
+    width: clamp(372px, 48vw, 264px);
+    height: clamp(372px, 48vw, 264px);
+    margin-left: calc(clamp(372px, 48vw, 264px) / -2);
+    margin-top: calc(clamp(372px, 48vw, 264px) / -2);
+  }
+
+  .planet8 {
+    width: clamp(420px, 54vw, 300px);
+    height: clamp(420px, 54vw, 300px);
+    margin-left: calc(clamp(420px, 54vw, 300px) / -2);
+    margin-top: calc(clamp(420px, 54vw, 300px) / -2);
+  }
+
   .belowContainer {
     padding: 2.5rem 1.5rem;
   }
@@ -834,6 +930,102 @@
     border-width: 1.5px;
   }
 
+  .orbit1 {
+    width: clamp(49px, 12vw, 1px);
+    height: clamp(49px, 12vw, 1px);
+  }
+
+  .orbit2 {
+    width: clamp(97px, 18vw, 49px);
+    height: clamp(97px, 18vw, 49px);
+  }
+
+  .orbit3 {
+    width: clamp(145px, 24vw, 85px);
+    height: clamp(145px, 24vw, 85px);
+  }
+
+  .orbit4 {
+    width: clamp(193px, 30vw, 121px);
+    height: clamp(193px, 30vw, 121px);
+  }
+
+  .orbit5 {
+    width: clamp(241px, 36vw, 157px);
+    height: clamp(241px, 36vw, 157px);
+  }
+
+  .orbit6 {
+    width: clamp(289px, 42vw, 193px);
+    height: clamp(289px, 42vw, 193px);
+  }
+
+  .orbit7 {
+    width: clamp(337px, 48vw, 229px);
+    height: clamp(337px, 48vw, 229px);
+  }
+
+  .orbit8 {
+    width: clamp(385px, 54vw, 265px);
+    height: clamp(385px, 54vw, 265px);
+  }
+
+  .planet1 {
+    width: clamp(49px, 12vw, 1px);
+    height: clamp(49px, 12vw, 1px);
+    margin-left: calc(clamp(49px, 12vw, 1px) / -2);
+    margin-top: calc(clamp(49px, 12vw, 1px) / -2);
+  }
+
+  .planet2 {
+    width: clamp(97px, 18vw, 49px);
+    height: clamp(97px, 18vw, 49px);
+    margin-left: calc(clamp(97px, 18vw, 49px) / -2);
+    margin-top: calc(clamp(97px, 18vw, 49px) / -2);
+  }
+
+  .planet3 {
+    width: clamp(145px, 24vw, 85px);
+    height: clamp(145px, 24vw, 85px);
+    margin-left: calc(clamp(145px, 24vw, 85px) / -2);
+    margin-top: calc(clamp(145px, 24vw, 85px) / -2);
+  }
+
+  .planet4 {
+    width: clamp(193px, 30vw, 121px);
+    height: clamp(193px, 30vw, 121px);
+    margin-left: calc(clamp(193px, 30vw, 121px) / -2);
+    margin-top: calc(clamp(193px, 30vw, 121px) / -2);
+  }
+
+  .planet5 {
+    width: clamp(241px, 36vw, 157px);
+    height: clamp(241px, 36vw, 157px);
+    margin-left: calc(clamp(241px, 36vw, 157px) / -2);
+    margin-top: calc(clamp(241px, 36vw, 157px) / -2);
+  }
+
+  .planet6 {
+    width: clamp(289px, 42vw, 193px);
+    height: clamp(289px, 42vw, 193px);
+    margin-left: calc(clamp(289px, 42vw, 193px) / -2);
+    margin-top: calc(clamp(289px, 42vw, 193px) / -2);
+  }
+
+  .planet7 {
+    width: clamp(337px, 48vw, 229px);
+    height: clamp(337px, 48vw, 229px);
+    margin-left: calc(clamp(337px, 48vw, 229px) / -2);
+    margin-top: calc(clamp(337px, 48vw, 229px) / -2);
+  }
+
+  .planet8 {
+    width: clamp(385px, 54vw, 265px);
+    height: clamp(385px, 54vw, 265px);
+    margin-left: calc(clamp(385px, 54vw, 265px) / -2);
+    margin-top: calc(clamp(385px, 54vw, 265px) / -2);
+  }
+
   .sectionHeader h2 {
     font-size: 1.4rem;
   }
@@ -916,6 +1108,102 @@
   .orbit {
     border-width: 1px;
     box-shadow: 0 0 5px rgba(86, 0, 103, 0.2);
+  }
+
+  .orbit1 {
+    width: clamp(90px, 12vw, 56px);
+    height: clamp(90px, 12vw, 56px);
+  }
+
+  .orbit2 {
+    width: clamp(120px, 18vw, 104px);
+    height: clamp(120px, 18vw, 104px);
+  }
+
+  .orbit3 {
+    width: clamp(150px, 24vw, 140px);
+    height: clamp(150px, 24vw, 140px);
+  }
+
+  .orbit4 {
+    width: clamp(180px, 30vw, 176px);
+    height: clamp(180px, 30vw, 176px);
+  }
+
+  .orbit5 {
+    width: clamp(210px, 36vw, 212px);
+    height: clamp(210px, 36vw, 212px);
+  }
+
+  .orbit6 {
+    width: clamp(240px, 42vw, 248px);
+    height: clamp(240px, 42vw, 248px);
+  }
+
+  .orbit7 {
+    width: clamp(270px, 48vw, 284px);
+    height: clamp(270px, 48vw, 284px);
+  }
+
+  .orbit8 {
+    width: clamp(300px, 54vw, 320px);
+    height: clamp(300px, 54vw, 320px);
+  }
+
+   .planet1 {
+    width: clamp(90px, 12vw, 56px);
+    height: clamp(90px, 12vw, 56px);
+    margin-left: calc(clamp(90px, 12vw, 56px) / -2);
+    margin-top: calc(clamp(90px, 12vw, 56px) / -2);
+  }
+
+  .planet2 {
+    width: clamp(120px, 18vw, 104px);
+    height: clamp(120px, 18vw, 104px);
+    margin-left: calc(clamp(120px, 18vw, 104px) / -2);
+    margin-top: calc(clamp(120px, 18vw, 104px) / -2);
+  }
+
+  .planet3 {
+    width: clamp(150px, 24vw, 140px);
+    height: clamp(150px, 24vw, 140px);
+    margin-left: calc(clamp(150px, 24vw, 140px) / -2);
+    margin-top: calc(clamp(150px, 24vw, 140px) / -2);
+  }
+
+  .planet4 {
+    width: clamp(180px, 30vw, 176px);
+    height: clamp(180px, 30vw, 176px);
+    margin-left: calc(clamp(180px, 30vw, 176px) / -2);
+    margin-top: calc(clamp(180px, 30vw, 176px) / -2);
+  }
+
+  .planet5 {
+    width: clamp(210px, 36vw, 212px);
+    height: clamp(210px, 36vw, 212px);
+    margin-left: calc(clamp(210px, 36vw, 212px) / -2);
+    margin-top: calc(clamp(210px, 36vw, 212px) / -2);
+  }
+
+  .planet6 {
+    width: clamp(240px, 42vw, 248px);
+    height: clamp(240px, 42vw, 248px);
+    margin-left: calc(clamp(240px, 42vw, 248px) / -2);
+    margin-top: calc(clamp(240px, 42vw, 248px) / -2);
+  }
+
+  .planet7 {
+    width: clamp(270px, 48vw, 284px);
+    height: clamp(270px, 48vw, 284px);
+    margin-left: calc(clamp(270px, 48vw, 284px) / -2);
+    margin-top: calc(clamp(270px, 48vw, 284px) / -2);
+  }
+
+  .planet8 {
+    width: clamp(300px, 54vw, 320px);
+    height: clamp(300px, 54vw, 320px);
+    margin-left: calc(clamp(300px, 54vw, 320px) / -2);
+    margin-top: calc(clamp(300px, 54vw, 320px) / -2);
   }
 
   .planetBody {

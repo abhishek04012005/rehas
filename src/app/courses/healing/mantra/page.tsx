@@ -33,7 +33,7 @@ export default function MantraCoursePage() {
       price="₹6,000"
       duration="6-10 weeks"
       level="All Levels"
-      image="AudiotrackOutlined"
+      image="/assets/course/reikiCourse.png"
       sessions={[
         {
           name: 'Basic Healing',
