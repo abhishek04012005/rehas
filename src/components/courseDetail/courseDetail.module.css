@@ -582,7 +582,16 @@
 .highlightIcon {
   font-size: 48px;
   margin-bottom: 16px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border-radius: 12px;
+  color: var(--primary);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlightCard h3 {

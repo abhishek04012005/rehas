@@ -5,7 +5,6 @@ export const testimonialData = {
     description:
       'Discover how our wellness services have transformed the lives of thousands of individuals. Their journeys of self-discovery and spiritual growth inspire us daily.',
   },
-
   testimonials: [
     {
       id: 1,

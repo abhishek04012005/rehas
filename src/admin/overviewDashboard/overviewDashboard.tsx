@@ -54,6 +54,7 @@ export default function OverviewDashboard() {
   });
   const [loading, setLoading] = useState(true);
   const [chartData, setChartData] = useState<ChartData[]>([]);
+  const [currentDate, setCurrentDate] = useState<string>('');
 
   useEffect(() => {
     const adminSession = localStorage.getItem('adminSession');
@@ -61,6 +62,16 @@ export default function OverviewDashboard() {
       router.push('/admin/login');
       return;
     }
+
+    // Set current date
+    const today = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    setCurrentDate(today.toLocaleDateString('en-US', options));
 
     fetchAllStats();
   }, [router]);
@@ -72,10 +83,6 @@ export default function OverviewDashboard() {
       // Fetch Orders
       const { data: ordersData } = await supabase.from('orders').select('*');
       const orders = ordersData || [];
-
-      // Fetch Payments
-      const { data: paymentsData } = await supabase.from('payments').select('*');
-      const payments = paymentsData || [];
 
       // Fetch Contacts
       const { data: contactsData } = await supabase.from('contact_submissions').select('*');
@@ -93,14 +100,14 @@ export default function OverviewDashboard() {
         totalRevenue: orders.reduce((sum: number, o: any) => sum + (o.amount || 0), 0),
       };
 
-      const completedPayments = payments.filter((p: any) => p.payment_status === 'paid');
-      const confirmedAmount = completedPayments.reduce((sum: number, p: any) => sum + (p.amount || 0), 0);
+      const completedPayments = orders.filter((o: any) => o.payment_status === 'paid');
+      const confirmedAmount = completedPayments.reduce((sum: number, o: any) => sum + (o.amount || 0), 0);
       
       const paymentStats = {
-        total: payments.length,
+        total: orders.length,
         completed: completedPayments.length,
         confirmedAmount: confirmedAmount,
-        successRate: payments.length > 0 ? (completedPayments.length / payments.length) * 100 : 0,
+        successRate: orders.length > 0 ? (completedPayments.length / orders.length) * 100 : 0,
       };
 
       const contactStats = {
@@ -125,7 +132,6 @@ export default function OverviewDashboard() {
       // Prepare chart data
       const chartDataPoints: ChartData[] = [
         { name: 'Orders', value: orders.length, fill: '#3b82f6' },
-        { name: 'Payments', value: payments.length, fill: '#a855f7' },
         { name: 'Contacts', value: contacts.length, fill: '#ec4899' },
         { name: 'Enquiries', value: enquiries.length, fill: '#06b6d4' },
       ];
@@ -140,23 +146,31 @@ export default function OverviewDashboard() {
   // Simple bar chart component
   const BarChart = ({ data }: { data: ChartData[] }) => {
     const maxValue = Math.max(...data.map(d => d.value), 1);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     
     return (
       <div className={styles.barChart}>
         <div className={styles.chartBars}>
-          {data.map((item) => (
-            <div key={item.name} className={styles.barItem}>
+          {data.map((item, index) => (
+            <div 
+              key={item.name} 
+              className={styles.barItem}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
               <div className={styles.barContainer}>
                 <div
-                  className={styles.bar}
+                  className={`${styles.bar} ${hoveredIndex === index ? styles.barActive : ''}`}
                   style={{
-                    height: `${(item.value / maxValue) * 200}px`,
+                    height: `${(item.value / maxValue) * 180}px`,
                     backgroundColor: item.fill,
                   }}
                 />
               </div>
               <span className={styles.barLabel}>{item.name}</span>
-              <span className={styles.barValue}>{item.value}</span>
+              <div className={`${styles.barValueWrapper} ${hoveredIndex === index ? styles.barValueActive : ''}`}>
+                <span className={styles.barValue}>{item.value}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -198,6 +212,7 @@ export default function OverviewDashboard() {
         <section className={styles.header}>
           <h1>Admin Dashboard</h1>
           <p>Real-time analytics and performance metrics</p>
+          <p className={styles.dateText}>{currentDate}</p>
         </section>
 
         {loading ? (
@@ -275,14 +290,7 @@ export default function OverviewDashboard() {
                   <div className={styles.statRow}>
                     <span>Completed</span>
                     <span style={{ color: '#22c55e' }}>{stats.orders.completed}</span>
-                  </div>
-                  <div className={styles.divider} />
-                  <div className={styles.statRow}>
-                    <span>Total Revenue</span>
-                    <span className={styles.statValue} style={{ fontSize: '1.1rem' }}>
-                      ₹{stats.orders.totalRevenue.toLocaleString('en-IN')}
-                    </span>
-                  </div>
+                  </div>                  
                 </div>
                 <a href="/admin/orders" className={styles.viewLink}>
                   View Details →

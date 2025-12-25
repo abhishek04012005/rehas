@@ -58,60 +58,54 @@ export default function About() {
               {/* Sun */}
               <div className={styles.sun}></div>
               
-              {/* Orbit Paths */}
-              <div className={styles.orbit} style={{ '--orbit-size': '120px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '160px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '200px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '240px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '280px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '320px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '360px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '400px' } as any}></div>
-              <div className={styles.orbit} style={{ '--orbit-size': '440px' } as any}></div>
+              {/* Orbit Paths - Individual sizes with responsive scaling */}
+              <div className={styles.orbit1}></div>
+              <div className={styles.orbit2}></div>
+              <div className={styles.orbit3}></div>
+              <div className={styles.orbit4}></div>
+              <div className={styles.orbit5}></div>
+              <div className={styles.orbit6}></div>
+              <div className={styles.orbit7}></div>
+              <div className={styles.orbit8}></div>
               
-              {/* Planets */}
+              {/* Planets with individual orbit sizes */}
               {/* Mercury - Grayish Brown */}
-              <div className={styles.planet} style={{ '--orbit-size': '120px', '--duration': '4s', '--size': '8px', '--color': '#8c7853' } as any}>
+              <div className={styles.planet1} style={{ '--duration': '4s', '--size': '8px', '--color': '#8c7853' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
               {/* Venus - Golden Yellow */}
-              <div className={styles.planet} style={{ '--orbit-size': '160px', '--duration': '7s', '--size': '14px', '--color': '#ffc649' } as any}>
+              <div className={styles.planet2} style={{ '--duration': '7s', '--size': '14px', '--color': '#ffc649' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
               {/* Earth - Blue */}
-              <div className={styles.planet} style={{ '--orbit-size': '200px', '--duration': '10s', '--size': '15px', '--color': '#4a90e2' } as any}>
+              <div className={styles.planet3} style={{ '--duration': '10s', '--size': '15px', '--color': '#4a90e2' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
               {/* Mars - Reddish */}
-              <div className={styles.planet} style={{ '--orbit-size': '240px', '--duration': '13s', '--size': '12px', '--color': '#e27b58' } as any}>
+              <div className={styles.planet4} style={{ '--duration': '13s', '--size': '12px', '--color': '#e27b58' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
               {/* Jupiter - Brown with Bands */}
-              <div className={styles.planet} style={{ '--orbit-size': '280px', '--duration': '16s', '--size': '28px', '--color': '#c88b3a' } as any}>
+              <div className={styles.planet5} style={{ '--duration': '16s', '--size': '28px', '--color': '#c88b3a' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
               {/* Saturn - Pale Yellow with Rings */}
-              <div className={styles.planet} style={{ '--orbit-size': '320px', '--duration': '19s', '--size': '24px', '--color': '#fad5a5' } as any}>
+              <div className={styles.planet6} style={{ '--duration': '19s', '--size': '24px', '--color': '#fad5a5' } as any}>
                 <div className={styles.planetBody + ' ' + styles.withRing}></div>
               </div>
               
               {/* Uranus - Cyan */}
-              <div className={styles.planet} style={{ '--orbit-size': '360px', '--duration': '22s', '--size': '18px', '--color': '#4fd0e7' } as any}>
+              <div className={styles.planet7} style={{ '--duration': '22s', '--size': '18px', '--color': '#4fd0e7' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
               
               {/* Neptune - Deep Blue */}
-              <div className={styles.planet} style={{ '--orbit-size': '400px', '--duration': '25s', '--size': '18px', '--color': '#4166f5' } as any}>
-                <div className={styles.planetBody}></div>
-              </div>
-              
-              {/* Pluto - Gray/White */}
-              <div className={styles.planet} style={{ '--orbit-size': '440px', '--duration': '28s', '--size': '6px', '--color': '#9ca9a8' } as any}>
+              <div className={styles.planet8} style={{ '--duration': '25s', '--size': '18px', '--color': '#4166f5' } as any}>
                 <div className={styles.planetBody}></div>
               </div>
             </div>

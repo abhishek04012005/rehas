@@ -2,7 +2,22 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { SchoolOutlined, EmojiEventsOutlined, CheckCircle, ChevronRight, AutoStories, AccessTime, Group, EmojiEvents } from '@mui/icons-material';
+import { 
+  SchoolOutlined, 
+  EmojiEventsOutlined, 
+  CheckCircle, 
+  ChevronRight, 
+  AutoStories, 
+  AccessTime, 
+  Group, 
+  EmojiEvents,
+  School,
+  EmojiEventsRounded,
+  PeopleAlt,
+  Repeat,
+  FolderOpen,
+  Rocket
+} from '@mui/icons-material';
 import * as MuiIcons from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
@@ -278,32 +293,44 @@ export default function CourseDetail({
           <h2>Why Choose This Course?</h2>
           <div className={styles.highlightGrid}>
             <div className={styles.highlightCard}>
-              <div className={styles.highlightIcon}>🎓</div>
+              <div className={styles.highlightIcon}>
+                <School sx={{ fontSize: 32 }} />
+              </div>
               <h3>Expert Instructors</h3>
               <p>Learn from certified masters with 20+ years of experience</p>
             </div>
             <div className={styles.highlightCard}>
-              <div className={styles.highlightIcon}>🏆</div>
+              <div className={styles.highlightIcon}>
+                <EmojiEventsRounded sx={{ fontSize: 32 }} />
+              </div>
               <h3>Recognized Certification</h3>
               <p>Industry-recognized certifications upon completion</p>
             </div>
             <div className={styles.highlightCard}>
-              <div className={styles.highlightIcon}>👥</div>
+              <div className={styles.highlightIcon}>
+                <PeopleAlt sx={{ fontSize: 32 }} />
+              </div>
               <h3>Supportive Community</h3>
               <p>Connect with fellow practitioners and ongoing mentorship</p>
             </div>
             <div className={styles.highlightCard}>
-              <div className={styles.highlightIcon}>♾️</div>
+              <div className={styles.highlightIcon}>
+                <Repeat sx={{ fontSize: 32 }} />
+              </div>
               <h3>Lifetime Access</h3>
               <p>Access course materials and updates forever</p>
             </div>
             <div className={styles.highlightCard}>
-              <div className={styles.highlightIcon}>📚</div>
+              <div className={styles.highlightIcon}>
+                <FolderOpen sx={{ fontSize: 32 }} />
+              </div>
               <h3>Comprehensive Materials</h3>
               <p>Detailed course materials, videos, and resources included</p>
             </div>
             <div className={styles.highlightCard}>
-              <div className={styles.highlightIcon}>🚀</div>
+              <div className={styles.highlightIcon}>
+                <Rocket sx={{ fontSize: 32 }} />
+              </div>
               <h3>Practice Building Support</h3>
               <p>Guidance on building and growing your healing practice</p>
             </div>
