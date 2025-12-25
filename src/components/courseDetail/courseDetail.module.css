@@ -126,6 +126,12 @@
   line-height: 1;
 }
 
+.courseImage {
+  border-radius: 16px;
+  width: auto;
+  height: 100%;
+}
+
 .priceBox {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: 16px;
@@ -144,12 +150,20 @@
   margin-bottom: 8px;
 }
 
+.originalPriceprice {
+  font-size: 18px;
+  text-decoration: line-through;
+  opacity: 0.8;
+  margin-bottom: 4%;
+}
+
 .originalPriceBox {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   margin-bottom: 16px;
+
 }
 
 .price {

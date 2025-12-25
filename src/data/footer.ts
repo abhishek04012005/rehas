@@ -24,43 +24,42 @@ export const footerData = {
       ],
     },
     {
-      title: 'Services',
-      links: [
-        { label: 'General Service', href: '/service/general' },
-        { label: 'Healing Service', href: '/service/healing' },
-        { label: 'Astro Report', href: '/service/astro-report' },
-        { label: 'Kundali', href: '/service/kundli-analysis' },
-        { label: 'Tarot', href: '/service/tarot' },
-      ],
-    },
-    {
       title: 'Therapy',
       links: [
-        { label: 'Reiki Therapy', href: '/therapy/reiki' },
         { label: 'Acupressure', href: '/therapy/acupressure' },
-        { label: 'Acupuncture', href: '/therapy/acupuncture' },
-        { label: 'Physiotherapy', href: '/therapy/physiotherapy' },
         { label: 'Magnet Therapy', href: '/therapy/magnet' },
-      ],
-    },
-    {
-      title: 'Wisdom',
-      links: [
-        { label: 'Mantra', href: '/myt/mantra' },
-        { label: 'Yantra', href: '/myt/yantra' },
-        { label: 'Tantra', href: '/myt/tantra' },
-        { label: 'Mantra Manipulation', href: '/myt/mantra-manipulation' },
-        { label: 'Himalayan Tantra', href: '/myt/himalayan-tantra' },
+        { label: 'Marma Therapy', href: '/therapy/marma' },
+        { label: 'Auricular Therapy', href: '/therapy/auricular' },
       ],
     },
     {
       title: 'Astrology',
       links: [
-        { label: 'Course', href: '/astrology/course' },
-        { label: 'Vedic Astro', href: '/astrology/vedic' },
-        { label: 'Numerology', href: '/astrology/numerology' },
-        { label: 'Counselling', href: '/astrology/counselling' },
-        { label: 'Reading', href: '/astrology/reading' },
+        { label: 'Numerology', href: '/astrology/numerology'},
+        { label: 'Vedic Astro', href: '/astrology/vedic'},
+        { label: 'Tarot Card', href: '/service/tarot'},
+        { label: 'Cowrie Reading', href: '/astrology/cowrie-reading'},
+        { label: 'Palm Reading', href: '/service/palm-reading'},
+        { label: 'Kundli', href: '/service/kundli-analysis'},
+      ],
+    },
+    {
+      title: 'M.Y.T Wisdom',
+      links: [
+        { label: 'Mantra', href: '/myt/mantra'},
+        { label: 'Yantra', href: '/myt/yantra'},
+        { label: 'Tantra', href: '/myt/tantra'},
+        { label: 'Mantra Vortex', href: '/myt/mantra-vortex'},
+        { label: 'Himalayan Tantra', href: '/myt/himalayan-tantra'},
+        { label: 'Tantra Esoteric Wisdom', href: '/myt/esoteric'},
+      ],
+    },
+    {
+      title: 'Courses',
+      links: [
+         { label: 'Healing', href: '/courses/healing'},
+        { label: 'Therapy', href: '/courses/therapy'},
+        { label: 'Astrology', href: '/courses/astrology'},
       ],
     },
     {
@@ -73,7 +72,7 @@ export const footerData = {
         { label: 'Sitemap', href: '/sitemap' },
       ],
     },
-    
+
   ],
   newsletter: {
     title: 'Subscribe to Our Newsletter',

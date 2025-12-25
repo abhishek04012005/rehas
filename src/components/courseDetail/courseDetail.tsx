@@ -7,6 +7,7 @@ import * as MuiIcons from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './courseDetail.module.css';
+import Image from 'next/image';
 
 interface CourseSession {
   name: string;
@@ -120,8 +121,15 @@ export default function CourseDetail({
           <div className={styles.imageSection}>
             <div className={styles.courseImageWrapper}>
               <div className={styles.courseImagePlaceholder}>
-                <IconComponent sx={{ fontSize: 120 }} />
+                <Image
+                src={image}
+                alt={courseName}
+                width={400}
+                height={400}
+                className={styles.courseImage}
+              />
               </div>
+              
               <div className={styles.priceBox}>
                 <div className={styles.originalPriceBox}>
                   <span className={styles.originalPriceprice}>{originalPrice}</span>

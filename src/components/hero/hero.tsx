@@ -163,18 +163,27 @@ export default function Hero() {
 
           {/* Floating Cards */}
           {heroData.floatingCards.map((card, idx) => {
-            const positions = [
-              { top: '10%', right: '5%' },
-              { bottom: '20%', right: '10%' },
-              { top: '50%', left: '-5%' },
+            // Desktop positions
+            const desktopPositions = [
+              { bottom: '-150px', left: '50%', transform: 'translateX(-50%)' },
+              { bottom: '-150px', left: '25%', transform: 'translateX(-50%)' },
+              { bottom: '-150px', left: '75%', transform: 'translateX(-50%)' },
             ];
-            const position = positions[idx] || positions[0];
+            // Mobile positions
+            const mobilePositions = [
+              { bottom: '-120px', left: '50%', transform: 'translateX(-50%)' },
+              { bottom: '-120px', left: '15%', transform: 'translateX(-50%)' },
+              { bottom: '-120px', left: '85%', transform: 'translateX(-50%)' },
+            ];
+            
+            const position = desktopPositions[idx] || desktopPositions[0];
             const IconComponent = iconMap[card.icon as keyof typeof iconMap];
             return (
               <div
                 key={idx}
                 className={styles.floatingCard}
-                style={position}
+                style={{...position} as any}
+                data-position={idx}
               >
                 <div className={styles.cardIcon}>
                   {IconComponent && <IconComponent className={styles.cardIconMUI} />}

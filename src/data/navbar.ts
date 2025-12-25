@@ -37,7 +37,6 @@ export const navbarData = {
         { label: 'Magnet Therapy', href: '/therapy/magnet', icon: 'ElectricBolt' },
         { label: 'Marma Therapy', href: '/therapy/marma', icon: 'Healing' },
         { label: 'Auricular Therapy', href: '/therapy/auricular', icon: 'Hearing' },
-        // { label: 'Physiotherapy', href: '/therapy/physiotherapy', icon: 'LocalHospital' },
 
       ],
     },
