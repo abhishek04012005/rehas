@@ -144,11 +144,20 @@
   margin-bottom: 8px;
 }
 
+.originalPriceBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
 .price {
   display: block;
   font-size: 32px;
   font-weight: 900;
   margin-bottom: 16px;
+  text-decoration: none;
 }
 
 .enrollBtnSmall {
@@ -393,6 +402,7 @@
   font-size: 24px;
   font-weight: 700;
   color: var(--primary);
+  text-decoration: none;
 }
 
 .includesList {

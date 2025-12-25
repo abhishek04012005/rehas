@@ -41,6 +41,7 @@ export default function NumerologyCoursePage() {
           duration: '2-3 weekends',
           description: 'Focused numerology training with number calculations and interpretations.',
           price: '₹6,000',
+          originalPrice: '₹9,000',
           includes: [
             'Number meanings study',
             'Life path calculation',
@@ -54,6 +55,7 @@ export default function NumerologyCoursePage() {
           duration: '6-10 weeks',
           description: 'Comprehensive weekly numerology training with practical applications.',
           price: '₹7,000',
+          originalPrice: '₹10,500',
           includes: [
             'Complete numerology system',
             'Weekly calculation practice',
@@ -68,6 +70,7 @@ export default function NumerologyCoursePage() {
           duration: 'Self-paced',
           description: 'Video-based numerology learning with calculation tools.',
           price: '₹3,500',
+          originalPrice: '₹5,250',
           includes: [
             'Complete video modules',
             'Calculation spreadsheets',

@@ -40,6 +40,7 @@ export default function MantraCoursePage() {
           duration: 'Foundation Course',
           description: 'Learn the Bijhure mantras for manifestation and achieving your goals through sacred sound vibrations.',
           price: '₹6,000',
+          originalPrice: '₹9,000',
           includes: [
             'Bijhure mantra training',
             'Manifestation techniques',
@@ -54,6 +55,7 @@ export default function MantraCoursePage() {
           duration: 'Intermediate Program',
           description: 'Intensive practice course for developing mantra mastery through daily sadhna and spiritual discipline.',
           price: '₹15,000',
+          originalPrice: '₹22,500',
           includes: [
             'Star Mantra Sadhna training',
             'Daily practice protocols',
@@ -69,6 +71,7 @@ export default function MantraCoursePage() {
           duration: 'Advanced Mastery',
           description: 'Advanced mantra mastery course covering GR mantras and tantric mantra applications for profound spiritual awakening.',
           price: '₹25,000',
+          originalPrice: '₹37,500',
           includes: [
             'Master-level mantra training',
             'GR mantravartive techniques',

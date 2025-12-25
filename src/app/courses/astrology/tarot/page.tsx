@@ -41,6 +41,7 @@ export default function TarotCoursePage() {
           duration: '2-3 weekends',
           description: 'Intensive tarot training with deck familiarization and reading practice.',
           price: '₹5,000',
+          originalPrice: '₹7,500',
           includes: [
             'Major and minor arcana study',
             'Card meaning memorization',
@@ -54,6 +55,7 @@ export default function TarotCoursePage() {
           duration: '6-10 weeks',
           description: 'Comprehensive weekly tarot training with reading practice and feedback.',
           price: '₹6,500',
+          originalPrice: '₹9,750',
           includes: [
             'Complete tarot system',
             'Weekly reading practice',
@@ -68,6 +70,7 @@ export default function TarotCoursePage() {
           duration: 'Self-paced',
           description: 'Video-based tarot learning with card guides and reading examples.',
           price: '₹3,000',
+          originalPrice: '₹4,500',
           includes: [
             'Complete video modules',
             'Tarot card guide',

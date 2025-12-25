@@ -40,7 +40,8 @@ export default function VedicAstrologyCoursePage() {
           name: 'Weekend Intensive',
           duration: '4-5 weekends',
           description: 'Intensive Vedic astrology training with chart reading practice.',
-          price: '₹12,000-₹18,000',
+          price: '₹12,000',
+          originalPrice: '₹18,000',
           includes: [
             'Vedic astrology foundations',
             'Birth chart calculation',
@@ -53,7 +54,8 @@ export default function VedicAstrologyCoursePage() {
           name: 'Weekly Classes',
           duration: '12-16 weeks',
           description: 'Comprehensive weekly astrology training with practical application.',
-          price: '₹14,000-₹19,000',
+          price: '₹14,000',
+          originalPrice: '₹21,000',
           includes: [
             'Complete astrology curriculum',
             'Weekly chart reading practice',
@@ -67,7 +69,8 @@ export default function VedicAstrologyCoursePage() {
           name: 'Online Course',
           duration: 'Self-paced',
           description: 'Video-based Vedic astrology learning with chart software.',
-          price: '₹7,000-₹12,000',
+          price: '₹7,000',
+          originalPrice: '₹10,500',
           includes: [
             'Complete video modules',
             'Chart software training',
@@ -81,7 +84,8 @@ export default function VedicAstrologyCoursePage() {
           name: 'Private Training',
           duration: 'Customized',
           description: 'One-on-one personalized Vedic astrology training.',
-          price: '₹2,000-₹3,500/hour',
+          price: '₹2,000/hour',
+          originalPrice: '₹3,000/hour',
           includes: [
             'Personalized curriculum',
             'One-on-one mentorship',

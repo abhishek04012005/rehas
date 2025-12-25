@@ -26,7 +26,7 @@ export default function HealingCoursesPage() {
     {
       name: 'Reiki Mastery Program',
       description: 'Master the complete Reiki system including Basic Reiki, up to Master Level, Karuna Reiki, and Word Master courses',
-      price: '₹8,000 - ₹35,000',
+      price: '₹8,000',
       href: '/courses/healing/reiki',
       image: 'Favorite',
       imageUrl: 'https://images.unsplash.com/photo-1544367567-0d0fcb009e0e?w=500&h=300&fit=crop',
@@ -35,7 +35,7 @@ export default function HealingCoursesPage() {
     {
       name: 'Mantra Healing Course',
       description: 'Learn sacred mantras including Bijhure Manifestation, Practice Star Mantra Sadhna, and Master GR Mantravartive Sadhan',
-      price: '₹6,000 - ₹25,000',
+      price: '₹25,000',
       href: '/courses/healing/mantra',
       image: 'AudiotrackOutlined',
       imageUrl: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=500&h=300&fit=crop',

@@ -35,6 +35,7 @@ interface CourseDetailProps {
   curriculum?: CourseCurriculum[];
   level?: string;
   image?: string;
+  originalPrice?: string;
 }
 
 export default function CourseDetail({
@@ -50,6 +51,7 @@ export default function CourseDetail({
   curriculum = [],
   level = 'Beginner to Advanced',
   image = 'AutoStoriesOutlined',
+  originalPrice
 }: CourseDetailProps) {
   const router = useRouter();
   const { setProductData } = useCheckout();
@@ -66,13 +68,14 @@ export default function CourseDetail({
     // Store course data in context with type 'course'
     const enrollPrice = sessionPrice ? parseFloat(sessionPrice.replace(/[₹,]/g, '')) : amount;
     const enrollTitle = sessionName ? `${courseName} - ${sessionName}` : courseName;
-    
+
     setProductData({
       productTitle: enrollTitle,
       amount: enrollPrice,
       type: 'course',
       serviceId: courseName.toLowerCase().replace(/\s+/g, '-'),
       description: meaning,
+
     });
     // Navigate to checkout
     router.push('/checkout');
@@ -120,8 +123,10 @@ export default function CourseDetail({
                 <IconComponent sx={{ fontSize: 120 }} />
               </div>
               <div className={styles.priceBox}>
-                <span className={styles.priceLabel}>Starting From</span>
-                <span className={styles.price}>{price}</span>
+                <div className={styles.originalPriceBox}>
+                  <span className={styles.originalPriceprice}>{originalPrice}</span>
+                  <span className={styles.price}>{price}</span>
+                </div>
                 <button
                   onClick={() => handleEnrollNow()}
                   className={styles.enrollBtnSmall}

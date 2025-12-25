@@ -123,6 +123,7 @@ export const magnetTherapyData: HealingServiceData = {
         name: 'Single Area Treatment',
         duration: '30 Minutes',
         price: '₹1,000',
+        originalPrice: '₹1,500',
         description: 'Targeted magnet therapy for specific pain area.',
         includes: [
           'Problem area assessment',
@@ -135,6 +136,7 @@ export const magnetTherapyData: HealingServiceData = {
         name: 'Full Body Session',
         duration: '60 Minutes',
         price: '₹2,000',
+        originalPrice: '₹3,000',
         description: 'Complete full-body magnetic therapy treatment.',
         includes: [
           'Full-body assessment',
@@ -147,6 +149,7 @@ export const magnetTherapyData: HealingServiceData = {
         name: 'Healing Package',
         duration: '8 Sessions (45 Min Each)',
         price: '₹12,000',
+        originalPrice: '₹16,000',
         description: 'Comprehensive magnet therapy program for chronic conditions.',
         includes: [
           'Personalized assessment',

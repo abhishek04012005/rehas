@@ -123,6 +123,7 @@ export const acupunctureData: HealingServiceData = {
         name: 'Initial Consultation',
         duration: '90 Minutes',
         price: '₹2,500',
+        originalPrice: '₹3,500',
         description: 'Complete assessment and first treatment session.',
         includes: [
           'Full health assessment',
@@ -135,6 +136,7 @@ export const acupunctureData: HealingServiceData = {
         name: 'Regular Session',
         duration: '60 Minutes',
         price: '₹2,000',
+        originalPrice: '₹3,000',
         description: 'Standard acupuncture treatment session.',
         includes: [
           'Acupuncture treatment',
@@ -147,6 +149,7 @@ export const acupunctureData: HealingServiceData = {
         name: 'Comprehensive Program',
         duration: '8 Sessions (60 Min Each)',
         price: '₹14,000',
+        originalPrice: '₹19,000',
         description: 'Complete healing program for chronic conditions.',
         includes: [
           'Initial detailed assessment',

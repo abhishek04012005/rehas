@@ -39,7 +39,8 @@ export default function ReikiCoursePage() {
           name: 'Basic Reiki Healing',
           duration: 'Introductory',
           description: 'Introduction to Reiki healing fundamentals and energy basics.',
-          price: '1',
+          price: '₹1',
+          originalPrice: '₹10,000',
           includes: [
             'Basic Reiki introduction',
             'Energy awareness training',
@@ -52,6 +53,7 @@ export default function ReikiCoursePage() {
           duration: 'Comprehensive Program',
           description: 'Complete Reiki training from Level 1 to Master with full certifications.',
           price: '₹20,000',
+          originalPrice: '₹30,000',
           includes: [
             'All four Reiki levels',
             'Complete attunements',
@@ -67,6 +69,7 @@ export default function ReikiCoursePage() {
           duration: 'Advanced Specialization',
           description: 'Advanced Karuna Reiki training focusing on compassion and advanced healing techniques.',
           price: '₹10,000',
+          originalPrice: '₹15,000',
           includes: [
             'Karuna Reiki symbols',
             'Advanced healing techniques',
@@ -81,6 +84,7 @@ export default function ReikiCoursePage() {
           duration: 'Intensive Specialization',
           description: 'Master the power of sacred words and manifestation through Reiki principles.',
           price: '₹35,000',
+          originalPrice: '₹52,500',
           includes: [
             'Sacred word mastery',
             'Manifestation techniques',

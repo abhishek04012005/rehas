@@ -136,6 +136,7 @@ export const reikiTherapyData: HealingServiceData = {
         name: 'Single Session',
         duration: '60 Minutes',
         price: '₹2,500',
+        originalPrice: '₹3,500',
         description: 'Complete full-body Reiki healing session.',
         includes: [
           'Full-body energy healing',
@@ -148,6 +149,7 @@ export const reikiTherapyData: HealingServiceData = {
         name: 'Problem Area Focus',
         duration: '45 Minutes',
         price: '₹2,000',
+        originalPrice: '₹3,000',
         description: 'Targeted Reiki for specific pain or health issues.',
         includes: [
           'Focused energy work on problem areas',
@@ -160,6 +162,7 @@ export const reikiTherapyData: HealingServiceData = {
         name: 'Healing Package',
         duration: '4 Sessions (60 Min Each)',
         price: '₹8,500',
+        originalPrice: '₹12,000',
         description: 'Complete healing program for deeper transformation.',
         includes: [
           'Full-body sessions',

@@ -173,20 +173,7 @@ export default function CourseListing({
 
                 )}
               </div>
-              {/* Sort Filter */}
-              {/* <div className={styles.sortWrapper}>
-                <label htmlFor="courseSortSelect" className={styles.sortLabel}>Sort by Price:</label>
-                <select
-                  id="courseSortSelect"
-                  className={styles.sortSelect}
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as 'none' | 'asc' | 'desc')}
-                >
-                  <option value="none">Default</option>
-                  <option value="asc">Low to High</option>
-                  <option value="desc">High to Low</option>
-                </select>
-              </div> */}
+              
 
               <div className={styles.sortWrapper}>
                 <span className={styles.sortLabel}>Sort by Price:</span>

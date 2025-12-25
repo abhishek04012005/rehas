@@ -123,6 +123,7 @@ export const mantraManipulationData: HealingServiceData = {
         name: 'Advanced Manipulation Basics',
         duration: '6 Weeks',
         price: '₹6,000',
+        originalPrice: '₹9,000',
         description: 'Learn fundamental manipulation techniques.',
         includes: [
           'Breath and mantra synchronization',
@@ -136,6 +137,7 @@ export const mantraManipulationData: HealingServiceData = {
         name: 'Intermediate Mastery',
         duration: '10 Weeks',
         price: '₹10,000',
+        originalPrice: '₹15,000',
         description: 'Advanced techniques and combination practices.',
         includes: [
           'Advanced breath techniques',
@@ -150,6 +152,7 @@ export const mantraManipulationData: HealingServiceData = {
         name: 'Expert Practitioner Program',
         duration: '16 Weeks + Ongoing Guidance',
         price: '₹16,000',
+        originalPrice: '₹24,000',
         description: 'Complete mastery with professional application.',
         includes: [
           'All advanced techniques mastered',
