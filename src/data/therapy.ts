@@ -12,7 +12,7 @@ export const therapyData = {
       title: 'Acupressure',
       description:
         'Stimulate your body\'s natural healing ability through ancient pressure point therapy. Acupressure activates meridian pathways to relieve pain, restore balance, and enhance vitality without needles.',
-      image: '/assets/service/reiki1.png',
+      image: '/assets/service/acupressure1.png',                                                                                                                                                                                                               
       features: [
         'Pressure Point Therapy',
         'Pain Relief',
@@ -47,7 +47,7 @@ export const therapyData = {
       title: 'Magnet Therapy',
       description:
         'Harness the power of magnetic fields to restore cellular health. Magnet therapy uses strategically placed magnets to improve circulation, reduce inflammation, and facilitate the body\'s natural healing processes.',
-      image: '/assets/service/reiki1.png',
+      image: '/assets/service/magnet_therapy1.png',
       features: [
         'Magnetic Field Therapy',
         'Cellular Healing',
@@ -82,7 +82,7 @@ export const therapyData = {
       title: 'Marma Therapy',
       description:
         'Unlock the vital energy points of your body through this ancient Ayurvedic healing art. Marma therapy stimulates 107 vital points to detoxify, balance doshas, and restore optimal health.',
-      image: '/assets/service/reiki1.png',
+      image: '/assets/service/marma_therapy1.png',
       features: [
         'Vital Point Stimulation',
         'Dosha Balancing',
@@ -117,7 +117,7 @@ export const therapyData = {
       title: 'Auricular Therapy',
       description:
         'Experience powerful healing through your ears. Auricular therapy stimulates reflex points on the ear that correspond to your entire body, promoting pain relief, stress reduction, and holistic healing.',
-      image: '/assets/service/reiki1.png',
+      image: '/assets/service/auricular_therapy1.png',
       features: [
         'Ear Reflex Therapy',
         'Whole Body Healing',

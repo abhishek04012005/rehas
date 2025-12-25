@@ -11,7 +11,7 @@ export const kundliAnalysisData: HealingServiceData = {
     title: 'What is Kundali?',
     description:
       'Kundli, also known as birth chart or horoscope, is the foundation of Vedic astrology. It represents the positions of celestial bodies at your moment of birth. A detailed Kundli analysis reveals your inherent nature, life patterns, challenges, and opportunities. It serves as a cosmic mirror reflecting your destiny and life purpose.',
-    image: '/assets/service/kundli.png',
+    image: '/assets/service/kundli1.png',
   },
   benefits: {
     title: 'Transform Your Life With Kundali',

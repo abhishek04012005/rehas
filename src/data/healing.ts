@@ -82,7 +82,7 @@ export const healingData = {
       title: 'Tantra',
       description:
         'Embrace the ancient path of energy mastery and spiritual integration. Tantra combines breathwork, visualization, and sacred practices to unite body, mind, and spirit, awakening dormant energy and facilitating profound transformation.',
-      image: '/assets/service/tantra.png',
+      image: '/assets/service/tantra1.png',
       features: [
         'Energy Activation',
         'Spiritual Integration',

@@ -11,7 +11,7 @@ export const acupressureData: HealingServiceData = {
     title: 'What is Acupressure Therapy?',
     description:
       'Acupressure is a traditional Chinese healing technique based on the same principles as acupuncture, but uses physical pressure instead of needles. By applying targeted pressure to specific points on the body, acupressure restores the flow of vital life force energy (Qi) and promotes healing. This non-invasive therapy is effective for pain management, stress relief, and overall wellness.',
-    image: '/assets/service/acupressure.png',
+    image: '/assets/service/acupressure1.png',
   },
   benefits: {
     title: 'Benefits of Acupressure Therapy',

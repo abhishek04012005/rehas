@@ -11,7 +11,7 @@ export const cowrieReadingData: HealingServiceData = {
     title: 'What is Cowrie Reading?',
     description:
       'Cowrie reading is an ancient divination system used across Africa, India, and the Caribbean for spiritual guidance and insight. Sacred cowrie shells are cast onto sacred cloth and their patterns reveal messages from the divine, your ancestors, and your higher self. Each shell position holds profound meaning—open shells represent openness and blessings, while closed shells indicate hidden factors or blockages. Cowrie reading accesses deep intuitive wisdom to answer life questions, reveal hidden dynamics, and provide guidance for major decisions. This powerful oracle offers profound spiritual clarity and direction.',
-    image: '/assets/service/cowrie_reading.png',
+    image: '/assets/service/cowriereading.png',
   },
   benefits: {
     title: 'Benefits of Cowrie Reading',

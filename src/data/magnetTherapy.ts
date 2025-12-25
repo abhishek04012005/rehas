@@ -11,7 +11,7 @@ export const magnetTherapyData: HealingServiceData = {
     title: 'What is Magnet Therapy?',
     description:
       'Magnet therapy is a natural healing method that uses magnetic fields to promote health and well-being. By applying magnets to specific areas of the body, we enhance circulation, reduce inflammation, and accelerate healing. Based on the principle that biomagnetic balance is essential for health, magnet therapy addresses various conditions without side effects. This safe, non-invasive therapy complements conventional medicine.',
-    image: '/assets/service/magnet_therapy.png',
+    image: '/assets/service/magnet_therapy1.png',
   },
   benefits: {
     title: 'Benefits of Magnet Therapy',
