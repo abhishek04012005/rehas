@@ -17,10 +17,6 @@ export default function Founder() {
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          {/* <div className={styles.headerBadge}>
-            <Star className={styles.badgeIcon} />
-            <span>{profile.badge}</span>
-          </div> */}
           <h2>
             Meet <span className={styles.gradientText}>Our Founder</span>
           </h2>
