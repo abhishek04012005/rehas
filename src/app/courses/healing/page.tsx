@@ -43,8 +43,8 @@ export default function HealingCoursesPage() {
       level: 'Beginner to Advanced',
     },
     {
-      name: 'Lamafera',
-      description: 'Learn the powerful Lamafera healing system combined with Salvik Mantra and Yogya Maya techniques for complete spiritual transformation.',
+      name: 'Lama Fera',
+      description: 'Learn the powerful Lama Fera healing system combined with Salvik Mantra and Yogya Maya techniques for complete spiritual transformation.',
       price: '₹5,099 - ₹20,999',
       href: '/courses/healing/lamafera',
       image: 'Spa',
