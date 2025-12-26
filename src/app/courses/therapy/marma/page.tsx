@@ -87,7 +87,7 @@ export default function MarmaTherapyCoursePage() {
           name: 'Basic Marma Course',
           duration: '3 days',
           price: '₹2,099',
-          originalPrice: '₹2,099',
+          originalPrice: '₹3,099',
           description: 'Introduction to marma therapy philosophy and basic point location techniques for personal healing.',
           includes: [
             'Marma therapy fundamentals',
@@ -119,7 +119,7 @@ export default function MarmaTherapyCoursePage() {
           name: 'Advanced Marma Course',
           duration: '90 days',
           price: '₹10,999',
-          originalPrice: '₹10,999',
+          originalPrice: '₹19,999',
           description: 'Advanced specialized training with complete integration into professional healing practice.',
           includes: [
             'Advanced marma combinations',

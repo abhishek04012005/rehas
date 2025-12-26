@@ -33,7 +33,7 @@ export default function AngelBlessingCoursePage() {
       price="₹5,099 - ₹20,999"
       duration="3 days - 60 days (depending on level)"
       level="Beginner to Advanced"
-      image="/assets/course/angelBlessing.png"
+      image="/assets/course/healing/angelblessing.png"
       originalPrice="₹20,999"
       curriculum={[
         {

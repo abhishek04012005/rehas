@@ -74,7 +74,7 @@ export const navbarData = {
         { label: 'Therapy', href: '/courses/therapy', icon: 'Numbers' },
         { label: 'Astrology', href: '/courses/astrology', icon: 'PublicOutlined' },
         { label: 'M.Y.T', href: '/courses/myt', icon: 'MicOutlined' },
-        { label: 'Mind Reading', href: '/courses/mindreading', icon: 'MenuBook' },
+        { label: 'Mind Reading', href: '/courses/mind-reading', icon: 'MenuBook' },
       ],
     },
     //  {

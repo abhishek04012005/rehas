@@ -26,7 +26,7 @@ export default function MYTCoursesPage() {
     {
       name: 'Mantra Courses',
       description: 'Master sacred mantras for manifestation, spiritual awakening, and energy healing through proven sadhna practices.',
-      price: '₹2,100 - ₹11,000',
+      price: '₹2,099 - ₹10,999',
       href: '/courses/myt/mantra',
       image: 'AudiotrackOutlined',
       level: 'Beginner to Advanced',
@@ -34,7 +34,7 @@ export default function MYTCoursesPage() {
     {
       name: 'Yantra Courses',
       description: 'Learn the ancient science of yantras for spiritual power and divine energy activation through sacred geometry.',
-      price: '₹5,100 - ₹21,000',
+      price: '₹5,099 - ₹20,999',
       href: '/courses/myt/yantra',
       image: 'AutoAwesome',
       level: 'Beginner to Advanced',
@@ -42,7 +42,7 @@ export default function MYTCoursesPage() {
     {
       name: 'Tantra Courses',
       description: 'Explore tantric wisdom and meditation-based healing practices for spiritual transformation and consciousness expansion.',
-      price: '₹2,100 - ₹21,000',
+      price: '₹2,099 - ₹20,999',
       href: '/courses/myt/tantra',
       image: 'EmojiEventsOutlined',
       level: 'Beginner to Advanced',

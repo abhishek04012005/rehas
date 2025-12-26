@@ -32,7 +32,7 @@ export default function AcupressureCoursePage() {
       price="₹2,099 - ₹24,999"
       duration="3 days - 45 days"
       level="Beginner to Advanced"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/therapy/acupressure.png"
       sessions={[
         {
           name: 'Basic Acupressure Course',

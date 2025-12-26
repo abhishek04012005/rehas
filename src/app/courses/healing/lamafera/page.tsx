@@ -33,7 +33,7 @@ export default function LamaferaCoursePage() {
       price="₹5,099 - ₹20,999"
       duration="3 days - 60 days (depending on level)"
       level="Beginner to Advanced"
-      image="/assets/course/lamafera.png"
+      image="/assets/course/healing/lamaferra.png"
       originalPrice="₹20,999"
       curriculum={[
         {

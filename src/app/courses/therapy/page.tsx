@@ -29,7 +29,8 @@ export default function TherapyCoursesPage() {
       price: '₹2,099 - ₹24,999',
       originalPrice: '₹2,099 - ₹24,999',
       href: '/courses/therapy/acupressure',
-      image: 'AudiotrackOutlined',
+      image: '/assets/course/therapy/acupressure.png',
+      imageUrl: '/assets/course/therapy/acupressure.png',
       level: 'Beginner to Advanced',
     },
     {
@@ -38,7 +39,8 @@ export default function TherapyCoursesPage() {
       price: '₹2,099 - ₹24,999',
       originalPrice: '₹2,099 - ₹24,999',
       href: '/courses/therapy/magnet',
-      image: 'AutoAwesome',
+      image: '/assets/course/therapy/magnet.png',
+      imageUrl: '/assets/course/therapy/magnet.png',
       level: 'Beginner to Advanced',
     },
     {
@@ -47,7 +49,7 @@ export default function TherapyCoursesPage() {
       price: '₹2,099 - ₹50,999',
       originalPrice: '₹2,099 - ₹50,999',
       href: '/courses/therapy/marma',
-      image: 'EmojiEventsOutlined',
+      image: '/assets/course/therapy/acupressure.png',
       level: 'Beginner to Advanced',
     },
   ];

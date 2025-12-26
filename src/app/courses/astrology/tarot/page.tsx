@@ -89,7 +89,7 @@ export default function TarotCoursePage() {
           name: 'Tarot Basic',
           duration: '7 days',
           price: '₹2,099',
-          originalPrice: '₹2,099',
+          originalPrice: '₹4,099',
           description: 'Perfect for beginners wanting to learn tarot basics and simple reading techniques.',
           includes: [
             'Tarot history and basics',
@@ -104,7 +104,7 @@ export default function TarotCoursePage() {
           name: 'Tarot Practitioner',
           duration: '30 days',
           price: '₹5,099',
-          originalPrice: '₹5,099',
+          originalPrice: '₹7,099',
           description: 'Comprehensive professional training with advanced tarot reading techniques and client services.',
           includes: [
             'Complete tarot system mastery',
@@ -120,7 +120,7 @@ export default function TarotCoursePage() {
           name: 'Tarot Mastery with Kit',
           duration: '60 days',
           price: '₹10,999',
-          originalPrice: '₹10,999',
+          originalPrice: '₹14,999',
           description: 'Master-level training with complete tarot kit for establishing professional tarot reading practice.',
           includes: [
             'Advanced tarot mastery',

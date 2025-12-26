@@ -89,7 +89,7 @@ export default function NumerologyCoursePage() {
           name: 'Basic Numerology with Lo-Shu-Grid',
           duration: '5 days',
           price: '₹5,099',
-          originalPrice: '₹5,099',
+          originalPrice: '₹7,099',
           description: 'Perfect for beginners wanting to learn numerology fundamentals and the ancient Lo-Shu-Grid system.',
           includes: [
             'Numerology basics',
@@ -104,7 +104,7 @@ export default function NumerologyCoursePage() {
           name: 'Practitioner Numerology Advanced Course',
           duration: '30 days',
           price: '₹10,999',
-          originalPrice: '₹10,999',
+          originalPrice: '₹14,999',
           description: 'Comprehensive professional training with advanced numerology techniques and applications.',
           includes: [
             'Complete numerology system',
@@ -121,7 +121,7 @@ export default function NumerologyCoursePage() {
           name: 'Bhartiya Ank Sastra',
           duration: '90 days',
           price: '₹20,999',
-          originalPrice: '₹20,999',
+          originalPrice: '₹24,999',
           description: 'Master-level training in traditional Indian numerology with advanced predictions and specializations.',
           includes: [
             'Bhartiya Ank Sastra mastery',

@@ -39,7 +39,7 @@ export default function HealingCoursesPage() {
       price: '₹5,099 - ₹20,999',
       href: '/courses/healing/angel-blessing',
       image: 'AutoAwesome',
-      imageUrl: '/assets/course/angelBlessing.png',
+      imageUrl: '/assets/course/healing/angelblessing.png',
       level: 'Beginner to Advanced',
     },
     {
@@ -48,7 +48,7 @@ export default function HealingCoursesPage() {
       price: '₹5,099 - ₹20,999',
       href: '/courses/healing/lamafera',
       image: 'Spa',
-      imageUrl: '/assets/course/lamafera.png',
+      imageUrl: '/assets/course/healing/lamaferra.png',
       level: 'Beginner to Advanced',
     },
   ];

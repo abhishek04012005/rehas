@@ -88,8 +88,8 @@ export default function YantraCourseDetailPage() {
         {
           name: 'Basic Yantra Course (Nav Grah Yantra Making)',
           duration: '7 days',
-          price: '₹5,100',
-          originalPrice: '₹5,100',
+          price: '₹5,099',
+          originalPrice: '₹7,099',
           description: 'Perfect for beginners wanting to learn yantra science and create nine planetary yantras.',
           includes: [
             'Yantra fundamentals and science',
@@ -103,8 +103,8 @@ export default function YantraCourseDetailPage() {
         {
           name: 'Yoni Yantra - Kaam-kala-roop-trikon (Yantra Sadhna)',
           duration: '30 days',
-          price: '₹11,000',
-          originalPrice: '₹11,000',
+          price: '₹10,999',
+          originalPrice: '₹17,999',
           description: 'Advanced yantra sadhna with focus on yoni yantra and tantric sacred geometry.',
           includes: [
             'Advanced yantra science',
@@ -120,8 +120,8 @@ export default function YantraCourseDetailPage() {
         {
           name: 'Panch Dashi Mahakalp Yantra Sadhna Course',
           duration: '90 days',
-          price: '₹21,000',
-          originalPrice: '₹21,000',
+          price: '₹20,999',
+          originalPrice: '₹29,999',
           description: 'Master-level training in the most powerful and transformative yantra practices.',
           includes: [
             'Panch Dashi (fifteen powers) mastery',

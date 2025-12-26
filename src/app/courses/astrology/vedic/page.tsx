@@ -89,7 +89,7 @@ export default function VedicAstrologyCoursePage() {
           name: 'Basic Astrology',
           duration: '30 days',
           price: '₹5,099',
-          originalPrice: '₹5,099',
+          originalPrice: '₹8,099',
           description: 'Perfect for beginners wanting to learn fundamental Vedic astrology and basic birth chart reading.',
           includes: [
             'Vedic astrology foundations',
@@ -104,7 +104,7 @@ export default function VedicAstrologyCoursePage() {
           name: 'Practitioner Astrology Course',
           duration: '90 days',
           price: '₹20,999',
-          originalPrice: '₹20,999',
+          originalPrice: '₹24,999',
           description: 'Comprehensive professional training with advanced chart reading and prediction techniques.',
           includes: [
             'Complete astrology curriculum',
@@ -121,7 +121,7 @@ export default function VedicAstrologyCoursePage() {
           name: 'Astro Mastery Course',
           duration: '180 days',
           price: '₹34,999',
-          originalPrice: '₹34,999',
+          originalPrice: '₹39,999',
           description: 'Master-level training with specialized techniques and comprehensive professional practice development.',
           includes: [
             'Advanced predictive astrology',

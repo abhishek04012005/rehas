@@ -29,7 +29,7 @@ export default function MantraCourseDetailPage() {
       meaning="Mantra is the science and practice of sacred sound vibrations that create profound spiritual transformation. Each mantra carries specific energetic frequencies that can manifest desires, heal the body and mind, and accelerate spiritual growth. Our comprehensive mantra courses teach you authentic mantras, proper pronunciation, sadhna techniques, and how to harness their transformative power for personal and spiritual development."
       benefit="Sacred mantra mastery; Proper pronunciation and technique; Manifestation abilities; Spiritual awakening; Energy healing skills; Consciousness expansion; Deep meditation states"
       use="Personal manifestation work; Spiritual sadhna and practice; Energy healing for self and others; Meditation enhancement; Consciousness expansion; Professional mantra coaching"
-      price="₹2,100 - ₹11,000"
+      price="₹2,099 - ₹10,999"
       duration="7 days - 90 days"
       level="Beginner to Advanced"
       image="/assets/course/reikiCourse.png"
@@ -87,8 +87,8 @@ export default function MantraCourseDetailPage() {
         {
           name: 'Mantra Manifestation Program',
           duration: '7 days',
-          price: '₹2,100',
-          originalPrice: '₹2,100',
+          price: '₹2,099',
+          originalPrice: '₹5,099',
           description: 'Perfect for beginners wanting to learn sacred mantras and their power for manifestation.',
           includes: [
             'Sacred mantra introduction',
@@ -102,8 +102,8 @@ export default function MantraCourseDetailPage() {
         {
           name: 'Mantra Sadhana with Asan Sidhi and Sharir Bandhan',
           duration: '30 days',
-          price: '₹5,100',
-          originalPrice: '₹5,100',
+          price: '₹5,099',
+          originalPrice: '₹7,099',
           description: 'Advanced mantra sadhna with body postures and energetic locks for deeper practice.',
           includes: [
             'Complete mantra sadhna system',
@@ -119,8 +119,8 @@ export default function MantraCourseDetailPage() {
         {
           name: 'Mantra Healing Course - Basic Concept of Himalayan Tantra',
           duration: '90 days',
-          price: '₹11,000',
-          originalPrice: '₹11,000',
+          price: '₹10,999',
+          originalPrice: '₹14,999',
           description: 'Master-level training in mantra healing with authentic Himalayan tantric wisdom.',
           includes: [
             'Himalayan tantra principles',
