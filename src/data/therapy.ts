@@ -19,7 +19,7 @@ export const therapyData = {
         'Energy Balance',
         'Meridian Activation',
       ],
-      color: 'var(--secondary)',
+      color: 'var(--primary)',
       position: 'left',
       details: {
         longDescription: 'Acupressure is an ancient healing technique based on Traditional Chinese Medicine principles. By applying pressure to specific points on the body (acupoints), practitioners stimulate the body\'s natural healing mechanisms, restore energy flow (Qi), and promote physical and emotional wellness.',
@@ -89,7 +89,7 @@ export const therapyData = {
         'Detoxification',
         'Energy Restoration',
       ],
-      color: 'var(--secondary)',
+      color: 'var(--primary)',
       position: 'left',
       details: {
         longDescription: 'Marma therapy is an ancient Ayurvedic science that works with 107 vital energy points throughout the body. These sensitive areas correspond to organs, systems, and consciousness. By stimulating these marma points, practitioners release blockages, balance the three doshas, and promote profound healing.',

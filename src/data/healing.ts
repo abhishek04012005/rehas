@@ -54,7 +54,7 @@ export const healingData = {
         'Spiritual Alignment',
         'Consciousness Elevation',
       ],
-      color: 'var(--secondary)',
+      color: 'var(--primary)',
       position: 'right',
       details: {
         longDescription: 'Mantra is an ancient spiritual practice using sacred sounds and syllables to focus the mind and elevate consciousness. Each mantra carries specific vibrational frequencies that resonate with different aspects of your being, promoting healing, transformation, and spiritual awakening.',
