@@ -6,6 +6,10 @@ import styles from './failed.module.css';
 export const metadata: Metadata = {
   title: 'Payment Failed | REHAS',
   description: 'Your payment could not be processed. Please try again or use a different payment method.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 interface PaymentFailedPageProps {

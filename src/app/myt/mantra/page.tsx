@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { mytMantraData } from '@/data/mytMantra';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Mantra - M.Y.T Wisdom | REHAS',
-  description:
-    'Master the sacred science of mantras. Learn divine sound vibrations for consciousness elevation, chakra activation, and manifestation.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Mantra - M.Y.T Wisdom | Sacred Sound & Consciousness | REHAS',
+  'Master the sacred science of mantras. Learn divine sound vibrations for consciousness elevation, chakra activation, and manifestation.',
+  [
     'Mantra',
     'Sacred Mantra',
     'Sound Vibration',
@@ -14,13 +14,10 @@ export const metadata: Metadata = {
     'Chakra Activation',
     'Manifestation',
     'Spiritual Practice',
+    'MYT Wisdom',
   ],
-  openGraph: {
-    title: 'Mantra - M.Y.T Wisdom | REHAS',
-    description: 'Master the sacred science of mantras and unlock your spiritual potential.',
-    type: 'website',
-  },
-};
+  '/myt/mantra'
+);
 
 export default function MYTMantraPage() {
   return <HealingService data={mytMantraData} />;

@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { kundliAnalysisData } from '@/data/kundliAnalysis';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Kundali | REHAS',
-  description:
-    'Decode your destiny through Vedic astrology. Get comprehensive Kundli analysis for marriage compatibility, career, health, and life guidance.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Kundali Analysis | Vedic Astrology & Destiny | REHAS',
+  'Decode your destiny through Vedic astrology. Get comprehensive Kundli analysis for marriage compatibility, career, health, and life guidance.',
+  [
     'Kundli',
     'Kundali',
     'Birth Chart',
@@ -15,13 +15,10 @@ export const metadata: Metadata = {
     'Horoscope',
     'Guna Milan',
     'Destiny Analysis',
+    'Kundli Matching',
   ],
-  openGraph: {
-    title: 'Kundali | REHAS',
-    description: 'Decode your destiny through comprehensive Vedic astrological analysis.',
-    type: 'website',
-  },
-};
+  '/service/kundli-analysis'
+);
 
 export default function KundliAnalysisPage() {
   return <HealingService data={kundliAnalysisData} />;

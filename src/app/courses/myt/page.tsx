@@ -1,25 +1,22 @@
 import { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-    title: 'MYT Courses | Mantra, Yantra, Tantra | REHAS',
-    description:
-        'Master advanced spiritual sciences. Learn Mantra, Yantra, and Tantra practices with our comprehensive courses from certified spiritual teachers.',
-    keywords: [
-        'Mantra Courses',
-        'Yantra Courses',
-        'Tantra Courses',
-        'Spiritual Training',
-        'Mantra Sadhna',
-        'Tantra Sadhna',
-        'Esoteric Wisdom',
-    ],
-    openGraph: {
-        title: 'MYT Courses | REHAS',
-        description: 'Master the ancient sciences of Mantra, Yantra, and Tantra.',
-        type: 'website',
-    },
-};
+export const metadata: Metadata = createMetadata(
+  'MYT Courses | Mantra, Yantra, Tantra | REHAS',
+  'Master advanced spiritual sciences. Learn Mantra, Yantra, and Tantra practices with our comprehensive courses from certified spiritual teachers.',
+  [
+    'Mantra Courses',
+    'Yantra Courses',
+    'Tantra Courses',
+    'Spiritual Training',
+    'Mantra Sadhna',
+    'Tantra Sadhna',
+    'Esoteric Wisdom',
+    'MYT Training',
+  ],
+  '/courses/myt'
+);
 
 export default function MYTCoursesPage() {
     const courses = [

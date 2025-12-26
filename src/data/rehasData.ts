@@ -234,17 +234,17 @@ export const rehasData = {
 
   // Contact Information
   contact: {
-    email: 'info@rehas.in',
-    phone: '+91-XXXXXXXXXX',
+    email: 'rehas369@gmail.com',
+    phone: '+91-9517973153',
     address: {
-      street: 'Cosmic Wellness Center',
-      city: 'New Delhi',
-      state: 'Delhi',
+      street: 'REHAS, Chanakya Nagar Road, Agam Kua',
+      city: 'Patna',
+      state: 'Bihar',
       country: 'India',
-      zipCode: 'XXXXX',
+      zipCode: '800007',
     },
     timezone: 'IST (Indian Standard Time)',
-    bookingUrl: 'https://rehas.com/book-consultation',
+    bookingUrl: 'https://rehas.in/enquiry',
   },
 
 

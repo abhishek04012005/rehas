@@ -293,11 +293,6 @@ export default function HealingService({ data }: HealingServiceProps) {
               {data.practices.list.map((item, idx) => (
                 <div key={idx} className={styles.detailCard}>
                   <h3>{item.name}</h3>
-                  {item.price && (
-                    <p className={styles.practicePrice}>
-                      <strong>Price:</strong> {item.price}
-                    </p>
-                  )}
                   <div className={styles.detailInfo}>
                     <p>
                       <strong>Meaning:</strong> {item.meaning}

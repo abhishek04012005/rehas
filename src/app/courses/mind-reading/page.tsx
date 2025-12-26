@@ -1,24 +1,21 @@
 import { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Mind Reading Courses | Manifestation, Law of Attraction, Mid Brain | REHAS',
-  description:
-    'Master mind power and consciousness development. Learn manifestation, law of attraction, and mid brain activation techniques.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Mind Reading Courses | Manifestation, Law of Attraction, Mid Brain | REHAS',
+  'Master mind power and consciousness development. Learn manifestation, law of attraction, and mid brain activation techniques.',
+  [
     'Mind Reading Courses',
     'Manifestation Training',
     'Law of Attraction',
     'Mid Brain Activation',
     'Consciousness Development',
     'Mind Power',
+    'Personal Development Courses',
   ],
-  openGraph: {
-    title: 'Mind Reading Courses | REHAS',
-    description: 'Master the power of your mind for manifestation and consciousness expansion.',
-    type: 'website',
-  },
-};
+  '/courses/mind-reading'
+);
 
 export default function MindReadingCoursesPage() {
   const courses = [

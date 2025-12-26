@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { healingServiceData } from '@/data/healingService';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Healing Services | REHAS',
-  description:
-    'Explore holistic healing services including Reiki, Mantra, and Tantra. Balance energy, promote wellness, and guide your spiritual transformation.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Healing Services | Reiki, Mantra & Tantra | REHAS',
+  'Explore holistic healing services including Reiki, Mantra, and Tantra. Balance energy, promote wellness, and guide your spiritual transformation.',
+  [
     'Healing Services',
     'Energy Healing',
     'Holistic Wellness',
@@ -14,14 +14,11 @@ export const metadata: Metadata = {
     'Reiki',
     'Mantra',
     'Tantra',
-    'Wellness',
+    'Wellness Services',
+    'Alternative Medicine',
   ],
-  openGraph: {
-    title: 'Healing Services | REHAS',
-    description: 'Explore holistic healing services for wellness and spiritual growth.',
-    type: 'website',
-  },
-};
+  '/service/healing'
+);
 
 export default function HealingPage() {
   return <HealingService data={healingServiceData} />;

@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Healing Courses | Reiki, Mantra, Tantra | REHAS',
-  description:
-    'Explore our comprehensive healing courses. Master Reiki, Mantra healing, and Tantra practices from certified experts with hands-on training.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Healing Courses | Reiki, Mantra, Tantra | REHAS',
+  'Explore our comprehensive healing courses. Master Reiki, Mantra healing, and Tantra practices from certified experts with hands-on training.',
+  [
     'Healing Courses',
     'Reiki Training',
     'Mantra Healing',
@@ -13,13 +13,10 @@ export const metadata: Metadata = {
     'Energy Healing',
     'Healing Certification',
     'Professional Healing Training',
+    'Wellness Courses',
   ],
-  openGraph: {
-    title: 'Healing Courses | REHAS',
-    description: 'Professional training in Reiki, Mantra, and Tantra healing modalities.',
-    type: 'website',
-  },
-};
+  '/courses/healing'
+);
 
 export default function HealingCoursesPage() {
   const courses = [

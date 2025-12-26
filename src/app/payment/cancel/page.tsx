@@ -6,6 +6,10 @@ import styles from './cancel.module.css';
 export const metadata: Metadata = {
   title: 'Payment Cancelled | REHAS',
   description: 'Your payment has been cancelled. You can try again anytime.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 interface PaymentCancelledPageProps {

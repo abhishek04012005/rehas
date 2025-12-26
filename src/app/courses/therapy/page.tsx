@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Therapy Courses | Acupressure, Marma, Auricular Therapy | REHAS',
-  description:
-    'Master professional healing therapies with our expert-led courses. Train in Acupressure, Marma Therapy, and Auricular Therapy with certification.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Therapy Courses | Acupressure, Marma, Auricular Therapy | REHAS',
+  'Master professional healing therapies with our expert-led courses. Train in Acupressure, Marma Therapy, and Auricular Therapy with certification.',
+  [
     'Therapy Courses',
     'Acupressure Training',
     'Marma Therapy Course',
@@ -13,13 +13,10 @@ export const metadata: Metadata = {
     'Professional Therapy Certification',
     'Healing Therapy Training',
     'Therapist Certification',
+    'Online Therapy Course',
   ],
-  openGraph: {
-    title: 'Therapy Courses | REHAS',
-    description: 'Professional training and certification in healing therapies.',
-    type: 'website',
-  },
-};
+  '/courses/therapy'
+);
 
 export default function TherapyCoursesPage() {
   const courses = [

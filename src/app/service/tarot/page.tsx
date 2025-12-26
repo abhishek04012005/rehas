@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { tarotData } from '@/data/tarot';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Tarot Reading | REHAS',
-  description:
-    'Gain clarity and guidance through professional tarot readings. Expert tarot readers provide insights into relationships, career, and life decisions.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Tarot Reading | Professional Divination & Guidance | REHAS',
+  'Gain clarity and guidance through professional tarot readings. Expert tarot readers provide insights into relationships, career, and life decisions.',
+  [
     'Tarot',
     'Tarot Reading',
     'Divination',
@@ -15,13 +15,10 @@ export const metadata: Metadata = {
     'Clarity',
     'Fortune Telling',
     'Spiritual Guidance',
+    'Tarot Consultation',
   ],
-  openGraph: {
-    title: 'Tarot Reading | REHAS',
-    description: 'Gain clarity and guidance through professional tarot readings.',
-    type: 'website',
-  },
-};
+  '/service/tarot'
+);
 
 export default function TarotPage() {
   return <HealingService data={tarotData} />;
