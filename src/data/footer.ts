@@ -35,29 +35,32 @@ export const footerData = {
     {
       title: 'Astrology',
       links: [
-        { label: 'Numerology', href: '/astrology/numerology'},
-        { label: 'Vedic Astro', href: '/astrology/vedic'},
-        { label: 'Tarot Card', href: '/service/tarot'},
-        { label: 'Cowrie Reading', href: '/astrology/cowrie-reading'},
-        { label: 'Palm Reading', href: '/service/palm-reading'},
-        { label: 'Kundli', href: '/service/kundli-analysis'},
+        { label: 'Numerology', href: '/astrology/numerology' },
+        { label: 'Vedic Astro', href: '/astrology/vedic' },
+        { label: 'Tarot Card', href: '/service/tarot' },
+        { label: 'Cowrie Reading', href: '/astrology/cowrie-reading' },
+        { label: 'Palm Reading', href: '/service/palm-reading' },
+        { label: 'Kundli', href: '/service/kundli-analysis' },
       ],
     },
     {
       title: 'M.Y.T Wisdom',
       links: [
-        { label: 'Mantra', href: '/myt/mantra'},
-        { label: 'Yantra', href: '/myt/yantra'},
-        { label: 'Tantra', href: '/myt/tantra'},
-        { label: 'Mantra Vortex', href: '/myt/mantra-vortex'},
+        { label: 'Mantra', href: '/myt/mantra' },
+        { label: 'Yantra', href: '/myt/yantra' },
+        { label: 'Tantra', href: '/myt/tantra' },
+        { label: 'Mantra Vortex', href: '/myt/mantra-vortex' },
       ],
     },
     {
       title: 'Courses',
       links: [
-         { label: 'Healing', href: '/courses/healing'},
-        { label: 'Therapy', href: '/courses/therapy'},
-        { label: 'Astrology', href: '/courses/astrology'},
+        { label: 'Healing', href: '/courses/healing' },
+        { label: 'Therapy', href: '/courses/therapy' },
+        { label: 'Astrology', href: '/courses/astrology' },
+        { label: 'M.Y.T', href: '/courses/myt' },
+        { label: 'Mind Reading', href: '/courses/mind-reading' },
+
       ],
     },
     {
