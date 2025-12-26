@@ -31,7 +31,7 @@ export default function ManifestationCourseDetailPage() {
       price="₹2,099 - ₹10,999"
       duration="21 days - 90 days"
       level="Beginner to Advanced"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/mind-reading/manifestation.png"
       sessions={[
         {
           name: 'Basic Manifestation Course',

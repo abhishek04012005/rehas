@@ -31,7 +31,7 @@ export default function LawOfAttractionCourseDetailPage() {
             price="₹2,099 - ₹20,999"
             duration="30 days - 90 days"
             level="Beginner to Advanced"
-            image="/assets/course/reikiCourse.png"
+            image="/assets/course/mind-reading/lawofattraction.png"
             sessions={[
                 {
                     name: 'Ho\'oponopono',

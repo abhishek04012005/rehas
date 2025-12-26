@@ -32,7 +32,7 @@ export default function TantraCourseDetailPage() {
             price="₹2,099 - ₹20,999"
             duration="7 days - 180 days"
             level="Beginner to Advanced"
-            image="/assets/course/reikiCourse.png"
+            image="/assets/course/myt/tantra.png"
             pricingPlans={[
                 {
                     name: 'Meditation Based Tantra Healing Sadhna',

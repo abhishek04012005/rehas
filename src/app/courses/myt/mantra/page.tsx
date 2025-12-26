@@ -32,7 +32,7 @@ export default function MantraCourseDetailPage() {
       price="₹2,099 - ₹10,999"
       duration="7 days - 90 days"
       level="Beginner to Advanced"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/myt/mantra.png"
       sessions={[
         {
           name: 'Mantra Manifestation Program',

@@ -32,7 +32,7 @@ export default function YantraCourseDetailPage() {
       price="₹5,100 - ₹21,000"
       duration="7 days - 90 days"
       level="Beginner to Advanced"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/myt/yantra.png"
       sessions={[
         {
           name: 'Basic Yantra Course (Nav Grah Yantra Making)',

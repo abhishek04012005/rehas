@@ -28,6 +28,7 @@ export default function MindReadingCoursesPage() {
       price: '₹2,099 - ₹10,999',
       href: '/courses/mind-reading/manifestation',
       image: 'AutoAwesome',
+      imageUrl: '/assets/course/mind-reading/manifestation.png',
       level: 'Beginner to Advanced',
     },
     {
@@ -36,6 +37,7 @@ export default function MindReadingCoursesPage() {
       price: '₹2,099 - ₹20,999',
       href: '/courses/mind-reading/law-of-attraction',
       image: 'StarOutlined',
+      imageUrl: '/assets/course/mind-reading/lawofattraction.png',
       level: 'Beginner to Advanced',
     },
     {
@@ -44,6 +46,7 @@ export default function MindReadingCoursesPage() {
       price: '₹5,099 - ₹20,999',
       href: '/courses/mind-reading/mid-brain-activation',
       image: 'Psychology',
+      imageUrl: '/assets/course/mind-reading/midbrainactivation.png',
       level: 'All Ages',
     },
   ];

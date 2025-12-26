@@ -32,7 +32,7 @@ export default function MidBrainActivationCourseDetailPage() {
       price="₹5,099 - ₹20,999"
       duration="90 days (All Programs)"
       level="All Ages"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/mind-reading/midbrainactivation.png"
       sessions={[
         {
           name: 'Basic Mid Brain Activation for Child',
