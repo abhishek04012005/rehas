@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
 import { courseAstrologyData } from '@/data/courseAstrology';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Astrology Courses | Vedic Astrology, Numerology, Tarot | REHAS',
-  description:
-    'Master astrology from certified experts. Learn Vedic Astrology, Numerology, and Tarot reading with our comprehensive professional courses.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Astrology Courses | Vedic Astrology, Numerology, Tarot | REHAS',
+  'Master astrology from certified experts. Learn Vedic Astrology, Numerology, and Tarot reading with our comprehensive professional courses.',
+  [
     'Astrology Courses',
     'Vedic Astrology Training',
     'Numerology Course',
@@ -14,13 +14,10 @@ export const metadata: Metadata = {
     'Astrology Certification',
     'Birth Chart Analysis',
     'Astrology School',
+    'Online Astrology Course',
   ],
-  openGraph: {
-    title: 'Astrology Courses | REHAS',
-    description: 'Master the ancient science of the stars and cosmic guidance.',
-    type: 'website',
-  },
-};
+  '/courses/astrology'
+);
 
 export default function AstrologyCoursesPage() {
   const courses = [

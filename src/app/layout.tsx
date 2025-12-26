@@ -5,7 +5,9 @@ import NavbarWrapper from "@/components/navbarWrapper/navbarWrapper";
 import PageLoadingWrapper from "@/components/pageLoadingWrapper/pageLoadingWrapper";
 import AutoEnquiryPopup from "@/components/autoEnquiryPopup/autoEnquiryPopup";
 import Footer from "@/components/footer/footer";
+import SchemaComponent from "@/components/schemaComponent/schemaComponent";
 import { CheckoutProvider } from "@/context/CheckoutContext";
+import { organizationSchema } from "@/lib/seoConfig";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +58,7 @@ export const metadata: Metadata = {
     title: "REHAS - Ancient Cosmic Wisdom Meets Modern Wellness",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services.",
     images: ["https://rehas.in/og-image.png"],
+    creator: "@REHAS",
   },
   alternates: {
     canonical: "https://rehas.in",
@@ -75,6 +78,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <SchemaComponent schema={organizationSchema} />
+      </head>
       <body>
         <CheckoutProvider>
           <PageLoadingWrapper />

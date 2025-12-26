@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { cowrieReadingData } from '@/data/cowrieReading';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Cowrie Reading | Shell Divination & Spiritual Guidance | REHAS',
-  description:
-    'Receive spiritual guidance through ancient cowrie shell divination. Uncover hidden truths, reveal blockages, and illuminate your path forward.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Cowrie Reading | Shell Divination & Spiritual Guidance | REHAS',
+  'Receive spiritual guidance through ancient cowrie shell divination. Uncover hidden truths, reveal blockages, and illuminate your path forward.',
+  [
     'Cowrie Reading',
     'Shell Divination',
     'Spiritual Guidance',
@@ -14,13 +14,10 @@ export const metadata: Metadata = {
     'Ifa Divination',
     'Ancestral Guidance',
     'Spiritual Wisdom',
+    'Divination Reading',
   ],
-  openGraph: {
-    title: 'Cowrie Reading | REHAS',
-    description: 'Ancient shell divination for spiritual clarity and guidance.',
-    type: 'website',
-  },
-};
+  '/astrology/cowrie-reading'
+);
 
 export default function CowrieReadingPage() {
   return <HealingService data={cowrieReadingData} />;

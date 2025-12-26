@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import ProductsPage from '@/components/productsPage/productsPage';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Premium Healing Products | Crystals, Oils, Equipment | REHAS',
-  description:
-    'Discover our curated collection of premium healing products - authentic crystals, essential oils, therapy equipment, and astrology tools for your wellness journey.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Premium Healing Products | Crystals, Oils, Equipment | REHAS',
+  'Discover our curated collection of premium healing products - authentic crystals, essential oils, therapy equipment, and astrology tools for your wellness journey.',
+  [
     'Healing Products',
     'Crystals',
     'Essential Oils',
@@ -13,13 +13,11 @@ export const metadata: Metadata = {
     'Wellness Products',
     'Tarot Decks',
     'Meditation Tools',
+    'Healing Tools',
+    'Spiritual Products',
   ],
-  openGraph: {
-    title: 'Premium Healing Products | REHAS',
-    description: 'Authentic healing products for holistic wellness.',
-    type: 'website',
-  },
-};
+  '/products'
+);
 
 export default function Products() {
   return <ProductsPage />;

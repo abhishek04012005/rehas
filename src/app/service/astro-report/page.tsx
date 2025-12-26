@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { astroReportData } from '@/data/astroReport';
+import { createMetadata } from '@/lib/seoConfig';
 
-export const metadata: Metadata = {
-  title: 'Astro Report | REHAS',
-  description:
-    'Understand your cosmic blueprint with detailed astrological analysis. Get insights into personality, destiny, career, and relationships based on your birth chart.',
-  keywords: [
+export const metadata: Metadata = createMetadata(
+  'Astro Report | Detailed Birth Chart Analysis | REHAS',
+  'Understand your cosmic blueprint with detailed astrological analysis. Get insights into personality, destiny, career, and relationships based on your birth chart.',
+  [
     'Astrology',
     'Astro Report',
     'Birth Chart',
@@ -15,13 +15,10 @@ export const metadata: Metadata = {
     'Cosmic Insights',
     'Personality Analysis',
     'Career Guidance',
+    'Astrology Reading',
   ],
-  openGraph: {
-    title: 'Astro Report | REHAS',
-    description: 'Understand your cosmic blueprint with detailed astrological analysis.',
-    type: 'website',
-  },
-};
+  '/service/astro-report'
+);
 
 export default function AstroReportPage() {
   return <HealingService data={astroReportData} />;
