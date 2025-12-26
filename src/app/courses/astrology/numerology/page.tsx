@@ -22,7 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default function NumerologyCoursePage() {
-  const coursePrice = courseAstrologyData.sessions.types[0]?.price || '₹8,000-₹12,000';
   return (
     <CourseDetail
       courseName="Numerology Certification"
@@ -31,67 +30,108 @@ export default function NumerologyCoursePage() {
       meaning="Numerology is the ancient science of numbers and their vibrations. Every number carries a unique energy and significance that influences our personality, life path, and destiny. Our numerology course teaches you to calculate and interpret life path numbers, personal year numbers, expression numbers, and more. You'll learn how numbers affect personality traits, relationships, career choices, and future events, and how to use this knowledge to guide yourself and others."
       benefit="Number meaning mastery; Life path number interpretation; Personal numerology calculation; Compatibility analysis; Career guidance through numbers; Business naming and timing"
       use="Personal life guidance and self-discovery; Relationship compatibility analysis; Career and business counseling; Naming guidance for businesses and children; Professional numerology consulting"
-      price={coursePrice}
-      duration="6-10 weeks"
+      price="₹5,099 - ₹20,999"
+      duration="5 days - 90 days"
       level="All Levels"
       image="/assets/course/reikiCourse.png"
       sessions={[
         {
-          name: 'Weekend Intensive',
-          duration: '2-3 weekends',
-          description: 'Focused numerology training with number calculations and interpretations.',
-          price: '₹6,000',
-          originalPrice: '₹9,000',
+          name: 'Basic Numerology with Lo-Shu-Grid',
+          duration: '5 days',
+          description: 'Introduction to numerology fundamentals and the ancient Lo-Shu-Grid system.',
+          price: '₹5,099',
+          originalPrice: '₹5,099',
           includes: [
+            'Numerology basics',
+            'Lo-Shu-Grid mastery',
             'Number meanings study',
-            'Life path calculation',
-            'Personal number analysis',
-            'Interpretation techniques',
-            'Professional certification',
+            'Basic calculations',
+            'Personal number interpretation',
+            'Course materials',
           ],
         },
         {
-          name: 'Weekly Classes',
-          duration: '6-10 weeks',
-          description: 'Comprehensive weekly numerology training with practical applications.',
-          price: '₹7,000',
-          originalPrice: '₹10,500',
+          name: 'Practitioner Numerology Advanced Course',
+          duration: '30 days',
+          description: 'Comprehensive practitioner-level training with advanced numerology techniques.',
+          price: '₹10,999',
+          originalPrice: '₹10,999',
           includes: [
             'Complete numerology system',
-            'Weekly calculation practice',
-            'Number combination analysis',
+            'Life path and destiny numbers',
+            'Personal year calculations',
+            'Compatibility analysis',
+            'Business numerology',
             'Client consultation practice',
-            'Compatibility readings',
             'Professional certification',
           ],
         },
         {
-          name: 'Online Course',
-          duration: 'Self-paced',
-          description: 'Video-based numerology learning with calculation tools.',
-          price: '₹3,500',
-          originalPrice: '₹5,250',
+          name: 'Bhartiya Ank Sastra',
+          duration: '90 days',
+          description: 'Master-level training in traditional Indian numerology system.',
+          price: '₹20,999',
+          originalPrice: '₹20,999',
           includes: [
-            'Complete video modules',
-            'Calculation spreadsheets',
-            'Interpretation guides',
-            'Lifetime access',
-            'Email support',
-            'Digital certificate',
+            'Bhartiya Ank Sastra mastery',
+            'Advanced prediction techniques',
+            'Vedic numerology principles',
+            'Specialized applications',
+            'Professional practice development',
+            'Marketing and client management',
+            'Master certification',
+            'Lifetime mentorship support',
+          ],
+        },
+      ]}
+      pricingPlans={[
+        {
+          name: 'Basic Numerology with Lo-Shu-Grid',
+          duration: '5 days',
+          price: '₹5,099',
+          originalPrice: '₹5,099',
+          description: 'Perfect for beginners wanting to learn numerology fundamentals and the ancient Lo-Shu-Grid system.',
+          includes: [
+            'Numerology basics',
+            'Lo-Shu-Grid mastery',
+            'Number meanings study',
+            'Basic calculations',
+            'Personal number interpretation',
+            'Digital course materials',
           ],
         },
         {
-          name: 'Private Training',
-          duration: 'Customized',
-          description: 'One-on-one personalized numerology training.',
-          price: '₹1,000',
+          name: 'Practitioner Numerology Advanced Course',
+          duration: '30 days',
+          price: '₹10,999',
+          originalPrice: '₹10,999',
+          description: 'Comprehensive professional training with advanced numerology techniques and applications.',
           includes: [
-            'Personalized learning path',
-            'One-on-one coaching',
-            'Number analysis practice',
-            'Flexible timing',
-            'Direct mentorship',
-            'Certification upon completion',
+            'Complete numerology system',
+            'Life path and destiny numbers',
+            'Personal year calculations',
+            'Compatibility analysis',
+            'Business numerology',
+            'Client consultation practice',
+            'Professional certification',
+            'Extended support included',
+          ],
+        },
+        {
+          name: 'Bhartiya Ank Sastra',
+          duration: '90 days',
+          price: '₹20,999',
+          originalPrice: '₹20,999',
+          description: 'Master-level training in traditional Indian numerology with advanced predictions and specializations.',
+          includes: [
+            'Bhartiya Ank Sastra mastery',
+            'Advanced prediction techniques',
+            'Vedic numerology principles',
+            'Specialized applications',
+            'Professional practice development',
+            'Marketing and client management',
+            'Master certification',
+            'Lifetime mentorship support',
           ],
         },
       ]}

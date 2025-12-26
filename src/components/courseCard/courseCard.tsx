@@ -67,9 +67,7 @@ export default function CourseCard({
               {level}
             </span>
             <div className={styles.priceWrapper}>
-              {originalPrice && (
-                <span className={styles.originalPrice}>{originalPrice}</span>
-              )}
+  
               <span className={styles.price}>{price}</span>
             </div>
           </div>

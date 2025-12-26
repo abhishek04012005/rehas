@@ -467,6 +467,8 @@
 .pricingSection {
   padding: 60px 40px;
   background: white;
+  position: relative;
+  z-index: 1;
 }
 
 .pricingContainer {
@@ -489,130 +491,127 @@
 }
 
 .pricingCard {
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 32px 24px;
-  text-align: center;
+  background: linear-gradient(135deg, rgba(150, 72, 122, 0.05) 0%, rgba(212, 165, 217, 0.1) 100%);
+  padding: 32px;
+  border-radius: 15px;
+  border: 2px solid #d4a5d9;
   transition: all 0.3s ease;
-  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .pricingCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(86, 0, 103, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   border-color: var(--secondary);
-}
-
-.pricingCard.featured {
-  border: 2px solid var(--primary);
-  background: linear-gradient(135deg, rgba(86, 0, 103, 0.02) 0%, rgba(168, 85, 247, 0.02) 100%);
-  transform: scale(1.05);
-}
-
-.pricingCard.featured:hover {
-  transform: scale(1.05) translateY(-8px);
-  box-shadow: 0 20px 50px rgba(86, 0, 103, 0.2);
-}
-
-.planBadge {
-  display: inline-block;
-  background: var(--primary);
-  color: white;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  align-self: center;
 }
 
 .pricingCard h3 {
   font-size: 20px;
-  margin: 0 0 12px 0;
   color: var(--primary);
+  margin: 0 0 16px 0;
   font-weight: 700;
 }
 
-.planPrice {
-  font-size: 48px;
-  font-weight: 700;
+.pricingMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.durationLabel,
+.priceLabel {
+  font-weight: 600;
   color: var(--primary);
-  margin: 20px 0;
+  font-size: 14px;
+}
+
+.priceWrapperStyle {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.currency {
-  font-size: 24px;
-  line-height: 1;
+.priceLabel {
+  font-size: 18px;
 }
 
-.amount {
-  line-height: 1;
+.pricingDescription {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-.planFeatures {
-  list-style: none;
-  margin: 0 0 30px 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.pricingIncludes {
+  margin-bottom: 24px;
   flex-grow: 1;
 }
 
-.planFeatures li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #666;
+.pricingIncludes h4 {
+  color: var(--primary);
   font-size: 14px;
-  justify-content: flex-start;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.pricingIncludes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pricingIncludes li {
+  color: #666;
+  padding: 0 0 0 24px;
+  position: relative;
+  font-size: 13px;
   line-height: 1.6;
 }
 
-.planFeatures svg {
-  color: var(--primary);
-  flex-shrink: 0;
-  font-size: 20px;
+.pricingIncludes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+  font-weight: bold;
 }
 
-.planButton {
+.enrollBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
   padding: 12px 24px;
-  background: white;
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  font-size: 14px;
-  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
   border-radius: 8px;
-  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.planButton:hover {
-  background: var(--primary);
-  color: white;
+.originalPriceLabel {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.enrollBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(86, 0, 103, 0.2);
-}
-
-.planButton.primaryButton {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.planButton.primaryButton:hover {
-  background: var(--secondary);
-  border-color: var(--secondary);
+  box-shadow: 0 10px 25px rgba(86, 0, 103, 0.3);
 }
 
 /* ===== HIGHLIGHTS SECTION ===== */
@@ -882,28 +881,20 @@
   }
 
   .pricingSection {
-    padding: 40px 20px;
+    padding: 50px 30px;
   }
 
   .pricingContainer h2 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .pricingGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .pricingCard.featured {
-    transform: scale(1);
-  }
-
-  .pricingCard.featured:hover {
-    transform: scale(1) translateY(-8px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .curriculumSection,
   .highlightsSection {
-    padding: 40px 20px;
+    padding: 50px 30px;
   }
 
   .curriculumContainer h2,
@@ -1082,15 +1073,31 @@
     padding: 20px 16px;
   }
 
-  .planPrice {
-    font-size: 36px;
+  .pricingMeta {
+    padding: 12px;
+    gap: 12px;
   }
 
-  .currency {
-    font-size: 18px;
+  .durationLabel,
+  .priceLabel {
+    font-size: 13px;
   }
 
-  .planButton {
+  .pricingDescription {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .pricingIncludes h4 {
+    font-size: 12px;
+  }
+
+  .pricingIncludes li {
+    font-size: 12px;
+    padding-left: 20px;
+  }
+
+  .enrollBtn {
     padding: 11px 16px;
     font-size: 13px;
   }

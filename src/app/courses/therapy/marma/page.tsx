@@ -29,25 +29,106 @@ export default function MarmaTherapyCoursePage() {
       meaning="Marma therapy is an ancient Ayurvedic healing system that works with 108 vital energy points on the body. These marma points are junctions of consciousness and matter where disease can be prevented and health promoted. Our course teaches the science of marmas, how to locate and stimulate them for deep therapeutic benefits, and how to create effective treatment protocols for various conditions."
       benefit="Understanding of 108 vital marma points; Energy system knowledge; Deep healing capabilities; Treatment for chronic conditions; Prevention and wellness promotion; Integration with modern healthcare"
       use="Therapeutic healing practice; Wellness and preventive care; Integration with massage and bodywork; Ayurvedic healing services; Professional marma therapy practice; Spiritual health optimization"
-      price="₹10,000"
-      duration="Foundation & Intermediate"
-      level="All Levels"
+      price="₹2,099 - ₹50,999"
+      duration="3 days - 90 days"
+      level="Beginner to Advanced"
       image="/assets/course/reikiCourse.png"
       sessions={[
         {
-          name: 'Marma Therapy Basic & Practice Course',
-          duration: 'Foundation & Intermediate Level',
-          description: 'Comprehensive marma therapy training from fundamentals to professional practice.',
-          price: '₹10,000',
-          originalPrice: '₹15,000',
+          name: 'Basic Marma Course',
+          duration: '3 days',
+          description: 'Introduction to marma therapy philosophy and basic point location techniques.',
+          price: '₹2,099',
+          originalPrice: '₹2,099',
           includes: [
-            'Ayurvedic principles and marma philosophy',
-            'Anatomy of 108 vital marma points',
-            'Assessment and diagnostics',
-            'Traditional marma therapy techniques',
-            'Hands-on practice and case studies',
-            'Professional practice protocols',
-            'Certification in Marma Therapy',
+            'Marma therapy fundamentals',
+            'Introduction to 108 vital points',
+            'Basic stimulation techniques',
+            'Ayurvedic principles overview',
+            'Self-treatment introduction',
+            'Course materials',
+          ],
+        },
+        {
+          name: 'Practitioner Marma Course',
+          duration: '60 days',
+          description: 'Comprehensive practitioner-level training in marma science and advanced therapeutic applications.',
+          price: '₹50,999',
+          originalPrice: '₹50,999',
+          includes: [
+            'Deep marma philosophy and science',
+            'Mastery of all 108 marma points',
+            'Advanced stimulation methods',
+            'Treatment protocols for various conditions',
+            'Client assessment and diagnostics',
+            'Professional practice development',
+            'Master certification',
+          ],
+        },
+        {
+          name: 'Advanced Marma Course',
+          duration: '90 days',
+          description: 'Advanced specialized training with integration into professional healing practice.',
+          price: '₹10,999',
+          originalPrice: '₹10,999',
+          includes: [
+            'Advanced marma combinations',
+            'Specialized therapeutic applications',
+            'Energy system integration',
+            'Business development strategies',
+            'Marketing and client management',
+            'Advanced certification',
+            'Lifetime mentorship support',
+          ],
+        },
+      ]}
+      pricingPlans={[
+        {
+          name: 'Basic Marma Course',
+          duration: '3 days',
+          price: '₹2,099',
+          originalPrice: '₹2,099',
+          description: 'Introduction to marma therapy philosophy and basic point location techniques for personal healing.',
+          includes: [
+            'Marma therapy fundamentals',
+            'Introduction to 108 vital points',
+            'Basic stimulation techniques',
+            'Ayurvedic principles overview',
+            'Self-treatment introduction',
+            'Digital course materials',
+          ],
+        },
+        {
+          name: 'Practitioner Marma Course',
+          duration: '60 days',
+          price: '₹5,099',
+          originalPrice: '₹10,099',
+          description: 'Comprehensive practitioner-level training in marma science with advanced therapeutic applications.',
+          includes: [
+            'Deep marma philosophy and science',
+            'Mastery of all 108 marma points',
+            'Advanced stimulation methods',
+            'Treatment protocols for various conditions',
+            'Client assessment and diagnostics',
+            'Professional practice development',
+            'Master certification',
+            'Extended mentorship support',
+          ],
+        },
+        {
+          name: 'Advanced Marma Course',
+          duration: '90 days',
+          price: '₹10,999',
+          originalPrice: '₹10,999',
+          description: 'Advanced specialized training with complete integration into professional healing practice.',
+          includes: [
+            'Advanced marma combinations',
+            'Specialized therapeutic applications',
+            'Energy system integration',
+            'Business development strategies',
+            'Marketing and client management',
+            'Advanced certification',
+            'Lifetime mentorship support',
           ],
         },
       ]}

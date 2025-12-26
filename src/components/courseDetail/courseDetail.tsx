@@ -38,6 +38,15 @@ interface CourseCurriculum {
   description: string;
 }
 
+interface PricingPlan {
+  name: string;
+  duration: string;
+  price: string;
+  originalPrice?: string;  
+  description: string;
+  includes: string[];
+}
+
 interface CourseDetailProps {
   courseName: string;
   category: string;
@@ -49,6 +58,7 @@ interface CourseDetailProps {
   duration?: string;
   sessions?: CourseSession[];
   curriculum?: CourseCurriculum[];
+  pricingPlans?: PricingPlan[];
   level?: string;
   image?: string;
   originalPrice?: string;
@@ -65,6 +75,7 @@ export default function CourseDetail({
   duration = '8-12 weeks',
   sessions = [],
   curriculum = [],
+  pricingPlans = [],
   level = 'Beginner to Advanced',
   image = 'AutoStoriesOutlined',
   originalPrice
@@ -198,9 +209,6 @@ export default function CourseDetail({
             {/* Price Section */}
             <div className={styles.priceBox}>
               <div className={styles.priceDisplay}>
-                {originalPrice && (
-                  <span className={styles.originalPriceText}>{originalPrice}</span>
-                )}
                 <span className={styles.priceText}>{price}</span>
               </div>
               <button
@@ -238,110 +246,44 @@ export default function CourseDetail({
       )}
 
       {/* Pricing Plans Section */}
-      <section className={styles.pricingSection}>
-        <div className={styles.pricingContainer}>
-          <h2>Choose Your Plan</h2>
-          <div className={styles.pricingGrid}>
-            {/* Basic Plan */}
-            <div className={styles.pricingCard}>
-              <div className={styles.planBadge}>Basic</div>
-              <h3>Self-Paced Learning</h3>
-              <div className={styles.planPrice}>
-                <span className={styles.currency}>₹</span>
-                <span className={styles.amount}>2,999</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Course access for 3 months
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Video lessons and materials
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Email support
-                </li>
-              </ul>
-              <button
-                onClick={() => handleEnrollNow('Basic Plan', '₹2,999')}
-                className={styles.planButton}
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Standard Plan */}
-            <div className={`${styles.pricingCard} ${styles.featured}`}>
-              <div className={styles.planBadge}>Popular</div>
-              <h3>Comprehensive Program</h3>
-              <div className={styles.planPrice}>
-                <span className={styles.currency}>₹</span>
-                <span className={styles.amount}>5,999</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Lifetime course access
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Live sessions & recordings
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Certification included
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Priority support
-                </li>
-              </ul>
-              <button
-                onClick={() => handleEnrollNow('Comprehensive Program', '₹5,999')}
-                className={`${styles.planButton} ${styles.primaryButton}`}
-              >
-                Enroll Now
-              </button>
-            </div>
-
-            {/* Premium Plan */}
-            <div className={styles.pricingCard}>
-              <div className={styles.planBadge}>Premium</div>
-              <h3>1-on-1 Mentorship</h3>
-              <div className={styles.planPrice}>
-                <span className={styles.currency}>₹</span>
-                <span className={styles.amount}>9,999</span>
-              </div>
-              <ul className={styles.planFeatures}>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Everything in Standard
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Personal mentorship sessions
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Customized learning path
-                </li>
-                <li>
-                  <CheckCircle sx={{ fontSize: 18 }} />
-                  Career guidance
-                </li>
-              </ul>
-              <button
-                onClick={() => handleEnrollNow('1-on-1 Mentorship', '₹9,999')}
-                className={styles.planButton}
-              >
-                Choose Premium
-              </button>
+      {pricingPlans && pricingPlans.length > 0 && (
+        <section className={styles.pricingSection}>
+          <div className={styles.pricingContainer}>
+            <h2>Choose Your Plan</h2>
+            <div className={styles.pricingGrid}>
+              {pricingPlans.map((plan, index) => (
+                <div key={index} className={styles.pricingCard}>
+                  <h3>{plan.name}</h3>
+                  <div className={styles.pricingMeta}>
+                    <span className={styles.durationLabel}>{plan.duration}</span>
+                    <div className={styles.priceWrapperStyle}>
+                      {plan.originalPrice && (
+                        <span className={styles.originalPriceLabel}>{plan.originalPrice}</span>
+                      )}
+                      <span className={styles.priceLabel}>{plan.price}</span>
+                    </div>
+                  </div>
+                  <p className={styles.pricingDescription}>{plan.description}</p>
+                  <div className={styles.pricingIncludes}>
+                    <h4>Includes:</h4>
+                    <ul>
+                      {plan.includes.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <button
+                    onClick={() => handleEnrollNow(plan.name, plan.price)}
+                    className={styles.enrollBtn}
+                  >
+                    Enroll Now <ChevronRight />
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Highlights Section */}
       <section className={styles.highlightsSection}>

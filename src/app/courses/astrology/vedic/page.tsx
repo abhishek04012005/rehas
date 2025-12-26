@@ -22,7 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default function VedicAstrologyCoursePage() {
-  const coursePrice = courseAstrologyData.sessions.types[1]?.price || '₹35,000-₹55,000';
   return (
     <CourseDetail
       courseName="Vedic Astrology Diploma"
@@ -31,68 +30,108 @@ export default function VedicAstrologyCoursePage() {
       meaning="Vedic astrology, also known as Jyotish, is an ancient Indian science that uses the positions of celestial bodies to understand human destiny and life patterns. Our comprehensive diploma program teaches you the fundamentals of Vedic astrology, birth chart interpretation, planetary influences, dashas (time periods), and predictive techniques. You'll learn to read horoscopes with precision and provide meaningful guidance to clients."
       benefit="Birth chart analysis mastery; Planetary influence understanding; Predictive astrology techniques; Dasha and transit interpretation; Gemstone and remedy recommendations; Professional astrology consultation skills"
       use="Professional astrology consultation; Birth chart readings; Life guidance and counseling; Predictive analysis; Gemstone recommendations; Business and personal planning"
-      price={coursePrice}
-      duration="12-16 weeks"
+      price="₹5,099 - ₹34,999"
+      duration="30 days - 180 days"
       level="Beginner to Master"
       image="/assets/course/reikiCourse.png"
       sessions={[
         {
-          name: 'Weekend Intensive',
-          duration: '4-5 weekends',
-          description: 'Intensive Vedic astrology training with chart reading practice.',
-          price: '₹12,000',
-          originalPrice: '₹18,000',
+          name: 'Basic Astrology',
+          duration: '30 days',
+          description: 'Introduction to Vedic astrology fundamentals and birth chart basics.',
+          price: '₹5,099',
+          originalPrice: '₹5,099',
           includes: [
             'Vedic astrology foundations',
-            'Birth chart calculation',
-            'Chart interpretation techniques',
-            'Planetary system study',
-            'Professional diploma',
+            'Zodiac signs and planetary positions',
+            'Birth chart calculation basics',
+            'House system introduction',
+            'Astrology principles overview',
+            'Course materials',
           ],
         },
         {
-          name: 'Weekly Classes',
-          duration: '12-16 weeks',
-          description: 'Comprehensive weekly astrology training with practical application.',
-          price: '₹14,000',
-          originalPrice: '₹21,000',
+          name: 'Practitioner Astrology Course',
+          duration: '90 days',
+          description: 'Comprehensive practitioner-level training with advanced chart reading and prediction techniques.',
+          price: '₹20,999',
+          originalPrice: '₹20,999',
           includes: [
             'Complete astrology curriculum',
-            'Weekly chart reading practice',
-            'Dasha and transit study',
+            'Advanced chart interpretation',
+            'Dasha and transit mastery',
             'Predictive techniques',
-            'Client consultation practice',
+            'Planetary combinations (yogas)',
+            'Remedy and gemstone guidance',
             'Professional diploma',
           ],
         },
         {
-          name: 'Online Course',
-          duration: 'Self-paced',
-          description: 'Video-based Vedic astrology learning with chart software.',
-          price: '₹7,000',
-          originalPrice: '₹10,500',
+          name: 'Astro Mastery Course',
+          duration: '180 days',
+          description: 'Master-level training with specialized techniques and professional practice development.',
+          price: '₹34,999',
+          originalPrice: '₹34,999',
           includes: [
-            'Complete video modules',
-            'Chart software training',
-            'Study materials',
-            'Lifetime access',
-            'Email mentoring',
-            'Digital diploma',
+            'Advanced predictive astrology',
+            'Specialized reading techniques',
+            'Business and relationship astrology',
+            'Client consultation mastery',
+            'Professional practice development',
+            'Marketing and client management',
+            'Master certification',
+            'Lifetime mentorship support',
+          ],
+        },
+      ]}
+      pricingPlans={[
+        {
+          name: 'Basic Astrology',
+          duration: '30 days',
+          price: '₹5,099',
+          originalPrice: '₹5,099',
+          description: 'Perfect for beginners wanting to learn fundamental Vedic astrology and basic birth chart reading.',
+          includes: [
+            'Vedic astrology foundations',
+            'Zodiac signs and planetary positions',
+            'Birth chart calculation basics',
+            'House system introduction',
+            'Astrology principles overview',
+            'Digital course materials',
           ],
         },
         {
-          name: 'Private Training',
-          duration: 'Customized',
-          description: 'One-on-one personalized Vedic astrology training.',
-          price: '₹2,000/hour',
-          originalPrice: '₹3,000/hour',
+          name: 'Practitioner Astrology Course',
+          duration: '90 days',
+          price: '₹20,999',
+          originalPrice: '₹20,999',
+          description: 'Comprehensive professional training with advanced chart reading and prediction techniques.',
           includes: [
-            'Personalized curriculum',
-            'One-on-one mentorship',
-            'Chart analysis guidance',
-            'Flexible scheduling',
-            'Direct feedback',
-            'Diploma upon completion',
+            'Complete astrology curriculum',
+            'Advanced chart interpretation',
+            'Dasha and transit mastery',
+            'Predictive techniques',
+            'Planetary combinations (yogas)',
+            'Remedy and gemstone guidance',
+            'Professional diploma',
+            'Extended support included',
+          ],
+        },
+        {
+          name: 'Astro Mastery Course',
+          duration: '180 days',
+          price: '₹34,999',
+          originalPrice: '₹34,999',
+          description: 'Master-level training with specialized techniques and comprehensive professional practice development.',
+          includes: [
+            'Advanced predictive astrology',
+            'Specialized reading techniques',
+            'Business and relationship astrology',
+            'Client consultation mastery',
+            'Professional practice development',
+            'Marketing and client management',
+            'Master certification',
+            'Lifetime mentorship support',
           ],
         },
       ]}

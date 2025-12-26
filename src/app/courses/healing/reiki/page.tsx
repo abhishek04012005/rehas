@@ -24,98 +24,82 @@ export const metadata: Metadata = {
 export default function ReikiCoursePage() {
   return (
     <CourseDetail
-      courseName="Reiki & Mind Power Course"
+      courseName="Reiki Healing"
       category="healing"
-      description="Master the complete Reiki system combined with Mind Power techniques from fundamentals to advanced practices"
-      meaning="Reiki is a Japanese technique for stress reduction and healing that uses universal life force energy, enhanced with Mind Power practices. Our comprehensive program teaches you to become a certified Reiki and Mind Power practitioner and master, capable of healing yourself and others. Through hands-on training, attunements, meditation, and practical applications, you'll develop the ability to channel healing energy and harness the power of your mind effectively."
-      benefit="Hands-on healing ability; Energy perception and channeling; Mind power and consciousness control; Spiritual growth and awareness; Stress reduction techniques; Personal transformation; Ability to help others heal"
-      use="Personal wellness and healing; Professional healing practice; Complementary therapy; Spiritual development; Building a healing business; Family and friend healing; Consciousness expansion"
-      price="₹8,000"
-      duration="2-3 months (varies by format)"
+      description="Master the complete Reiki system from basics to Grand Master level with advanced healing techniques and spiritual development"
+      meaning="Reiki is a Japanese technique for stress reduction and healing that uses universal life force energy. Our comprehensive program teaches you to become a certified Reiki practitioner and Grand Master, capable of healing yourself and others. Through hands-on training, attunements, symbols, and advanced techniques, you'll develop the ability to channel powerful healing energy and establish a successful healing practice."
+      benefit="Complete Reiki system mastery; All four levels of attunements; Sacred symbols and techniques; Energy channeling ability; Spiritual growth and consciousness expansion; Professional healing credentials; Teaching and business development skills"
+      use="Personal wellness and self-healing; Professional healing practice; Building a healing business; Spiritual transformation; Teaching and guiding others; Complementary wellness services"
+      price="₹1 - ₹34,999"
+      duration="3 days - 90 days (depending on level)"
       level="Beginner to Master"
       image="/assets/course/reikiCourse.png"
-      sessions={[
+      originalPrice="₹34,999"
+      curriculum={[
+        {
+          title: 'Level 1 - Foundation (Shoden)',
+          description: 'Learn the history and principles of Reiki. Receive your first attunement to open the channel for universal energy. Develop self-healing abilities and basic healing techniques.',
+        },
+        {
+          title: 'Level 2 - Intermediate (Okuden)',
+          description: 'Master the three sacred symbols for enhancing healing energy. Learn distance healing techniques and develop practical skills for client sessions.',
+        },
+        {
+          title: 'Level 3 - Advanced (Shimpiden)',
+          description: 'Work with the Master symbol and deepen your spiritual practice. Learn advanced techniques and prepare to guide others in their healing journey.',
+        },
+        {
+          title: 'Master Level - Grand Master',
+          description: 'Become a Reiki Grand Master with highest level teachings. Learn business practices, ethical standards, teaching methods, and establish your professional healing practice.',
+        },
+      ]}
+      pricingPlans={[
         {
           name: 'Basic Reiki Healing',
-          duration: 'Introductory',
-          description: 'Introduction to Reiki healing fundamentals and energy basics.',
+          duration: '3 days',
           price: '₹1',
-          originalPrice: '₹10,000',
+          originalPrice: '₹999',
+          description: 'Perfect for beginners wanting to experience and understand the power of Reiki energy healing and its transformative benefits.',
           includes: [
-            'Basic Reiki introduction',
+            'Level 1 attunement',
+            'Reiki principles and history',
+            'Self-healing techniques',
             'Energy awareness training',
-            'Foundational techniques',
-            'Practice guidance',
+            'Basic practice guidance',
+            'Digital course materials',
           ],
         },
         {
           name: 'Reiki up to Master Level',
-          duration: 'Comprehensive Program',
-          description: 'Complete Reiki training from Level 1 to Master with full certifications.',
-          price: '₹20,000',
-          originalPrice: '₹30,000',
+          duration: '30 days',
+          price: '₹20,999',
+          originalPrice: '₹29,999',
+          description: 'Complete professional Reiki training covering all four levels with attunements, symbols, and credentials to practice professionally.',
           includes: [
-            'All four Reiki levels',
-            'Complete attunements',
-            'Hands-on practice sessions',
-            'Master level training',
-            'Professional certification',
-            'Lifetime access to resources',
-            'Ongoing mentorship support',
-          ],
-        },
-        {
-          name: 'Karuna Reiki',
-          duration: 'Advanced Specialization',
-          description: 'Advanced Karuna Reiki training focusing on compassion and advanced healing techniques.',
-          price: '₹10,000',
-          originalPrice: '₹15,000',
-          includes: [
-            'Karuna Reiki symbols',
+            'Levels 1-4 with attunements',
+            'All sacred symbols',
             'Advanced healing techniques',
-            'Compassion-focused practice',
             'Distance healing methods',
             'Professional certification',
-            'Practical applications',
+            'Lifetime resource access',
+            'Email support included',
           ],
         },
         {
-          name: 'Grand Master',
-          duration: 'Intensive Specialization',
-          description: 'Master the power of sacred words and manifestation through Reiki and Mind Power principles.',
-          price: '₹35,000',
-          originalPrice: '₹52,500',
+          name: 'Karuna Reiki with Grand Master',
+          duration: '90 days',
+          price: '₹34,999',
+          originalPrice: '₹49,999',
+          description: 'Master the highest levels of Reiki including Karuna Reiki and Grand Master teachings with advanced spiritual techniques.',
           includes: [
-            'Sacred word mastery',
-            'Manifestation techniques',
-            'Consciousness expansion',
-            'Advanced energy work',
-            'Professional certification',
-            'Complete training materials',
-            'Lifetime instructor support',
+            'Everything in Master Level',
+            'Karuna Reiki advanced symbols',
+            'Grand Master level training',
+            'Advanced manifestation work',
+            'Teaching certification',
+            'Business building guidance',
+            'Lifetime mentorship support',
           ],
-        },
-      ]}
-      curriculum={[
-        {
-          title: 'Level 1 - Foundation (Shoden)',
-          description:
-            'Learn the history, principles, and basics of Reiki. Receive your first attunement and develop the ability to channel healing energy for yourself and others.',
-        },
-        {
-          title: 'Level 2 - Intermediate (Okuden)',
-          description:
-            'Master the three sacred symbols and learn distance healing techniques. Develop practical skills for client sessions and deeper healing work.',
-        },
-        {
-          title: 'Level 3 - Advanced (Shimpiden)',
-          description:
-            'Work with the Master symbol and deepen your spiritual practice. Learn advanced techniques and prepare to guide others in their Reiki journey.',
-        },
-        {
-          title: 'Master Level - Professional Practice',
-          description:
-            'Become a Reiki Master and instructor. Learn business practices, ethics, teaching methods, and how to establish and grow your healing practice professionally.',
         },
       ]}
     />
