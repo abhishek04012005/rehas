@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Star } from '@mui/icons-material';
 import { testimonials, pageHeader } from '@/data/testimonial';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import styles from './testimonialSlider.module.css';
+import Image from 'next/image';
 
 export default function TestimonialSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -100,7 +101,16 @@ export default function TestimonialSlider() {
 
                         {/* Author Info */}
                         <div className={styles.authorSection}>
-                            <div className={styles.authorImage}>{currentTestimonial.image}</div>
+                            <div className={styles.authorImage}>
+                                {/* {currentTestimonial.image} */}
+                                <Image
+                                    src={currentTestimonial.image}
+                                    alt={currentTestimonial.name}
+                                    width={80}
+                                    height={80}
+                                    className={styles.image}
+                                />
+                            </div>
                             <div className={styles.authorInfo}>
                                 <h4 className={styles.authorName}>{currentTestimonial.name}</h4>
                                 <p className={styles.authorRole}>{currentTestimonial.role}</p>
