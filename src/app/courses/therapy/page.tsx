@@ -47,9 +47,10 @@ export default function TherapyCoursesPage() {
       name: 'Marma Therapy Course',
       description: 'Master the ancient art of Marma point therapy for deep healing through vital point stimulation and energy activation.',
       price: '₹2,099 - ₹50,999',
-      originalPrice: '₹2,099 - ₹50,999',
+      originalPrice: '₹2,099 - ₹50,999',  
       href: '/courses/therapy/marma',
-      image: '/assets/course/therapy/acupressure.png',
+      image: '/assets/course/therapy/marma.png',
+      imageUrl: '/assets/course/therapy/marma.png',
       level: 'Beginner to Advanced',
     },
   ];

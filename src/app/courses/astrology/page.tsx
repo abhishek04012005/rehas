@@ -30,6 +30,7 @@ export default function AstrologyCoursesPage() {
       price: '₹5,099 - ₹34,999',
       href: '/courses/astrology/vedic',
       image: 'StarOutlined',
+      imageUrl: '/assets/course/astrology/vedic.png',
       level: 'Beginner to Master',
     },
     {
@@ -38,6 +39,7 @@ export default function AstrologyCoursesPage() {
       price: '₹5,099 - ₹20,999',
       href: '/courses/astrology/numerology',
       image: 'CalculateOutlined',
+      imageUrl: '/assets/course/astrology/numerlogy.png',
       level: 'All Levels',
     },
     {
@@ -46,6 +48,7 @@ export default function AstrologyCoursesPage() {
       price: '₹2,099 - ₹10,999',
       href: '/courses/astrology/tarot',
       image: 'PokerOutlined',
+      imageUrl: '/assets/course/astrology/tarrot.png',
       level: 'Beginner to Intermediate',
     },
   ];

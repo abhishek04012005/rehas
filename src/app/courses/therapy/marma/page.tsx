@@ -32,7 +32,7 @@ export default function MarmaTherapyCoursePage() {
       price="₹2,099 - ₹50,999"
       duration="3 days - 90 days"
       level="Beginner to Advanced"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/therapy/marma.png"
       sessions={[
         {
           name: 'Basic Marma Course',

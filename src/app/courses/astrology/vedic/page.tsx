@@ -33,7 +33,7 @@ export default function VedicAstrologyCoursePage() {
       price="₹5,099 - ₹34,999"
       duration="30 days - 180 days"
       level="Beginner to Master"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/astrology/vedic.png"
       sessions={[
         {
           name: 'Basic Astrology',

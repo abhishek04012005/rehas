@@ -33,7 +33,7 @@ export default function NumerologyCoursePage() {
       price="₹5,099 - ₹20,999"
       duration="5 days - 90 days"
       level="All Levels"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/astrology/numerlogy.png"
       sessions={[
         {
           name: 'Basic Numerology with Lo-Shu-Grid',

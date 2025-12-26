@@ -33,7 +33,7 @@ export default function TarotCoursePage() {
       price="₹2,099 - ₹10,999"
       duration="7 days - 60 days"
       level="Beginner to Intermediate"
-      image="/assets/course/reikiCourse.png"
+      image="/assets/course/astrology/tarrot.png"
       sessions={[
         {
           name: 'Tarot Basic',
