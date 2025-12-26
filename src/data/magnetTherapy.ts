@@ -122,8 +122,8 @@ export const magnetTherapyData: HealingServiceData = {
       {
         name: 'Single Area Treatment',
         duration: '30 Minutes',
-        price: '₹1,000',
-        originalPrice: '₹1,500',
+        price: '₹1',
+        originalPrice: '₹999',
         description: 'Targeted magnet therapy for specific pain area.',
         includes: [
           'Problem area assessment',

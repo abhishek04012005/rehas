@@ -61,8 +61,6 @@ export const navbarData = {
         { label: 'Yantra', href: '/myt/yantra', icon: 'Diamond' },
         { label: 'Tantra', href: '/myt/tantra', icon: 'FavoriteBorder' },
         { label: 'Mantra Vortex', href: '/myt/mantra-vortex', icon: 'AutoAwesome' },
-        { label: 'Himalayan Tantra', href: '/myt/himalayan-tantra', icon: 'Terrain' },
-        { label: 'Tantra Esoteric Wisdom', href: '/myt/esoteric', icon: 'AccountBalance' },
       ],
     },
 
@@ -75,8 +73,8 @@ export const navbarData = {
         { label: 'Healing', href: '/courses/healing', icon: 'SchoolOutlined' },
         { label: 'Therapy', href: '/courses/therapy', icon: 'Numbers' },
         { label: 'Astrology', href: '/courses/astrology', icon: 'PublicOutlined' },
-        // { label: 'Counselling', href: '/courses/counselling', icon: 'MicOutlined' },
-        // { label: 'Reading', href: '/courses/reading', icon: 'MenuBook' },
+        { label: 'M.Y.T', href: '/courses/myt', icon: 'MicOutlined' },
+        { label: 'Mind Reading', href: '/courses/mindreading', icon: 'MenuBook' },
       ],
     },
     //  {

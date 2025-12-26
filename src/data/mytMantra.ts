@@ -117,13 +117,13 @@ export const mytMantraData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'M.Y.T Mantra Learning Programs',
+    title: 'M.Y.T Mantra Services',
     types: [
       {
-        name: 'Basic Mantra Course',
-        duration: '4 Weeks',
-        price: '₹3,500',
-        originalPrice: '₹5,250',
+        name: 'Basic Mantra Healing',
+        duration: '1 Day',
+        price: '₹1',
+        originalPrice: '₹999',
         description: 'Introduction to mantra theory and practice basics.',
         includes: [
           'Mantra fundamentals and theory',
@@ -133,10 +133,10 @@ export const mytMantraData: HealingServiceData = {
         ],
       },
       {
-        name: 'Intensive Mantra Program',
-        duration: '8 Weeks',
-        price: '₹6,500',
-        originalPrice: '₹9,750',
+        name: 'Intensive Mantra Healing',
+        duration: '30 Days',
+        price: '₹10,999',
+        originalPrice: '₹25,999',
         description: 'Deep understanding and mastery of sacred mantras.',
         includes: [
           'Complete mantra philosophy',
@@ -148,10 +148,10 @@ export const mytMantraData: HealingServiceData = {
         ],
       },
       {
-        name: 'Master M.Y.T Mantra',
-        duration: '12 Weeks + 1-on-1 Guidance',
-        price: '₹10,000',
-        originalPrice: '₹15,000',
+        name: 'REHAS All in One Healing',
+        duration: '90 Days',
+        price: '₹20,999',
+        originalPrice: '₹24,999',
         description: 'Comprehensive mastery with personal spiritual guidance.',
         includes: [
           'Complete M.Y.T Mantra system',

@@ -75,7 +75,7 @@ export const mytTantraData: HealingServiceData = {
     ],
   },
   practices: {
-    title: 'M.Y.T Tantric Practices',
+    title: 'M.Y.T Tantric Services',
     description: 'Core tantric techniques for spiritual transformation',
     list: [
       {
@@ -117,13 +117,13 @@ export const mytTantraData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'M.Y.T Tantra Programs',
+    title: 'Basic Tantra Services',
     types: [
       {
-        name: 'Tantra Foundation Course',
-        duration: '6 Weeks',
-        price: '₹5,500',
-        originalPrice: '₹8,250',
+        name: 'Basic Tantra Healing',
+        duration: '1 Days',
+        price: '₹1',
+        originalPrice: '₹999',
         description: 'Introduction to tantric philosophy and basic practices.',
         includes: [
           'Tantric philosophy and principles',
@@ -134,10 +134,10 @@ export const mytTantraData: HealingServiceData = {
         ],
       },
       {
-        name: 'Advanced Tantra Training',
-        duration: '12 Weeks',
-        price: '₹10,000',
-        originalPrice: '₹15,000',
+        name: 'Yin-Yang Tantra Healing',
+        duration: '30 days',
+        price: '₹10,999',
+        originalPrice: '₹15,999',
         description: 'Deep tantric practice with advanced techniques.',
         includes: [
           'Complete tantric system',
@@ -149,10 +149,10 @@ export const mytTantraData: HealingServiceData = {
         ],
       },
       {
-        name: 'Master Tantra Program',
-        duration: '6 Months + Personal Guidance',
-        price: '₹25,000',
-        originalPrice: '₹37,500',
+        name: 'REHAS All in One Tantra',
+        duration: '90 days',
+        price: '₹20,999',
+        originalPrice: '₹37,999',
         description: 'Complete mastery of M.Y.T Tantra with personalized guidance.',
         includes: [
           'Complete M.Y.T Tantra curriculum',

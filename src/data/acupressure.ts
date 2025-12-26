@@ -117,13 +117,13 @@ export const acupressureData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'Acupressure Training & Certification Courses',
+    title: 'Acupressure Services',
     types: [
       {
-        name: 'Basic Acupressure Certification',
-        duration: 'Beginner Level',
-        price: '₹6,000',
-        originalPrice: '₹9,000',
+        name: 'Basic Acupressure Therapy',
+        duration: '1 days',
+        price: '₹1',
+        originalPrice: '₹3,000',
         description: 'Foundation course in acupressure techniques and basic point therapy.',
         includes: [
           'Introduction to acupressure principles',
@@ -134,10 +134,10 @@ export const acupressureData: HealingServiceData = {
         ],
       },
       {
-        name: 'Practice Acupressure Course',
-        duration: 'Intermediate Level',
-        price: '₹10,000',
-        originalPrice: '₹15,000',
+        name: 'Acupressure Therapy',
+        duration: '7 days',
+        price: '₹5,000',
+        originalPrice: '₹10,000',
         description: 'Advanced techniques and practical applications for therapeutic practice.',
         includes: [
           'Advanced pressure point techniques',
@@ -149,8 +149,8 @@ export const acupressureData: HealingServiceData = {
         ],
       },
       {
-        name: 'Master Acupressure Certification',
-        duration: 'Advanced Mastery',
+        name: 'Acupressure Therapy with Kits',
+        duration: '30 days',
         price: '₹20,000',
         originalPrice: '₹30,000',
         description: 'Complete mastery of acupressure healing with advanced therapeutic applications.',
@@ -206,12 +206,12 @@ export const acupressureData: HealingServiceData = {
     buttons: [
       {
         label: 'Book Session',
-        href: '/enquiry',
+        href: '#services',
         type: 'primary',
       },
       {
         label: 'Contact Us',
-        href: '/contact',
+        href: '/therapy/acupressure',
         type: 'secondary',
       },
     ],

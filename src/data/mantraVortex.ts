@@ -122,7 +122,7 @@ export const mantraVortexData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'Mantra Vortex Sessions',
+    title: 'Mantra Vortex Services',
     types: [
       {
         name: 'Introductory Vortex',
@@ -161,19 +161,6 @@ export const mantraVortexData: HealingServiceData = {
           'Advanced spiral techniques',
           'Consciousness elevation',
           'Permanent frequency encoding',
-        ],
-      },
-      {
-        name: 'Group Vortex Ceremony',
-        duration: '90 minutes',
-        description: 'Collective consciousness amplification through synchronized vortexes.',
-        price: '₹1,500 per person',
-        originalPrice: '₹2,250 per person',
-        includes: [
-          'Collective vortex creation',
-          'Group healing field',
-          'Amplified manifestation power',
-          'Shared consciousness experience',
         ],
       },
     ],

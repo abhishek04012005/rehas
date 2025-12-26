@@ -157,7 +157,7 @@ export default function HealingService({ data }: HealingServiceProps) {
           <p className={styles.subtitle}>{data.hero.subtitle}</p>
           <p className={styles.description}>{data.hero.description}</p>
           <button 
-            onClick={() => handleBookSession(data.hero.title, '₹999')}
+            onClick={() => router.push('#services')}
             className={styles.ctaBtn}
           >
             Book Your Session <ChevronRight />
@@ -318,7 +318,7 @@ export default function HealingService({ data }: HealingServiceProps) {
 
       {/* Sessions Section */}
       <section className={styles.sessions}>
-        <div className={styles.container}>
+        <div className={styles.container} id='services'>
           <h2>{data.sessions.title}</h2>
           <div className={styles.sessionsGrid}>
             {data.sessions.types.map((session, idx) => (

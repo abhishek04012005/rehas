@@ -124,29 +124,67 @@ export const tantraData = {
     ],
   },
   sessions: {
-    title: 'Tantra Healing Services',
+    title: 'Tantra Basic Healing',
     types: [
       {
-        name: 'Tantra Healing',
-        duration: 'Specialized Treatment',
-        price: '₹21,000',
-        originalPrice: '₹30,000',
-        description:
-          'Problem solving Hawan & AARTI Chikitsa - A powerful tantric healing treatment combining sacred fire rituals (Hawan) and sacred rites (Aarti) to resolve deep-seated problems and restore spiritual balance.',
-        includes: [
-          'Problem solving Hawan ritual',
-          'AARTI Chikitsa treatment',
-          'Sacred fire ceremony',
-          'Personalized spiritual healing',
-          'Energy blockage removal',
-          'Problem resolution focus',
-          'Spiritual purification',
-          'Post-treatment guidance',
-          'Consultation and assessment',
-          'Lifetime support',
-        ],
+        "name": "Tantra Basic Healing Services",
+        "duration": "1 Day",
+        "price": "₹1",
+        "originalPrice": "₹10,000",
+        "description": "A foundational tantric healing experience designed to initiate spiritual cleansing and energetic alignment. This service uses sacred fire rituals (Hawan) and devotional AARTI Chikitsa to gently dissolve blockages and restore inner harmony. Ideal for those beginning their healing journey.",
+        "includes": [
+          "Problem solving Hawan ritual",
+          "AARTI Chikitsa treatment",
+          "Sacred fire ceremony",
+          "Personalized spiritual healing",
+          "Energy blockage removal",
+          "Problem resolution focus",
+          "Spiritual purification",
+          "Post-treatment guidance",
+          "Consultation and assessment",
+          "Lifetime support"
+        ]
       },
-    ],
+      {
+        "name": "Protection and Black Magic Removal",
+        "duration": "21 Days",
+        "price": "₹5100",
+        "originalPrice": "₹15,000",
+        "description": "A powerful protective healing service focused on removing negative energies, psychic attacks, and black magic influences. Through intense Hawan and AARTI Chikitsa, this treatment fortifies your aura, restores energetic sovereignty, and shields you from future harm.",
+        "includes": [
+          "Problem solving Hawan ritual",
+          "AARTI Chikitsa treatment",
+          "Sacred fire ceremony",
+          "Aura protection and shielding",
+          "Negative energy removal",
+          "Energy blockage clearing",
+          "Spiritual purification",
+          "Post-treatment guidance",
+          "Consultation and assessment",
+          "Lifetime support"
+        ]
+      },
+      {
+        "name": "Rehas Tantra All in One",
+        "duration": "60 Days",
+        "price": "₹10,000",
+        "originalPrice": "₹30,000",
+        "description": "An advanced, all-encompassing tantric healing package that integrates multiple modalities for deep transformation. Ideal for chronic issues, spiritual stagnation, or multidimensional healing needs. Combines Hawan, AARTI Chikitsa, and personalized energy work to activate profound shifts.",
+        "includes": [
+          "Problem solving Hawan ritual",
+          "AARTI Chikitsa treatment",
+          "Sacred fire ceremony",
+          "Comprehensive spiritual healing",
+          "Energy blockage removal",
+          "Chronic issue resolution",
+          "Advanced tantric practices",
+          "Spiritual purification",
+          "Post-treatment guidance",
+          "Consultation and assessment",
+          "Lifetime support"
+        ]
+      }
+    ]
   },
   faq: {
     title: 'Frequently Asked Questions',
@@ -187,8 +225,8 @@ export const tantraData = {
     title: 'Awaken Your Tantric Potential',
     subtitle: 'Transform consciousness and embrace sacred power',
     buttons: [
-      { label: 'Book a Session', href: '/enquiry', type: 'primary' },
-      { label: 'Learn More', href: '/about', type: 'secondary' },
+      { label: 'Book a Session', href: '#services', type: 'primary' },
+      { label: 'Learn More', href: '/healing/tantra', type: 'secondary' },
     ],
   },
 } as const;

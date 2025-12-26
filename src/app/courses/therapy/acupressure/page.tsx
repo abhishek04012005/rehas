@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function AcupressureCoursePage() {
   return (
     <CourseDetail
-      courseName="Acupressure Certification"
+      courseName="Acupressure Therapy Course"
       category="therapy"
       description="Master the art of pressure point therapy and traditional acupressure healing techniques"
       meaning="Acupressure is an ancient healing technique that uses finger and hand pressure on specific body points to relieve pain and promote wellness. Our comprehensive program teaches you the anatomical points, meridian pathways, and practical techniques to treat various health conditions. Through hands-on practice and mentorship, you'll develop the skills to establish a successful acupressure healing practice."

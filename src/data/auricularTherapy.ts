@@ -122,13 +122,13 @@ export const auricularTherapyData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'Auricular Therapy Training & Certification',
+    title: 'Auricular Therapy',
     types: [
       {
-        name: 'Basic Auricular Therapy Certification',
-        duration: 'Beginner Level',
-        price: '₹6,000',
-        originalPrice: '₹9,000',
+        name: 'Basic Auricular Therapy',
+        duration: '1 Hour',
+        price: '₹1',
+        originalPrice: '₹999',
         description: 'Foundation course in ear acupuncture and basic auricular point therapy.',
         includes: [
           'Auricular anatomy and physiology',
@@ -139,10 +139,10 @@ export const auricularTherapyData: HealingServiceData = {
         ],
       },
       {
-        name: 'Practice Auricular Therapy Course',
-        duration: 'Intermediate Level',
-        price: '₹10,000',
-        originalPrice: '₹15,000',
+        name: 'Auricular Therapy',
+        duration: '5 Sessions',
+        price: '₹4,999',
+        originalPrice: '₹9,999',
         description: 'Advanced auricular techniques and clinical practice applications.',
         includes: [
           'Advanced ear point selection',
@@ -154,10 +154,10 @@ export const auricularTherapyData: HealingServiceData = {
         ],
       },
       {
-        name: 'Master Auricular Therapy Certification',
-        duration: 'Advanced Mastery',
-        price: '₹20,000',
-        originalPrice: '₹30,000',
+        name: 'Advance Auricular Therapy',
+        duration: '10 Sessions',
+        price: '₹9,999',
+        originalPrice: '₹14,999',
         description: 'Complete mastery of auricular therapy with advanced diagnostic and treatment skills.',
         includes: [
           'Complete ear mapping and diagnostics',

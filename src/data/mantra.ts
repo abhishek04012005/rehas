@@ -121,8 +121,8 @@ export const mantraData = {
     title: 'Mantra Healing Services',
     types: [
       {
-        name: 'Basic Healing',
-        duration: 'Introductory',
+        name: 'Basic Mantra Healing',
+        duration: '1 Day',
         price: '₹1',
         originalPrice: '₹5,000',
         description:
@@ -134,6 +134,40 @@ export const mantraData = {
           'Energy activation basics',
           'Initial guidance',
           'No commitment required',
+        ],
+      },
+      {
+        name: 'Chakra Healing',
+        duration: '7 Days',
+        price: '₹2,100',
+        originalPrice: '₹3,500',
+        description:
+          'Targeted chakra healing using sacred mantras to balance and align all seven energy centers for optimal wellness.',
+        includes: [
+          'Seven chakra healing mantras',
+          'Chakra alignment techniques',
+          'Energy center activation',
+          'Meditation practices',
+          'Daily guidance',
+          'Chakra balancing exercises',
+        ],
+      },
+      {
+        name: 'Relationship Healing',
+        duration: '60 Days',
+        price: '₹11,000',
+        originalPrice: '₹15,000',
+        description:
+          'Specialized mantra healing program designed to heal relationship issues, restore harmony, and strengthen emotional bonds.',
+        includes: [
+          'Relationship healing mantras',
+          'Emotional healing practices',
+          'Partner harmony techniques',
+          'Communication enhancement',
+          'Chakra alignment for relationships',
+          'Daily healing sessions',
+          'Guidance and support',
+          'Progress tracking',
         ],
       },
       {
@@ -154,40 +188,6 @@ export const mantraData = {
           'Daily mentor support',
           'Progress tracking',
           'Lifetime access to resources',
-        ],
-      },
-      {
-        name: 'Chakra Healing',
-        duration: 'Specialized Focus',
-        price: '₹2,100',
-        originalPrice: '₹3,500',
-        description:
-          'Targeted chakra healing using sacred mantras to balance and align all seven energy centers for optimal wellness.',
-        includes: [
-          'Seven chakra healing mantras',
-          'Chakra alignment techniques',
-          'Energy center activation',
-          'Meditation practices',
-          'Daily guidance',
-          'Chakra balancing exercises',
-        ],
-      },
-      {
-        name: 'Relationship Healing',
-        duration: 'Specialized Focus',
-        price: '₹11,000',
-        originalPrice: '₹15,000',
-        description:
-          'Specialized mantra healing program designed to heal relationship issues, restore harmony, and strengthen emotional bonds.',
-        includes: [
-          'Relationship healing mantras',
-          'Emotional healing practices',
-          'Partner harmony techniques',
-          'Communication enhancement',
-          'Chakra alignment for relationships',
-          'Daily healing sessions',
-          'Guidance and support',
-          'Progress tracking',
         ],
       },
     ],

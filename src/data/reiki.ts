@@ -132,7 +132,7 @@ export const reikiData = {
     types: [
       {
         name: 'Basic Healing',
-        duration: 'Introductory',
+        duration: '1 Day',
         price: '₹1',
         originalPrice: '₹5,000',
         description:
@@ -146,7 +146,7 @@ export const reikiData = {
         ],
       },
       {
-        name: 'Seven Chakra & Supportive Chakra Healing',
+        name: 'Seven & Supportive Chakra Healing',
         duration: '30 days',
         price: '₹9,000',
         originalPrice: '₹12,000',
@@ -164,7 +164,7 @@ export const reikiData = {
       },
       {
         name: 'Special Disease & Relationship Healing',
-        duration: '30 days',
+        duration: '45 days',
         price: '₹11,000',
         originalPrice: '₹15,000',
         description:
@@ -221,8 +221,8 @@ export const reikiData = {
     title: 'Begin Your Healing Journey',
     subtitle: 'Experience the transformative power of Reiki',
     buttons: [
-      { label: 'Book a Session', href: '/enquiry', type: 'primary' },
-      { label: 'Learn More', href: '/about', type: 'secondary' },
+      { label: 'Book a Session', href: '#services', type: 'primary' },
+      { label: 'Learn More', href: '/healing/reiki', type: 'secondary' },
     ],
   },
 } as const;

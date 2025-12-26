@@ -50,8 +50,6 @@ export const footerData = {
         { label: 'Yantra', href: '/myt/yantra'},
         { label: 'Tantra', href: '/myt/tantra'},
         { label: 'Mantra Vortex', href: '/myt/mantra-vortex'},
-        { label: 'Himalayan Tantra', href: '/myt/himalayan-tantra'},
-        { label: 'Tantra Esoteric Wisdom', href: '/myt/esoteric'},
       ],
     },
     {

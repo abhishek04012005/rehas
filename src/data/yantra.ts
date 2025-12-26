@@ -117,13 +117,13 @@ export const yanthaData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'M.Y.T Yantra Programs',
+    title: 'M.Y.T Yantra Services',
     types: [
       {
-        name: 'Yantra Basics Course',
-        duration: '4 Weeks',
-        price: '₹4,000',
-        originalPrice: '₹6,000',
+        name: 'Basic Yantra Healing',
+        duration: '1 Day',
+        price: '₹1',
+        originalPrice: '₹999',
         description: 'Learn yantra theory and practice basics.',
         includes: [
           'Yantra philosophy and science',
@@ -134,10 +134,10 @@ export const yanthaData: HealingServiceData = {
         ],
       },
       {
-        name: 'Advanced Yantra Mastery',
-        duration: '8 Weeks',
-        price: '₹7,500',
-        originalPrice: '₹11,250',
+        name: 'Yin-Yang Healing',
+        duration: '30 Days',
+        price: '₹9,999',
+        originalPrice: '₹11,999',
         description: 'Deep mastery of yantra meditation and activation.',
         includes: [
           'Complete yantra theory',
@@ -149,10 +149,10 @@ export const yanthaData: HealingServiceData = {
         ],
       },
       {
-        name: 'Master Yantra Program',
-        duration: '12 Weeks + Personal Guidance',
-        price: '₹11,000',
-        originalPrice: '₹16,500',
+        name: 'Panch Dashi Mahakalp',
+        duration: '90 Days',
+        price: '₹20,999',
+        originalPrice: '₹29,999',
         description: 'Complete mastery with professional yantra guidance.',
         includes: [
           'Complete M.Y.T Yantra system',
