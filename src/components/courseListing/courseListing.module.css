@@ -448,6 +448,11 @@
     font-size: 28px;
   }
 
+  .filterContainer {
+    justify-content: center;
+    flex-direction: column;
+  }
+
   .filterBarWrapper {
     flex-direction: column;
     width: 100%;
