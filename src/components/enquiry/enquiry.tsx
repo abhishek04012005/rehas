@@ -98,34 +98,7 @@ export default function Enquiry() {
       <div className={styles.container}>
         <div className={styles.enquiryWrapper}>
           {/* Left Side - Info */}
-          <div className={styles.infoSection}>
-            <div className={styles.infoBox}>
-              <h3>Why Enquire?</h3>
-              <p>
-                Let us know more about your needs and preferences. Our expert team will get back to you 
-                with personalized recommendations tailored to your specific requirements.
-              </p>
-            </div>
-
-            <div className={styles.infoBox}>
-              <h3>What Happens Next?</h3>
-              <ul className={styles.stepsList}>
-                <li>You submit your enquiry</li>
-                <li>Our team reviews your details</li>
-                <li>We contact you within 24 hours</li>
-                <li>Get personalized guidance</li>
-              </ul>
-            </div>
-
-            <div className={styles.infoBox}>
-              <h3>Available Services</h3>
-              <ul className={styles.servicesList}>
-                {serviceOptions.map((service) => (
-                  <li key={service.id}>{service.title}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        
 
           {/* Right Side - Form */}
           <div className={styles.formSection}>
@@ -214,6 +187,34 @@ export default function Enquiry() {
                 </p>
               </form>
             )}
+          </div>
+            <div className={styles.infoSection}>
+            <div className={styles.infoBox}>
+              <h3>Why Enquire?</h3>
+              <p>
+                Let us know more about your needs and preferences. Our expert team will get back to you 
+                with personalized recommendations tailored to your specific requirements.
+              </p>
+            </div>
+
+            <div className={styles.infoBox}>
+              <h3>What Happens Next?</h3>
+              <ul className={styles.stepsList}>
+                <li>You submit your enquiry</li>
+                <li>Our team reviews your details</li>
+                <li>We contact you within 24 hours</li>
+                <li>Get personalized guidance</li>
+              </ul>
+            </div>
+
+            <div className={styles.infoBox}>
+              <h3>Available Services</h3>
+              <ul className={styles.servicesList}>
+                {serviceOptions.map((service) => (
+                  <li key={service.id}>{service.title}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
