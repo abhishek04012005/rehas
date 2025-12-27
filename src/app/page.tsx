@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "REHAS - Ancient Cosmic Wisdom Meets Modern Wellness",
+    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services. Connect with cosmic wisdom for spiritual transformation and healing.",
     url: "https://rehas.in",
     siteName: "REHAS",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "REHAS - Ancient Cosmic Wisdom Meets Modern Wellness",
+    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services.",
     images: ["https://rehas.in/og-image.png"],
     creator: "@REHAS",
