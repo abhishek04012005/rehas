@@ -138,9 +138,9 @@ export default function HealingService({ data }: HealingServiceProps) {
   const handleBookSession = (sessionName: string, price: string) => {
     // Extract numeric amount from price string
     const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;
-    
-    setProductData({ 
-      productTitle: sessionName, 
+
+    setProductData({
+      productTitle: sessionName,
       amount,
       type: 'service'
     });
@@ -156,8 +156,8 @@ export default function HealingService({ data }: HealingServiceProps) {
           <h1>{data.hero.title}</h1>
           <p className={styles.subtitle}>{data.hero.subtitle}</p>
           <p className={styles.description}>{data.hero.description}</p>
-          <button 
-            onClick={() => router.push('#services')}
+          <button
+            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             className={styles.ctaBtn}
           >
             Book Your Session <ChevronRight />
@@ -337,7 +337,7 @@ export default function HealingService({ data }: HealingServiceProps) {
                     ))}
                   </ul>
                 </div>
-                <button 
+                <button
                   onClick={() => handleBookSession(session.name, session.price)}
                   className={styles.bookBtn}
                 >
@@ -383,15 +383,12 @@ export default function HealingService({ data }: HealingServiceProps) {
           <h2>{data.cta.title}</h2>
           <p>{data.cta.subtitle}</p>
           <div className={styles.ctaButtons}>
-            {data.cta.buttons.map((btn, idx) => (
-              <a
-                key={idx}
-                href={btn.href}
-                className={`${styles.ctaLink} ${styles[btn.type]}`}
-              >
-                {btn.label} <ChevronRight />
-              </a>
-            ))}
+            <button
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              className={styles.ctaBtn}
+            >
+              Book Your Session <ChevronRight />
+            </button>
           </div>
         </div>
       </section>
