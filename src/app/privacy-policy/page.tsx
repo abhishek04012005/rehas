@@ -5,6 +5,7 @@ import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack } from '@mui/icons-material';
 import styles from './page.module.css';
+import { contactData } from '@/data/contact';
 
 
 export default function PrivacyPolicy() {
@@ -80,9 +81,9 @@ export default function PrivacyPolicy() {
       title: '9. Contact Us',
       content: [
         'If you have any questions about this privacy policy or our privacy practices, please contact us at:',
-        'Email: privacy@rehas.com',
-        'Phone: +1 (234) 567-890',
-        'Address: 123 Cosmic Street, Wellness City, WC 12345',
+        `Email: ${contactData.info.cards[0].value}`,
+        `Phone: ${contactData.info.cards[1].value}`,
+        `Address: ${contactData.info.cards[2].value} ${contactData.info.cards[2].secondaryText}`,
       ],
     },
   ];

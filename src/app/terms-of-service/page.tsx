@@ -4,7 +4,7 @@ import Link from 'next/link';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
 import { ArrowBack } from '@mui/icons-material';
 import styles from './page.module.css';
-
+import { contactData } from '@/data/contact';
 
 
 export default function TermsOfService() {
@@ -87,8 +87,8 @@ export default function TermsOfService() {
       title: '10. Contact Information',
       content: [
         'If you have any questions about these terms of service, please contact us at:',
-        'Email: support@rehas.com',
-        'Phone: +1 (234) 567-890',
+        `Email: ${contactData.info.cards[0].value}`,
+        `Phone: ${contactData.info.cards[1].value}`,
       ],
     },
   ];

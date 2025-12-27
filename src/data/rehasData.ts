@@ -121,8 +121,9 @@ export const rehasData = {
     facebook: 'https://facebook.com/rehascosmic',
     youtube: 'https://youtube.com/@rehascosmic',
     website: 'https://rehas.com',
-    email: 'info@rehas.in',
-    phone: '+91-XXXXXXXXXX',
+    email: 'contact@rehas.in',
+    phone: '+91-9517973153',
+    whatsapp: '919517973153',
   },
 
   // Media and Press

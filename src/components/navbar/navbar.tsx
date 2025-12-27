@@ -87,7 +87,7 @@ export default function Navbar() {
 
     // WhatsApp message
     const whatsappMessage = encodeURIComponent('Hello! I would like to know more about REHAS services.');
-    const whatsappUrl = `https://wa.me/${rehasData.social.phone.replace(/\D/g, '')}?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/${rehasData.social.whatsapp.replace(/\D/g, '')}?text=${whatsappMessage}`;
 
     return (
         <>
@@ -175,15 +175,7 @@ export default function Navbar() {
                 <WhatsApp className={styles.whatsappIcon} />
             </a>
 
-            {/* Enquiry Fixed Button */}
-            {/* <Link
-                href="/enquiry"
-                className={styles.enquiryButton}
-                aria-label="Submit enquiry"
-                title="Submit enquiry"
-            >
-                <ContactSupport className={styles.enquiryIcon} />
-            </Link> */}
+           
         </>
     );
 }

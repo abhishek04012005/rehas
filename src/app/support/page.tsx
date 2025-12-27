@@ -4,6 +4,7 @@ import LineArtBackground from '@/components/lineArtBackground/lineArtBackground'
 import { ArrowBack, MailOutline, Phone, ChatBubbleOutline, Description } from '@mui/icons-material';
 import styles from './page.module.css';
 import SupportFAQClient from './supportFAQClient';
+import { contactData } from '@/data/content';
 
 export const metadata: Metadata = {
   title: 'Support & FAQ | REHAS Help Center',
@@ -34,13 +35,13 @@ export default function Support() {
     {
       title: 'Email Support',
       description: 'Send us an email and we\'ll respond within 24 hours.',
-      contact: 'support@rehas.in',
+      contact: `${contactData.info.cards[0].value}`,
       icon: <MailOutline className={styles.channelIconMUI} />,
     },
     {
       title: 'Phone Support',
       description: 'Call our support team during business hours (Mon-Fri, 9AM-6PM).',
-      contact: '+91-XXXXXXXXXX',
+      contact: `${contactData.info.cards[1].value}`,
       icon: <Phone className={styles.channelIconMUI} />,
     },
     {
