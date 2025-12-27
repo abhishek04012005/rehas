@@ -22,5 +22,5 @@ export default function PageLoadingWrapper() {
 
   if (!isLoading) return null;
 
-  return <CompassLoader size="large" text="Finding your path" showBackground={true} />;
+  return <CompassLoader size="large" text="Dicover Your Cosmic Path" showBackground={true} />;
 }

@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "REHAS - Ancient Cosmic Wisdom Meets Modern Wellness",
+  title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
   description: "Explore cosmic wisdom through astrology, meditation, and wellness services. Book your consultation with REHAS experts for personalized spiritual guidance and healing.",
   keywords: "astrology, meditation, wellness, spiritual guidance, birth chart reading, yoga, cosmic wisdom",
   authors: [{ name: "REHAS" }],
