@@ -59,14 +59,21 @@
 }
 
 .badgeText {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Container */
@@ -312,8 +319,13 @@
 }
 
 @keyframes orbit {
-  0% { transform: translateX(-50%) rotate(0deg) translateY(0) rotateZ(0deg); }
-  100% { transform: translateX(-50%) rotate(360deg) translateY(0) rotateZ(-360deg); }
+  0% {
+    transform: translateX(-50%) rotate(0deg) translateY(0) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(360deg) translateY(0) rotateZ(-360deg);
+  }
 }
 
 /* Floating Cards */
@@ -377,14 +389,31 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes scrollBounce {
-  0% { transform: translateY(-10px); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(10px); opacity: 0; }
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
 }
 
 /* Animations */
@@ -393,6 +422,7 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -404,6 +434,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -415,6 +446,7 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -422,13 +454,25 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Mobile Responsive */
@@ -498,7 +542,6 @@
   .floatingCard {
     padding: 1rem;
     width: 110px;
-    bottom: -120px !important;
   }
 
   .floatingCard[data-position="0"] {
@@ -597,7 +640,6 @@
   .floatingCard {
     padding: 0.75rem;
     width: 90px;
-    bottom: -100px !important;
   }
 
   .floatingCard[data-position="0"] {

@@ -1,5 +1,3 @@
-'use client';
-
 import { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { astrologyCounsellingData } from '@/data/astrologyCounselling';
