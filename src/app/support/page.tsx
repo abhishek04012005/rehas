@@ -40,7 +40,7 @@ export default function Support() {
     },
     {
       title: 'Phone Support',
-      description: 'Call our support team during business hours (Mon-Fri, 9AM-6PM).',
+      description: '24 hours',
       contact: `${contactData.info.cards[1].value}`,
       icon: <Phone className={styles.channelIconMUI} />,
     },

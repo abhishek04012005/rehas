@@ -23,7 +23,7 @@ export const contactData = {
         title: 'Phone',
         value: '+91 9517973153',
         link: 'tel:9517973153',
-        secondaryText: 'Mon-Fri, 9AM-6PM UTC',
+        secondaryText: '24 hours',
       },
       {
         icon: 'LocationOn',
