@@ -71,9 +71,6 @@ export default function PaymentCancelledPage({
           <Link href="/checkout" className={`${styles.btn} ${styles.primaryBtn}`}>
             Complete Payment
           </Link>
-          <Link href="/products" className={`${styles.btn} ${styles.secondaryBtn}`}>
-            Continue Shopping
-          </Link>
           <Link href="/" className={`${styles.btn} ${styles.tertiaryBtn}`}>
             Back to Home
           </Link>
