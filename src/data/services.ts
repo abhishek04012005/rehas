@@ -8,8 +8,8 @@ export const servicesData = {
   },
   services: [
     {
-      id: 'numerology',
-      title: 'Numerology',
+      id: 'healing',
+      title: 'Healing',
       description:
         'Unlock the hidden meanings of numbers in your life. Our expert numerologists analyze your name and birth date to reveal your life path, destiny, and personal vibrations.',
       muiIcon: 'Numbers',
@@ -41,8 +41,8 @@ export const servicesData = {
       },
     },
     {
-      id: 'astrology',
-      title: 'Astrology',
+      id: 'therapy',
+      title: 'Therapy',
       description:
         'Explore the cosmos through your birth chart. Our certified astrologers provide detailed readings of your sun, moon, and rising signs. Understand planetary influences on your personality and relationships.',
       muiIcon: 'Brightness3',
@@ -75,8 +75,8 @@ export const servicesData = {
       },
     },
     {
-      id: 'reiki',
-      title: 'Reiki',
+      id: 'astrology',
+      title: 'Astrology',
       description:
         'Experience the healing power of universal life force energy. Our certified Reiki practitioners channel positive energy to balance your chakras and promote deep relaxation.',
       muiIcon: 'PanTool',
@@ -108,8 +108,8 @@ export const servicesData = {
       },
     },
     {
-      id: 'sound-therapy',
-      title: 'Sound Therapy',
+      id: 'mytwisdom',
+      title: 'M.Y.T Wisdom',
       description:
         'Harness the healing vibrations of sound. Our sound therapists use singing bowls, tuning forks, and binaural beats to realign your energy centers and promote healing.',
       muiIcon: 'MusicNote',
@@ -141,8 +141,8 @@ export const servicesData = {
       },
     },
     {
-      id: 'chakra-cleaning',
-      title: 'Chakra Cleaning',
+      id: 'courses',
+      title: 'Courses',
       description:
         'Cleanse and balance your seven energy centers. Our energy healers identify blockages in your chakras and use specialized techniques to clear stagnant energy.',
       muiIcon: 'FlashOn',
@@ -173,39 +173,7 @@ export const servicesData = {
         ],
       },
     },
-    {
-      id: 'aura-cleaning',
-      title: 'Aura Cleaning',
-      description:
-        'Purify and strengthen your energetic field. Our aura readers see your energetic signature and remove negative imprints to restore your natural radiance.',
-      muiIcon: 'Opacity',
-      features: [
-        'Aura Reading',
-        'Energy Removal',
-        'Aura Strengthen',
-        'Color Healing',
-      ],
-      color: 'var(--primary)',
-      position: 'right',
-      details: {
-        longDescription: 'Your aura is the energetic field that surrounds your body, reflecting your physical, emotional, mental, and spiritual state. Negative experiences, trauma, and stress can create tears or dark patches in your aura. Our aura readers can perceive these imprints and use specialized techniques to cleanse and strengthen your energetic field.',
-        benefits: [
-          'Understand your aura\'s current state',
-          'Remove negative energetic imprints',
-          'Strengthen and brighten your energetic field',
-          'Enhance personal magnetism and attraction',
-          'Increase overall vitality and radiance',
-        ],
-        duration: '70 minutes',
-        price: '$99',
-        includes: [
-          'Aura reading and interpretation',
-          'Negative energy removal',
-          'Aura strengthening and brightening',
-          'Color healing recommendations',
-        ],
-      },
-    },
+    
   ],
   cta: {
     title: 'Ready to Transform Your Life?',
@@ -213,7 +181,7 @@ export const servicesData = {
     buttons: [
       {
         label: 'Explore now',
-        href: '/consultation',
+        href: '/enquiry',
         type: 'primary',
       },
       {
