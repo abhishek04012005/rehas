@@ -208,7 +208,7 @@ export default function BlogDetail() {
             <div className={styles.ctaBox}>
               <h3>Ready to Begin?</h3>
               <p>Explore our services and start your healing journey today.</p>
-              <a href="/services" className={styles.ctaBtn}>
+              <a href="/enquiry" className={styles.ctaBtn}>
                 View Services <ChevronRight />
               </a>
             </div>
