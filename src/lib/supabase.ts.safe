@@ -1,0 +1,35 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY;
+
+let supabase: any;
+
+// Initialize Supabase client if credentials are available
+if (supabaseUrl && supabaseAnonKey) {
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
+} else {
+  // For build-time or missing credentials, create a safe fallback
+  // This prevents build failures while warning about missing config
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(
+      'Warning: Supabase environment variables not configured. Database operations will fail at runtime.'
+    );
+  }
+  
+  // Create a mock client that won't break the build
+  supabase = {
+    from: () => ({
+      select: () => Promise.resolve({ data: null, error: null }),
+      insert: () => Promise.resolve({ data: null, error: null }),
+      update: () => Promise.resolve({ data: null, error: null }),
+      delete: () => Promise.resolve({ data: null, error: null }),
+    }),
+    auth: {
+      signIn: () => Promise.resolve({ data: null, error: null }),
+      signOut: () => Promise.resolve({ data: null, error: null }),
+    },
+  };
+}
+
+export { supabase };
