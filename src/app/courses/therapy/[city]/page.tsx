@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
-import { getCityBySlug, getAllCitySlugs } from '@/data/cities';
+import { getCityBySlug, getAllCitySlugs } from '../../../../data/cities';
 import { siteConfig } from '@/lib/seoConfig';
 
 interface Props {

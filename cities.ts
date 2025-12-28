@@ -1859,7 +1859,6 @@ export const cities = [
     { name: "Dhule", state: "Maharashtra" },
     { name: "Gadchiroli", state: "Maharashtra" },
     { name: "Gondia", state: "Maharashtra" },
-    { name: "Gilakhedi", state: "Bhopal" }
 ] as const;
 
 

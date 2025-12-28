@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import CourseListing from '@/components/courseListing/courseListing';
-import { getCityBySlug, getAllCitySlugs } from '@/data/cities';
+import { getCityBySlug, getAllCitySlugs } from '../../../../data/cities';
 import { siteConfig } from '@/lib/seoConfig';
 
 interface Props {
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return getAllCitySlugs().map((slug) => ({
+  return getAllCitySlugs().map((slug: any) => ({
     city: slug,
   }));
 }

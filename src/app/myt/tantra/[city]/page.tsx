@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HealingService from '@/components/healingService/healingService';
 import { mytTantraData } from '@/data/mytTantra';
-import { getCityBySlug, getAllCitySlugs } from '@/data/cities';
+import { getCityBySlug, getAllCitySlugs } from '../../../../data/cities';
 import { siteConfig } from '@/lib/seoConfig';
 
 interface Props {
