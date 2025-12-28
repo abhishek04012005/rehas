@@ -1859,7 +1859,7 @@ export const cities = [
     { name: "Dhule", state: "Maharashtra" },
     { name: "Gadchiroli", state: "Maharashtra" },
     { name: "Gondia", state: "Maharashtra" },
-    { name: "Gilakhedi", state: "Madhya Pradesh" }
+    { name: "Gilakhedi", state: "Bhopal" }
 ] as const;
 
 
@@ -1874,16 +1874,3 @@ export const cityMetadata: Record<string, CityMetadata> = cities.reduce((acc, { 
         }), {})
     }
 }), {});
-
-export interface City {
-    name: string;
-    state: string;
-}
-
-export function getCityBySlug(slug: string): City | undefined {
-    return cities.find(city => city.name.toLowerCase().replace(/\s+/g, '-') === slug);
-}
-
-export function getAllCitySlugs(): string[] {
-    return cities.map(city => city.name.toLowerCase().replace(/\s+/g, '-'));
-}
