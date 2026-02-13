@@ -3,12 +3,11 @@ import { blogData } from "@/data/blog";
 import { productHealingData } from "@/data/productHealing";
 import { productTherapyData } from "@/data/productTherapy";
 import { productAstrologyData } from "@/data/productAstrology";
-import { getAllCitySlugs } from "@/data/cities";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rehas.in";
 
-  // Main static routes
+  // Main static routes - optimized for file size
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -58,8 +57,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-
-    // Legal Pages
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: new Date(),
@@ -84,8 +81,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.6,
     },
-
-    // Healing Routes
     {
       url: `${baseUrl}/healing`,
       lastModified: new Date(),
@@ -110,8 +105,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-
-    // Astrology Routes
     {
       url: `${baseUrl}/astrology`,
       lastModified: new Date(),
@@ -143,20 +136,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/astrology/cowrie-reading`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/astrology/course`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // Therapy Routes
-    {
       url: `${baseUrl}/therapy`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -174,38 +153,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/therapy/auricular`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/therapy/magnet`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/therapy/marma`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/therapy/physiotherapy`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/therapy/reiki`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // Courses Routes
     {
       url: `${baseUrl}/courses`,
       lastModified: new Date(),
@@ -231,83 +178,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/courses/mind-reading`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/courses/myt`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // Products Routes
-    {
       url: `${baseUrl}/products`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/product`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // M.Y.T Routes
-    {
       url: `${baseUrl}/myt`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/myt/mantra`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/myt/tantra`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/myt/mantra-vortex`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/myt/mantra-manipulation`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/myt/himalayan-tantra`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/myt/esoteric`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/myt/yantra`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // Blog
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
@@ -316,33 +197,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic blog posts
-  const blogPosts: MetadataRoute.Sitemap = (blogData.posts || []).map((post: any) => ({
+  // Dynamic blog posts (limited to first 20 to reduce size)
+  const blogPosts: MetadataRoute.Sitemap = ((blogData.posts || []).slice(0, 20) as any[]).map((post: any) => ({
     url: `${baseUrl}/blog/${post.id}`,
     lastModified: new Date(post.date || new Date()),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  // Dynamic city routes for MYT services
-  let cityRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const citySlugs = await getAllCitySlugs();
-    const mytServices = ["mantra", "tantra", "mantra-vortex", "mantra-manipulation", "himalayan-tantra", "esoteric", "yantra"];
-
-    cityRoutes = citySlugs.flatMap((citySlug) =>
-      mytServices.map((service) => ({
-        url: `${baseUrl}/myt/${service}/${citySlug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-      }))
-    );
-  } catch (error) {
-    console.error("Error generating city routes:", error);
-  }
-
-  // Dynamic product routes
+  // Limited dynamic product routes (top categories only)
   const productCategories = [
     { category: "healing", data: productHealingData },
     { category: "therapy", data: productTherapyData },
@@ -350,7 +213,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const productRoutes: MetadataRoute.Sitemap = productCategories.flatMap(({ category, data }) => {
-    const practices = (data.practices?.list || []).map((practice: any, index: number) => ({
+    const practices = ((data.practices?.list || []).slice(0, 10) as any[]).map((practice: any, index: number) => ({
       url: `${baseUrl}/product/${category}/${practice.slug || practice.id || index}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
@@ -360,5 +223,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   // Combine all routes
-  return [...staticRoutes, ...blogPosts, ...cityRoutes, ...productRoutes];
+  return [...staticRoutes, ...blogPosts, ...productRoutes];
 }
