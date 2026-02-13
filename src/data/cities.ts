@@ -1831,6 +1831,11 @@ export const cities = [
 export interface City {
     name: string;
     state: string;
+    slug?: string;
+}
+
+export function getCitySlug(cityName: string): string {
+    return cityName.toLowerCase().replace(/\s+/g, '-');
 }
 
 export function getCityBySlug(slug: string): City | undefined {
@@ -1840,3 +1845,28 @@ export function getCityBySlug(slug: string): City | undefined {
 export function getAllCitySlugs(): string[] {
     return cities.map(city => city.name.toLowerCase().replace(/\s+/g, '-'));
 }
+
+export function getCitiesWithSlugs(): (City & { slug: string })[] {
+    return cities.map(city => ({
+        ...city,
+        slug: getCitySlug(city.name),
+    }));
+}
+
+export function generateCityServiceUrls(service: string): Array<{ city: string; slug: string; url: string }> {
+    return cities.map(city => ({
+        city: city.name,
+        slug: getCitySlug(city.name),
+        url: `/myt/${service}/${getCitySlug(city.name)}`,
+    }));
+}
+
+export const cityServiceUrls = {
+    mantra: generateCityServiceUrls('mantra'),
+    tantra: generateCityServiceUrls('tantra'),
+    mantraVortex: generateCityServiceUrls('mantra-vortex'),
+    mantraManipulation: generateCityServiceUrls('mantra-manipulation'),
+    himalyanTantra: generateCityServiceUrls('himalayan-tantra'),
+    esoteric: generateCityServiceUrls('esoteric'),
+    yantra: generateCityServiceUrls('yantra'),
+};
