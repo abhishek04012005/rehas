@@ -8,7 +8,6 @@ import { getCitiesWithSlugs } from "@/data/cities";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rehas.in";
 
-  // Main static routes - optimized for file size
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
