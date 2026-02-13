@@ -63,6 +63,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://rehas.in",
   },
+  verification: {
+    google: "RFS71sEcGfQ__Ke-RqIuIDPernFo0ROZmArCfBv_qDs",
+  },
 };
 
 export const viewport: Viewport = {
