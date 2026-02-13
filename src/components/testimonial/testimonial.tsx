@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Star, Check } from '@mui/icons-material';
 import { pageHeader, testimonials, stats, cta } from '@/data/testimonial';
 import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
-import TestimonialSlider from '@/components/testimonialSlider/testimonialSlider';
+import TestimonialSlider from '@/components/testimonialSlider';
 import styles from './testimonial.module.css';
 
 export default function TestimonialPage() {

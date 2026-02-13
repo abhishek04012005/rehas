@@ -6,7 +6,7 @@ import Healing from '@/components/healing/healing';
 import Therapy from '@/components/therapy/therapy';
 import BlogPreview from '@/components/blogPreview/blogPreview';
 import Founder from '@/components/founder/founder';
-import TestimonialSlider from '@/components/testimonialSlider/testimonialSlider';
+import TestimonialSlider from '@/components/testimonialSlider';
 
 export const metadata: Metadata = {
   title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
