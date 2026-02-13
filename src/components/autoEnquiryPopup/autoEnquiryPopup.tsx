@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import EnquiryModal from '@/components/enquiryModal/enquiryModal';
+import EnquiryModal from '@/components/enquiryModal';
 
 export default function AutoEnquiryPopup() {
   const [isOpen, setIsOpen] = useState(false);

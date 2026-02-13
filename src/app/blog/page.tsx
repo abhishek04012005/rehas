@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Blog from '@/components/blog/blog';
+import Blog from '@/components/blog';
 import { createMetadata } from '@/lib/seoConfig';
 
 export const metadata: Metadata = createMetadata(

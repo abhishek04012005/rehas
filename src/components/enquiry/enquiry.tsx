@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Send, CheckCircle } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
 
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 import { servicesData } from '@/data/services';
 import styles from './enquiry.module.css';
 

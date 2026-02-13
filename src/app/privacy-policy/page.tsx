@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 import { ArrowBack } from '@mui/icons-material';
 import styles from './page.module.css';
 import { contactData } from '@/data/contact';

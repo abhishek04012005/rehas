@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { Metadata } from 'next';
-import CourseCard from '@/components/courseCard/courseCard';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import CourseCard from '@/components/courseCard';
+import LineArtBackground from '@/components/lineArtBackground';
 import {
   SchoolOutlined,
   CheckCircle,

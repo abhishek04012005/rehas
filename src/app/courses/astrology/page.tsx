@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import CourseListing from '@/components/courseListing/courseListing';
+import CourseListing from '@/components/courseListing';
 import { courseAstrologyData } from '@/data/courseAstrology';
 import { createMetadata } from '@/lib/seoConfig';
 

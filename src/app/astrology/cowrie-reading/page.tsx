@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HealingService from '@/components/healingService/healingService';
+import HealingService from '@/components/healingService';
 import { cowrieReadingData } from '@/data/cowrieReading';
 import { createMetadata } from '@/lib/seoConfig';
 

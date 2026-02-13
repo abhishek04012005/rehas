@@ -14,9 +14,9 @@ import {
   SplitscreenOutlined,
 } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
-import CompassLoader from '@/components/compassLoader/compassLoader';
+import CompassLoader from '@/components/compassLoader';
 import styles from './enquiryDashboard.module.css';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 
 interface Enquiry {
   id: number;

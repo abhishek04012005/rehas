@@ -1,4 +1,4 @@
-import Therapy from '@/components/therapy/therapy';
+import Therapy from '@/components/therapy';
 import { Metadata } from 'next';
 import { createMetadata } from '@/lib/seoConfig';
 

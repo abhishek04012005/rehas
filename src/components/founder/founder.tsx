@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Instagram, LinkedIn, Twitter, Star } from '@mui/icons-material';
 import { rehasData, profile, about, quote, expertise, social } from '@/data/rehasData';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 import styles from './founder.module.css';
 import Image from 'next/image';
 

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ProductsPage from '@/components/productsPage/productsPage';
+import ProductsPage from '@/components/productsPage';
 import { createMetadata } from '@/lib/seoConfig';
 
 export const metadata: Metadata = createMetadata(

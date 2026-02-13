@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star } from '@mui/icons-material';
 import { testimonials, pageHeader } from '@/data/testimonial';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 import styles from './testimonialSlider.module.css';
 import Image from 'next/image';
 

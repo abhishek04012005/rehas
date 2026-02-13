@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Services from '@/components/services/services';
+import Services from '@/components/services';
 import { createMetadata } from '@/lib/seoConfig';
 
 export const metadata: Metadata = createMetadata(

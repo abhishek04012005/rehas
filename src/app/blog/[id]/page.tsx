@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import BlogDetail from '@/components/blogDetail/blogDetail';
+import BlogDetail from '@/components/blogDetail';
 import { blogData } from '@/data/content';
 
 interface PageProps {

@@ -1,4 +1,4 @@
-import ServiceDetail from '@/components/serviceDetail/serviceDetail';
+import ServiceDetail from '@/components/serviceDetail';
 
 export const metadata = {
   title: 'Service Details | REHAS',

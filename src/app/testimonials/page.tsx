@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Testimonial from '@/components/testimonial/testimonial';
+import Testimonial from '@/components/testimonial';
 
 export const metadata: Metadata = {
   title: 'Client Testimonials | REHAS Success Stories',

@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-import Hero from '@/components/hero/hero';
-import About from '@/components/about/about';
-import Contact from '@/components/contact/contact';
-import Healing from '@/components/healing/healing';
-import Therapy from '@/components/therapy/therapy';
-import BlogPreview from '@/components/blogPreview/blogPreview';
-import Founder from '@/components/founder/founder';
+import Hero from '@/components/hero';
+import About from '@/components/about';
+import Contact from '@/components/contact';
+import Healing from '@/components/healing';
+import Therapy from '@/components/therapy';
+import BlogPreview from '@/components/blogPreview';
+import Founder from '@/components/founder';
 import TestimonialSlider from '@/components/testimonialSlider';
 
 export const metadata: Metadata = {

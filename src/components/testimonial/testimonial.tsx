@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Star, Check } from '@mui/icons-material';
 import { pageHeader, testimonials, stats, cta } from '@/data/testimonial';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 import TestimonialSlider from '@/components/testimonialSlider';
 import styles from './testimonial.module.css';
 

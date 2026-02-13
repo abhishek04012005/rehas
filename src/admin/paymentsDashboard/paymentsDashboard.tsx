@@ -17,7 +17,7 @@ import {
 } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
 import styles from './paymentsDashboard.module.css';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 
 interface Payment {
   id: string;

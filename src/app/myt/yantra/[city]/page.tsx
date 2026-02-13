@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HealingService from '@/components/healingService/healingService';
+import HealingService from '@/components/healingService';
 import { yanthaData } from '@/data/yantra';
 import { getCityBySlug, getAllCitySlugs } from '../../../../data/cities';
 import { siteConfig } from '@/lib/seoConfig';

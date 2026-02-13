@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Navbar from '@/components/navbar/navbar';
+import Navbar from '@/components/navbar';
 import AdminNavbar from '@/admin/adminNavbar/adminNavbar';
 
 export default function NavbarWrapper() {

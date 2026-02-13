@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Policy from '@/components/policy/policy';
+import Policy from '@/components/policy';
 import { createMetadata } from '@/lib/seoConfig';
 
 export const metadata: Metadata = createMetadata(

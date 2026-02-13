@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Enquiry from '@/components/enquiry/enquiry';
+import Enquiry from '@/components/enquiry';
 import { createMetadata } from '@/lib/seoConfig';
 
 export const metadata: Metadata = createMetadata(

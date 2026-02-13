@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CourseListing from '@/components/courseListing/courseListing';
+import CourseListing from '@/components/courseListing';
 import { getCityBySlug, getAllCitySlugs } from '../../../../data/cities';
 import { siteConfig } from '@/lib/seoConfig';
 

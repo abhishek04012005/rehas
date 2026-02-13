@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HealingService from '@/components/healingService/healingService';
+import HealingService from '@/components/healingService';
 import { astrologyReadingData } from '@/data/astrologyReading';
 
 // Server-side metadata for this page

@@ -1,4 +1,4 @@
-import Healing from '@/components/healing/healing';
+import Healing from '@/components/healing';
 import { Metadata } from 'next';
 import { createMetadata } from '@/lib/seoConfig';
 

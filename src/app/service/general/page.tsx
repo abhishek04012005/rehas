@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import HealingService from '@/components/healingService/healingService';
+import HealingService from '@/components/healingService';
 import { generalData } from '@/data/general';
 import { createMetadata } from '@/lib/seoConfig';
 

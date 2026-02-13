@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import CompassLoader from '@/components/compassLoader/compassLoader';
+import CompassLoader from '@/components/compassLoader';
 
 export default function PageLoadingWrapper() {
   const [isLoading, setIsLoading] = useState(true);

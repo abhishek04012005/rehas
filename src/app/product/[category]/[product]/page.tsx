@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ProductDetail from '@/components/productDetail/productDetail';
+import ProductDetail from '@/components/productDetail';
 import { productHealingData } from '@/data/productHealing';
 import { productTherapyData } from '@/data/productTherapy';
 import { productAstrologyData } from '@/data/productAstrology';

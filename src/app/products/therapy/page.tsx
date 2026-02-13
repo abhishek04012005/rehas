@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ProductShowcase from '@/components/productShowcase/productShowcase';
+import ProductShowcase from '@/components/productShowcase';
 import { productTherapyData } from '@/data/productTherapy';
 
 export const metadata: Metadata = {

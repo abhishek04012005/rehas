@@ -16,7 +16,7 @@ import {
 import { supabase } from '@/lib/supabase';
 
 import styles from './contactDashboard.module.css';
-import LineArtBackground from '@/components/lineArtBackground/lineArtBackground';
+import LineArtBackground from '@/components/lineArtBackground';
 
 interface ContactSubmission {
   id: string;
