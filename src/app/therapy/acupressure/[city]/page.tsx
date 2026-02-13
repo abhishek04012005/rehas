@@ -66,11 +66,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  return getAllCitySlugs().map((slug) => ({
-    city: slug,
-  }));
-}
 
 interface CityPageProps {
   params: Promise<{ city: string }>;

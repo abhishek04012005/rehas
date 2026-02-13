@@ -68,11 +68,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  return getAllCitySlugs().map((slug) => ({
-    city: slug,
-  }));
-}
 
 interface CityMantraPageProps {
   params: Promise<{ city: string }>;

@@ -62,11 +62,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  return getAllCitySlugs().map((slug) => ({
-    city: slug,
-  }));
-}
 
 export default async function MYTTantraPage({ params }: Props) {
   const { city } = await params;
