@@ -18,6 +18,8 @@ export const metadata: Metadata = createMetadata(
   '/courses/myt'
 );
 
+//j
+
 export default function MYTCoursesPage() {
     const courses = [
         {
