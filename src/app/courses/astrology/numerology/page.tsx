@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import CourseDetail from '@/components/courseDetail';
-import { courseAstrologyData } from '@/data/courseAstrology';
 
 export const metadata: Metadata = {
   title: 'Numerology Certification | Number Science & Life Path | REHAS',
