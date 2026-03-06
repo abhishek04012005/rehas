@@ -82,6 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="p:domain_verify" content="1817761311e9b400a4a1edc37b750f05" />
         <SchemaComponent schema={organizationSchema} />
       </head>
       <body>
