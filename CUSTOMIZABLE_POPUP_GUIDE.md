@@ -12,7 +12,7 @@ The redesigned Free Programs popup now features:
 
 ## Database Setup
 
-### Step 1: Run Migration SQL
+ Step 1: Run Migration SQL
 
 Execute these queries in your Supabase SQL Editor to update your existing `settings` table:
 
@@ -49,7 +49,7 @@ ALTER TABLE settings ADD COLUMN IF NOT EXISTS programs_config JSONB DEFAULT '[
 
 ## What You Can Customize
 
-### 1. Popup Display Settings
+ 1. Popup Display Settings
 
 Navigate to `/admin/settings` and toggle:
 
@@ -57,7 +57,7 @@ Navigate to `/admin/settings` and toggle:
 - **Show Enquiry Popup** - Display enquiry form popup
 - **Show Free Programs Popup** - Display promotional popup (recommended: ON)
 
-### 2. Popup Text Content
+ 2. Popup Text Content
 
 Edit these fields in the admin panel:
 
@@ -72,34 +72,34 @@ Edit these fields in the admin panel:
 - Subtitle: `Transform Your Life Today`
 - CTA: `Join Our Community Now`
 
-### 3. Program Details
+ 3. Program Details
 
 Each program card can be fully customized:
 
-#### Program 1: YOGA
+# Program 1: YOGA
 - **Title** → Change program name
 - **Schedule** → Edit day/frequency (e.g., "Monday to Friday")
 - **Time** → Edit time slot (e.g., "5:00 AM - 6:00 AM")
 - **Description** → Full program description
 
-#### Program 2: HEALING
+# Program 2: HEALING
 - Complete control over all 4 fields above
 
-#### Program 3: STRESS MANAGEMENT
+# Program 3: STRESS MANAGEMENT
 - Complete control over all 4 fields above
 
 ---
 
 ## Admin Panel Navigation
 
-### Accessing Settings
+ Accessing Settings
 
 1. Go to `/admin/login`
 2. Login with admin credentials
 3. Navigate to `/admin/settings`
 4. Scroll to **Popup Settings** section
 
-### Making Changes
+ Making Changes
 
 1. Toggle any switch to enable/disable features
 2. Edit text fields directly
@@ -107,7 +107,7 @@ Each program card can be fully customized:
 4. Click the field and start typing to edit
 5. Click **Save Settings** button
 
-### Changes Take Effect
+ Changes Take Effect
 
 - ✅ Immediately on homepage (within 3 seconds of page load)
 - ✅ Applied across all sessions
@@ -117,14 +117,14 @@ Each program card can be fully customized:
 
 ## Visual Design Features
 
-### Color Scheme (from globals.css)
+ Color Scheme (from globals.css)
 
 The popup uses your theme colors:
 - **Primary**: #560067 (purple)
 - **Secondary**: #92487a (mauve)
 - **Accent**: #d4a5d9 (light purple)
 
-### UI Components
+ UI Components
 
 1. **Header**
    - Gradient background (purple → mauve)
@@ -156,7 +156,7 @@ The popup uses your theme colors:
 
 ## Popup Display Logic
 
-### Priority System
+ Priority System
 
 When homepage loads, popup appears after 3 seconds:
 
@@ -171,7 +171,7 @@ ELSE:
   → No popup shown
 ```
 
-### Session Storage
+ Session Storage
 
 - Popup shows only once per session
 - Refreshing page doesn't re-show popup
@@ -182,7 +182,7 @@ ELSE:
 
 ## Integration Features
 
-### Cross-Popup Linking
+ Cross-Popup Linking
 
 - "Enquiry Now" button in Free Programs popup:
   - Closes Free Programs popup
@@ -190,7 +190,7 @@ ELSE:
   - User can submit contact details
   - Form is pre-integrated with contact system
 
-### Customizable Programs Content
+ Customizable Programs Content
 
 Each program can have:
 - Custom title (e.g., "Advanced Yoga" or "Beginner Yoga")
@@ -202,21 +202,21 @@ Each program can have:
 
 ## Common Customizations
 
-### Example 1: Weekend Programs Only
+ Example 1: Weekend Programs Only
 
 Edit programs to show weekend availability:
 - Yoga: "Friday to Sunday" at "6:00 PM - 7:00 PM"
 - Healing: "Saturday & Sunday" at different times
 - Stress: "Sunday Evening" at "7:00 PM - 8:00 PM"
 
-### Example 2: Multiple Program Instances
+ Example 2: Multiple Program Instances
 
 Can't change program names? Each program can have different titles:
 - "Premium Yoga Class" (vs. regular "YOGA Practice Session")
 - "Private Healing Sessions" (vs. "SELF HEALING Practice & Webinar")
 - "Corporate Stress Workshop" (vs. "Stress & Anxiety Management")
 
-### Example 3: Seasonal Updates
+ Example 3: Seasonal Updates
 
 Update programs for different seasons:
 - Summer: Add "5:00 PM - 6:00 PM" timings
@@ -227,7 +227,7 @@ Update programs for different seasons:
 
 ## Database Schema
 
-### settings table
+ settings table
 
 ```sql
 CREATE TABLE settings (
@@ -244,7 +244,7 @@ CREATE TABLE settings (
 );
 ```
 
-### programs_config Structure
+ programs_config Structure
 
 ```json
 [
@@ -263,7 +263,7 @@ CREATE TABLE settings (
 
 ## Troubleshooting
 
-### Popup Not Showing
+ Popup Not Showing
 
 **Check:**
 1. Is `popup_enabled` toggle ON in admin panel?
@@ -277,14 +277,14 @@ CREATE TABLE settings (
 sessionStorage.removeItem('enquiryPopupShown');
 ```
 
-### Popup Shows Immediately
+ Popup Shows Immediately
 
 **Check:**
 1. Component has intentional 3-second delay
 2. Session storage prevents re-display in same session
 3. Refresh page to see popup again
 
-### Programs Not Updating
+ Programs Not Updating
 
 **Possible Causes:**
 1. Database changes not saved
@@ -298,7 +298,7 @@ sessionStorage.removeItem('enquiryPopupShown');
 3. Clear session: `sessionStorage.clear()`
 4. Refresh homepage
 
-### Admin Panel Shows "Loading..."
+ Admin Panel Shows "Loading..."
 
 **Check:**
 1. Are you logged in?
@@ -313,7 +313,7 @@ sessionStorage.removeItem('enquiryPopupShown');
 
 ## Component Files
 
-### Modified Files
+ Modified Files
 
 1. **[src/components/freeProgramsPopup/freeProgramsPopup.tsx](../src/components/freeProgramsPopup/freeProgramsPopup.tsx)**
    - Redesigned with MUI icons

@@ -30,11 +30,11 @@ During Mercury retrograde, astrologers suggest being cautious with:
 
 ## Tips for Navigating Mercury Retrograde
 
-1. **Review and Revise**: Use this time to review past projects, contracts, and relationships
-2. **Backup Your Data**: Technology is traditionally affected, so back up important files
-3. **Double-Check Communications**: Be mindful of misunderstandings and clarify your messages
-4. **Reflect and Introspect**: This is a great time for meditation and self-reflection
-5. **Avoid Starting New Ventures**: Wait until Mercury direct to launch new initiatives
+1. Review and Revise: Use this time to review past projects, contracts, and relationships
+2. Backup Your Data: Technology is traditionally affected, so back up important files
+3. Double-Check Communications: Be mindful of misunderstandings and clarify your messages
+4. Reflect and Introspect: This is a great time for meditation and self-reflection
+5. Avoid Starting New Ventures: Wait until Mercury direct to launch new initiatives
 
 ## When Is the Next Mercury Retrograde?
 
@@ -78,21 +78,21 @@ Example: If you were born on July 15, 1990:
 
 ## Life Path Numbers 1-9
 
-**Life Path 1**: The Leader - Independent, ambitious, pioneering
-**Life Path 2**: The Diplomat - Sensitive, cooperative, intuitive
-**Life Path 3**: The Creator - Expressive, artistic, communicative
-**Life Path 4**: The Builder - Practical, grounded, responsible
-**Life Path 5**: The Free Spirit - Adventurous, curious, versatile
-**Life Path 6**: The Nurturer - Caring, compassionate, supportive
-**Life Path 7**: The Seeker - Analytical, spiritual, philosophical
-**Life Path 8**: The Achiever - Powerful, ambitious, material-focused
-**Life Path 9**: The Humanitarian - Compassionate, idealistic, universal
+Life Path 1: The Leader - Independent, ambitious, pioneering
+Life Path 2: The Diplomat - Sensitive, cooperative, intuitive
+Life Path 3: The Creator - Expressive, artistic, communicative
+Life Path 4: The Builder - Practical, grounded, responsible
+Life Path 5: The Free Spirit - Adventurous, curious, versatile
+Life Path 6: The Nurturer - Caring, compassionate, supportive
+Life Path 7: The Seeker - Analytical, spiritual, philosophical
+Life Path 8: The Achiever - Powerful, ambitious, material-focused
+Life Path 9: The Humanitarian - Compassionate, idealistic, universal
 
 ## Master Numbers
 
-**Life Path 11**: The Intuitive - Highly intuitive, spiritual, idealistic
-**Life Path 22**: The Master Builder - Visionary, capable of great achievements
-**Life Path 33**: The Master Teacher - Compassionate teacher, healer, creator
+Life Path 11: The Intuitive - Highly intuitive, spiritual, idealistic
+Life Path 22: The Master Builder - Visionary, capable of great achievements
+Life Path 33: The Master Teacher - Compassionate teacher, healer, creator
 
 Your life path number provides profound insights into your journey and purpose.`,
       keywords: ['numerology', 'life path', 'birth date', 'destiny'],
@@ -112,63 +112,63 @@ Your life path number provides profound insights into your journey and purpose.`
 
 ## The Seven Chakras
 
-### 1. Root Chakra (Muladhara)
-- **Location**: Base of spine
-- **Color**: Red
-- **Element**: Earth
-- **Function**: Grounding, stability, survival
-- **When Blocked**: Anxiety, insecurity, low self-esteem
+ 1. Root Chakra (Muladhara)
+- Location: Base of spine
+- Color: Red
+- Element: Earth
+- Function: Grounding, stability, survival
+- When Blocked: Anxiety, insecurity, low self-esteem
 
-### 2. Sacral Chakra (Svadhishthana)
-- **Location**: Lower abdomen
-- **Color**: Orange
-- **Element**: Water
-- **Function**: Creativity, sexuality, pleasure
-- **When Blocked**: Lack of creativity, emotional detachment
+ 2. Sacral Chakra (Svadhishthana)
+- Location: Lower abdomen
+- Color: Orange
+- Element: Water
+- Function: Creativity, sexuality, pleasure
+- When Blocked: Lack of creativity, emotional detachment
 
-### 3. Solar Plexus Chakra (Manipura)
-- **Location**: Upper abdomen
-- **Color**: Yellow
-- **Element**: Fire
-- **Function**: Personal power, confidence, willpower
-- **When Blocked**: Low self-esteem, powerlessness
+ 3. Solar Plexus Chakra (Manipura)
+- Location: Upper abdomen
+- Color: Yellow
+- Element: Fire
+- Function: Personal power, confidence, willpower
+- When Blocked: Low self-esteem, powerlessness
 
-### 4. Heart Chakra (Anahata)
-- **Location**: Heart center
-- **Color**: Green/Pink
-- **Element**: Air
-- **Function**: Love, compassion, forgiveness
-- **When Blocked**: Loneliness, inability to love
+ 4. Heart Chakra (Anahata)
+- Location: Heart center
+- Color: Green/Pink
+- Element: Air
+- Function: Love, compassion, forgiveness
+- When Blocked: Loneliness, inability to love
 
-### 5. Throat Chakra (Vishuddha)
-- **Location**: Throat
-- **Color**: Blue
-- **Element**: Sound/Ether
-- **Function**: Communication, expression, truth
-- **When Blocked**: Difficulty speaking, throat issues
+ 5. Throat Chakra (Vishuddha)
+- Location: Throat
+- Color: Blue
+- Element: Sound/Ether
+- Function: Communication, expression, truth
+- When Blocked: Difficulty speaking, throat issues
 
-### 6. Third Eye Chakra (Ajna)
-- **Location**: Between eyebrows
-- **Color**: Indigo
-- **Element**: Light
-- **Function**: Intuition, insight, wisdom
-- **When Blocked**: Lack of intuition, confusion
+ 6. Third Eye Chakra (Ajna)
+- Location: Between eyebrows
+- Color: Indigo
+- Element: Light
+- Function: Intuition, insight, wisdom
+- When Blocked: Lack of intuition, confusion
 
-### 7. Crown Chakra (Sahasrara)
-- **Location**: Top of head
-- **Color**: Violet/White
-- **Element**: Consciousness
-- **Function**: Spiritual connection, enlightenment
-- **When Blocked**: Spiritual disconnection
+ 7. Crown Chakra (Sahasrara)
+- Location: Top of head
+- Color: Violet/White
+- Element: Consciousness
+- Function: Spiritual connection, enlightenment
+- When Blocked: Spiritual disconnection
 
 ## How to Balance Your Chakras
 
-1. **Meditation**: Focus on each chakra while meditating
-2. **Yoga**: Practice poses that stimulate specific chakras
-3. **Crystals**: Use corresponding colored crystals for healing
-4. **Sound Therapy**: Use chakra-specific frequencies or mantras
-5. **Essential Oils**: Apply oils that correspond to each chakra
-6. **Affirmations**: Use positive statements to balance energy
+1. Meditation: Focus on each chakra while meditating
+2. Yoga: Practice poses that stimulate specific chakras
+3. Crystals: Use corresponding colored crystals for healing
+4. Sound Therapy: Use chakra-specific frequencies or mantras
+5. Essential Oils: Apply oils that correspond to each chakra
+6. Affirmations: Use positive statements to balance energy
 
 ## Signs of Imbalanced Chakras
 
@@ -205,24 +205,24 @@ The lunar cycle lasts approximately 29.5 days. The full moon occurs when the moo
 
 ## Full Moon Rituals
 
-### Ritual 1: Moon Water Cleansing
+ Ritual 1: Moon Water Cleansing
 1. Fill a glass or jar with filtered water
 2. Place it under the full moon overnight
 3. Use this charged water to cleanse your space and self
 
-### Ritual 2: Manifestation Ceremony
+ Ritual 2: Manifestation Ceremony
 1. Write your intentions on paper
 2. Read them aloud under the full moon
 3. Visualize your desires as already fulfilled
 4. Keep the paper in a special place
 
-### Ritual 3: Release Ceremony
+ Ritual 3: Release Ceremony
 1. Write what you're releasing on paper
 2. Safely burn it in a fireproof container
 3. Watch the smoke carry your intentions skyward
 4. Let go and trust the process
 
-### Ritual 4: Moon Gazing Meditation
+ Ritual 4: Moon Gazing Meditation
 1. Find a quiet place under the moonlight
 2. Sit comfortably and gaze at the moon
 3. Focus on your breathing
@@ -263,21 +263,21 @@ In Reiki, a practitioner acts as a channel for healing energy, placing their han
 
 ## Benefits of Reiki
 
-### Physical Benefits
+ Physical Benefits
 - Pain management
 - Faster recovery from illness
 - Improved sleep quality
 - Enhanced immune function
 - Reduced medication side effects
 
-### Emotional Benefits
+ Emotional Benefits
 - Reduced anxiety and depression
 - Emotional clarity
 - Increased self-acceptance
 - Better relationships
 - Greater sense of peace
 
-### Spiritual Benefits
+ Spiritual Benefits
 - Spiritual awakening
 - Increased intuition
 - Connection to higher self
@@ -330,28 +330,28 @@ Sound healing works by:
 
 These six sacred frequencies are said to promote healing:
 
-**174 Hz** - Pain relief
-**285 Hz** - Tissue repair and healing
-**396 Hz** - Liberation from fear
-**417 Hz** - Undoing situations and facilitating change
-**528 Hz** - Cellular repair (the "Love Frequency")
-**639 Hz** - Enhanced communication and relationships
-**741 Hz** - Awakening intuition
-**852 Hz** - Returning to spiritual order
-**963 Hz** - Divine connection
+174 Hz - Pain relief
+285 Hz - Tissue repair and healing
+396 Hz - Liberation from fear
+417 Hz - Undoing situations and facilitating change
+528 Hz - Cellular repair (the "Love Frequency")
+639 Hz - Enhanced communication and relationships
+741 Hz - Awakening intuition
+852 Hz - Returning to spiritual order
+963 Hz - Divine connection
 
 ## Sound Healing Techniques
 
-### Singing Bowls
+ Singing Bowls
 Crystal or metal bowls produce sustained tones that promote deep relaxation and healing.
 
-### Tuning Forks
+ Tuning Forks
 Specific frequencies are applied to acupuncture points and chakras for targeted healing.
 
-### Binaural Beats
+ Binaural Beats
 Two slightly different frequencies played in each ear create a third frequency in the brain, affecting brainwave patterns.
 
-### Vocal Toning
+ Vocal Toning
 Using your voice to produce healing frequencies personalizes the practice.
 
 ## Benefits of Sound Healing
@@ -381,7 +381,7 @@ Sound healing offers a non-invasive, accessible way to support your wellness jou
 
 ## Major Planetary Transits Affecting Iran in 2026
 
-### Mars in Aries (January - March 2026)
+ Mars in Aries (January - March 2026)
 Mars, the planet of war and aggression, enters its home sign of Aries in early 2026, creating a powerful martial energy. When Mars is in Aries, conflicts tend to be direct, aggressive, and initiated with great force. This transit could manifest as:
 
 - Military posturing and border tensions
@@ -389,7 +389,7 @@ Mars, the planet of war and aggression, enters its home sign of Aries in early 2
 - Leadership decisions driven by impulse rather than strategy
 - Increased military spending and modernization efforts
 
-### Saturn Square Uranus (Ongoing 2024-2026)
+ Saturn Square Uranus (Ongoing 2024-2026)
 This challenging aspect between Saturn (structure, tradition) and Uranus (revolution, sudden change) has been building tension throughout 2024-2025 and reaches its peak in 2026. For Iran, this could represent:
 
 - Internal power struggles between conservative and reformist factions
@@ -397,7 +397,7 @@ This challenging aspect between Saturn (structure, tradition) and Uranus (revolu
 - Economic sanctions reaching a breaking point
 - Social unrest leading to political transformation
 
-### Pluto in Aquarius (2024-2044)
+ Pluto in Aquarius (2024-2044)
 Pluto's long-term transit through Aquarius brings themes of revolution, technology, and collective transformation. In the context of Iran:
 
 - Nuclear program developments and international negotiations
@@ -407,7 +407,7 @@ Pluto's long-term transit through Aquarius brings themes of revolution, technolo
 
 ## Solar and Lunar Eclipses in 2026
 
-### Lunar Eclipse in Pisces (March 2026)
+ Lunar Eclipse in Pisces (March 2026)
 This eclipse falls in the sign of Pisces, which rules spirituality, illusion, and dissolution. For Iran, this could manifest as:
 
 - Religious and ideological conflicts coming to a head
@@ -415,7 +415,7 @@ This eclipse falls in the sign of Pisces, which rules spirituality, illusion, an
 - Humanitarian crises affecting civilian populations
 - Diplomatic breakthroughs or breakdowns
 
-### Solar Eclipse in Aries (April 2026)
+ Solar Eclipse in Aries (April 2026)
 A solar eclipse in Aries emphasizes new beginnings through conflict. This powerful eclipse could trigger:
 
 - New military alliances forming
@@ -425,22 +425,22 @@ A solar eclipse in Aries emphasizes new beginnings through conflict. This powerf
 
 ## Astrological Timeline for Potential Conflicts
 
-### Q1 2026 (January-March): Rising Tensions
+ Q1 2026 (January-March): Rising Tensions
 - Mars in Aries fuels aggressive posturing
 - Lunar eclipse brings hidden issues to light
 - Potential for border skirmishes and diplomatic crises
 
-### Q2 2026 (April-June): Critical Juncture
+ Q2 2026 (April-June): Critical Juncture
 - Solar eclipse in Aries initiates new conflicts
 - Jupiter's entrance into Gemini expands communication networks
 - Cyber operations and information warfare intensify
 
-### Q3 2026 (July-September): Escalation Phase
+ Q3 2026 (July-September): Escalation Phase
 - Mars retrograde period (August-September) suggests delays and reversals
 - Venus in Virgo brings focus on humanitarian concerns
 - Possible international intervention or mediation attempts
 
-### Q4 2026 (October-December): Resolution or Transformation
+ Q4 2026 (October-December): Resolution or Transformation
 - Saturn direct motion stabilizes situations
 - Jupiter trine Pluto offers opportunities for diplomatic breakthroughs
 - Long-term power shifts become evident
@@ -457,23 +457,23 @@ Iran's national horoscope (founded April 1, 1979) shows a Scorpio Sun with Aries
 
 While the astrological indicators suggest potential for conflict, they also point to opportunities for resolution:
 
-### Diplomatic Windows
+ Diplomatic Windows
 - Jupiter's beneficial aspects in mid-2026
 - Venus transits promoting negotiation
 - Mercury retrogrades encouraging review and revision of agreements
 
-### Spiritual and Humanitarian Approaches
+ Spiritual and Humanitarian Approaches
 - Pisces influences encouraging compassion and understanding
 - Cancer transits focusing on protection of civilians
 - Libra periods promoting balance and justice
 
 ## Practical Advice for Navigating 2026
 
-1. **Stay Informed**: Monitor both mainstream and alternative news sources
-2. **Practice Mindfulness**: Use meditation to navigate uncertain times
-3. **Build Community**: Strengthen local and international connections
-4. **Focus on Personal Growth**: Transform personal challenges into opportunities
-5. **Contribute to Peace**: Support diplomatic and humanitarian efforts
+1. Stay Informed: Monitor both mainstream and alternative news sources
+2. Practice Mindfulness: Use meditation to navigate uncertain times
+3. Build Community: Strengthen local and international connections
+4. Focus on Personal Growth: Transform personal challenges into opportunities
+5. Contribute to Peace: Support diplomatic and humanitarian efforts
 
 ## The Role of Free Will
 
@@ -501,21 +501,21 @@ Whether you're personally affected by these potential conflicts or simply intere
 
 ## Major Planetary Movements in 2026
 
-### Jupiter's Journey Through Gemini (May 2026 - May 2027)
+ Jupiter's Journey Through Gemini (May 2026 - May 2027)
 Jupiter, the planet of expansion and wisdom, enters communicative Gemini in May 2026. This transit emphasizes:
 - Technological innovation and information sharing
 - Educational reforms and knowledge dissemination
 - International travel and cultural exchange
 - Media and communication industry growth
 
-### Saturn's Final Square to Uranus (February 2026)
+ Saturn's Final Square to Uranus (February 2026)
 The culmination of the Saturn-Uranus square that began in 2021 reaches its final phase:
 - Societal restructuring and institutional reforms
 - Technological revolutions challenging traditional systems
 - Generational conflicts and paradigm shifts
 - Economic transformations and new financial models
 
-### Neptune's Transit Through Aries (2025-2038)
+ Neptune's Transit Through Aries (2025-2038)
 Neptune continues its journey through Aries, bringing:
 - Spiritual awakenings and mystical experiences
 - Creative inspiration and artistic movements
@@ -524,47 +524,47 @@ Neptune continues its journey through Aries, bringing:
 
 ## Eclipse Season Highlights
 
-### Spring Eclipse Season (March-April 2026)
-- **Lunar Eclipse in Libra (March 14)**: Focus on relationships and partnerships
-- **Solar Eclipse in Aries (March 29)**: New beginnings and personal initiative
-- **Lunar Eclipse in Scorpio (April 13)**: Transformation and rebirth
+ Spring Eclipse Season (March-April 2026)
+- Lunar Eclipse in Libra (March 14): Focus on relationships and partnerships
+- Solar Eclipse in Aries (March 29): New beginnings and personal initiative
+- Lunar Eclipse in Scorpio (April 13): Transformation and rebirth
 
-### Fall Eclipse Season (September-October 2026)
-- **Solar Eclipse in Libra (September 12)**: Balance and harmony in relationships
-- **Lunar Eclipse in Aries (September 26)**: Assertive action and leadership
-- **Solar Eclipse in Scorpio (October 11)**: Deep transformation and power shifts
+ Fall Eclipse Season (September-October 2026)
+- Solar Eclipse in Libra (September 12): Balance and harmony in relationships
+- Lunar Eclipse in Aries (September 26): Assertive action and leadership
+- Solar Eclipse in Scorpio (October 11): Deep transformation and power shifts
 
 ## Retrograde Periods
 
-### Mercury Retrograde Cycles
-- **January 15 - February 8**: Communication and technology focus
-- **May 12 - June 5**: Career and life direction review
-- **September 8 - October 2**: Relationship and partnership evaluation
-- **December 25 - January 18, 2027**: Spiritual and philosophical reflection
+ Mercury Retrograde Cycles
+- January 15 - February 8: Communication and technology focus
+- May 12 - June 5: Career and life direction review
+- September 8 - October 2: Relationship and partnership evaluation
+- December 25 - January 18, 2027: Spiritual and philosophical reflection
 
-### Other Planetary Retrogrades
-- **Venus Retrograde (May 23 - June 17)**: Love, values, and relationships
-- **Mars Retrograde (November 4 - January 12, 2027)**: Action, energy, and motivation
-- **Jupiter Retrograde (October 9 - February 4, 2027)**: Growth and expansion
-- **Saturn Retrograde (May 29 - November 15)**: Responsibility and structure
+ Other Planetary Retrogrades
+- Venus Retrograde (May 23 - June 17): Love, values, and relationships
+- Mars Retrograde (November 4 - January 12, 2027): Action, energy, and motivation
+- Jupiter Retrograde (October 9 - February 4, 2027): Growth and expansion
+- Saturn Retrograde (May 29 - November 15): Responsibility and structure
 
 ## Astrological Themes for 2026
 
-### The Age of Aquarius Acceleration
+ The Age of Aquarius Acceleration
 With Pluto in Aquarius until 2044, 2026 marks a year of:
 - Technological breakthroughs and AI development
 - Social justice movements and collective awakening
 - Environmental consciousness and sustainable practices
 - Community building and global cooperation
 
-### The Fire Sign Emphasis
+ The Fire Sign Emphasis
 Multiple planets moving through Aries, Leo, and Sagittarius create:
 - Increased passion and creative expression
 - Leadership emergence and bold initiatives
 - Spiritual fire and transformative experiences
 - Courageous action and pioneering spirit
 
-### Earth Sign Grounding
+ Earth Sign Grounding
 Despite the fire energy, earth signs provide stability:
 - Taurus season brings financial security focus
 - Virgo season emphasizes health and service
@@ -572,57 +572,57 @@ Despite the fire energy, earth signs provide stability:
 
 ## Predictions by Zodiac Sign
 
-### Aries (March 21 - April 19)
+ Aries (March 21 - April 19)
 A powerful year for Aries with solar eclipses activating their sign. Focus on personal transformation and leadership development.
 
-### Taurus (April 20 - May 20)
+ Taurus (April 20 - May 20)
 Venus retrograde brings relationship and financial review. Opportunities for material manifestation and sensual pleasure.
 
-### Gemini (May 21 - June 20)
+ Gemini (May 21 - June 20)
 Jupiter's transit brings expansion in communication and learning. Perfect year for education and social connections.
 
-### Cancer (June 21 - July 22)
+ Cancer (June 21 - July 22)
 Home and family focus with nurturing lunar energy. Emotional healing and ancestral work prominent.
 
-### Leo (July 23 - August 22)
+ Leo (July 23 - August 22)
 Creative expression and romantic opportunities abound. Leadership roles and public recognition possible.
 
-### Virgo (August 23 - September 22)
+ Virgo (August 23 - September 22)
 Health and service orientation strong. Career advancement through detailed work and organization.
 
-### Libra (September 23 - October 22)
+ Libra (September 23 - October 22)
 Relationship harmony and partnership focus. Eclipse season brings balance and justice themes.
 
-### Scorpio (October 23 - November 21)
+ Scorpio (October 23 - November 21)
 Transformation and rebirth energy intense. Deep psychological work and spiritual growth.
 
-### Sagittarius (November 22 - December 21)
+ Sagittarius (November 22 - December 21)
 Adventure and exploration encouraged. Philosophical pursuits and long-distance travel.
 
-### Capricorn (December 22 - January 19)
+ Capricorn (December 22 - January 19)
 Career and reputation focus. Saturn's influence brings responsibility and achievement.
 
-### Aquarius (January 20 - February 18)
+ Aquarius (January 20 - February 18)
 Innovation and community involvement. Revolutionary ideas and social change work.
 
-### Pisces (February 19 - March 20)
+ Pisces (February 19 - March 20)
 Spiritual and creative flow. Dreams and intuition guide important decisions.
 
 ## Global Predictions
 
-### Technological Revolution
+ Technological Revolution
 - AI and machine learning breakthroughs
 - Space exploration advancements
 - Renewable energy innovations
 - Medical technology developments
 
-### Social and Political Changes
+ Social and Political Changes
 - Democratic reforms in various countries
 - Environmental policy implementations
 - Social justice movements gaining ground
 - International cooperation on global challenges
 
-### Economic Shifts
+ Economic Shifts
 - Cryptocurrency integration
 - Sustainable business models
 - Remote work normalization
@@ -656,187 +656,187 @@ Spiritual and creative flow. Dreams and intuition guide important decisions.
 
 ## Aries (March 21 - April 19)
 
-### Love & Relationships
+ Love & Relationships
 Solar eclipses in your sign bring intense romantic opportunities. Singles may meet soulmates through adventurous activities. Couples experience deepening commitment and passion. Watch for impulsive decisions in relationships.
 
-### Career & Finance
+ Career & Finance
 Mars retrograde challenges your drive, but Jupiter expands your professional network. Leadership opportunities arise, especially in March-April. Financial gains come through bold initiatives and entrepreneurial ventures.
 
-### Health & Wellness
+ Health & Wellness
 Focus on head and energy levels. High activity may cause burnout. Practice grounding exercises and maintain work-life balance. Excellent year for starting new fitness routines.
 
-### Personal Growth
+ Personal Growth
 Transformation through eclipses. Learn patience and strategic planning. Your pioneering spirit will be tested, leading to greater wisdom.
 
 ## Taurus (April 20 - May 20)
 
-### Love & Relationships
+ Love & Relationships
 Venus retrograde in your sign brings relationship review. Singles may reconnect with past loves. Couples work through financial and value differences. Focus on building security and trust.
 
-### Career & Finance
+ Career & Finance
 Stable professional year with Saturn's support. Career advancement through consistent effort. Financial opportunities in real estate and luxury goods. Avoid impulsive spending during Venus retrograde.
 
-### Health & Wellness
+ Health & Wellness
 Throat and neck areas need attention. Stress may manifest physically. Focus on relaxation techniques and sensual pleasures. Taurus season brings natural healing energy.
 
-### Personal Growth
+ Personal Growth
 Learn to embrace change while maintaining stability. Your practical nature serves you well in uncertain times.
 
 ## Gemini (May 21 - June 20)
 
-### Love & Relationships
+ Love & Relationships
 Jupiter's year-long transit brings social expansion. Singles enjoy multiple romantic opportunities. Couples explore new dimensions of communication. Mercury retrogrades test your adaptability in relationships.
 
-### Career & Finance
+ Career & Finance
 Communication skills highlighted. Writing, teaching, or media careers flourish. Multiple income streams possible. Travel for work brings exciting opportunities.
 
-### Health & Wellness
+ Health & Wellness
 Nervous system and respiratory health focus. Anxiety may increase during retrogrades. Practice mindfulness and breathing exercises. Social activities support mental health.
 
-### Personal Growth
+ Personal Growth
 Information overload possible. Learn discernment and focus. Your versatility becomes your greatest strength.
 
 ## Cancer (June 21 - July 22)
 
-### Love & Relationships
+ Love & Relationships
 Emotional depth and intuition guide relationships. Singles attract nurturing partnerships. Couples strengthen family bonds. Home becomes a sanctuary for love.
 
-### Career & Finance
+ Career & Finance
 Family business or caregiving roles prominent. Emotional intelligence leads to leadership positions. Financial security through property or inheritance possible.
 
-### Health & Wellness
+ Health & Wellness
 Digestive and emotional health interconnected. Water retention and mood swings possible. Lunar cycles strongly affect well-being. Focus on self-care rituals.
 
-### Personal Growth
+ Personal Growth
 Master emotional intelligence. Learn to set boundaries while remaining compassionate.
 
 ## Leo (July 23 - August 22)
 
-### Love & Relationships
+ Love & Relationships
 Romantic spotlight shines bright. Singles attract admirers through creative expression. Couples enjoy passionate reunions. Pride and ego may challenge relationships.
 
-### Career & Finance
+ Career & Finance
 Performance and leadership opportunities abound. Entertainment and creative fields flourish. Financial rewards come through personal branding and self-promotion.
 
-### Health & Wellness
+ Health & Wellness
 Heart and back health focus. Performance pressure may cause stress. Regular creative expression supports well-being. Leo season brings natural vitality.
 
-### Personal Growth
+ Personal Growth
 Balance self-expression with humility. Learn that true leadership serves others.
 
 ## Virgo (August 23 - September 22)
 
-### Love & Relationships
+ Love & Relationships
 Practical approach to love. Singles seek compatible partners through service. Couples focus on daily routines and health. Perfectionism may create relationship challenges.
 
-### Career & Finance
+ Career & Finance
 Productivity and organization skills rewarded. Health, wellness, or service industries offer growth. Financial planning brings security. Attention to detail leads to promotions.
 
-### Health & Wellness
+ Health & Wellness
 Digestive and nervous system health paramount. Anxiety and digestive issues possible. Routine health practices essential. Virgo season supports healing work.
 
-### Personal Growth
+ Personal Growth
 Release perfectionism. Learn that imperfections create opportunities for growth.
 
 ## Libra (September 23 - October 22)
 
-### Love & Relationships
+ Love & Relationships
 Eclipse season transforms partnerships. Singles find balance in relationships. Couples navigate power dynamics. Focus on equality and harmony.
 
-### Career & Finance
+ Career & Finance
 Diplomatic skills valued in professional settings. Legal, artistic, or counseling careers flourish. Financial partnerships bring opportunities. Negotiation skills rewarded.
 
-### Health & Wellness
+ Health & Wellness
 Kidney and lower back health focus. Relationship stress may manifest physically. Balance and harmony practices support well-being. Libra season brings social healing.
 
-### Personal Growth
+ Personal Growth
 Master the art of compromise. Learn that true peace comes from within.
 
 ## Scorpio (October 23 - November 21)
 
-### Love & Relationships
+ Love & Relationships
 Intense transformation in relationships. Singles experience deep connections. Couples face rebirth opportunities. Trust and intimacy themes prominent.
 
-### Career & Finance
+ Career & Finance
 Power and transformation in career. Research, psychology, or investigative fields offer growth. Financial gains through strategic investments. Leadership through crisis management.
 
-### Health & Wellness
+ Health & Wellness
 Reproductive and elimination systems focus. Emotional intensity may cause physical symptoms. Scorpio season brings regenerative power. Sexual health and energy work beneficial.
 
-### Personal Growth
+ Personal Growth
 Embrace transformation. Learn to trust the rebirth process.
 
 ## Sagittarius (November 22 - December 21)
 
-### Love & Relationships
+ Love & Relationships
 Adventurous spirit brings exciting connections. Singles may meet partners abroad. Couples explore philosophical dimensions. Freedom and exploration themes.
 
-### Career & Finance
+ Career & Finance
 Travel and education expand horizons. Publishing, teaching, or international business opportunities. Financial gains through knowledge and experience. Sagittarius season brings optimism.
 
-### Health & Wellness
+ Health & Wellness
 Liver and hip health focus. Excessive activity may cause strain. Outdoor activities and philosophical pursuits support well-being. Travel brings rejuvenation.
 
-### Personal Growth
+ Personal Growth
 Expand your worldview. Learn that wisdom comes through experience.
 
 ## Capricorn (December 22 - January 19)
 
-### Love & Relationships
+ Love & Relationships
 Serious commitment opportunities. Singles attract ambitious partners. Couples build lasting foundations. Family and tradition important.
 
-### Career & Finance
+ Career & Finance
 Professional peak year. Leadership positions and recognition possible. Financial stability through long-term planning. Capricorn season brings achievement energy.
 
-### Health & Wellness
+ Health & Wellness
 Bone and joint health focus. Work stress may cause physical tension. Structure and routine support well-being. Mountain activities beneficial.
 
-### Personal Growth
+ Personal Growth
 Balance ambition with self-care. Learn that true success includes happiness.
 
 ## Aquarius (January 20 - February 18)
 
-### Love & Relationships
+ Love & Relationships
 Innovative relationship dynamics. Singles attract unconventional partners. Couples explore community and friendship dimensions. Humanitarian themes in relationships.
 
-### Career & Finance
+ Career & Finance
 Technology and innovation fields flourish. Group projects and collaborative work successful. Financial gains through progressive ideas. Aquarius season brings revolutionary energy.
 
-### Health & Wellness
+ Health & Wellness
 Circulatory and nervous system focus. Anxiety and insomnia possible. Community activities and innovative therapies helpful. Electrical and technological sensitivities.
 
-### Personal Growth
+ Personal Growth
 Embrace your uniqueness. Learn that community service fulfills personal purpose.
 
 ## Pisces (February 19 - March 20)
 
-### Love & Relationships
+ Love & Relationships
 Dreamy romantic energy. Singles attract soulful connections. Couples deepen spiritual bonds. Compassion and understanding themes.
 
-### Career & Finance
+ Career & Finance
 Creative and spiritual fields offer fulfillment. Healing, arts, or charitable work successful. Financial intuition guides decisions. Pisces season brings imaginative energy.
 
-### Health & Wellness
+ Health & Wellness
 Feet and immune system focus. Sensitivity to environments. Spiritual practices and water-based therapies beneficial. Dream work supports emotional health.
 
-### Personal Growth
+ Personal Growth
 Trust your intuition. Learn that boundaries protect your sensitivity.
 
 ## General Advice for 2026
 
-### Love
+ Love
 Focus on authentic connections. Venus retrograde periods bring review and renewal.
 
-### Career
+ Career
 Embrace change and innovation. Jupiter expands opportunities in communication fields.
 
-### Health
+ Health
 Mind-body connection strong. Emotional health affects physical well-being.
 
-### Finance
+ Finance
 Conservative approach during retrogrades. Long-term planning brings security.
 
-### Spiritual Growth
+ Spiritual Growth
 2026 offers profound transformation opportunities. Embrace the cosmic changes.`,
       keywords: ['zodiac predictions 2026', 'astrology forecast', 'love predictions', 'career astrology', 'health astrology'],
     },
@@ -855,14 +855,14 @@ Conservative approach during retrogrades. Long-term planning brings security.
 
 ## Grand Trine Configurations
 
-### Fire Grand Trine (June 2026)
+ Fire Grand Trine (June 2026)
 Mars, Jupiter, and Saturn form a grand trine in fire signs, creating harmonious creative energy:
 - Innovation and technological breakthroughs
 - Spiritual awakenings and creative inspiration
 - Leadership emergence and bold initiatives
 - Global cooperation on environmental issues
 
-### Earth Grand Trine (September 2026)
+ Earth Grand Trine (September 2026)
 Venus, Pluto, and Uranus align in earth signs, grounding transformative energy:
 - Economic restructuring and financial reforms
 - Environmental healing and sustainable practices
@@ -871,14 +871,14 @@ Venus, Pluto, and Uranus align in earth signs, grounding transformative energy:
 
 ## Stellium Formations
 
-### Aries Stellium (April 2026)
+ Aries Stellium (April 2026)
 Six planets cluster in Aries during eclipse season, amplifying pioneering energy:
 - Revolutionary movements and social change
 - Personal transformation and new beginnings
 - Military and leadership developments
 - Technological innovation and space exploration
 
-### Libra Stellium (October 2026)
+ Libra Stellium (October 2026)
 Planetary gathering in Libra emphasizes harmony and balance:
 - Diplomatic breakthroughs and peace negotiations
 - Relationship healing and social justice
@@ -887,14 +887,14 @@ Planetary gathering in Libra emphasizes harmony and balance:
 
 ## Rare Aspects and Alignments
 
-### Jupiter-Neptune Conjunction (April 2026)
+ Jupiter-Neptune Conjunction (April 2026)
 This rare alignment occurs every 13 years, bringing:
 - Spiritual awakening and mystical experiences
 - Creative inspiration and artistic movements
 - Humanitarian causes and global compassion
 - Confusion in governance and leadership
 
-### Saturn-Pluto Alignment Echoes
+ Saturn-Pluto Alignment Echoes
 The 2020 Saturn-Pluto conjunction continues to influence through 2026:
 - Institutional transformation and power shifts
 - Economic restructuring and wealth redistribution
@@ -903,14 +903,14 @@ The 2020 Saturn-Pluto conjunction continues to influence through 2026:
 
 ## Eclipse Gateway Alignments
 
-### Aries-Libra Eclipse Corridor
+ Aries-Libra Eclipse Corridor
 Solar and lunar eclipses create a powerful alignment field:
 - Relationship transformation and partnership dynamics
 - Justice and balance in global affairs
 - Personal liberation and freedom movements
 - Leadership changes and new directions
 
-### Cancer-Capricorn Eclipse Series
+ Cancer-Capricorn Eclipse Series
 Continuing the 2020-2025 series with final activations:
 - Family and societal structure changes
 - Career and public life transformations
@@ -919,14 +919,14 @@ Continuing the 2020-2025 series with final activations:
 
 ## Galactic Alignments
 
-### Solstice Alignments
+ Solstice Alignments
 Summer and winter solstices bring galactic center connections:
 - Cosmic energy downloads and spiritual insights
 - Global consciousness shifts and awakening
 - Technological and scientific breakthroughs
 - Environmental healing and earth changes
 
-### Lunar Standstills
+ Lunar Standstills
 Major lunar standstills occur, affecting tides and human emotions:
 - Heightened intuition and psychic abilities
 - Emotional healing and release work
@@ -935,25 +935,25 @@ Major lunar standstills occur, affecting tides and human emotions:
 
 ## Global Impact Predictions
 
-### Societal Transformation
+ Societal Transformation
 - Democratic reforms and governance changes
 - Social justice movements gaining momentum
 - Educational system transformations
 - Healthcare and wellness paradigm shifts
 
-### Technological Innovation
+ Technological Innovation
 - AI and consciousness integration
 - Renewable energy breakthroughs
 - Space exploration advancements
 - Medical technology revolutions
 
-### Environmental Changes
+ Environmental Changes
 - Climate action acceleration
 - Sustainable living adoption
 - Natural disaster patterns
 - Earth healing and restoration
 
-### Spiritual Awakening
+ Spiritual Awakening
 - Mass consciousness shifts
 - Mystical and spiritual experiences
 - Community and global connection
@@ -961,13 +961,13 @@ Major lunar standstills occur, affecting tides and human emotions:
 
 ## Personal Application
 
-### During Alignment Periods
+ During Alignment Periods
 - Meditation and energy work amplification
 - Manifestation power increased
 - Healing and transformation accelerated
 - Intuition and psychic abilities enhanced
 
-### Preparation Practices
+ Preparation Practices
 - Grounding and centering techniques
 - Energy clearing and protection
 - Intention setting and ritual work
@@ -1001,54 +1001,54 @@ The planetary alignments of 2026 offer unprecedented opportunities for human evo
 
 ## Eclipse Schedule 2026
 
-### Lunar Eclipse in Pisces - March 14, 2026
-- **Time**: 11:34 UTC
-- **Visibility**: Americas, Europe, Africa, Asia, Australia
-- **Duration**: 3 hours 22 minutes
-- **Significance**: Emotional release and spiritual awakening
+ Lunar Eclipse in Pisces - March 14, 2026
+- Time: 11:34 UTC
+- Visibility: Americas, Europe, Africa, Asia, Australia
+- Duration: 3 hours 22 minutes
+- Significance: Emotional release and spiritual awakening
 
-### Solar Eclipse in Aries - March 29, 2026
-- **Time**: 10:48 UTC
-- **Type**: Total Eclipse
-- **Visibility**: Atlantic Ocean, Arctic regions
-- **Duration**: 2 minutes 18 seconds
-- **Significance**: New beginnings and personal power activation
+ Solar Eclipse in Aries - March 29, 2026
+- Time: 10:48 UTC
+- Type: Total Eclipse
+- Visibility: Atlantic Ocean, Arctic regions
+- Duration: 2 minutes 18 seconds
+- Significance: New beginnings and personal power activation
 
-### Lunar Eclipse in Libra - April 13, 2026
-- **Time**: 23:12 UTC
-- **Visibility**: Americas, Europe, Africa, Asia, Australia
-- **Duration**: 3 hours 11 minutes
-- **Significance**: Relationship balance and justice themes
+ Lunar Eclipse in Libra - April 13, 2026
+- Time: 23:12 UTC
+- Visibility: Americas, Europe, Africa, Asia, Australia
+- Duration: 3 hours 11 minutes
+- Significance: Relationship balance and justice themes
 
-### Solar Eclipse in Libra - September 12, 2026
-- **Time**: 15:19 UTC
-- **Type**: Annular Eclipse
-- **Visibility**: Southern South America, Atlantic Ocean
-- **Duration**: 7 minutes 6 seconds
-- **Significance**: Partnership harmony and diplomatic breakthroughs
+ Solar Eclipse in Libra - September 12, 2026
+- Time: 15:19 UTC
+- Type: Annular Eclipse
+- Visibility: Southern South America, Atlantic Ocean
+- Duration: 7 minutes 6 seconds
+- Significance: Partnership harmony and diplomatic breakthroughs
 
 ## Lunar Eclipse in Pisces (March 14)
 
-### Astrological Context
+ Astrological Context
 Full Moon in Pisces conjunct Neptune, square Mars in Gemini. This eclipse emphasizes:
 - Spiritual and mystical experiences
 - Emotional healing and release
 - Creative inspiration and imagination
 - Dissolution of illusions and boundaries
 
-### Global Impact
+ Global Impact
 - Humanitarian crises and compassion movements
 - Artistic and cultural renaissance
 - Environmental awareness and water-related issues
 - Spiritual awakening and consciousness expansion
 
-### Personal Influence
+ Personal Influence
 - Dreams and intuition become more vivid
 - Past emotional wounds surface for healing
 - Creative projects gain momentum
 - Spiritual practices deepen and expand
 
-### Practical Applications
+ Practical Applications
 - Meditation and dream work
 - Creative expression and artistic pursuits
 - Compassionate service and humanitarian work
@@ -1056,26 +1056,26 @@ Full Moon in Pisces conjunct Neptune, square Mars in Gemini. This eclipse emphas
 
 ## Solar Eclipse in Aries (March 29)
 
-### Astrological Context
+ Astrological Context
 New Moon in Aries with Mercury and Venus in Aries. This eclipse initiates:
 - Personal transformation and rebirth
 - Leadership emergence and courageous action
 - New beginnings and pioneering ventures
 - Identity shifts and self-discovery
 
-### Global Impact
+ Global Impact
 - Revolutionary movements and social change
 - Technological innovation and breakthroughs
 - Military and leadership developments
 - Entrepreneurial and startup activity
 
-### Personal Influence
+ Personal Influence
 - Life changes and new directions
 - Increased energy and motivation
 - Self-confidence and personal power
 - Relationship dynamics shift
 
-### Practical Applications
+ Practical Applications
 - Goal setting and intention work
 - Leadership development and training
 - Physical activity and energy work
@@ -1083,26 +1083,26 @@ New Moon in Aries with Mercury and Venus in Aries. This eclipse initiates:
 
 ## Lunar Eclipse in Libra (April 13)
 
-### Astrological Context
+ Astrological Context
 Full Moon in Libra opposite Uranus in Taurus. This eclipse focuses on:
 - Relationship harmony and balance
 - Social justice and equality issues
 - Diplomatic negotiations and peace processes
 - Partnership commitments and agreements
 
-### Global Impact
+ Global Impact
 - International relations and diplomacy
 - Legal reforms and justice system changes
 - Social movements for equality
 - Cultural exchange and understanding
 
-### Personal Influence
+ Personal Influence
 - Relationship evaluations and decisions
 - Social connections and networking
 - Justice and fairness in personal matters
 - Partnership commitments and changes
 
-### Practical Applications
+ Practical Applications
 - Relationship counseling and communication
 - Social activism and community work
 - Legal matters and contract reviews
@@ -1110,26 +1110,26 @@ Full Moon in Libra opposite Uranus in Taurus. This eclipse focuses on:
 
 ## Solar Eclipse in Libra (September 12)
 
-### Astrological Context
+ Astrological Context
 New Moon in Libra with Saturn nearby. This eclipse emphasizes:
 - Long-term relationship foundations
 - Diplomatic and negotiation skills
 - Justice and ethical considerations
 - Partnership stability and commitment
 
-### Global Impact
+ Global Impact
 - Peace negotiations and treaty agreements
 - International cooperation and alliances
 - Legal and constitutional reforms
 - Cultural and artistic collaborations
 
-### Personal Influence
+ Personal Influence
 - Relationship deepening and commitment
 - Career partnerships and collaborations
 - Legal matters and contractual agreements
 - Social status and reputation matters
 
-### Practical Applications
+ Practical Applications
 - Partnership building and networking
 - Legal consultation and planning
 - Diplomatic communication skills
@@ -1137,19 +1137,19 @@ New Moon in Libra with Saturn nearby. This eclipse emphasizes:
 
 ## Eclipse Portal Effects
 
-### Energetic Influence
+ Energetic Influence
 - Time acceleration and rapid change
 - Heightened intuition and psychic awareness
 - Emotional intensity and sensitivity
 - Synchronicity and meaningful coincidences
 
-### Physical Effects
+ Physical Effects
 - Sleep disturbances and vivid dreams
 - Energy fluctuations and fatigue
 - Headaches and dizziness
 - Digestive and nervous system sensitivity
 
-### Psychological Effects
+ Psychological Effects
 - Emotional processing and release
 - Mental clarity and insight
 - Anxiety and uncertainty
@@ -1157,19 +1157,19 @@ New Moon in Libra with Saturn nearby. This eclipse emphasizes:
 
 ## Preparation and Navigation
 
-### Pre-Eclipse Preparation
+ Pre-Eclipse Preparation
 - Cleanse and clear your energy
 - Set clear intentions for transformation
 - Create sacred space for rituals
 - Stock up on self-care supplies
 
-### During Eclipse Period
+ During Eclipse Period
 - Practice grounding and centering
 - Journal insights and revelations
 - Avoid major decisions if possible
 - Focus on self-care and rest
 
-### Post-Eclipse Integration
+ Post-Eclipse Integration
 - Reflect on changes and insights
 - Integrate new awareness and understanding
 - Take inspired action on revelations
@@ -1177,21 +1177,21 @@ New Moon in Libra with Saturn nearby. This eclipse emphasizes:
 
 ## Eclipse Rituals and Practices
 
-### New Moon Solar Eclipse Ritual
+ New Moon Solar Eclipse Ritual
 1. Cleanse your space with sage or palo santo
 2. Create a sacred circle with crystals
 3. Write intentions for new beginnings
 4. Meditate on your highest vision
 5. Release intentions to the universe
 
-### Full Moon Lunar Eclipse Ritual
+ Full Moon Lunar Eclipse Ritual
 1. Create a release ceremony
 2. Write what you're letting go of
 3. Burn or bury the list safely
 4. Bathe in moon water or meditate
 5. Express gratitude for the release
 
-### Eclipse Meditation
+ Eclipse Meditation
 - Visualize the eclipse energy
 - Connect with cosmic wisdom
 - Receive guidance and insights
@@ -1226,65 +1226,65 @@ The eclipses of 2026 offer powerful opportunities for transformation and growth.
 
 ## Mercury Retrograde Cycles 2026
 
-### January 15 - February 8 (Capricorn)
-**Shadow Period**: January 1 - March 1
-**Themes**: Career communication, authority figures, long-term planning
+ January 15 - February 8 (Capricorn)
+Shadow Period: January 1 - March 1
+Themes: Career communication, authority figures, long-term planning
 
-**Effects**:
+Effects:
 - Work-related misunderstandings
 - Authority figure conflicts
 - Career direction confusion
 - Technical and communication breakdowns
 
-**Navigation Tips**:
+Navigation Tips:
 - Double-check work communications
 - Avoid signing contracts
 - Review career goals and plans
 - Backup important data
 
-### May 12 - June 5 (Taurus/Gemini)
-**Shadow Period**: April 28 - June 29
-**Themes**: Financial communication, values clarification, learning processes
+ May 12 - June 5 (Taurus/Gemini)
+Shadow Period: April 28 - June 29
+Themes: Financial communication, values clarification, learning processes
 
-**Effects**:
+Effects:
 - Financial miscommunications
 - Value system reevaluation
 - Learning and education challenges
 - Sibling and neighbor issues
 
-**Navigation Tips**:
+Navigation Tips:
 - Review financial documents carefully
 - Clarify personal values and priorities
 - Be patient with learning processes
 - Communicate clearly with family
 
-### September 8 - October 2 (Virgo/Libra)
-**Shadow Period**: August 24 - October 26
-**Themes**: Health communication, relationship balance, service orientation
+ September 8 - October 2 (Virgo/Libra)
+Shadow Period: August 24 - October 26
+Themes: Health communication, relationship balance, service orientation
 
-**Effects**:
+Effects:
 - Health-related misunderstandings
 - Partnership communication issues
 - Service and duty conflicts
 - Perfectionism and criticism
 
-**Navigation Tips**:
+Navigation Tips:
 - Schedule health check-ups
 - Practice clear relationship communication
 - Focus on service without expectation
 - Balance giving and receiving
 
-### December 25, 2026 - January 18, 2027 (Sagittarius/Capricorn)
-**Shadow Period**: December 11, 2026 - February 11, 2027
-**Themes**: Philosophical communication, career transitions, truth-seeking
+ December 25, 2026 - January 18, 2027 (Sagittarius/Capricorn)
+Shadow Period: December 11, 2026 - February 11, 2027
+Themes: Philosophical communication, career transitions, truth-seeking
 
-**Effects**:
+Effects:
 - Travel and education disruptions
 - Career change complications
 - Truth vs. belief system conflicts
 - International communication issues
 
-**Navigation Tips**:
+Navigation Tips:
 - Postpone non-essential travel
 - Reflect on life purpose and direction
 - Question beliefs and seek truth
@@ -1292,30 +1292,30 @@ The eclipses of 2026 offer powerful opportunities for transformation and growth.
 
 ## Venus Retrograde May 23 - June 17, 2026
 
-### Astrological Context
+ Astrological Context
 Venus retrograde in Gemini, stationing at 23° Gemini and retrograding to 8° Gemini.
 
-**Shadow Period**: April 29 - July 12, 2026
+Shadow Period: April 29 - July 12, 2026
 
-### Relationship Effects
+ Relationship Effects
 - Past relationship resurfacing
 - Current relationship reevaluation
 - Communication patterns in love
 - Value alignment in partnerships
 
-### Financial Effects
+ Financial Effects
 - Spending pattern review
 - Value assessment of possessions
 - Financial decision reconsideration
 - Income and expense reevaluation
 
-### Self-Worth Effects
+ Self-Worth Effects
 - Self-love and acceptance work
 - Beauty and appearance concerns
 - Social value and status review
 - Pleasure and enjoyment patterns
 
-### Navigation Strategies
+ Navigation Strategies
 - Practice self-love rituals
 - Review relationship patterns
 - Assess financial habits
@@ -1323,28 +1323,28 @@ Venus retrograde in Gemini, stationing at 23° Gemini and retrograding to 8° Ge
 
 ## Mars Retrograde November 4, 2026 - January 12, 2027
 
-### Extended Influence Period
+ Extended Influence Period
 Mars retrograde affects motivation, action, and energy from October 2026 through February 2027.
 
-### Personal Effects
+ Personal Effects
 - Energy level fluctuations
 - Motivation challenges
 - Anger and frustration patterns
 - Physical activity changes
 
-### Relationship Effects
+ Relationship Effects
 - Sexual energy dynamics
 - Conflict and assertion patterns
 - Passion and desire fluctuations
 - Independence vs. partnership balance
 
-### Career Effects
+ Career Effects
 - Work motivation and drive
 - Leadership and initiative
 - Competition and rivalry
 - Physical job performance
 
-### Health Effects
+ Health Effects
 - Physical energy and vitality
 - Exercise and activity patterns
 - Recovery and healing processes
@@ -1352,16 +1352,16 @@ Mars retrograde affects motivation, action, and energy from October 2026 through
 
 ## Jupiter Retrograde October 9, 2026 - February 4, 2027
 
-### Growth and Expansion Review
+ Growth and Expansion Review
 Jupiter retrograde in Gemini reviews beliefs, knowledge, and expansion opportunities.
 
-### Effects
+ Effects
 - Philosophical and belief reevaluation
 - Educational and travel plans review
 - Growth opportunity reassessment
 - Optimism and faith fluctuations
 
-### Navigation
+ Navigation
 - Study and learning opportunities
 - Travel planning reconsideration
 - Belief system examination
@@ -1369,16 +1369,16 @@ Jupiter retrograde in Gemini reviews beliefs, knowledge, and expansion opportuni
 
 ## Saturn Retrograde May 29 - November 15, 2026
 
-### Structure and Responsibility Focus
+ Structure and Responsibility Focus
 Saturn retrograde in Pisces reviews boundaries, responsibilities, and life structures.
 
-### Effects
+ Effects
 - Responsibility and duty reassessment
 - Boundary setting and maintenance
 - Life structure evaluation
 - Karma and lesson integration
 
-### Navigation
+ Navigation
 - Structure assessment and rebuilding
 - Responsibility clarification
 - Boundary work and protection
@@ -1386,25 +1386,25 @@ Saturn retrograde in Pisces reviews boundaries, responsibilities, and life struc
 
 ## General Retrograde Navigation Tips
 
-### Communication During Retrogrades
+ Communication During Retrogrades
 - Slow down and think before speaking
 - Use written communication when possible
 - Practice active listening
 - Clarify misunderstandings immediately
 
-### Decision Making
+ Decision Making
 - Avoid major decisions during retrograde
 - Use retrograde for review and planning
 - Trust intuition over logic
 - Wait for direct motion for implementation
 
-### Technology and Travel
+ Technology and Travel
 - Backup data regularly
 - Allow extra time for travel
 - Test technology before important use
 - Have contingency plans
 
-### Emotional Well-being
+ Emotional Well-being
 - Practice self-care and patience
 - Journal feelings and insights
 - Connect with supportive people
@@ -1412,19 +1412,19 @@ Saturn retrograde in Pisces reviews boundaries, responsibilities, and life struc
 
 ## Retrograde Benefits
 
-### Mercury Retrograde Benefits
+ Mercury Retrograde Benefits
 - Problem resolution opportunities
 - Past issue resurfacing for healing
 - Creative problem-solving
 - Internal processing time
 
-### Venus Retrograde Benefits
+ Venus Retrograde Benefits
 - Relationship healing and growth
 - Self-worth development
 - Value clarification
 - Authentic connection building
 
-### Mars Retrograde Benefits
+ Mars Retrograde Benefits
 - Energy conservation and renewal
 - Strategy development
 - Internal motivation building
@@ -1458,65 +1458,65 @@ The retrograde periods of 2026 offer valuable opportunities for review, healing,
 
 ## New Moon Calendar 2026
 
-### January 10 - New Moon in Capricorn
-**Theme**: Foundation and Structure
-**Focus**: Long-term goals, career planning, responsibility
+ January 10 - New Moon in Capricorn
+Theme: Foundation and Structure
+Focus: Long-term goals, career planning, responsibility
 
-### February 9 - New Moon in Aquarius
-**Theme**: Innovation and Community
-**Focus**: Social change, technology, group activities
+ February 9 - New Moon in Aquarius
+Theme: Innovation and Community
+Focus: Social change, technology, group activities
 
-### March 10 - New Moon in Pisces
-**Theme**: Spirituality and Dreams
-**Focus**: Intuition, creativity, compassion
+ March 10 - New Moon in Pisces
+Theme: Spirituality and Dreams
+Focus: Intuition, creativity, compassion
 
-### April 8 - New Moon in Aries
-**Theme**: Action and Initiative
-**Focus**: New beginnings, courage, leadership
+ April 8 - New Moon in Aries
+Theme: Action and Initiative
+Focus: New beginnings, courage, leadership
 
-### May 8 - New Moon in Taurus
-**Theme**: Stability and Sensuality
-**Focus**: Financial security, self-worth, pleasure
+ May 8 - New Moon in Taurus
+Theme: Stability and Sensuality
+Focus: Financial security, self-worth, pleasure
 
-### June 6 - New Moon in Gemini
-**Theme**: Communication and Learning
-**Focus**: Social connections, knowledge, adaptability
+ June 6 - New Moon in Gemini
+Theme: Communication and Learning
+Focus: Social connections, knowledge, adaptability
 
-### July 6 - New Moon in Cancer
-**Theme**: Nurturing and Home
-**Focus**: Family, emotions, security
+ July 6 - New Moon in Cancer
+Theme: Nurturing and Home
+Focus: Family, emotions, security
 
-### August 4 - New Moon in Leo
-**Theme**: Creativity and Self-Expression
-**Focus**: Performance, romance, confidence
+ August 4 - New Moon in Leo
+Theme: Creativity and Self-Expression
+Focus: Performance, romance, confidence
 
-### September 3 - New Moon in Virgo
-**Theme**: Service and Health
-**Focus**: Organization, healing, daily routines
+ September 3 - New Moon in Virgo
+Theme: Service and Health
+Focus: Organization, healing, daily routines
 
-### October 2 - New Moon in Libra
-**Theme**: Balance and Relationships
-**Focus**: Partnerships, harmony, justice
+ October 2 - New Moon in Libra
+Theme: Balance and Relationships
+Focus: Partnerships, harmony, justice
 
-### November 1 - New Moon in Scorpio
-**Theme**: Transformation and Power
-**Focus**: Deep healing, intimacy, rebirth
+ November 1 - New Moon in Scorpio
+Theme: Transformation and Power
+Focus: Deep healing, intimacy, rebirth
 
-### December 1 - New Moon in Sagittarius
-**Theme**: Exploration and Wisdom
-**Focus**: Travel, philosophy, expansion
+ December 1 - New Moon in Sagittarius
+Theme: Exploration and Wisdom
+Focus: Travel, philosophy, expansion
 
 ## Intention-Setting Practice
 
-### Basic New Moon Ritual
-1. **Create Sacred Space**: Cleanse your area with sage, palo santo, or sound
-2. **Center Yourself**: Meditate or breathe deeply to connect with your inner wisdom
-3. **Clarify Intentions**: Write 3-5 clear, positive intentions
-4. **Visualize**: See your intentions as already manifested
-5. **Express Gratitude**: Thank the universe for supporting your desires
-6. **Release**: Let go of attachment to outcomes
+ Basic New Moon Ritual
+1. Create Sacred Space: Cleanse your area with sage, palo santo, or sound
+2. Center Yourself: Meditate or breathe deeply to connect with your inner wisdom
+3. Clarify Intentions: Write 3-5 clear, positive intentions
+4. Visualize: See your intentions as already manifested
+5. Express Gratitude: Thank the universe for supporting your desires
+6. Release: Let go of attachment to outcomes
 
-### Enhanced Ritual Elements
+ Enhanced Ritual Elements
 - Use corresponding crystals and colors
 - Incorporate essential oils and herbs
 - Create vision boards or manifestation art
@@ -1524,159 +1524,159 @@ The retrograde periods of 2026 offer valuable opportunities for review, healing,
 
 ## Sign-Specific Intention Guides
 
-### Aries New Moon (April 8)
-**Focus**: Courageous action, self-leadership, new beginnings
-**Intentions**: "I initiate projects with confidence and passion"
-**Crystals**: Red Jasper, Carnelian
-**Affirmation**: I am bold and courageous in pursuing my dreams
+ Aries New Moon (April 8)
+Focus: Courageous action, self-leadership, new beginnings
+Intentions: "I initiate projects with confidence and passion"
+Crystals: Red Jasper, Carnelian
+Affirmation: I am bold and courageous in pursuing my dreams
 
-### Taurus New Moon (May 8)
-**Focus**: Material security, self-worth, sensual pleasure
-**Intentions**: "I build a stable foundation of abundance"
-**Crystals**: Rose Quartz, Green Aventurine
-**Affirmation**: I am worthy of comfort and pleasure
+ Taurus New Moon (May 8)
+Focus: Material security, self-worth, sensual pleasure
+Intentions: "I build a stable foundation of abundance"
+Crystals: Rose Quartz, Green Aventurine
+Affirmation: I am worthy of comfort and pleasure
 
-### Gemini New Moon (June 6)
-**Focus**: Communication, learning, social connections
-**Intentions**: "I express myself clearly and connect meaningfully"
-**Crystals**: Blue Lace Agate, Citrine
-**Affirmation**: My words create positive change in my life
+ Gemini New Moon (June 6)
+Focus: Communication, learning, social connections
+Intentions: "I express myself clearly and connect meaningfully"
+Crystals: Blue Lace Agate, Citrine
+Affirmation: My words create positive change in my life
 
-### Cancer New Moon (July 6)
-**Focus**: Emotional security, family, nurturing
-**Intentions**: "I create a loving sanctuary for myself and others"
-**Crystals**: Moonstone, Pearl
-**Affirmation**: I nurture myself with love and compassion
+ Cancer New Moon (July 6)
+Focus: Emotional security, family, nurturing
+Intentions: "I create a loving sanctuary for myself and others"
+Crystals: Moonstone, Pearl
+Affirmation: I nurture myself with love and compassion
 
-### Leo New Moon (August 4)
-**Focus**: Self-expression, creativity, leadership
-**Intentions**: "I shine my unique light and inspire others"
-**Crystals**: Sunstone, Tiger's Eye
-**Affirmation**: I express my authentic self with confidence
+ Leo New Moon (August 4)
+Focus: Self-expression, creativity, leadership
+Intentions: "I shine my unique light and inspire others"
+Crystals: Sunstone, Tiger's Eye
+Affirmation: I express my authentic self with confidence
 
-### Virgo New Moon (September 3)
-**Focus**: Health, service, organization
-**Intentions**: "I serve others while maintaining my well-being"
-**Crystals**: Amazonite, Fluorite
-**Affirmation**: I contribute to the world through meaningful service
+ Virgo New Moon (September 3)
+Focus: Health, service, organization
+Intentions: "I serve others while maintaining my well-being"
+Crystals: Amazonite, Fluorite
+Affirmation: I contribute to the world through meaningful service
 
-### Libra New Moon (October 2)
-**Focus**: Balance, relationships, harmony
-**Intentions**: "I create harmony in all my relationships"
-**Crystals**: Lapis Lazuli, Rose Quartz
-**Affirmation**: I attract balanced and loving partnerships
+ Libra New Moon (October 2)
+Focus: Balance, relationships, harmony
+Intentions: "I create harmony in all my relationships"
+Crystals: Lapis Lazuli, Rose Quartz
+Affirmation: I attract balanced and loving partnerships
 
-### Scorpio New Moon (November 1)
-**Focus**: Transformation, intimacy, power
-**Intentions**: "I embrace change and emerge stronger"
-**Crystals**: Obsidian, Garnet
-**Affirmation**: I transform challenges into opportunities for growth
+ Scorpio New Moon (November 1)
+Focus: Transformation, intimacy, power
+Intentions: "I embrace change and emerge stronger"
+Crystals: Obsidian, Garnet
+Affirmation: I transform challenges into opportunities for growth
 
-### Sagittarius New Moon (December 1)
-**Focus**: Exploration, wisdom, optimism
-**Intentions**: "I expand my horizons and embrace new adventures"
-**Crystals**: Turquoise, Amethyst
-**Affirmation**: I trust the journey and welcome new experiences
+ Sagittarius New Moon (December 1)
+Focus: Exploration, wisdom, optimism
+Intentions: "I expand my horizons and embrace new adventures"
+Crystals: Turquoise, Amethyst
+Affirmation: I trust the journey and welcome new experiences
 
-### Capricorn New Moon (January 10)
-**Focus**: Achievement, structure, responsibility
-**Intentions**: "I build lasting success through consistent effort"
-**Crystals**: Garnet, Onyx
-**Affirmation**: I am capable of achieving my long-term goals
+ Capricorn New Moon (January 10)
+Focus: Achievement, structure, responsibility
+Intentions: "I build lasting success through consistent effort"
+Crystals: Garnet, Onyx
+Affirmation: I am capable of achieving my long-term goals
 
-### Aquarius New Moon (February 9)
-**Focus**: Innovation, community, revolution
-**Intentions**: "I contribute to positive change in my community"
-**Crystals**: Aquamarine, Clear Quartz
-**Affirmation**: My unique ideas create positive transformation
+ Aquarius New Moon (February 9)
+Focus: Innovation, community, revolution
+Intentions: "I contribute to positive change in my community"
+Crystals: Aquamarine, Clear Quartz
+Affirmation: My unique ideas create positive transformation
 
-### Pisces New Moon (March 10)
-**Focus**: Spirituality, compassion, creativity
-**Intentions**: "I connect deeply with my spiritual essence"
-**Crystals**: Amethyst, Aquamarine
-**Affirmation**: I trust my intuition and flow with divine guidance
+ Pisces New Moon (March 10)
+Focus: Spirituality, compassion, creativity
+Intentions: "I connect deeply with my spiritual essence"
+Crystals: Amethyst, Aquamarine
+Affirmation: I trust my intuition and flow with divine guidance
 
 ## Lunar Phase Integration
 
-### New Moon Phase (Days 1-3)
+ New Moon Phase (Days 1-3)
 - Setting intentions and planting seeds
 - Beginning new projects and habits
 - Focusing on what you want to create
 
-### Waxing Crescent (Days 4-7)
+ Waxing Crescent (Days 4-7)
 - Building momentum and taking action
 - Gathering resources and information
 - Nurturing your intentions with care
 
-### First Quarter (Days 8-11)
+ First Quarter (Days 8-11)
 - Overcoming obstacles and challenges
 - Making adjustments and course corrections
 - Building strength and determination
 
-### Waxing Gibbous (Days 12-14)
+ Waxing Gibbous (Days 12-14)
 - Refining and perfecting your approach
 - Deepening commitment to your goals
 - Preparing for manifestation
 
 ## Manifestation Timing
 
-### Quick Manifestation (2-4 weeks)
+ Quick Manifestation (2-4 weeks)
 - Health and daily routine changes
 - Small personal improvements
 - Relationship communication
 
-### Medium Manifestation (1-3 months)
+ Medium Manifestation (1-3 months)
 - Career changes and opportunities
 - Financial improvements
 - Relationship developments
 
-### Long-term Manifestation (3-6 months)
+ Long-term Manifestation (3-6 months)
 - Major life changes
 - Spiritual awakenings
 - Large-scale transformations
 
 ## Common Intention Categories
 
-### Abundance & Prosperity
+ Abundance & Prosperity
 - Financial security and wealth
 - Career success and opportunities
 - Material comfort and luxury
 
-### Relationships & Love
+ Relationships & Love
 - Romantic partnerships
 - Family harmony
 - Friendship and social connections
 
-### Health & Wellness
+ Health & Wellness
 - Physical health and vitality
 - Mental and emotional well-being
 - Spiritual growth and healing
 
-### Personal Growth
+ Personal Growth
 - Self-confidence and self-worth
 - Skill development and learning
 - Personal transformation
 
-### Career & Purpose
+ Career & Purpose
 - Professional advancement
 - Life purpose discovery
 - Creative expression
 
 ## Troubleshooting Manifestation
 
-### When Intentions Don't Manifest
+ When Intentions Don't Manifest
 - Check for limiting beliefs
 - Ensure intentions are aligned with values
 - Practice patience and trust
 - Adjust approach based on feedback
 
-### Energy Blocks
+ Energy Blocks
 - Clear negative thought patterns
 - Release attachment to outcomes
 - Practice gratitude and appreciation
 - Connect with supportive community
 
-### Timing Issues
+ Timing Issues
 - Trust divine timing
 - Focus on present moment action
 - Celebrate small wins
@@ -1702,197 +1702,197 @@ New moon intention-setting is a powerful practice for conscious creation and man
 
 ## 2026 Relationship Influences
 
-### Jupiter in Gemini (May 2026 - May 2027)
+ Jupiter in Gemini (May 2026 - May 2027)
 Expands communication and social connections, favoring air sign relationships and intellectual partnerships.
 
-### Venus Retrograde (May-June 2026)
+ Venus Retrograde (May-June 2026)
 Brings relationship review and reevaluation, especially affecting Gemini, Taurus, and Aries partnerships.
 
-### Saturn Square Uranus (Ongoing)
+ Saturn Square Uranus (Ongoing)
 Creates tension between stability and change, challenging traditional relationship structures.
 
-### Eclipse Season Effects
+ Eclipse Season Effects
 Solar and lunar eclipses accelerate relationship changes and bring fated encounters.
 
 ## Fire Sign Compatibility (Aries, Leo, Sagittarius)
 
-### Aries + Leo
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Mutual admiration and shared enthusiasm. Jupiter's fire sign emphasis strengthens their bond.
-**Challenges**: Both can be competitive; learn to take turns leading.
-**Best for**: Adventurous partnerships, creative collaborations.
+ Aries + Leo
+2026 Rating: Excellent (9/10)
+Why it works: Mutual admiration and shared enthusiasm. Jupiter's fire sign emphasis strengthens their bond.
+Challenges: Both can be competitive; learn to take turns leading.
+Best for: Adventurous partnerships, creative collaborations.
 
-### Aries + Sagittarius
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Freedom-loving spirits who respect each other's independence.
-**Challenges**: Both can be impulsive; practice patience.
-**Best for**: Travel partnerships, philosophical discussions.
+ Aries + Sagittarius
+2026 Rating: Excellent (9/10)
+Why it works: Freedom-loving spirits who respect each other's independence.
+Challenges: Both can be impulsive; practice patience.
+Best for: Travel partnerships, philosophical discussions.
 
-### Leo + Sagittarius
-**2026 Rating**: Very Good (8/10)
-**Why it works**: Dramatic Leo and optimistic Sagittarius create exciting dynamics.
-**Challenges**: Leo's need for attention may conflict with Sagittarius' independence.
-**Best for**: Social partnerships, entertainment ventures.
+ Leo + Sagittarius
+2026 Rating: Very Good (8/10)
+Why it works: Dramatic Leo and optimistic Sagittarius create exciting dynamics.
+Challenges: Leo's need for attention may conflict with Sagittarius' independence.
+Best for: Social partnerships, entertainment ventures.
 
-### Aries + Aries
-**2026 Rating**: Good (7/10)
-**Why it works**: Shared energy and motivation.
-**Challenges**: Two strong personalities may clash; both need to compromise.
-**Best for**: Competitive partnerships, physical activities.
+ Aries + Aries
+2026 Rating: Good (7/10)
+Why it works: Shared energy and motivation.
+Challenges: Two strong personalities may clash; both need to compromise.
+Best for: Competitive partnerships, physical activities.
 
 ## Earth Sign Compatibility (Taurus, Virgo, Capricorn)
 
-### Taurus + Virgo
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Practical Taurus and detail-oriented Virgo create stable foundations.
-**Challenges**: Both can be critical; focus on appreciation.
-**Best for**: Long-term commitments, business partnerships.
+ Taurus + Virgo
+2026 Rating: Excellent (9/10)
+Why it works: Practical Taurus and detail-oriented Virgo create stable foundations.
+Challenges: Both can be critical; focus on appreciation.
+Best for: Long-term commitments, business partnerships.
 
-### Taurus + Capricorn
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Shared values of security and achievement.
-**Challenges**: Both can be stubborn; learn flexibility.
-**Best for**: Financial partnerships, family building.
+ Taurus + Capricorn
+2026 Rating: Excellent (9/10)
+Why it works: Shared values of security and achievement.
+Challenges: Both can be stubborn; learn flexibility.
+Best for: Financial partnerships, family building.
 
-### Virgo + Capricorn
-**2026 Rating**: Very Good (8/10)
-**Why it works**: Responsible Virgo and ambitious Capricorn build lasting structures.
-**Challenges**: Virgo's worry may increase Capricorn's stress.
-**Best for**: Professional partnerships, goal-oriented relationships.
+ Virgo + Capricorn
+2026 Rating: Very Good (8/10)
+Why it works: Responsible Virgo and ambitious Capricorn build lasting structures.
+Challenges: Virgo's worry may increase Capricorn's stress.
+Best for: Professional partnerships, goal-oriented relationships.
 
-### Taurus + Taurus
-**2026 Rating**: Good (7/10)
-**Why it works**: Comfortable familiarity and shared values.
-**Challenges**: Both can be resistant to change; embrace growth.
-**Best for**: Stable relationships, sensual connections.
+ Taurus + Taurus
+2026 Rating: Good (7/10)
+Why it works: Comfortable familiarity and shared values.
+Challenges: Both can be resistant to change; embrace growth.
+Best for: Stable relationships, sensual connections.
 
 ## Air Sign Compatibility (Gemini, Libra, Aquarius)
 
-### Gemini + Libra
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Jupiter in Gemini enhances communication, Libra brings harmony.
-**Challenges**: Indecision may occur; practice commitment.
-**Best for**: Intellectual partnerships, social connections.
+ Gemini + Libra
+2026 Rating: Excellent (9/10)
+Why it works: Jupiter in Gemini enhances communication, Libra brings harmony.
+Challenges: Indecision may occur; practice commitment.
+Best for: Intellectual partnerships, social connections.
 
-### Gemini + Aquarius
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Innovative minds and shared humanitarian interests.
-**Challenges**: Both can be detached; cultivate emotional intimacy.
-**Best for**: Progressive partnerships, community work.
+ Gemini + Aquarius
+2026 Rating: Excellent (9/10)
+Why it works: Innovative minds and shared humanitarian interests.
+Challenges: Both can be detached; cultivate emotional intimacy.
+Best for: Progressive partnerships, community work.
 
-### Libra + Aquarius
-**2026 Rating**: Very Good (8/10)
-**Why it works**: Justice-oriented Libra and revolutionary Aquarius.
-**Challenges**: Libra's need for harmony may conflict with Aquarius' detachment.
-**Best for**: Social justice work, creative collaborations.
+ Libra + Aquarius
+2026 Rating: Very Good (8/10)
+Why it works: Justice-oriented Libra and revolutionary Aquarius.
+Challenges: Libra's need for harmony may conflict with Aquarius' detachment.
+Best for: Social justice work, creative collaborations.
 
-### Gemini + Gemini
-**2026 Rating**: Good (7/10)
-**Why it works**: Mental stimulation and adaptability.
-**Challenges**: Lack of emotional depth; both need to open hearts.
-**Best for**: Friendship partnerships, communication work.
+ Gemini + Gemini
+2026 Rating: Good (7/10)
+Why it works: Mental stimulation and adaptability.
+Challenges: Lack of emotional depth; both need to open hearts.
+Best for: Friendship partnerships, communication work.
 
 ## Water Sign Compatibility (Cancer, Scorpio, Pisces)
 
-### Cancer + Scorpio
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Deep emotional connection and intuitive understanding.
-**Challenges**: Intensity may be overwhelming; balance with light activities.
-**Best for**: Soul mate connections, healing partnerships.
+ Cancer + Scorpio
+2026 Rating: Excellent (9/10)
+Why it works: Deep emotional connection and intuitive understanding.
+Challenges: Intensity may be overwhelming; balance with light activities.
+Best for: Soul mate connections, healing partnerships.
 
-### Cancer + Pisces
-**2026 Rating**: Excellent (9/10)
-**Why it works**: Compassionate and nurturing energies.
-**Challenges**: Both sensitive; establish healthy boundaries.
-**Best for**: Spiritual partnerships, creative collaborations.
+ Cancer + Pisces
+2026 Rating: Excellent (9/10)
+Why it works: Compassionate and nurturing energies.
+Challenges: Both sensitive; establish healthy boundaries.
+Best for: Spiritual partnerships, creative collaborations.
 
-### Scorpio + Pisces
-**2026 Rating**: Very Good (8/10)
-**Why it works**: Mystical connection and shared intuition.
-**Challenges**: Both can be escapist; maintain grounding.
-**Best for**: Transformational relationships, spiritual work.
+ Scorpio + Pisces
+2026 Rating: Very Good (8/10)
+Why it works: Mystical connection and shared intuition.
+Challenges: Both can be escapist; maintain grounding.
+Best for: Transformational relationships, spiritual work.
 
-### Cancer + Cancer
-**2026 Rating**: Good (7/10)
-**Why it works**: Emotional understanding and nurturing.
-**Challenges**: Both can be moody; practice clear communication.
-**Best for**: Family building, emotional support.
+ Cancer + Cancer
+2026 Rating: Good (7/10)
+Why it works: Emotional understanding and nurturing.
+Challenges: Both can be moody; practice clear communication.
+Best for: Family building, emotional support.
 
 ## Cross-Element Compatibility
 
-### Fire + Air (Dynamic & Exciting)
-**Best Matches**: Aries-Libra, Leo-Aquarius, Sagittarius-Gemini
-**2026 Influence**: Jupiter in Gemini enhances these connections.
-**Strengths**: Intellectual stimulation, social energy.
-**Challenges**: Air may find Fire overwhelming.
+ Fire + Air (Dynamic & Exciting)
+Best Matches: Aries-Libra, Leo-Aquarius, Sagittarius-Gemini
+2026 Influence: Jupiter in Gemini enhances these connections.
+Strengths: Intellectual stimulation, social energy.
+Challenges: Air may find Fire overwhelming.
 
-### Fire + Earth (Grounded Passion)
-**Best Matches**: Aries-Taurus, Leo-Virgo, Sagittarius-Capricorn
-**2026 Influence**: Taurus new moon strengthens these bonds.
-**Strengths**: Practical action, material success.
-**Challenges**: Different paces may cause friction.
+ Fire + Earth (Grounded Passion)
+Best Matches: Aries-Taurus, Leo-Virgo, Sagittarius-Capricorn
+2026 Influence: Taurus new moon strengthens these bonds.
+Strengths: Practical action, material success.
+Challenges: Different paces may cause friction.
 
-### Fire + Water (Emotional Intensity)
-**Best Matches**: Aries-Scorpio, Leo-Pisces, Sagittarius-Cancer
-**2026 Influence**: Pisces new moon deepens emotional connections.
-**Strengths**: Passionate romance, creative inspiration.
-**Challenges**: Water may extinguish Fire's energy.
+ Fire + Water (Emotional Intensity)
+Best Matches: Aries-Scorpio, Leo-Pisces, Sagittarius-Cancer
+2026 Influence: Pisces new moon deepens emotional connections.
+Strengths: Passionate romance, creative inspiration.
+Challenges: Water may extinguish Fire's energy.
 
-### Air + Earth (Balanced Stability)
-**Best Matches**: Gemini-Virgo, Libra-Capricorn, Aquarius-Taurus
-**2026 Influence**: Venus retrograde tests these foundations.
-**Strengths**: Practical communication, reliable partnerships.
-**Challenges**: Air's changeability vs. Earth's stability.
+ Air + Earth (Balanced Stability)
+Best Matches: Gemini-Virgo, Libra-Capricorn, Aquarius-Taurus
+2026 Influence: Venus retrograde tests these foundations.
+Strengths: Practical communication, reliable partnerships.
+Challenges: Air's changeability vs. Earth's stability.
 
-### Air + Water (Intellectual Emotion)
-**Best Matches**: Gemini-Pisces, Libra-Scorpio, Aquarius-Cancer
-**2026 Influence**: Eclipse season brings transformation.
-**Strengths**: Intuitive communication, creative expression.
-**Challenges**: Different emotional languages.
+ Air + Water (Intellectual Emotion)
+Best Matches: Gemini-Pisces, Libra-Scorpio, Aquarius-Cancer
+2026 Influence: Eclipse season brings transformation.
+Strengths: Intuitive communication, creative expression.
+Challenges: Different emotional languages.
 
-### Earth + Water (Nurturing Security)
-**Best Matches**: Taurus-Cancer, Virgo-Scorpio, Capricorn-Pisces
-**2026 Influence**: Cancer new moon enhances these bonds.
-**Strengths**: Emotional security, practical nurturing.
-**Challenges**: Different approaches to problem-solving.
+ Earth + Water (Nurturing Security)
+Best Matches: Taurus-Cancer, Virgo-Scorpio, Capricorn-Pisces
+2026 Influence: Cancer new moon enhances these bonds.
+Strengths: Emotional security, practical nurturing.
+Challenges: Different approaches to problem-solving.
 
 ## Challenging Combinations 2026
 
-### Aries + Cancer
-**Rating**: Challenging (4/10)
-**Issues**: Aries impulsiveness overwhelms Cancer's sensitivity.
-**Solutions**: Practice patience and emotional awareness.
+ Aries + Cancer
+Rating: Challenging (4/10)
+Issues: Aries impulsiveness overwhelms Cancer's sensitivity.
+Solutions: Practice patience and emotional awareness.
 
-### Leo + Scorpio
-**Rating**: Challenging (4/10)
-**Issues**: Power struggles and jealousy.
-**Solutions**: Focus on mutual respect and individual growth.
+ Leo + Scorpio
+Rating: Challenging (4/10)
+Issues: Power struggles and jealousy.
+Solutions: Focus on mutual respect and individual growth.
 
-### Sagittarius + Virgo
-**Rating**: Challenging (4/10)
-**Issues**: Different life philosophies and approaches.
-**Solutions**: Find common ground in shared activities.
+ Sagittarius + Virgo
+Rating: Challenging (4/10)
+Issues: Different life philosophies and approaches.
+Solutions: Find common ground in shared activities.
 
-### Capricorn + Pisces
-**Rating**: Challenging (4/10)
-**Issues**: Realism vs. idealism conflicts.
-**Solutions**: Balance practical and spiritual approaches.
+ Capricorn + Pisces
+Rating: Challenging (4/10)
+Issues: Realism vs. idealism conflicts.
+Solutions: Balance practical and spiritual approaches.
 
 ## Soul Mate Indicators 2026
 
-### Synastry Aspects
+ Synastry Aspects
 - Strong Venus-Mars connections
 - Harmonious Sun-Moon aspects
 - Compatible rising signs
 - Beneficial Jupiter aspects
 
-### Composite Chart Factors
+ Composite Chart Factors
 - Strong 7th house emphasis
 - Positive Venus placement
 - Harmonious Saturn aspects
 - Beneficial outer planet connections
 
-### Timing Factors
+ Timing Factors
 - Eclipse season encounters
 - Venus retrograde meetings
 - Jupiter transit blessings
@@ -1900,19 +1900,19 @@ Solar and lunar eclipses accelerate relationship changes and bring fated encount
 
 ## Relationship Transits 2026
 
-### Venus Transit Effects
+ Venus Transit Effects
 - Love opportunities during direct motion
 - Relationship review during retrograde
 - Value alignment during Taurus season
 - Social expansion during Gemini season
 
-### Mars Transit Effects
+ Mars Transit Effects
 - Passionate beginnings in Aries
 - Sexual dynamics in Scorpio
 - Action in relationships during direct motion
 - Motivation review during retrograde
 
-### Jupiter Expansion
+ Jupiter Expansion
 - Relationship growth and opportunities
 - Social circle expansion
 - Philosophical alignment in partnerships
@@ -1920,25 +1920,25 @@ Solar and lunar eclipses accelerate relationship changes and bring fated encount
 
 ## Compatibility Improvement Tips
 
-### Communication Enhancement
+ Communication Enhancement
 - Practice active listening
 - Express needs clearly
 - Use "I" statements
 - Schedule regular check-ins
 
-### Conflict Resolution
+ Conflict Resolution
 - Take time-outs when needed
 - Focus on solutions, not blame
 - Practice compromise
 - Seek professional help when needed
 
-### Growth Together
+ Growth Together
 - Share spiritual practices
 - Support individual goals
 - Create shared rituals
 - Celebrate achievements
 
-### Energy Alignment
+ Energy Alignment
 - Balance giving and receiving
 - Respect personal space
 - Honor individual rhythms
@@ -1964,21 +1964,21 @@ Solar and lunar eclipses accelerate relationship changes and bring fated encount
 
 ## Major Career Transits 2026
 
-### Saturn Square Uranus (February - November)
+ Saturn Square Uranus (February - November)
 This challenging aspect brings workplace revolution and career restructuring:
 - Traditional job structures dissolving
 - Remote work normalization
 - Technology integration in all industries
 - Entrepreneurial opportunities emerging
 
-### Jupiter in Gemini (May 2026 - May 2027)
+ Jupiter in Gemini (May 2026 - May 2027)
 Expands communication and technology sectors:
 - Media and publishing growth
 - Education and training opportunities
 - Social media and digital marketing boom
 - International business expansion
 
-### Mars Retrograde (November 2026 - January 2027)
+ Mars Retrograde (November 2026 - January 2027)
 Affects motivation and workplace dynamics:
 - Energy fluctuations in professional life
 - Leadership style reviews
@@ -1987,181 +1987,181 @@ Affects motivation and workplace dynamics:
 
 ## Industry-Specific Predictions
 
-### Technology & Innovation
-**Influences**: Uranus in Taurus, Jupiter in Gemini
-**Predictions**: AI integration accelerates, quantum computing breakthroughs, blockchain applications expand
-**Career Opportunities**: Tech entrepreneurs, AI specialists, quantum engineers
+ Technology & Innovation
+Influences: Uranus in Taurus, Jupiter in Gemini
+Predictions: AI integration accelerates, quantum computing breakthroughs, blockchain applications expand
+Career Opportunities: Tech entrepreneurs, AI specialists, quantum engineers
 
-### Healthcare & Wellness
-**Influences**: Virgo emphasis, Jupiter expansion
-**Predictions**: Holistic medicine integration, mental health focus, personalized medicine advances
-**Career Opportunities**: Wellness coaches, integrative practitioners, health tech developers
+ Healthcare & Wellness
+Influences: Virgo emphasis, Jupiter expansion
+Predictions: Holistic medicine integration, mental health focus, personalized medicine advances
+Career Opportunities: Wellness coaches, integrative practitioners, health tech developers
 
-### Finance & Business
-**Influences**: Taurus new moon, Saturn structure
-**Predictions**: Sustainable finance growth, cryptocurrency regulation, ethical business models
-**Career Opportunities**: ESG specialists, crypto analysts, impact investors
+ Finance & Business
+Influences: Taurus new moon, Saturn structure
+Predictions: Sustainable finance growth, cryptocurrency regulation, ethical business models
+Career Opportunities: ESG specialists, crypto analysts, impact investors
 
-### Creative Industries
-**Influences**: Leo new moon, Neptune inspiration
-**Predictions**: Digital art revolution, immersive entertainment, creative AI collaboration
-**Career Opportunities**: Digital artists, content creators, experience designers
+ Creative Industries
+Influences: Leo new moon, Neptune inspiration
+Predictions: Digital art revolution, immersive entertainment, creative AI collaboration
+Career Opportunities: Digital artists, content creators, experience designers
 
-### Education & Learning
-**Influences**: Gemini Jupiter, Sagittarius expansion
-**Predictions**: Online learning platforms, lifelong education, skill-based training
-**Career Opportunities**: EdTech innovators, learning experience designers, skill coaches
+ Education & Learning
+Influences: Gemini Jupiter, Sagittarius expansion
+Predictions: Online learning platforms, lifelong education, skill-based training
+Career Opportunities: EdTech innovators, learning experience designers, skill coaches
 
 ## Zodiac Career Predictions 2026
 
-### Aries (March 21 - April 19)
-**Focus**: Leadership and initiative
-**Opportunities**: Entrepreneurial ventures, military/government roles, emergency services
-**Challenges**: Impulsiveness in career decisions
-**Advice**: Channel energy into structured leadership roles
+ Aries (March 21 - April 19)
+Focus: Leadership and initiative
+Opportunities: Entrepreneurial ventures, military/government roles, emergency services
+Challenges: Impulsiveness in career decisions
+Advice: Channel energy into structured leadership roles
 
-### Taurus (April 20 - May 20)
-**Focus**: Financial stability and luxury
-**Opportunities**: Banking, real estate, luxury goods, agriculture
-**Challenges**: Resistance to workplace changes
-**Advice**: Embrace technological innovations in traditional fields
+ Taurus (April 20 - May 20)
+Focus: Financial stability and luxury
+Opportunities: Banking, real estate, luxury goods, agriculture
+Challenges: Resistance to workplace changes
+Advice: Embrace technological innovations in traditional fields
 
-### Gemini (May 21 - June 20)
-**Focus**: Communication and adaptability
-**Opportunities**: Media, education, technology, consulting
-**Challenges**: Scattered focus during Mercury retrogrades
-**Advice**: Leverage Jupiter's transit for professional expansion
+ Gemini (May 21 - June 20)
+Focus: Communication and adaptability
+Opportunities: Media, education, technology, consulting
+Challenges: Scattered focus during Mercury retrogrades
+Advice: Leverage Jupiter's transit for professional expansion
 
-### Cancer (June 21 - July 22)
-**Focus**: Nurturing and care
-**Opportunities**: Healthcare, education, real estate, hospitality
-**Challenges**: Work-life balance issues
-**Advice**: Create supportive work environments
+ Cancer (June 21 - July 22)
+Focus: Nurturing and care
+Opportunities: Healthcare, education, real estate, hospitality
+Challenges: Work-life balance issues
+Advice: Create supportive work environments
 
-### Leo (July 23 - August 22)
-**Focus**: Creativity and leadership
-**Opportunities**: Entertainment, management, politics, luxury services
-**Challenges**: Need for recognition and praise
-**Advice**: Focus on collaborative leadership
+ Leo (July 23 - August 22)
+Focus: Creativity and leadership
+Opportunities: Entertainment, management, politics, luxury services
+Challenges: Need for recognition and praise
+Advice: Focus on collaborative leadership
 
-### Virgo (August 23 - September 22)
-**Focus**: Service and organization
-**Opportunities**: Healthcare, research, administration, wellness
-**Challenges**: Perfectionism and burnout
-**Advice**: Delegate and trust team members
+ Virgo (August 23 - September 22)
+Focus: Service and organization
+Opportunities: Healthcare, research, administration, wellness
+Challenges: Perfectionism and burnout
+Advice: Delegate and trust team members
 
-### Libra (September 23 - October 22)
-**Focus**: Harmony and relationships
-**Opportunities**: Law, counseling, design, diplomacy
-**Challenges**: Indecision in career choices
-**Advice**: Use Libra new moon for career clarity
+ Libra (September 23 - October 22)
+Focus: Harmony and relationships
+Opportunities: Law, counseling, design, diplomacy
+Challenges: Indecision in career choices
+Advice: Use Libra new moon for career clarity
 
-### Scorpio (October 23 - November 21)
-**Focus**: Transformation and research
-**Opportunities**: Psychology, investigation, finance, healing
-**Challenges**: Trust issues in workplace
-**Advice**: Embrace Scorpio new moon for career rebirth
+ Scorpio (October 23 - November 21)
+Focus: Transformation and research
+Opportunities: Psychology, investigation, finance, healing
+Challenges: Trust issues in workplace
+Advice: Embrace Scorpio new moon for career rebirth
 
-### Sagittarius (November 22 - December 21)
-**Focus**: Exploration and wisdom
-**Opportunities**: Travel, education, publishing, international business
-**Challenges**: Commitment to routine work
-**Advice**: Find meaning and purpose in career choices
+ Sagittarius (November 22 - December 21)
+Focus: Exploration and wisdom
+Opportunities: Travel, education, publishing, international business
+Challenges: Commitment to routine work
+Advice: Find meaning and purpose in career choices
 
-### Capricorn (December 22 - January 19)
-**Focus**: Achievement and structure
-**Opportunities**: Government, management, construction, finance
-**Challenges**: Workaholic tendencies
-**Advice**: Balance ambition with self-care
+ Capricorn (December 22 - January 19)
+Focus: Achievement and structure
+Opportunities: Government, management, construction, finance
+Challenges: Workaholic tendencies
+Advice: Balance ambition with self-care
 
-### Aquarius (January 20 - February 18)
-**Focus**: Innovation and community
-**Opportunities**: Technology, science, social work, invention
-**Challenges**: Workplace conformity
-**Advice**: Lead progressive change initiatives
+ Aquarius (January 20 - February 18)
+Focus: Innovation and community
+Opportunities: Technology, science, social work, invention
+Challenges: Workplace conformity
+Advice: Lead progressive change initiatives
 
-### Pisces (February 19 - March 20)
-**Focus**: Compassion and creativity
-**Opportunities**: Arts, healing, spirituality, charity work
-**Challenges**: Boundaries in helping professions
-**Advice**: Ground intuitive insights in practical applications
+ Pisces (February 19 - March 20)
+Focus: Compassion and creativity
+Opportunities: Arts, healing, spirituality, charity work
+Challenges: Boundaries in helping professions
+Advice: Ground intuitive insights in practical applications
 
 ## Career Change Indicators 2026
 
-### Eclipse Influences
+ Eclipse Influences
 - Solar eclipses bring new career directions
 - Lunar eclipses complete career chapters
 - Aries-Libra eclipses affect leadership and partnerships
 
-### Retrograde Effects
+ Retrograde Effects
 - Mercury retrograde: Communication career reviews
 - Venus retrograde: Value alignment in work
 - Mars retrograde: Motivation and drive reassessment
 
-### Planetary Returns
+ Planetary Returns
 - Saturn return: Career structure evaluation
 - Jupiter return: Professional expansion opportunities
 - Uranus opposition: Career liberation and change
 
 ## Workplace Transformation Trends
 
-### Remote Work Evolution
+ Remote Work Evolution
 - Hybrid models become standard
 - Digital nomad opportunities increase
 - Location-independent careers grow
 
-### AI Integration
+ AI Integration
 - Routine task automation
 - Enhanced creative collaboration
 - New job categories emerge
 
-### Conscious Business
+ Conscious Business
 - Purpose-driven companies thrive
 - Employee wellness prioritized
 - Ethical practices rewarded
 
-### Skill Development
+ Skill Development
 - Lifelong learning becomes essential
 - Soft skills gain importance
 - Cross-disciplinary expertise valued
 
 ## Success Strategies 2026
 
-### Timing Career Moves
+ Timing Career Moves
 - Plan major changes during direct motion
 - Use retrogrades for internal preparation
 - Align with favorable transits
 
-### Building Resilience
+ Building Resilience
 - Develop adaptability skills
 - Cultivate emotional intelligence
 - Build supportive professional networks
 
-### Maximizing Opportunities
+ Maximizing Opportunities
 - Stay current with industry trends
 - Invest in continuous learning
 - Network strategically
 
-### Work-Life Integration
+ Work-Life Integration
 - Set healthy boundaries
 - Prioritize well-being
 - Create meaningful work
 
 ## Economic Astrology Predictions
 
-### Global Economy
+ Global Economy
 - Sustainable development focus
 - Technology sector growth
 - Healthcare industry expansion
 - Creative economy boom
 
-### Market Cycles
+ Market Cycles
 - Bull markets in technology and green energy
 - Corrections in traditional industries
 - Cryptocurrency stabilization
 - Real estate market fluctuations
 
-### Employment Trends
+ Employment Trends
 - Gig economy maturation
 - Remote work normalization
 - Skill-based hiring emphasis
@@ -2187,135 +2187,135 @@ Affects motivation and workplace dynamics:
 
 ## Major Health Transits 2026
 
-### Virgo New Moon Emphasis (September)
+ Virgo New Moon Emphasis (September)
 Brings focus on health routines, digestive wellness, and service-oriented healing practices.
 
-### Pisces New Moon Spiritual Health (March)
+ Pisces New Moon Spiritual Health (March)
 Enhances intuition, dream work, and spiritual healing modalities.
 
-### Cancer New Moon Emotional Wellness (July)
+ Cancer New Moon Emotional Wellness (July)
 Strengthens emotional health, family healing, and nurturing self-care practices.
 
-### Scorpio New Moon Transformation (November)
+ Scorpio New Moon Transformation (November)
 Supports deep healing, cellular regeneration, and transformative wellness practices.
 
 ## Planetary Health Influences
 
-### Jupiter in Gemini (May 2026 - May 2027)
-**Health Focus**: Respiratory system, nervous system, communication-related health
-**Benefits**: Expanded healing knowledge, educational wellness resources
-**Practices**: Breathing exercises, learning new wellness modalities
+ Jupiter in Gemini (May 2026 - May 2027)
+Health Focus: Respiratory system, nervous system, communication-related health
+Benefits: Expanded healing knowledge, educational wellness resources
+Practices: Breathing exercises, learning new wellness modalities
 
-### Saturn in Pisces (2026)
-**Health Focus**: Boundaries, spiritual health, chronic condition management
-**Benefits**: Structured healing routines, long-term wellness planning
-**Practices**: Regular spiritual practices, boundary-setting in health
+ Saturn in Pisces (2026)
+Health Focus: Boundaries, spiritual health, chronic condition management
+Benefits: Structured healing routines, long-term wellness planning
+Practices: Regular spiritual practices, boundary-setting in health
 
-### Uranus in Taurus (2026)
-**Health Focus**: Nervous system, dietary innovations, body technology
-**Benefits**: Revolutionary healing methods, biohacking opportunities
-**Practices**: Technology-assisted wellness, innovative nutrition
+ Uranus in Taurus (2026)
+Health Focus: Nervous system, dietary innovations, body technology
+Benefits: Revolutionary healing methods, biohacking opportunities
+Practices: Technology-assisted wellness, innovative nutrition
 
-### Neptune in Aries (2026)
-**Health Focus**: Energy healing, mystical wellness, immune system
-**Benefits**: Spiritual healing integration, intuitive health guidance
-**Practices**: Energy work, meditation, intuitive eating
+ Neptune in Aries (2026)
+Health Focus: Energy healing, mystical wellness, immune system
+Benefits: Spiritual healing integration, intuitive health guidance
+Practices: Energy work, meditation, intuitive eating
 
 ## Zodiac Health Predictions 2026
 
-### Aries (March 21 - April 19)
-**Focus Areas**: Head, eyes, muscles, energy levels
-**2026 Challenges**: Headaches, impulsiveness affecting health
-**Wellness Practices**: Grounding exercises, regular physical activity
-**Recommended**: Martial arts, competitive sports, leadership in health
+ Aries (March 21 - April 19)
+Focus Areas: Head, eyes, muscles, energy levels
+2026 Challenges: Headaches, impulsiveness affecting health
+Wellness Practices: Grounding exercises, regular physical activity
+Recommended: Martial arts, competitive sports, leadership in health
 
-### Taurus (April 20 - May 20)
-**Focus Areas**: Throat, neck, thyroid, sensual health
-**2026 Challenges**: Stubbornness in health routines
-**Wellness Practices**: Sensual healing, nature connection
-**Recommended**: Singing, massage therapy, luxury wellness
+ Taurus (April 20 - May 20)
+Focus Areas: Throat, neck, thyroid, sensual health
+2026 Challenges: Stubbornness in health routines
+Wellness Practices: Sensual healing, nature connection
+Recommended: Singing, massage therapy, luxury wellness
 
-### Gemini (May 21 - June 20)
-**Focus Areas**: Lungs, nervous system, arms, hands
-**2026 Challenges**: Anxiety, scattered energy
-**Wellness Practices**: Breathing exercises, journaling
-**Recommended**: Yoga, writing therapy, social wellness
+ Gemini (May 21 - June 20)
+Focus Areas: Lungs, nervous system, arms, hands
+2026 Challenges: Anxiety, scattered energy
+Wellness Practices: Breathing exercises, journaling
+Recommended: Yoga, writing therapy, social wellness
 
-### Cancer (June 21 - July 22)
-**Focus Areas**: Stomach, breasts, emotional health
-**2026 Challenges**: Mood swings, digestive sensitivity
-**Wellness Practices**: Emotional processing, nurturing self-care
-**Recommended**: Water therapy, family healing work
+ Cancer (June 21 - July 22)
+Focus Areas: Stomach, breasts, emotional health
+2026 Challenges: Mood swings, digestive sensitivity
+Wellness Practices: Emotional processing, nurturing self-care
+Recommended: Water therapy, family healing work
 
-### Leo (July 23 - August 22)
-**Focus Areas**: Heart, back, creative energy
-**2026 Challenges**: Pride affecting health decisions
-**Wellness Practices**: Heart chakra work, creative expression
-**Recommended**: Dance therapy, performance arts healing
+ Leo (July 23 - August 22)
+Focus Areas: Heart, back, creative energy
+2026 Challenges: Pride affecting health decisions
+Wellness Practices: Heart chakra work, creative expression
+Recommended: Dance therapy, performance arts healing
 
-### Virgo (August 23 - September 22)
-**Focus Areas**: Digestive system, nervous system, daily routines
-**2026 Challenges**: Perfectionism, critical self-talk
-**Wellness Practices**: Routine establishment, self-compassion
-**Recommended**: Herbal medicine, detailed wellness planning
+ Virgo (August 23 - September 22)
+Focus Areas: Digestive system, nervous system, daily routines
+2026 Challenges: Perfectionism, critical self-talk
+Wellness Practices: Routine establishment, self-compassion
+Recommended: Herbal medicine, detailed wellness planning
 
-### Libra (September 23 - October 22)
-**Focus Areas**: Kidneys, lower back, relationship health
-**2026 Challenges**: Indecision in health choices
-**Wellness Practices**: Partnership healing, balance practices
-**Recommended**: Couples therapy, harmony-focused wellness
+ Libra (September 23 - October 22)
+Focus Areas: Kidneys, lower back, relationship health
+2026 Challenges: Indecision in health choices
+Wellness Practices: Partnership healing, balance practices
+Recommended: Couples therapy, harmony-focused wellness
 
-### Scorpio (October 23 - November 21)
-**Focus Areas**: Reproductive system, transformation, deep healing
-**2026 Challenges**: Intensity in health crises
-**Wellness Practices**: Shadow work, regenerative practices
-**Recommended**: Psychotherapy, energy healing, detoxification
+ Scorpio (October 23 - November 21)
+Focus Areas: Reproductive system, transformation, deep healing
+2026 Challenges: Intensity in health crises
+Wellness Practices: Shadow work, regenerative practices
+Recommended: Psychotherapy, energy healing, detoxification
 
-### Sagittarius (November 22 - December 21)
-**Focus Areas**: Liver, hips, philosophical health
-**2026 Challenges**: Excess, lack of routine
-**Wellness Practices**: Adventure wellness, meaning-making
-**Recommended**: Outdoor activities, philosophical healing
+ Sagittarius (November 22 - December 21)
+Focus Areas: Liver, hips, philosophical health
+2026 Challenges: Excess, lack of routine
+Wellness Practices: Adventure wellness, meaning-making
+Recommended: Outdoor activities, philosophical healing
 
-### Capricorn (December 22 - January 19)
-**Focus Areas**: Bones, joints, structural health, longevity
-**2026 Challenges**: Workaholic health neglect
-**Wellness Practices**: Long-term planning, structural alignment
-**Recommended**: Osteopathy, career-health balance
+ Capricorn (December 22 - January 19)
+Focus Areas: Bones, joints, structural health, longevity
+2026 Challenges: Workaholic health neglect
+Wellness Practices: Long-term planning, structural alignment
+Recommended: Osteopathy, career-health balance
 
-### Aquarius (January 20 - February 18)
-**Focus Areas**: Circulatory system, innovation in health
-**2026 Challenges**: Detachment from body
-**Wellness Practices**: Community wellness, technological health
-**Recommended**: Group healing, biohacking, progressive medicine
+ Aquarius (January 20 - February 18)
+Focus Areas: Circulatory system, innovation in health
+2026 Challenges: Detachment from body
+Wellness Practices: Community wellness, technological health
+Recommended: Group healing, biohacking, progressive medicine
 
-### Pisces (February 19 - March 20)
-**Focus Areas**: Feet, immune system, spiritual health
-**2026 Challenges**: Boundary issues, escapism
-**Wellness Practices**: Grounding, spiritual healing
-**Recommended**: Reiki, dream work, compassionate care
+ Pisces (February 19 - March 20)
+Focus Areas: Feet, immune system, spiritual health
+2026 Challenges: Boundary issues, escapism
+Wellness Practices: Grounding, spiritual healing
+Recommended: Reiki, dream work, compassionate care
 
 ## Seasonal Wellness Focus
 
-### Spring (March-May): Renewal
+ Spring (March-May): Renewal
 - Detoxification and cleansing
 - New exercise routines
 - Fresh nutrition plans
 - Energy awakening practices
 
-### Summer (June-August): Vitality
+ Summer (June-August): Vitality
 - Outdoor activities and nature connection
 - Social wellness and community
 - Creative health expression
 - Peak physical energy
 
-### Fall (September-November): Grounding
+ Fall (September-November): Grounding
 - Routine establishment
 - Immune system support
 - Emotional processing
 - Harvest and gratitude practices
 
-### Winter (December-February): Restoration
+ Winter (December-February): Restoration
 - Rest and recovery focus
 - Inner work and reflection
 - Warm, nourishing practices
@@ -2323,25 +2323,25 @@ Supports deep healing, cellular regeneration, and transformative wellness practi
 
 ## Holistic Healing Modalities 2026
 
-### Energy Healing
+ Energy Healing
 - Reiki and therapeutic touch
 - Crystal healing and gemstone therapy
 - Sound healing and vibration therapy
 - Light therapy and color healing
 
-### Mind-Body Practices
+ Mind-Body Practices
 - Meditation and mindfulness
 - Yoga and movement therapy
 - Breathwork and pranayama
 - Tai chi and qigong
 
-### Natural Therapies
+ Natural Therapies
 - Herbal medicine and aromatherapy
 - Nutritional therapy and superfoods
 - Hydrotherapy and water healing
 - Nature-based healing
 
-### Technological Wellness
+ Technological Wellness
 - Biohacking and wearable tech
 - AI-assisted health monitoring
 - Virtual reality therapy
@@ -2349,19 +2349,19 @@ Supports deep healing, cellular regeneration, and transformative wellness practi
 
 ## Emotional Health Focus
 
-### Processing Emotions
+ Processing Emotions
 - Journaling and emotional release
 - Therapy and counseling
 - Support groups and community
 - Creative emotional expression
 
-### Mental Wellness
+ Mental Wellness
 - Mindfulness practices
 - Cognitive behavioral techniques
 - Stress management tools
 - Sleep hygiene practices
 
-### Spiritual Health
+ Spiritual Health
 - Meditation and contemplation
 - Prayer and intention setting
 - Nature connection practices
@@ -2369,19 +2369,19 @@ Supports deep healing, cellular regeneration, and transformative wellness practi
 
 ## Preventive Health Strategies
 
-### Daily Practices
+ Daily Practices
 - Morning wellness routines
 - Nutritional awareness
 - Movement integration
 - Rest and recovery
 
-### Weekly Planning
+ Weekly Planning
 - Health goal setting
 - Appointment scheduling
 - Social wellness time
 - Reflection and adjustment
 
-### Monthly Reviews
+ Monthly Reviews
 - Progress assessment
 - Routine refinement
 - New practice integration
@@ -2389,19 +2389,19 @@ Supports deep healing, cellular regeneration, and transformative wellness practi
 
 ## Crisis Health Management
 
-### Acute Illness
+ Acute Illness
 - Rest and recovery focus
 - Support system activation
 - Gentle healing practices
 - Professional medical care
 
-### Chronic Conditions
+ Chronic Conditions
 - Holistic management approaches
 - Lifestyle modification
 - Emotional support work
 - Regular monitoring
 
-### Mental Health Challenges
+ Mental Health Challenges
 - Professional therapy
 - Medication management
 - Support network building
@@ -2409,13 +2409,13 @@ Supports deep healing, cellular regeneration, and transformative wellness practi
 
 ## Community and Global Health
 
-### Collective Healing
+ Collective Healing
 - Group meditation and prayer
 - Community wellness events
 - Environmental health activism
 - Global healing intentions
 
-### Planetary Health
+ Planetary Health
 - Earth connection practices
 - Seasonal living alignment
 - Sustainable wellness choices

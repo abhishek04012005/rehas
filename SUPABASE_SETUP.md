@@ -4,7 +4,7 @@ This document contains the SQL commands to set up the database tables for the RE
 
 ## Tables to Create
 
-### 1. Settings Table
+ 1. Settings Table
 Run the following SQL in your Supabase SQL Editor:
 
 ```sql
@@ -36,7 +36,7 @@ CREATE TRIGGER update_settings_updated_at
     EXECUTE FUNCTION update_updated_at_column();
 ```
 
-### 2. Other Tables
+ 2. Other Tables
 Make sure you have already created the other required tables:
 - `orders`
 - `contact_submissions`

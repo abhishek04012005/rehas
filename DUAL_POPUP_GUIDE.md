@@ -11,7 +11,7 @@ Both can be enabled/disabled independently through the admin settings panel.
 
 ## 📋 Database Setup
 
-### Step 1: Update Settings Table
+ Step 1: Update Settings Table
 Run the following SQL in your Supabase SQL Editor:
 
 ```sql
@@ -35,7 +35,7 @@ WHERE show_enquiry_popup IS NULL;
 
 ## 🎨 Components Created
 
-### 1. FreeProgramsPopup Component
+ 1. FreeProgramsPopup Component
 **Location**: `src/components/freeProgramsPopup/`
 
 Features:
@@ -48,7 +48,7 @@ Features:
 - Fully responsive
 - Customizable title
 
-### 2. Updated AutoEnquiryPopup Component
+ 2. Updated AutoEnquiryPopup Component
 **Location**: `src/components/autoEnquiryPopup/autoEnquiryPopup.tsx`
 
 Logic:
@@ -58,7 +58,7 @@ Logic:
 - Session storage prevents repeated displays
 - Smart error handling with safe defaults
 
-### 3. Enhanced Settings Dashboard
+ 3. Enhanced Settings Dashboard
 **Location**: `src/admin/settingsDashboard/`
 
 New Controls:
@@ -71,12 +71,12 @@ New Controls:
 
 ## 🔧 Admin Settings
 
-### Access Settings Panel
+ Access Settings Panel
 1. Login to `/admin/login`
 2. Navigate to `/admin/settings`
 3. Scroll to "Popup Settings"
 
-### Configuration Options
+ Configuration Options
 
 | Setting | Type | Default | Purpose |
 |---------|------|---------|---------|
@@ -85,7 +85,7 @@ New Controls:
 | Show Free Programs Popup | Toggle | ON | Display free programs popup |
 | Free Programs Title | Text | "FREE Programs" | Popup title customization |
 
-### Popup Priority Logic
+ Popup Priority Logic
 When both popups are enabled:
 - **Free Programs popup** shows first
 - User can click "Enquiry Now" to open enquiry form
@@ -95,7 +95,7 @@ When both popups are enabled:
 
 ## 📱 Popup Behavior
 
-### Timeline
+ Timeline
 1. **Page Load**: Settings fetched from database
 2. **After 3 seconds**: Popup appears (if enabled)
 3. **Session Storage**: Popup marked as shown in current session
@@ -104,7 +104,7 @@ When both popups are enabled:
    - Click "Enquiry Now" (only in Free Programs popup)
    - Interact with enquiry form if it opens
 
-### Fallback Behavior
+ Fallback Behavior
 If database is unavailable:
 - Both popups enabled by default (safe fallback)
 - Warning logged to console
@@ -114,27 +114,27 @@ If database is unavailable:
 
 ## 📝 Customization Examples
 
-### Scenario 1: Only Show Enquiry Popup
+ Scenario 1: Only Show Enquiry Popup
 Settings:
 - Show Enquiry Popup: **ON**
 - Show Free Programs Popup: **OFF**
 
 Result: Only enquiry form popup appears
 
-### Scenario 2: Only Show Free Programs
+ Scenario 2: Only Show Free Programs
 Settings:
 - Show Enquiry Popup: **OFF**
 - Show Free Programs Popup: **ON**
 
 Result: Only free programs popup appears with "Enquiry Now" button
 
-### Scenario 3: Custom Title
+ Scenario 3: Custom Title
 Settings:
 - Free Programs Title: **"Join Our FREE Wellness Programs"**
 
 Result: Popup displays custom title instead of default
 
-### Scenario 4: Disable All Popups
+ Scenario 4: Disable All Popups
 Settings:
 - Enable Popups: **OFF**
 
@@ -144,7 +144,7 @@ Result: No popups appear (all disabled)
 
 ## 🎯 Free Programs Popup Content
 
-### Program Cards
+ Program Cards
 Each card displays:
 - **Icon** (emoji)
 - **Program Name**
@@ -153,7 +153,7 @@ Each card displays:
 - **Description**
 - **FREE Badge**
 
-### Programs Included
+ Programs Included
 1. **YOGA Practice Session**
    - Schedule: Monday to Friday
    - Time: 5:00 AM - 6:00 AM
@@ -170,16 +170,16 @@ Each card displays:
 
 ## 💡 Integration Points
 
-### Homepage
+ Homepage
 - `src/app/layout.tsx` includes `<AutoEnquiryPopup />`
 - Automatically fires on all pages via layout
 
-### Admin Dashboard
+ Admin Dashboard
 - Access via `/admin/settings`
 - Edit popup settings in real-time
 - Changes saved to `settings` table
 
-### Supabase
+ Supabase
 - Settings stored in `settings` table
 - Auto-syncs to frontend on page load
 
@@ -202,7 +202,7 @@ Each card displays:
 
 ## 🔌 API Endpoints
 
-### Popup Display Logic
+ Popup Display Logic
 - **Endpoint**: Supabase `settings` table
 - **Columns Used**:
   - `popup_enabled` (boolean)
@@ -214,12 +214,12 @@ Each card displays:
 
 ## 📦 Files Modified/Created
 
-### Created
+ Created
 - `src/components/freeProgramsPopup/freeProgramsPopup.tsx`
 - `src/components/freeProgramsPopup/freeProgramsPopup.module.css`
 - `src/components/freeProgramsPopup/index.ts`
 
-### Modified
+ Modified
 - `src/components/autoEnquiryPopup/autoEnquiryPopup.tsx`
 - `src/admin/settingsDashboard/settingsDashboard.tsx`
 - `src/admin/settingsDashboard/settingsDashboard.module.css`
@@ -257,22 +257,22 @@ Each card displays:
 
 ## 🆘 Troubleshooting
 
-### Popup not appearing
+ Popup not appearing
 - Check `popup_enabled` is true
 - Check browser console for errors
 - Verify database connection
 - Session storage might block it (refresh browser)
 
-### Wrong popup showing
+ Wrong popup showing
 - Check `show_enquiry_popup` and `show_free_programs_popup` toggles
 - Free Programs takes priority if both enabled
 
-### Settings not saving
+ Settings not saving
 - Check Supabase table has all columns
 - Verify admin session is valid
 - Check browser console for errors
 
-### "Settings table does not exist" error
+ "Settings table does not exist" error
 - Run SQL setup from `SUPABASE_SETUP.md`
 - Ensure Supabase project is initialized
 
