@@ -62,6 +62,9 @@ export default function AdminNavbar() {
                     <a href="/admin/enquiries" className={`${styles.navLink} ${activeRoute === '/admin/enquiries' ? styles.active : ''}`}>
                         Enquiries
                     </a>
+                    <a href="/admin/settings" className={`${styles.navLink} ${activeRoute === '/admin/settings' ? styles.active : ''}`}>
+                        Settings
+                    </a>
                 </div>
 
                 {/* Admin Info & Logout */}
@@ -101,6 +104,9 @@ export default function AdminNavbar() {
                         </a>
                         <a href="/admin/enquiries" className={`${styles.mobileLink} ${activeRoute === '/admin/enquiries' ? styles.active : ''}`}>
                             Enquiries
+                        </a>
+                        <a href="/admin/settings" className={`${styles.mobileLink} ${activeRoute === '/admin/settings' ? styles.active : ''}`}>
+                            Settings
                         </a>
                         <button className={styles.mobileLogoutBtn} onClick={handleLogout}>
                             <Logout />
