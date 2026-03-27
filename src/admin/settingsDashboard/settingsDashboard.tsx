@@ -7,14 +7,34 @@ import { supabase } from '@/lib/supabase';
 import styles from './settingsDashboard.module.css';
 import LineArtBackground from '@/components/lineArtBackground';
 
+interface Program {
+  id: string;
+  title: string;
+  schedule: string;
+  time: string;
+  description: string;
+}
+
 interface SettingsData {
   popup_enabled: boolean;
+  show_enquiry_popup: boolean;
+  show_free_programs_popup: boolean;
+  free_programs_title: string;
+  free_programs_subtitle: string;
+  free_programs_cta_text: string;
+  programs_config?: Program[];
 }
 
 export default function SettingsDashboard() {
   const router = useRouter();
   const [settings, setSettings] = useState<SettingsData>({
     popup_enabled: true,
+    show_enquiry_popup: true,
+    show_free_programs_popup: true,
+    free_programs_title: 'FREE Programs',
+    free_programs_subtitle: 'Limited Time Offers - Join Now!',
+    free_programs_cta_text: 'Ready to start your wellness journey?',
+    programs_config: [],
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -69,7 +89,15 @@ export default function SettingsDashboard() {
         } else {
           // Other database errors: fallback to default settings
           console.warn('Fetched settings failed, falling back to defaults:', error);
-          setSettings({ popup_enabled: true });
+          setSettings({
+            popup_enabled: true,
+            show_enquiry_popup: true,
+            show_free_programs_popup: true,
+            free_programs_title: 'FREE Programs',
+            free_programs_subtitle: 'Limited Time Offers - Join Now!',
+            free_programs_cta_text: 'Ready to start your wellness journey?',
+            programs_config: [],
+          });
           setError(null);
           return;
         }
@@ -81,7 +109,15 @@ export default function SettingsDashboard() {
       }
     } catch {
       console.warn('Network error while fetching settings, falling back to defaults.');
-      setSettings({ popup_enabled: true });
+      setSettings({
+        popup_enabled: true,
+        show_enquiry_popup: true,
+        show_free_programs_popup: true,
+        free_programs_title: 'FREE Programs',
+        free_programs_subtitle: 'Limited Time Offers - Join Now!',
+        free_programs_cta_text: 'Ready to start your wellness journey?',
+        programs_config: [],
+      });
       setError(null);
     } finally {
       setLoading(false);
@@ -209,13 +245,15 @@ export default function SettingsDashboard() {
 
         <div className={styles.settingsCard}>
           <h2>Popup Settings</h2>
+          
+          {/* Master Toggle */}
           <div className={styles.settingItem}>
             <div className={styles.settingInfo}>
               <label htmlFor="popup_enabled" className={styles.settingLabel}>
-                Enable Enquiry Popup
+                Enable Popups
               </label>
               <p className={styles.settingDescription}>
-                Show an enquiry popup on the homepage after a few seconds
+                Master toggle - turn off to disable all popups on homepage
               </p>
             </div>
             <div className={styles.toggle}>
@@ -229,7 +267,182 @@ export default function SettingsDashboard() {
               <label htmlFor="popup_enabled" className={styles.switch}></label>
             </div>
           </div>
+
+          {/* Enquiry Popup Toggle */}
+          <div className={styles.settingItem}>
+            <div className={styles.settingInfo}>
+              <label htmlFor="show_enquiry_popup" className={styles.settingLabel}>
+                Show Enquiry Popup
+              </label>
+              <p className={styles.settingDescription}>
+                Display the enquiry form popup on the homepage
+              </p>
+            </div>
+            <div className={styles.toggle}>
+              <input
+                type="checkbox"
+                id="show_enquiry_popup"
+                checked={settings.show_enquiry_popup}
+                onChange={() => handleToggle('show_enquiry_popup')}
+                className={styles.checkbox}
+              />
+              <label htmlFor="show_enquiry_popup" className={styles.switch}></label>
+            </div>
+          </div>
+
+          {/* Free Programs Popup Toggle */}
+          <div className={styles.settingItem}>
+            <div className={styles.settingInfo}>
+              <label htmlFor="show_free_programs_popup" className={styles.settingLabel}>
+                Show Free Programs Popup
+              </label>
+              <p className={styles.settingDescription}>
+                Display the free programs promotional popup on the homepage (YOGA, HEALING, Stress Management)
+              </p>
+            </div>
+            <div className={styles.toggle}>
+              <input
+                type="checkbox"
+                id="show_free_programs_popup"
+                checked={settings.show_free_programs_popup}
+                onChange={() => handleToggle('show_free_programs_popup')}
+                className={styles.checkbox}
+              />
+              <label htmlFor="show_free_programs_popup" className={styles.switch}></label>
+            </div>
+          </div>
+
+          {/* Free Programs Title */}
+          <div className={styles.settingItem}>
+            <div className={styles.settingInfo}>
+              <label htmlFor="free_programs_title" className={styles.settingLabel}>
+                Free Programs Title
+              </label>
+              <p className={styles.settingDescription}>
+                Customize the title shown in the free programs popup
+              </p>
+            </div>
+            <input
+              type="text"
+              id="free_programs_title"
+              value={settings.free_programs_title}
+              onChange={(e) => setSettings(prev => ({ ...prev, free_programs_title: e.target.value }))}
+              className={styles.input}
+              placeholder="FREE Programs"
+            />
+          </div>
+
+          {/* Free Programs Subtitle */}
+          <div className={styles.settingItem}>
+            <div className={styles.settingInfo}>
+              <label htmlFor="free_programs_subtitle" className={styles.settingLabel}>
+                Subtitle
+              </label>
+              <p className={styles.settingDescription}>
+                Customize the subtitle/tagline for the popup
+              </p>
+            </div>
+            <input
+              type="text"
+              id="free_programs_subtitle"
+              value={settings.free_programs_subtitle}
+              onChange={(e) => setSettings(prev => ({ ...prev, free_programs_subtitle: e.target.value }))}
+              className={styles.input}
+              placeholder="Limited Time Offers - Join Now!"
+            />
+          </div>
+
+          {/* Free Programs CTA Text */}
+          <div className={styles.settingItem}>
+            <div className={styles.settingInfo}>
+              <label htmlFor="free_programs_cta_text" className={styles.settingLabel}>
+                CTA Text
+              </label>
+              <p className={styles.settingDescription}>
+                Customize the call-to-action text before the enquiry button
+              </p>
+            </div>
+            <input
+              type="text"
+              id="free_programs_cta_text"
+              value={settings.free_programs_cta_text}
+              onChange={(e) => setSettings(prev => ({ ...prev, free_programs_cta_text: e.target.value }))}
+              className={styles.input}
+              placeholder="Ready to start your wellness journey?"
+            />
+          </div>
         </div>
+
+        {/* Program Customization Section */}
+        {settings.programs_config && settings.programs_config.length > 0 && (
+          <div className={styles.settingsCard}>
+            <h2>Customize Programs</h2>
+            {settings.programs_config.map((program, idx) => (
+              <div key={program.id} className={styles.programBlock}>
+                <h3>{program.title}</h3>
+                
+                <div className={styles.settingItem}>
+                  <label className={styles.settingLabel}>Program Title</label>
+                  <input
+                    type="text"
+                    value={program.title}
+                    onChange={(e) => {
+                      const updated = [...settings.programs_config!];
+                      updated[idx].title = e.target.value;
+                      setSettings(prev => ({ ...prev, programs_config: updated }));
+                    }}
+                    className={styles.input}
+                  />
+                </div>
+
+                <div className={styles.settingItem}>
+                  <label className={styles.settingLabel}>Schedule</label>
+                  <input
+                    type="text"
+                    value={program.schedule}
+                    onChange={(e) => {
+                      const updated = [...settings.programs_config!];
+                      updated[idx].schedule = e.target.value;
+                      setSettings(prev => ({ ...prev, programs_config: updated }));
+                    }}
+                    className={styles.input}
+                    placeholder="e.g., Monday to Friday"
+                  />
+                </div>
+
+                <div className={styles.settingItem}>
+                  <label className={styles.settingLabel}>Time</label>
+                  <input
+                    type="text"
+                    value={program.time}
+                    onChange={(e) => {
+                      const updated = [...settings.programs_config!];
+                      updated[idx].time = e.target.value;
+                      setSettings(prev => ({ ...prev, programs_config: updated }));
+                    }}
+                    className={styles.input}
+                    placeholder="e.g., 5:00 AM - 6:00 AM"
+                  />
+                </div>
+
+                <div className={styles.settingItem}>
+                  <label className={styles.settingLabel}>Description</label>
+                  <textarea
+                    value={program.description}
+                    onChange={(e) => {
+                      const updated = [...settings.programs_config!];
+                      updated[idx].description = e.target.value;
+                      setSettings(prev => ({ ...prev, programs_config: updated }));
+                    }}
+                    className={`${styles.input} ${styles.textarea}`}
+                    rows={3}
+                    placeholder="Describe this program..."
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className={styles.actions}>
           <button
