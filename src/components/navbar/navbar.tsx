@@ -9,7 +9,6 @@ import { navbarData } from '@/data/navbar';
 import {
     WhatsApp,
     ExpandMore,
-    ContactSupport,
     Brightness3,
     Nightlight,
     FavoriteBorder,
