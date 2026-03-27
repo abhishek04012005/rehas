@@ -89,7 +89,7 @@
   justify-content: center;
   background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(146, 72, 122, 0.02) 100%);
   border-radius: 8px;
-  height: 200px;
+  height: 150px;
 }
 
 .featuredImage .image {
@@ -270,7 +270,7 @@
 
 .articleImage {
   font-size: 3.5rem;
-  height: 180px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;

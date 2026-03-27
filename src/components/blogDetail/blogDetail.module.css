@@ -71,7 +71,8 @@
 /* Hero Section */
 .hero {
   position: relative;
-  padding: 3rem 2rem 4rem 2rem;
+  width: 100%;
+  padding: 3rem 0 4rem 0;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(212, 165, 217, 0.06) 0%, rgba(146, 72, 122, 0.03) 100%);
   border-bottom: 1px solid rgba(86, 0, 103, 0.08);
@@ -80,8 +81,11 @@
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .category {
@@ -156,8 +160,9 @@
 .featuredImage {
   position: relative;
   width: 100%;
+  max-width: 1400px;
   height: 500px;
-  margin-top: 2rem;
+  margin: 2rem auto 0 auto;
   border-radius: 16px;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(86, 0, 103, 0.08) 0%, rgba(146, 72, 122, 0.04) 100%);
@@ -172,19 +177,25 @@
 
 /* Article Content */
 .articleContent {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
+  width: 100%;
+  padding: 4rem 0;
 }
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 3.5rem;
+  grid-template-columns: 1fr 350px;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .mainContent {
   min-width: 0;
+  max-width: none;
+  width: 100%;
 }
 
 .contentBody {
@@ -337,6 +348,8 @@
   align-items: center;
   justify-content: center;
   height: 48px;
+  min-height: 48px;
+  min-width: 48px;
 }
 
 .shareBtn:hover {
@@ -541,9 +554,28 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1280px) {
+  .heroContent {
+    padding: 0 2.5rem;
+  }
+
+  .content {
+    padding: 0 2.5rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .heroContent h1 {
     font-size: 2.2rem;
+  }
+
+  .heroContent {
+    padding: 0 2rem;
+  }
+
+  .content {
+    padding: 0 2rem;
+    gap: 3rem;
   }
 
   .relatedGrid {
@@ -557,17 +589,36 @@
   }
 }
 
+@media (max-width: 896px) {
+  .sidebar {
+    position: static;
+    top: auto;
+    gap: 1.5rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 1.5rem 3rem 1.5rem;
   }
 
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+
   .heroContent h1 {
     font-size: 1.75rem;
+    margin-bottom: 1rem;
   }
 
   .heroContent p {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .heroMeta {
@@ -582,7 +633,8 @@
 
   .featuredImage {
     height: 300px;
-    margin-top: 1.5rem;
+    max-width: calc(100vw - 3rem);
+    margin: 1.5rem auto 0 auto;
     border-radius: 12px;
   }
 
@@ -593,10 +645,12 @@
   .content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    padding: 0 1.5rem;
   }
 
   .contentBody {
     font-size: 1rem;
+    line-height: 1.8;
   }
 
   .contentBody p {
@@ -628,6 +682,16 @@
     font-size: 0.85rem;
   }
 
+  .shareButtons {
+    gap: 0.75rem;
+  }
+
+  .shareBtn {
+    height: 44px;
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+
   .relatedSection {
     padding: 3rem 1.5rem;
   }
@@ -645,40 +709,51 @@
   .relatedImage {
     height: 200px;
   }
-
-  .shareButtons {
-    gap: 0.75rem;
-  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .backButtonContainer {
     padding: 1.5rem 1rem 0 1rem;
   }
 
   .backBtn {
-    padding: 0.6rem 1.2rem;
+    padding: 0.65rem 1rem;
     font-size: 0.9rem;
+    min-height: 44px;
+    border-radius: 6px;
   }
 
   .hero {
-    padding: 1.5rem 1rem 2.5rem 1rem;
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+
+  .heroContent {
+    padding: 0 1rem;
+  }
+
+  .category {
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
   }
 
   .heroContent h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.85rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
   }
 
   .heroContent p {
     font-size: 0.95rem;
+    margin-bottom: 1.25rem;
   }
 
   .heroMeta {
-    gap: 0.75rem;
+    gap: 0.5rem;
     font-size: 0.75rem;
     flex-direction: column;
     align-items: flex-start;
+    padding-bottom: 1rem;
   }
 
   .author::after,
@@ -696,12 +771,20 @@
   }
 
   .featuredImage {
-    height: 250px;
-    margin-top: 1.25rem;
+    height: 220px;
+    max-width: calc(100vw - 2rem);
+    margin: 1rem auto 0 auto;
+    border-radius: 10px;
   }
 
   .articleContent {
     padding: 2rem 1rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
   }
 
   .contentBody {
@@ -709,16 +792,28 @@
     line-height: 1.8;
   }
 
+  .contentBody p {
+    margin-bottom: 1.25rem;
+  }
+
   .contentBody h2 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    margin: 1.75rem 0 0.85rem 0;
   }
 
-  .relatedSection {
-    padding: 2.5rem 1rem;
+  .contentBody ul,
+  .contentBody ol {
+    margin: 1.25rem 0;
+    padding-left: 1.75rem;
   }
 
-  .relatedSection h2 {
-    font-size: 1.5rem;
+  .contentBody li {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .sidebar {
+    gap: 1.5rem;
   }
 
   .shareBox,
@@ -728,20 +823,266 @@
     padding: 1.25rem;
   }
 
+  .shareBox h3,
+  .keywordsBox h3,
+  .ctaBox h3,
+  .tocBox h3 {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .toc {
+    gap: 0.5rem;
+  }
+
   .tocLink {
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
     border-left-width: 2px;
+    min-height: 40px;
+  }
+
+  .keywords {
+    gap: 0.75rem;
   }
 
   .keyword {
-    padding: 0.5rem 0.9rem;
+    padding: 0.5rem 0.85rem;
     font-size: 0.8rem;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shareBtn {
+    height: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .ctaBox p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
 
   .ctaBtn {
-    padding: 0.85rem 1.25rem;
+    padding: 0.85rem 1rem;
     font-size: 0.95rem;
+    min-height: 48px;
+    gap: 0.5rem;
+  }
+
+  .relatedSection {
+    padding: 2.5rem 1rem;
+  }
+
+  .relatedSection h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .relatedCard {
+    border-radius: 10px;
+  }
+
+  .relatedImage {
+    height: 180px;
+  }
+
+  .relatedContent {
+    padding: 1.25rem;
+  }
+
+  .relatedContent h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .relatedContent p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .backSection {
+    padding: 2rem 1rem;
+  }
+
+  .backLink {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .backButtonContainer {
+    padding: 1rem 0.75rem 0 0.75rem;
+  }
+
+  .hero {
+    padding: 1.25rem 0.75rem 2rem 0.75rem;
+  }
+
+  .heroContent {
+    padding: 0 0.75rem;
+  }
+
+  .category {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .heroContent h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .heroContent p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .heroMeta {
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .featuredImage {
+    height: 200px;
+    max-width: calc(100vw - 1.5rem);
+    margin: 0.75rem auto 0 auto;
+    border-radius: 8px;
+  }
+
+  .articleContent {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .content {
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .contentBody {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .contentBody p {
+    margin-bottom: 1rem;
+  }
+
+  .contentBody h2 {
+    font-size: 1.15rem;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+
+  .contentBody ul,
+  .contentBody ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .shareBox,
+  .keywordsBox,
+  .ctaBox,
+  .tocBox {
+    padding: 1rem;
+  }
+
+  .shareBox h3,
+  .keywordsBox h3,
+  .ctaBox h3,
+  .tocBox h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tocLink {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .keyword {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+    min-height: 32px;
+  }
+
+  .shareBtn {
+    height: 40px;
+    min-height: 40px;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  .shareBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ctaBox p {
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .ctaBtn {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  .ctaBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .relatedSection {
+    padding: 2rem 0.75rem;
+  }
+
+  .relatedSection h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .relatedImage {
+    height: 160px;
+  }
+
+  .relatedContent {
+    padding: 1rem;
+  }
+
+  .relatedContent h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .relatedContent p {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .relatedMeta {
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    padding-top: 0.75rem;
+  }
+
+  .backSection {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .backLink {
+    font-size: 0.85rem;
   }
 }
 
