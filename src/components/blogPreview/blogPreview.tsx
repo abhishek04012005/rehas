@@ -6,8 +6,8 @@ import styles from './blogPreview.module.css';
 import Image from 'next/image';
 
 export default function BlogPreview() {
-  // Show only the first 4 blog posts on the homepage
-  const previewPosts = blogData.posts.slice(0, 4);
+  // Show only the first 3 blog posts on the homepage
+  const previewPosts = blogData.posts.slice(0, 3);
 
   return (
     <div className={styles.blogPreview}>
