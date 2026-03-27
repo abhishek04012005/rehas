@@ -118,6 +118,18 @@ export default function BlogDetail() {
                     if (paragraph.startsWith('##')) {
                       return `<h2>${paragraph.replace(/^##\s/, '')}</h2>`;
                     }
+                    if (paragraph.startsWith('###')) {
+                      return `<h3>${paragraph.replace(/^###\s/, '')}</h3>`;
+                    }
+                    if (paragraph.startsWith('####')) {
+                      return `<h4>${paragraph.replace(/^####\s/, '')}</h4>`;
+                    }
+                    if (paragraph.startsWith('#####')) {
+                      return `<h5>${paragraph.replace(/^#####\s/, '')}</h5>`;
+                    }
+                    if (paragraph.startsWith('######')) {
+                      return `<h6>${paragraph.replace(/^######\s/, '')}</h6>`;
+                    }
                     if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                       return `<strong>${paragraph.replace(/\*\*/g, '')}</strong>`;
                     }
