@@ -63,6 +63,16 @@ export default function FreeProgramsPopup({
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
+  const handlePopupClose = () => {
+    setShowEnquiryModal(false);
+    onClose();
+  };
+
+  const handleEnquiryModalClose = () => {
+    setShowEnquiryModal(false);
+    onClose();
+  };
+
   if (!isOpen) return null;
 
   // Use programs passed as prop, or fallback to DEFAULT_PROGRAMS
@@ -70,9 +80,9 @@ export default function FreeProgramsPopup({
 
   return (
     <>
-      <div className={styles.overlay} onClick={onClose} />
+      <div className={styles.overlay} onClick={handlePopupClose} />
       <div className={styles.modal}>
-        <button className={styles.closeBtn} onClick={onClose}>
+        <button className={styles.closeBtn} onClick={handlePopupClose}>
           <Close />
         </button>
 
@@ -136,7 +146,7 @@ export default function FreeProgramsPopup({
       {showEnquiryModal && (
         <EnquiryModal
           isOpen={showEnquiryModal}
-          onClose={() => setShowEnquiryModal(false)}
+          onClose={handleEnquiryModalClose}
         />
       )}
     </>
