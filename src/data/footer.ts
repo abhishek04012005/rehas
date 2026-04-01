@@ -87,8 +87,8 @@ export const footerData = {
   },
   poweredBy: {
     text: 'Powered by',
-    company: 'Ditvi Technologies',
-    url: 'https://technologies.ditvi.org',
+    company: 'Ank Square Pvt. Ltd.',
+    url: 'https://anksquare.com',
   },
   legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
