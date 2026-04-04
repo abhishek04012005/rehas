@@ -62,6 +62,9 @@ export default function AdminNavbar() {
                     <a href="/admin/enquiries" className={`${styles.navLink} ${activeRoute === '/admin/enquiries' ? styles.active : ''}`}>
                         Enquiries
                     </a>
+                    <a href="/admin/whatsappAnalytics" className={`${styles.navLink} ${activeRoute === '/admin/whatsappAnalytics' ? styles.active : ''}`}>
+                        WhatsApp Analytics
+                    </a>
                     <a href="/admin/settings" className={`${styles.navLink} ${activeRoute === '/admin/settings' ? styles.active : ''}`}>
                         Settings
                     </a>

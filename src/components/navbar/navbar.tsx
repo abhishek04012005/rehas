@@ -6,6 +6,7 @@ import styles from './navbar.module.css';
 import Image from 'next/image';
 import { rehasData } from '@/data/rehasData';
 import { navbarData } from '@/data/navbar';
+import { supabase } from '@/lib/supabase';
 import {
     WhatsApp,
     ExpandMore,
@@ -83,6 +84,33 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Track WhatsApp clicks
+    const trackWhatsAppClick = async () => {
+        try {
+            const clickData = {
+                user_agent: navigator.userAgent,
+                referrer: document.referrer,
+                page_url: window.location.href,
+                device_type: /Mobile|Android|iP(hone|od|ad)/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                browser_info: JSON.stringify({
+                    language: navigator.language,
+                    platform: navigator.platform,
+                    cookieEnabled: navigator.cookieEnabled,
+                    onLine: navigator.onLine,
+                }),
+            };
+
+            // Send tracking data to Supabase (don't wait for it to avoid blocking the redirect)
+            supabase.from('whatsapp_clicks').insert([clickData]).then(({ error }) => {
+                if (error) {
+                    console.error('Error tracking WhatsApp click:', error);
+                }
+            });
+        } catch (error) {
+            console.error('Error tracking WhatsApp click:', error);
+        }
+    };
 
     // WhatsApp message
     const whatsappMessage = encodeURIComponent('Hello! I would like to know more about REHAS services.');
@@ -170,11 +198,10 @@ export default function Navbar() {
                 className={styles.whatsappButton}
                 aria-label="Chat on WhatsApp"
                 title="Chat on WhatsApp"
+                onClick={trackWhatsAppClick}
             >
                 <WhatsApp className={styles.whatsappIcon} />
             </a>
-
-           
         </>
     );
 }
