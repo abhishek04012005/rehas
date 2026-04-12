@@ -2,40 +2,119 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
+import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
+import { calculateDiscountPercentage } from '@/data/productMerchandise';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './productDetail.module.css';
 
-interface ProductDetailProps {
-  productName: string;
+interface ProductDetailData {
+  name: string;
   category: string;
+  tagline?: string;
+  qualityTag?: string;
+  reviewCount?: number;
+  shortDescription?: string;
   meaning: string;
   benefit: string;
   use: string;
   price?: string;
+  originalPrice?: string;
+  monthlyPlan?: string;
+  paymentHighlights?: string[];
+  sold?: number;
+  available?: number;
+  endsIn?: string;
+  pooja?: {
+    label: string;
+    note: string;
+    price?: string;
+  };
+  description?: string;
+  keyFeatures?: string[];
+  benefits?: string[];
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
+  images?: string[];
+}
+
+// Helper function to detect if URL is a video
+const isVideo = (url: string): boolean => {
+  if (!url) return false;
+  const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.mkv'];
+  const isVideoFile = videoExtensions.some(ext => url.toLowerCase().includes(ext));
+  const isYouTube = url.includes('youtube.com') || url.includes('youtu.be') || url.includes('vimeo.com');
+  return isVideoFile || isYouTube;
+};
+
+// Helper function to get YouTube embed URL
+const getYouTubeEmbedUrl = (url: string): string => {
+  if (url.includes('youtu.be/')) {
+    const videoId = url.split('youtu.be/')[1]?.split('?')[0];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
+  if (url.includes('youtube.com/watch')) {
+    const videoId = url.split('v=')[1]?.split('&')[0];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
+  if (url.includes('vimeo.com')) {
+    const videoId = url.split('vimeo.com/')[1]?.split('?')[0];
+    return `https://player.vimeo.com/video/${videoId}`;
+  }
+  return url;
+};
+
+interface ProductDetailProps {
+  product: ProductDetailData;
 }
 
 export default function ProductDetail({
-  productName,
-  category,
-  meaning,
-  benefit,
-  use,
-  price = '₹999',
+  product,
 }: ProductDetailProps) {
   const router = useRouter();
   const { setProductData } = useCheckout();
-  const categoryPath = `/products/${category}`;
-  const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPoojaSelected, setIsPoojaSelected] = useState(false);
   
-  // Extract numeric amount from price string (e.g., "₹1,500" -> 1500)
-  const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;
+  const categoryPath = `/products/${product.category}`;
+  const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+  const productName = product.name;
+  
+  // Determine which price to show
+  let productPrice = product.price || '₹999';
+  let currentAmount = parseFloat(productPrice.replace(/[₹,]/g, '')) || 999;
+
+  if (isPoojaSelected && product.pooja?.price) {
+    // Add 100 to the base product price for pooja
+    currentAmount = currentAmount + 100;
+    productPrice = `₹${currentAmount.toFixed(2)}`;
+  }
+
+  const displayDescription = product.description || product.meaning;
+  const displayShort = product.shortDescription || product.meaning;
+  const displayBenefits = product.benefits || (product.benefit ? product.benefit.split(',').map((item) => item.trim()) : []);
+  const displayUse = product.use || '';
+  
+  const images = product.images && product.images.length > 0 ? product.images : [];
+  const hasImages = images.length > 0;
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   const handleCheckout = () => {
-    // Store product data in context
-    setProductData({ productTitle: productName, amount });
-    // Navigate to checkout without URL parameters
+    setProductData({ 
+      productTitle: productName, 
+      amount: currentAmount,
+      type: 'product'
+    });
     router.push('/checkout');
   };
 
@@ -53,81 +132,221 @@ export default function ProductDetail({
             <span>{productName}</span>
           </div>
           <h1 className={styles.productTitle}>{productName}</h1>
-          <p className={styles.productSubtitle}>Discover the complete details and benefits</p>
+          {product.tagline && <p className={styles.productTagline}>{product.tagline}</p>}
+          {product.qualityTag && <p className={styles.qualityTag}>{product.qualityTag}</p>}
+          <p className={styles.productSubtitle}>{displayShort}</p>
         </div>
       </section>
 
       {/* Product Details Section */}
       <section className={styles.detailsSection}>
         <div className={styles.detailsContainer}>
-          {/* Product Image Section */}
           <div className={styles.imageSection}>
-            <div className={styles.productImageWrapper}>
-              <div className={styles.productImagePlaceholder}>
-                <EmojiEvents sx={{ fontSize: 80 }} />
+            {hasImages ? (
+              <div className={styles.imageCarousel}>
+                <button
+                  className={styles.carouselButton}
+                  onClick={handlePrevImage}
+                  aria-label="Previous media"
+                >
+                  <ChevronLeft sx={{ fontSize: 28 }} />
+                </button>
+                <div className={styles.carouselImageWrapper}>
+                  {isVideo(images[currentImageIndex]) ? (
+                    <>
+                      {images[currentImageIndex].includes('youtube.com') || images[currentImageIndex].includes('youtu.be') || images[currentImageIndex].includes('vimeo.com') ? (
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          src={getYouTubeEmbedUrl(images[currentImageIndex])}
+                          title={`${productName} - video ${currentImageIndex + 1}`}
+                          className={styles.videoEmbed}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <video
+                          controls
+                          autoPlay
+                          muted
+                          loop
+                          className={styles.carouselImage}
+                          controlsList="nodownload"
+                        >
+                          <source src={images[currentImageIndex]} />
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+                      <div className={styles.mediaTypeIndicator}>
+                        <PlayCircle sx={{ fontSize: 24 }} />
+                        <span>Video</span>
+                      </div>
+                    </>
+                  ) : (
+                    <img
+                      src={images[currentImageIndex]}
+                      alt={`${productName} - image ${currentImageIndex + 1}`}
+                      className={styles.carouselImage}
+                    />
+                  )}
+                </div>
+                <button
+                  className={styles.carouselButton}
+                  onClick={handleNextImage}
+                  aria-label="Next media"
+                >
+                  <ChevronRight sx={{ fontSize: 28 }} />
+                </button>
               </div>
-            </div>
+            ) : (
+              <div className={styles.productImageWrapper}>
+                <div className={styles.productImagePlaceholder}>
+                  <EmojiEvents sx={{ fontSize: 80 }} />
+                </div>
+              </div>
+            )}
+            {hasImages && images.length > 1 && (
+              <div className={styles.imageDots}>
+                {images.map((item, index) => (
+                  <button
+                    key={index}
+                    className={`${styles.dot} ${index === currentImageIndex ? styles.dotActive : ''}`}
+                    onClick={() => setCurrentImageIndex(index)}
+                    aria-label={`Go to media ${index + 1} ${isVideo(item) ? '(video)' : '(image)'}`}
+                    title={isVideo(item) ? 'Video' : 'Image'}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Product Information Section */}
           <div className={styles.infoSection}>
-            {/* Price Box */}
             <div className={styles.priceBox}>
-              <span className={styles.priceLabel}>Price</span>
-              <span className={styles.price}>{price}</span>
+              <span className={styles.priceLabel}>Sale price</span>
+              <span className={styles.price}>{productPrice}</span>
             </div>
 
-            {/* Description */}
-            <div className={styles.infoBox}>
-              <h2 className={styles.boxTitle}>Description</h2>
-              <p className={styles.boxContent}>{meaning}</p>
+            <div className={styles.pricingDetails}>
+              {product.originalPrice && (
+                <div className={styles.pricingRow}>
+                  <span>Regular price</span>
+                  <span className={styles.regularPrice}>{product.originalPrice}</span>
+                </div>
+              )}
+              {product.originalPrice && product.price && (
+                <div className={styles.pricingRow}>
+                  <span>Discount</span>
+                  <span className={styles.discount}>{calculateDiscountPercentage(product.originalPrice, product.price)}</span>
+                </div>
+              )}
+              {product.monthlyPlan && (
+                <div className={styles.pricingRow}>
+                  <span>or</span>
+                  <span className={styles.monthlyPlan}>{product.monthlyPlan}</span>
+                </div>
+              )}
             </div>
 
-            {/* Benefits Grid */}
-            <div className={styles.benefitsGrid}>
-              <div className={styles.benefitBox}>
-                <h3 className={styles.boxTitle}>Benefits</h3>
-                <ul className={styles.benefitList}>
-                  {benefit.split(',').map((item, index) => (
-                    <li key={index}>
-                      <CheckCircle sx={{ fontSize: 18 }} />
-                      <span>{item.trim()}</span>
-                    </li>
-                  ))}
-                </ul>
+            {product.paymentHighlights && product.paymentHighlights.length > 0 && (
+              <div className={styles.paymentHighlights}>
+                {product.paymentHighlights.map((item, index) => (
+                  <span key={index}>{item}</span>
+                ))}
               </div>
+            )}
 
-              <div className={styles.useBox}>
-                <h3 className={styles.boxTitle}>Best For</h3>
-                <ul className={styles.benefitList}>
-                  {use.split(',').map((item, index) => (
-                    <li key={index}>
-                      <CheckCircle sx={{ fontSize: 18 }} />
-                      <span>{item.trim()}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
             <div className={styles.actionButtons}>
-              <button 
-                onClick={handleCheckout}
-                className={styles.checkoutBtn}
-              >
-                <ShoppingCart sx={{ fontSize: 18 }} />
-                Proceed to Checkout
+              <button onClick={handleCheckout} className={styles.buyNowBtn}>
+                <ShoppingCart sx={{ fontSize: 20 }} />
+                <span>Proceed to Checkout</span>
               </button>
-              <Link href={categoryPath} className={styles.continueBtn}>
-                Continue Shopping
-              </Link>
+              <p className={styles.secureCheckout}>✓ Secure checkout • Free shipping on selected items</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Content Below Image */}
+      <section className={styles.contentBelowImage}>
+        <div className={styles.contentContainer}>
+          {product.pooja && (
+            <div className={styles.poojaSection}>
+              <div className={styles.poojaToggle}>
+                <input
+                  type="checkbox"
+                  id="poojaCheckbox"
+                  checked={isPoojaSelected}
+                  onChange={(e) => setIsPoojaSelected(e.target.checked)}
+                  className={styles.poojaCheckbox}
+                />
+                <label htmlFor="poojaCheckbox" className={styles.poojaLabel}>
+                  <span className={styles.poojaTitle}>Add Pooja</span>
+                  <span className={styles.poojaPrice}>+ 100</span>
+                </label>
+              </div>
+              <p className={styles.poojaNote}>{product.pooja.note}</p>
+            </div>
+          )}
+
+          <div className={styles.infoBox}>
+            <h2 className={styles.boxTitle}>Product Summary</h2>
+            <p className={styles.boxContent}>{displayDescription}</p>
+          </div>
+
+          {product.keyFeatures && product.keyFeatures.length > 0 && (
+            <div className={styles.infoBox}>
+              <h2 className={styles.boxTitle}>Key Features</h2>
+              <ul className={styles.featureList}>
+                {product.keyFeatures.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className={styles.benefitsGrid}>
+            <div className={styles.benefitBox}>
+              <h3 className={styles.boxTitle}>Benefits</h3>
+              <ul className={styles.benefitList}>
+                {displayBenefits.map((item, index) => (
+                  <li key={index}>
+                    <CheckCircle sx={{ fontSize: 18 }} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.useBox}>
+              <h3 className={styles.boxTitle}>Best For</h3>
+              <ul className={styles.benefitList}>
+                {displayUse.split(',').map((item, index) => (
+                  <li key={index}>
+                    <CheckCircle sx={{ fontSize: 18 }} />
+                    <span>{item.trim()}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {product.faq && product.faq.length > 0 && (
+        <section className={styles.faqSection}>
+          <div className={styles.faqContainer}>
+            <h2>Frequently Asked Questions</h2>
+            {product.faq.map((item, index) => (
+              <div key={index} className={styles.faqItem}>
+                <h3 className={styles.faqQuestion}>{item.question}</h3>
+                <p className={styles.faqAnswer}>{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className={styles.featuresSection}>
         <div className={styles.featuresContainer}>
           <h2>Why Choose This Product?</h2>
@@ -156,20 +375,6 @@ export default function ProductDetail({
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaContent}>
-          <h2>Ready to Transform Your Wellness Journey?</h2>
-          <p>Order this product today and experience the difference</p>
-          <button 
-            onClick={handleCheckout}
-            className={styles.ctaButton}
-          >
-            <ShoppingCart sx={{ fontSize: 20 }} />
-            Order Now
-          </button>
-        </div>
-      </section>
     </main>
   );
 }

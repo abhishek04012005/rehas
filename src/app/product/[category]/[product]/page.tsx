@@ -3,6 +3,7 @@ import ProductDetail from '@/components/productDetail';
 import { productHealingData } from '@/data/productHealing';
 import { productTherapyData } from '@/data/productTherapy';
 import { productAstrologyData } from '@/data/productAstrology';
+import { productMerchandiseData } from '@/data/productMerchandise';
 
 type Params = Promise<{
   category: string;
@@ -21,7 +22,6 @@ const getAllProducts = () => {
   allProducts.forEach(({ category, data }) => {
     if (data.practices?.list) {
       data.practices.list.forEach((product: any, index: number) => {
-        // Get price from sessions if available
         const sessionPrice = data.sessions?.types?.[index]?.price || '₹999';
         products.push({
           category,
@@ -34,6 +34,18 @@ const getAllProducts = () => {
         });
       });
     }
+  });
+
+  productMerchandiseData.forEach((product) => {
+    products.push({
+      category: product.category,
+      name: product.name,
+      slug: product.slug,
+      meaning: product.shortDescription,
+      benefit: product.benefits.join(', '),
+      use: product.description,
+      price: product.price,
+    });
   });
 
   return products;
@@ -106,14 +118,24 @@ export default async function ProductPage(props: {
     );
   }
 
+  const merchandiseProduct = productMerchandiseData.find(
+    (product) => product.category === category && product.slug === productSlug
+  );
+
+  if (merchandiseProduct) {
+    return <ProductDetail product={merchandiseProduct} />;
+  }
+
   return (
     <ProductDetail
-      productName={productData.name}
-      category={category}
-      meaning={productData.meaning}
-      benefit={productData.benefit}
-      use={productData.use}
-      price={productData.price}
+      product={{
+        name: productData.name,
+        category,
+        meaning: productData.meaning,
+        benefit: productData.benefit,
+        use: productData.use,
+        price: productData.price,
+      }}
     />
   );
 }

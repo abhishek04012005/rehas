@@ -15,3 +15,4 @@ export { healingData } from './healing';
 export { therapyData } from './therapy';
 export { notFoundData } from './notfound';
 export { blogData } from './blog';
+export { merchandiseData } from './merchandise';

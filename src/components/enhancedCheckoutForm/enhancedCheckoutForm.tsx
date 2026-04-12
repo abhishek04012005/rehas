@@ -213,18 +213,84 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       const data = await response.json();
       setCreatedOrderId(data.orderId);
       setSubmitted(true);
-      setSuccessMessage('Order created successfully! Proceeding to payment...');
+      setSuccessMessage(`Order created successfully! Order ID: ${data.orderId}`);
 
-      // Proceed to payment selection
+      // Show order summary for 3 seconds then proceed to payment
       setTimeout(() => {
         setShowPayment(true);
-      }, 1500);
+      }, 3000);
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : 'Failed to create order';
       setErrors({ submit: errorMsg });
       setLoading(false);
     }
   };
+
+  if (submitted && createdOrderId && !showPayment) {
+    return (
+      <div className={styles.formContainer}>
+        <div className={styles.orderConfirmationContainer}>
+          <div className={styles.confirmationHeader}>
+            <CheckCircle sx={{ fontSize: 60 }} className={styles.successIcon} />
+            <h2>Order Created Successfully!</h2>
+            <p>Your order has been created and is ready for payment</p>
+          </div>
+
+          <div className={styles.orderDetailsBox}>
+            <div className={styles.orderNumberSection}>
+              <span className={styles.orderNumberLabel}>ORDER ID</span>
+              <span className={styles.orderNumber}>#{createdOrderId}</span>
+            </div>
+
+            <div className={styles.detailsGrid}>
+              <div className={styles.detailItem}>
+                <span className={styles.detailLabel}>Customer Name</span>
+                <span className={styles.detailValue}>{formData.fullName}</span>
+              </div>
+              <div className={styles.detailItem}>
+                <span className={styles.detailLabel}>Email</span>
+                <span className={styles.detailValue}>{formData.email}</span>
+              </div>
+              <div className={styles.detailItem}>
+                <span className={styles.detailLabel}>Phone</span>
+                <span className={styles.detailValue}>+91 {formData.phoneNumber}</span>
+              </div>
+              <div className={styles.detailItem}>
+                <span className={styles.detailLabel}>Product/Service</span>
+                <span className={styles.detailValue}>{productData?.productTitle || productTitle}</span>
+              </div>
+              <div className={styles.detailItem}>
+                <span className={styles.detailLabel}>Amount</span>
+                <span className={styles.amountValue}>₹{amount}</span>
+              </div>
+            </div>
+
+            {isProduct && formData.addressLine1 && (
+              <div className={styles.addressSection}>
+                <h3 className={styles.addressTitle}>Delivery Address</h3>
+                <div className={styles.addressBox}>
+                  <p className={styles.addressLine}>
+                    {formData.addressLine1}
+                    {formData.addressLine2 && <>, {formData.addressLine2}</>}
+                  </p>
+                  <p className={styles.addressLine}>
+                    {formData.city}, {formData.state} - {formData.postalCode}
+                  </p>
+                  <p className={styles.addressLine}>
+                    {formData.country}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className={styles.proceedingMessage}>
+            <p>Redirecting to payment in a moment...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (showPayment && createdOrderId) {
     const handlePaymentSuccess = (method: 'razorpay' | 'cod') => {

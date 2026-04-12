@@ -77,15 +77,10 @@ export const navbarData = {
         { label: 'Mind Reading', href: '/courses/mind-reading', icon: 'MenuBook' },
       ],
     },
-    //  {
-    //   label: 'Products',
-    //   href: '/products',
-    //   submenu: [
-    //     { label: 'Healing', href: '/products/healing', icon: 'SchoolOutlined' },
-    //     { label: 'Therapy', href: '/products/therapy', icon: 'Numbers' },
-    //     { label: 'Astrology', href: '/products/astrology', icon: 'PublicOutlined' },
-    //   ],
-    // },
+    {
+      label: 'Merchandise',
+      href: '/merchandise',
+    },
     {label: 'Blog', href: '/blog' },
   ],
   cta: {
