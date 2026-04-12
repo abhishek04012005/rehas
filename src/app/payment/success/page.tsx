@@ -187,6 +187,7 @@ function PaymentSuccessContent() {
                   <span class="detail-label">Phone:</span>
                   <span class="detail-value">${customerInfo?.phone || 'N/A'}</span>
                 </div>
+                ${customerInfo?.order_type === 'product' ? `
                 <div class="detail-row">
                   <span class="detail-label">Address:</span>
                   <span class="detail-value">${customerInfo?.address_line_1 || ''} ${customerInfo?.address_line_2 || ''}</span>
@@ -199,6 +200,7 @@ function PaymentSuccessContent() {
                   <span class="detail-label">State:</span>
                   <span class="detail-value">${customerInfo?.state || 'N/A'}</span>
                 </div>
+                ` : ''}
               </div>
 
               <div class="section">
@@ -329,20 +331,26 @@ function PaymentSuccessContent() {
                 <span className={styles.detailLabel}>Phone:</span>
                 <span className={styles.detailValue}>{customerInfo.phone || 'N/A'}</span>
               </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Address:</span>
-                <span className={styles.detailValue}>
-                  {customerInfo.address_line_1} {customerInfo.address_line_2}
-                </span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>City:</span>
-                <span className={styles.detailValue}>{customerInfo.city || 'N/A'}</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>State:</span>
-                <span className={styles.detailValue}>{customerInfo.state || 'N/A'}</span>
-              </div>
+
+              {/* Address section - only show for product orders */}
+              {customerInfo.order_type === 'product' && (
+                <>
+                  <div className={styles.detailRow}>
+                    <span className={styles.detailLabel}>Address:</span>
+                    <span className={styles.detailValue}>
+                      {customerInfo.address_line_1} {customerInfo.address_line_2}
+                    </span>
+                  </div>
+                  <div className={styles.detailRow}>
+                    <span className={styles.detailLabel}>City:</span>
+                    <span className={styles.detailValue}>{customerInfo.city || 'N/A'}</span>
+                  </div>
+                  <div className={styles.detailRow}>
+                    <span className={styles.detailLabel}>State:</span>
+                    <span className={styles.detailValue}>{customerInfo.state || 'N/A'}</span>
+                  </div>
+                </>
+              )}
             </div>
           )}
 
