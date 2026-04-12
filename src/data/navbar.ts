@@ -77,10 +77,10 @@ export const navbarData = {
         { label: 'Mind Reading', href: '/courses/mind-reading', icon: 'MenuBook' },
       ],
     },
-    {
-      label: 'Merchandise',
-      href: '/merchandise',
-    },
+    // {
+    //   label: 'Merchandise',
+    //   href: '/merchandise',
+    // },
     {label: 'Blog', href: '/blog' },
   ],
   cta: {
