@@ -123,7 +123,7 @@ export default async function ProductPage(props: {
   );
 
   if (merchandiseProduct) {
-    return <ProductDetail product={merchandiseProduct} />;
+    return <ProductDetail product={{ ...merchandiseProduct, slug: productSlug }} />;
   }
 
   return (

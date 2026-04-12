@@ -7,11 +7,13 @@ import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, Play
 import { useCheckout } from '@/context/CheckoutContext';
 import { calculateDiscountPercentage } from '@/data/productMerchandise';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
+import SimilarProducts from './similarProducts';
 import styles from './productDetail.module.css';
 
 interface ProductDetailData {
   name: string;
   category: string;
+  slug?: string;
   tagline?: string;
   qualityTag?: string;
   reviewCount?: number;
@@ -34,6 +36,18 @@ interface ProductDetailData {
   description?: string;
   keyFeatures?: string[];
   benefits?: string[];
+  spiritualSignificance?: string[];
+  howToUse?: string[];
+  careInstructions?: string[];
+  specifications?: {
+    material: string;
+    beadType?: string;
+    size: string;
+    weight: string;
+    origin: string;
+  };
+  trustBadges?: string[];
+  emotionalHook?: string;
   faq?: {
     question: string;
     answer: string;
@@ -333,6 +347,21 @@ export default function ProductDetail({
         </div>
       </section>
 
+      {product.spiritualSignificance && product.spiritualSignificance.length > 0 && (
+        <section className={styles.contentBelowImage}>
+          <div className={styles.contentContainer}>
+            <div className={styles.infoBox}>
+              <h2 className={styles.boxTitle}>Spiritual Significance</h2>
+              <ul className={styles.featureList}>
+                {product.spiritualSignificance.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
       {product.faq && product.faq.length > 0 && (
         <section className={styles.faqSection}>
           <div className={styles.faqContainer}>
@@ -374,6 +403,14 @@ export default function ProductDetail({
           </div>
         </div>
       </section>
+
+      {/* Similar Products Section - Only for merchandise products */}
+      {product.slug && product.category && (
+        <SimilarProducts
+          category={product.category}
+          currentProductSlug={product.slug}
+        />
+      )}
 
     </main>
   );
