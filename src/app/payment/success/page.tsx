@@ -201,6 +201,10 @@ function PaymentSuccessContent() {
                   <span class="detail-value">${customerInfo?.state || 'N/A'}</span>
                 </div>
                 ` : ''}
+                <div class="detail-row">
+                  <span class="detail-label">Billing Address:</span>
+                  <span class="detail-value">${rehasData.contact.address.street}, ${rehasData.contact.address.city}, ${rehasData.contact.address.state}, ${rehasData.contact.address.country} - ${rehasData.contact.address.zipCode}</span>
+                </div>
               </div>
 
               <div class="section">
@@ -351,6 +355,14 @@ function PaymentSuccessContent() {
                   </div>
                 </>
               )}
+
+              {/* Billing Address */}
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Billing Address:</span>
+                <span className={styles.detailValue}>
+                  {rehasData.contact.address.street}, {rehasData.contact.address.city}, {rehasData.contact.address.state}, {rehasData.contact.address.country} - {rehasData.contact.address.zipCode}
+                </span>
+              </div>
             </div>
           )}
 

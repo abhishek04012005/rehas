@@ -482,6 +482,27 @@ export default function ProductDetail({
         </section>
       )}
 
+      {/* Refund Policy Section */}
+      <section className={styles.refundSection}>
+        <div className={styles.refundContainer}>
+          <h2>No Refund Policy</h2>
+          <div className={styles.refundContent}>
+            <div className={styles.refundItem}>
+              <h3>No Refunds</h3>
+              <p>We do not offer refunds for product purchases. All sales are final unless otherwise stated.</p>
+            </div>
+            <div className={styles.refundItem}>
+              <h3>Exceptions</h3>
+              <p>In rare cases of damage during shipping, please contact support immediately with photos for review.</p>
+            </div>
+            <div className={styles.refundItem}>
+              <h3>Support</h3>
+              <p>If you have any concerns, our support team is available to help at support@rehas.in.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className={styles.featuresSection}>
         <div className={styles.featuresContainer}>
           <h2>Why Choose This Product?</h2>
