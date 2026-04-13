@@ -8,6 +8,7 @@ import { CheckCircle, FileDownload } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { supabase } from '@/lib/supabase';
 import { rehasData } from '@/data/rehasData';
+import { contactData } from '@/data/contact';
 import styles from './success.module.css';
 
 function PaymentSuccessContent() {
@@ -56,6 +57,10 @@ function PaymentSuccessContent() {
     minute: '2-digit',
     second: '2-digit',
   });
+
+  const billingLocation = contactData.info.cards.find((card) => card.title === 'Location');
+  const billingAddressLine1 = billingLocation?.value || '';
+  const billingAddressLine2 = billingLocation?.secondaryText || '';
 
   const handleDownloadPDF = async () => {
     // Dynamically import html2pdf to avoid SSR issues
@@ -187,6 +192,29 @@ function PaymentSuccessContent() {
                 <div>${customerInfo?.phone || 'N/A'}</div>
               </div>
             </div>
+            <div style="
+              background: #f9f9f9;
+              border-radius: 6px;
+              padding: 12px;
+              border: 1px solid #e0e0e0;
+            ">
+              <div style="
+                color: #560067;
+                font-size: 12px;
+                font-weight: 700;
+                margin: 0 0 8px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              ">Billing Address</div>
+              <div style="
+                font-size: 12px;
+                color: #666;
+                line-height: 1.4;
+              ">
+                <div>${billingAddressLine1}</div>
+                <div>${billingAddressLine2}</div>
+              </div>
+            </div>
             ${customerInfo?.order_type === 'product' ? `
             <div style="
               background: #f9f9f9;
@@ -208,7 +236,7 @@ function PaymentSuccessContent() {
                 line-height: 1.4;
               ">
                 <div>${customerInfo?.address_line_1} ${customerInfo?.address_line_2}</div>
-                <div>${customerInfo?.city}, ${customerInfo?.state}</div>
+                <div>${customerInfo?.city}, ${customerInfo?.state} - ${customerInfo?.postal_code || customerInfo?.postalCode || 'N/A'}</div>
               </div>
             </div>
             ` : ''}
@@ -258,6 +286,40 @@ function PaymentSuccessContent() {
                 font-size: 14px;
               ">₹${amount || '0.00'}</div>
             </div>
+            ${productData?.isPoojaSelected && productData?.poojaLabel ? `
+            <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 12px;
+              background: #f9f9f9;
+              border-radius: 6px;
+              border: 1px solid #e0e0e0;
+              margin-bottom: 8px;
+            ">
+              <div style="flex: 1;">
+                <div style="
+                  font-weight: 600;
+                  color: #333;
+                  font-size: 13px;
+                  margin-bottom: 4px;
+                ">${productData.poojaLabel}</div>
+                <div style="
+                  display: flex;
+                  gap: 12px;
+                  font-size: 11px;
+                  color: #666;
+                ">
+                  <span>Pooja Service</span>
+                </div>
+              </div>
+              <div style="
+                font-weight: 700;
+                color: #560067;
+                font-size: 14px;
+              ">${productData.poojaPrice}</div>
+            </div>
+            ` : ''}
           </div>
 
           <div style="margin-bottom: 20px;">
@@ -335,7 +397,7 @@ function PaymentSuccessContent() {
               font-weight: 700;
             ">
               <span>Total Amount</span>
-              <span>₹${amount || '0.00'}</span>
+              <span>₹${parseFloat(amount || '0').toFixed(2)}</span>
             </div>
           </div>
 
@@ -494,6 +556,14 @@ function PaymentSuccessContent() {
               </div>
             </div>
 
+            <div className={styles.infoCard}>
+              <h3 className={styles.cardTitle}>Billing Address</h3>
+              <div className={styles.addressInfo}>
+                <div className={styles.addressText}>{billingAddressLine1}</div>
+                <div className={styles.addressText}>{billingAddressLine2}</div>
+              </div>
+            </div>
+
             {customerInfo?.order_type === 'product' && (
               <div className={styles.infoCard}>
                 <h3 className={styles.cardTitle}>Delivery Address</h3>
@@ -502,7 +572,7 @@ function PaymentSuccessContent() {
                     {customerInfo?.address_line_1} {customerInfo?.address_line_2}
                   </div>
                   <div className={styles.addressText}>
-                    {customerInfo?.city}, {customerInfo?.state}
+                    {customerInfo?.city}, {customerInfo?.state} - {customerInfo?.postal_code || customerInfo?.postalCode || 'N/A'}
                   </div>
                 </div>
               </div>

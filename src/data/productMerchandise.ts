@@ -92,7 +92,6 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         paymentHighlights: [
             'Cards & UPI Accepted',
             'No Hidden Charges',
-            'Cash on Delivery Available',
             'Limited Time Offer'
         ],
 

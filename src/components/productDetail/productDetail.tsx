@@ -145,7 +145,10 @@ export default function ProductDetail({
     setProductData({ 
       productTitle: productName, 
       amount: currentAmount,
-      type: 'product'
+      type: 'product',
+      isPoojaSelected: isPoojaSelected,
+      poojaLabel: isPoojaSelected ? product.pooja?.label : undefined,
+      poojaPrice: isPoojaSelected ? product.pooja?.price : undefined
     });
     router.push('/checkout');
   };

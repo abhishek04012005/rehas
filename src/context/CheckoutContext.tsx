@@ -10,6 +10,9 @@ export interface ProductData {
   type?: OrderType;
   serviceId?: string;
   description?: string;
+  isPoojaSelected?: boolean;
+  poojaLabel?: string;
+  poojaPrice?: string;
 }
 
 interface CheckoutContextType {
