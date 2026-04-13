@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import ProductShowcase from '@/components/productShowcase';
-import { merchandiseYantraData } from '@/data/merchandiseYantra';
+import { merchandiseData } from '@/data/merchandise';
 
 export const metadata: Metadata = {
   title: 'Sacred Yantras | Geometric Symbols for Manifestation | REHAS',
@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function YantraPage() {
-  return <ProductShowcase data={merchandiseYantraData} category="yantra" />;
+  return <ProductShowcase data={merchandiseData} category="yantra" />;
 }

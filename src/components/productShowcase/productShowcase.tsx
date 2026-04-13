@@ -7,43 +7,34 @@ import { useState } from 'react';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './productShowcase.module.css';
 import { HealingServiceData } from '../healingService/healingService';
+import { productMerchandiseData, MerchandiseProductDetail, calculateDiscountPercentage } from '@/data/productMerchandise';
 
 interface ProductShowcaseProps {
   data: HealingServiceData;
   category?: string;
 }
 
-// Image URLs for different product types
-const productImages: { [key: string]: string } = {
-  'Healing Crystals': 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=300&fit=crop',
-  'Essential Oils': 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=300&fit=crop',
-  'Meditation Tools': 'https://images.unsplash.com/photo-1588286840104-8957b019727f?w=400&h=300&fit=crop',
-  'Ayurvedic Remedies': 'https://images.unsplash.com/photo-1587854692152-cbe660dbde0f?w=400&h=300&fit=crop',
-  'Reiki Tools': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5e2?w=400&h=300&fit=crop',
-  'Sound Healing': 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=300&fit=crop',
-  'Chakra Stones': 'https://images.unsplash.com/photo-1599643478827-d17e9b1aee66?w=400&h=300&fit=crop',
-  'Wellness Kits': 'https://images.unsplash.com/photo-1596263353880-a4c4218c7b56?w=400&h=300&fit=crop',
-};
-
 export default function ProductShowcase({ data, category }: ProductShowcaseProps) {
-  const { hero, practices, cta } = data;
+  const { hero, cta } = data;
+  const allProducts = productMerchandiseData;
+  const displayPractices = category 
+    ? { 
+        title: category === 'yantra' ? 'Sacred Yantras' : 'Healing Bracelets',
+        description: category === 'yantra' ? 'Powerful yantras for spiritual manifestation' : 'Crystal and rudraksha bracelets for spiritual protection',
+        list: allProducts.filter(product => product.category === category)
+      }
+    : { 
+        title: 'Sacred Products',
+        description: 'Yantras and bracelets for spiritual enhancement',
+        list: allProducts
+      };
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'none' | 'asc' | 'desc'>('none');
 
-  if (!practices) {
-    return (
-      <main className={styles.container}>
-        <section className={styles.hero}>
-          <LineArtBackground />
-          <p>No products available</p>
-        </section>
-      </main>
-    );
-  }
-
   // Filter products based on search query
-  let filteredProducts = practices.list.filter((product) =>
+  let filteredProducts = displayPractices.list.filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.meaning.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -76,8 +67,8 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
       {/* Products Grid */}
       <section className={styles.productsSection}>
         <div className={styles.sectionHeader}>
-          <h2>{practices.title}</h2>
-          <p>{practices.description}</p>
+          <h2>{displayPractices.title}</h2>
+          <p>{displayPractices.description}</p>
         </div>
 
         {/* Search and Filter Bar */}
@@ -118,13 +109,13 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
 
         <div className={styles.productsGrid}>
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product, index) => (
+            filteredProducts.slice(0, 3).map((product, index) => (
               <div key={index} className={styles.productCard}>
                 {/* Product Image */}
                 <div className={styles.productImageWrapper}>
-                  {productImages[product.name] ? (
+                  {product.images && product.images.length > 0 ? (
                     <Image
-                      src={productImages[product.name]}
+                      src={product.images[0]}
                       alt={product.name}
                       width={400}
                       height={300}
@@ -141,17 +132,27 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
                 {/* Product Details */}
                 <div className={styles.productDetails}>
                   <h3 className={styles.productName}>{product.name}</h3>
-                  <p className={styles.productDescription}>{product.meaning}</p>
+                  <p className={styles.productDescription}>{product.shortDescription || product.meaning}</p>
 
-                  {/* Price Box */}
-                  <div className={styles.priceBox}>
-                    <span className={styles.priceLabel}>Price</span>
-                    <span className={styles.price}>{product.price}</span>
+                  {/* Pricing Section */}
+                  <div className={styles.pricingSection}>
+                    <div className={styles.priceRow}>
+                      <span className={styles.originalPrice}>{product.originalPrice}</span>
+                      <span className={styles.currentPrice}>{product.price}</span>
+                    </div>
+                    <div className={styles.discountBadge}>
+                      {calculateDiscountPercentage(product.originalPrice, product.price)}
+                    </div>
+                  </div>
+
+                  {/* Usage Instruction */}
+                  <div className={styles.usageInstruction}>
+                    {product.use}
                   </div>
 
                   {/* Buy Now Button */}
-                  <Link 
-                    href={`/product/${category || 'healing'}/${encodeURIComponent(product.name.toLowerCase().replace(/\s+/g, '-'))}`}
+                  <Link
+                    href={`/product/${product.category}/${product.slug}`}
                     className={styles.buyNowBtn}
                   >
                     <ShoppingCart sx={{ fontSize: 16 }} />

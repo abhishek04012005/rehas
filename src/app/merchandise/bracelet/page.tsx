@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import ProductShowcase from '@/components/productShowcase';
-import { merchandiseBraceletData } from '@/data/merchandiseBracelet';
+import { merchandiseData } from '@/data/merchandise';
 
 export const metadata: Metadata = {
   title: 'Healing Bracelets | Crystal & Rudraksha Jewelry | REHAS',
@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function BraceletPage() {
-  return <ProductShowcase data={merchandiseBraceletData} category="bracelet" />;
+  return <ProductShowcase data={merchandiseData} category="bracelet" />;
 }
