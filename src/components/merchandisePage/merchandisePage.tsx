@@ -80,6 +80,9 @@ export default function MerchandisePage() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className={styles.searchInput}
             />
+            <button type="button" className={styles.searchButton} aria-label="Search">
+              <Search className={styles.searchButtonIcon} />
+            </button>
           </div>
           <div className={styles.categoryFilter}>
             {categoryTabs.map((tab) => (
