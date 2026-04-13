@@ -402,7 +402,7 @@ export default function ProductDetail({
                 />
                 <label htmlFor="poojaCheckbox" className={styles.poojaLabel}>
                   <span className={styles.poojaTitle}>Add Pooja</span>
-                  <span className={styles.poojaPrice}>+ 100</span>
+                  <span className={styles.poojaPrice}>+ 1</span>
                 </label>
               </div>
               <p className={styles.poojaNote}>{product.pooja.note}</p>

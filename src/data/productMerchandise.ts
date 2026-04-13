@@ -104,7 +104,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             label: 'Add Pregnancy Blessing Pooja',
             note:
                 'Your bracelet will be energized through sacred rituals performed by experienced priests, specifically focused on safe pregnancy, protection, and healthy childbirth.',
-            price: '₹999.00',
+            price: '₹120.00',
         },
 
         description:

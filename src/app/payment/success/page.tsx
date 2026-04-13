@@ -4,7 +4,7 @@ import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CheckCircle, FileDownload, Print } from '@mui/icons-material';
+import { CheckCircle, FileDownload } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { supabase } from '@/lib/supabase';
 import { rehasData } from '@/data/rehasData';
@@ -57,204 +57,357 @@ function PaymentSuccessContent() {
     second: '2-digit',
   });
 
-  const handlePrint = () => {
-    window.print();
-  };
+  const handleDownloadPDF = async () => {
+    // Dynamically import html2pdf to avoid SSR issues
+    const html2pdf = (await import('html2pdf.js')).default;
+    // Create a temporary HTML element with the receipt content
+    const receiptElement = document.createElement('div');
+    receiptElement.innerHTML = `
+      <div style="
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: white;
+        max-width: 210mm;
+        margin: 0 auto;
+        line-height: 1.4;
+        color: #333;
+      ">
+        <div style="
+          border: 2px solid #560067;
+          padding: 30px;
+          background: white;
+          border-radius: 8px;
+          position: relative;
+          overflow: hidden;
+        ">
+          <div style="
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #560067, #7b1fa2);
+          "></div>
 
-  const handleDownloadPDF = () => {
-    // Create a new window for printing
-    const printWindow = window.open('', '', 'height=800,width=800');
-    if (printWindow) {
-      printWindow.document.write(`
-        <html>
-          <head>
-            <title>REHAS - Order Receipt #${orderId}</title>
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                padding: 40px;
-                background: white;
-                max-width: 210mm;
-                height: 297mm;
-                margin: 0 auto;
-              }
-              .receipt-container {
-                border: 2px solid #560067;
-                padding: 30px;
-                background: white;
-              }
-              .header {
-                text-align: center;
-                border-bottom: 2px solid #560067;
-                padding-bottom: 20px;
-                margin-bottom: 20px;
-              }
-              .header h1 {
-                color: #560067;
-                margin: 0;
-                font-size: 24px;
-              }
-              .header p {
-                color: #666;
-                margin: 5px 0;
-              }
-              .section {
-                margin-bottom: 20px;
-              }
-              .section-title {
-                color: #560067;
-                font-weight: bold;
-                font-size: 14px;
-                border-bottom: 1px solid #ddd;
-                padding-bottom: 8px;
-                margin-bottom: 10px;
-              }
-              .detail-row {
+          <div style="
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            position: relative;
+          ">
+            <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 12px;
+            ">
+              <div style="
+                width: 120px;
+                height: 48px;
+                background: #f0f0f0;
                 display: flex;
-                justify-content: space-between;
-                padding: 8px 0;
-                font-size: 13px;
-              }
-              .detail-label {
-                font-weight: bold;
-                color: #333;
-              }
-              .detail-value {
-                color: #666;
-                text-align: right;
-              }
-              .amount-row {
-                display: flex;
-                justify-content: space-between;
-                padding: 12px 0;
-                border-top: 2px solid #560067;
-                border-bottom: 2px solid #560067;
-                font-size: 16px;
-                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                font-weight: 700;
                 color: #560067;
-              }
-              .footer {
-                text-align: center;
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid #ddd;
-                font-size: 12px;
-                color: #999;
-              }
-              .contact-info {
-                text-align: center;
-                margin-top: 20px;
-                padding: 15px;
-                background: #f9f9f9;
-                border-radius: 5px;
-                font-size: 12px;
-              }
-              .contact-info p {
-                margin: 5px 0;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="receipt-container">
-              <div class="header">
-                <h1>REHAS</h1>
-                <p>Order Receipt</p>
-              </div>
-
-              <div class="section">
-                <div class="section-title">ORDER INFORMATION</div>
-                <div class="detail-row">
-                  <span class="detail-label">Order Number:</span>
-                  <span class="detail-value">#${orderId || 'N/A'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Order Date:</span>
-                  <span class="detail-value">${orderDate}</span>
-                </div>
-              </div>
-
-              <div class="section">
-                <div class="section-title">CUSTOMER INFORMATION</div>
-                <div class="detail-row">
-                  <span class="detail-label">Name:</span>
-                  <span class="detail-value">${customerInfo?.full_name || 'N/A'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Email:</span>
-                  <span class="detail-value">${customerInfo?.email || 'N/A'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Phone:</span>
-                  <span class="detail-value">${customerInfo?.phone || 'N/A'}</span>
-                </div>
-                ${customerInfo?.order_type === 'product' ? `
-                <div class="detail-row">
-                  <span class="detail-label">Address:</span>
-                  <span class="detail-value">${customerInfo?.address_line_1 || ''} ${customerInfo?.address_line_2 || ''}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">City:</span>
-                  <span class="detail-value">${customerInfo?.city || 'N/A'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">State:</span>
-                  <span class="detail-value">${customerInfo?.state || 'N/A'}</span>
-                </div>
-                ` : ''}
-                <div class="detail-row">
-                  <span class="detail-label">Billing Address:</span>
-                  <span class="detail-value">${rehasData.contact.address.street}, ${rehasData.contact.address.city}, ${rehasData.contact.address.state}, ${rehasData.contact.address.country} - ${rehasData.contact.address.zipCode}</span>
-                </div>
-              </div>
-
-              <div class="section">
-                <div class="section-title">PRODUCT DETAILS</div>
-                <div class="detail-row">
-                  <span class="detail-label">Product Name:</span>
-                  <span class="detail-value">${productData?.productTitle || 'N/A'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Amount:</span>
-                  <span class="detail-value">₹${amount || '0.00'}</span>
-                </div>
-              </div>
-
-              <div class="section">
-                <div class="section-title">PAYMENT INFORMATION</div>
-                <div class="detail-row">
-                  <span class="detail-label">Payment Method:</span>
-                  <span class="detail-value">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Payment ID:</span>
-                  <span class="detail-value">${transactionId || 'N/A'}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Payment Status:</span>
-                  <span class="detail-value">${method === 'cod' ? 'Pending' : 'Completed'}</span>
-                </div>
-              </div>
-
-              <div class="amount-row">
-                <span>TOTAL AMOUNT:</span>
-                <span>₹${amount || '0.00'}</span>
-              </div>
-
-              <div class="contact-info">
-                <p><strong>REHAS - Cosmic Wellness</strong></p>
-                <p>Email: ${rehasData.contact.email}</p>
-                <p>Phone: ${rehasData.contact.phone}</p>
-                <p>Website: https://rehas.in</p>
-                <p style="margin-top: 10px; font-size: 11px;">This is an electronically generated receipt. No signature required.</p>
+              ">REHAS</div>
+              <div style="text-align: right; font-size: 12px; color: #666;">
+                <div style="font-weight: 700; color: #560067; font-size: 14px; margin-bottom: 2px;">Order #${orderId || 'N/A'}</div>
+                <div>${orderDate}</div>
               </div>
             </div>
-          </body>
-        </html>
-      `);
+            <h1 style="
+              color: #560067;
+              margin: 0 0 8px 0;
+              font-size: 24px;
+              font-weight: 700;
+            ">REHAS - Cosmic Wellness</h1>
+            <p style="
+              color: #666;
+              margin: 0;
+              font-size: 14px;
+            ">Order Confirmation Receipt</p>
+          </div>
 
-      printWindow.document.close();
-      printWindow.print();
-    }
+          <div style="
+            margin-bottom: 20px;
+            text-align: center;
+          ">
+            <div style="
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              background: rgba(34, 197, 94, 0.1);
+              color: #16a34a;
+              padding: 6px 12px;
+              border-radius: 20px;
+              font-size: 12px;
+              font-weight: 600;
+            ">
+              <span>✓</span>
+              <span>${method === 'cod' ? 'Order Confirmed' : 'Payment Successful'}</span>
+            </div>
+          </div>
+
+          <div style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+          ">
+            <div style="
+              background: #f9f9f9;
+              border-radius: 6px;
+              padding: 12px;
+              border: 1px solid #e0e0e0;
+            ">
+              <div style="
+                color: #560067;
+                font-size: 12px;
+                font-weight: 700;
+                margin: 0 0 8px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              ">Customer Details</div>
+              <div style="
+                font-weight: 600;
+                color: #333;
+                font-size: 14px;
+                margin-bottom: 6px;
+              ">${customerInfo?.full_name || 'N/A'}</div>
+              <div style="
+                font-size: 12px;
+                color: #666;
+                line-height: 1.4;
+              ">
+                <div>${customerInfo?.email || 'N/A'}</div>
+                <div>${customerInfo?.phone || 'N/A'}</div>
+              </div>
+            </div>
+            ${customerInfo?.order_type === 'product' ? `
+            <div style="
+              background: #f9f9f9;
+              border-radius: 6px;
+              padding: 12px;
+              border: 1px solid #e0e0e0;
+            ">
+              <div style="
+                color: #560067;
+                font-size: 12px;
+                font-weight: 700;
+                margin: 0 0 8px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              ">Delivery Address</div>
+              <div style="
+                font-size: 12px;
+                color: #666;
+                line-height: 1.4;
+              ">
+                <div>${customerInfo?.address_line_1} ${customerInfo?.address_line_2}</div>
+                <div>${customerInfo?.city}, ${customerInfo?.state}</div>
+              </div>
+            </div>
+            ` : ''}
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <div style="
+              color: #560067;
+              font-size: 13px;
+              font-weight: 700;
+              letter-spacing: 0.5px;
+              border-bottom: 1px solid #e0e0e0;
+              padding-bottom: 6px;
+              margin: 0 0 10px 0;
+              text-transform: uppercase;
+            ">Order Summary</div>
+            <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 12px;
+              background: #f9f9f9;
+              border-radius: 6px;
+              border: 1px solid #e0e0e0;
+              margin-bottom: 8px;
+            ">
+              <div style="flex: 1;">
+                <div style="
+                  font-weight: 600;
+                  color: #333;
+                  font-size: 13px;
+                  margin-bottom: 4px;
+                ">${productData?.productTitle || 'N/A'}</div>
+                <div style="
+                  display: flex;
+                  gap: 12px;
+                  font-size: 11px;
+                  color: #666;
+                ">
+                  <span>Qty: 1</span>
+                  <span>₹${amount || '0.00'}</span>
+                </div>
+              </div>
+              <div style="
+                font-weight: 700;
+                color: #560067;
+                font-size: 14px;
+              ">₹${amount || '0.00'}</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <div style="
+              color: #560067;
+              font-size: 13px;
+              font-weight: 700;
+              letter-spacing: 0.5px;
+              border-bottom: 1px solid #e0e0e0;
+              padding-bottom: 6px;
+              margin: 0 0 10px 0;
+              text-transform: uppercase;
+            ">Payment Details</div>
+            <div style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+              gap: 12px;
+            ">
+              <div style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 12px;
+                background: #f9f9f9;
+                border-radius: 4px;
+                border: 1px solid #e0e0e0;
+              ">
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Method</span>
+                <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
+              </div>
+              <div style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 12px;
+                background: #f9f9f9;
+                border-radius: 4px;
+                border: 1px solid #e0e0e0;
+              ">
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment ID</span>
+                <span style="font-size: 11px; color: #333; font-weight: 600;">${transactionId || 'N/A'}</span>
+              </div>
+              <div style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 12px;
+                background: #f9f9f9;
+                border-radius: 4px;
+                border: 1px solid #e0e0e0;
+              ">
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Status</span>
+                <span style="
+                  padding: 3px 6px;
+                  border-radius: 10px;
+                  font-size: 10px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  ${method === 'cod' ? 'background: rgba(251, 191, 36, 0.1); color: #d97706;' : 'background: rgba(34, 197, 94, 0.1); color: #16a34a;'}
+                ">${method === 'cod' ? 'Pending' : 'Completed'}</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 16px;
+              background: linear-gradient(135deg, #560067, #7b1fa2);
+              color: white;
+              border-radius: 6px;
+              font-size: 16px;
+              font-weight: 700;
+            ">
+              <span>Total Amount</span>
+              <span>₹${amount || '0.00'}</span>
+            </div>
+          </div>
+
+          <div style="
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(86, 0, 103, 0.05);
+            border-radius: 6px;
+            border: 1px solid rgba(86, 0, 103, 0.1);
+          ">
+            <h3 style="
+              color: #560067;
+              font-size: 16px;
+              margin: 0 0 6px 0;
+              font-weight: 700;
+            ">Thank you for choosing REHAS!</h3>
+            <p style="
+              color: #666;
+              font-size: 12px;
+              margin: 0;
+              line-height: 1.4;
+            ">Your order has been ${method === 'cod' ? 'confirmed' : 'successfully processed'}.
+            ${method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
+          </div>
+
+          <div style="
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+            text-align: center;
+          ">
+            <div style="
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 12px;
+              margin-bottom: 12px;
+            ">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Need Help?</span>
+                <span style="font-size: 12px; color: #333; font-weight: 600;">${rehasData.contact.phone}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Email</span>
+                <span style="font-size: 12px; color: #333; font-weight: 600;">${rehasData.contact.email}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Website</span>
+                <span style="font-size: 12px; color: #333; font-weight: 600;">rehas.in</span>
+              </div>
+            </div>
+            <p style="
+              font-size: 9px;
+              color: #999;
+              margin: 0;
+              font-style: italic;
+            ">This is an electronically generated receipt. No signature required.</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Configure PDF options
+    const options = {
+      margin: 0.5,
+      filename: `REHAS_Order_Receipt_${orderId || 'N/A'}.pdf`,
+      image: { type: 'jpeg' as const, quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' as const }
+    };
+
+    // Generate and download PDF
+    html2pdf().set(options).from(receiptElement).save();
   };
 
   return (
@@ -275,12 +428,8 @@ function PaymentSuccessContent() {
             : 'Thank you for your purchase. Your payment has been processed successfully.'}
         </p>
 
-        {/* Print & Download Buttons */}
+        {/* Download Button */}
         <div className={styles.actionButtons}>
-          <button onClick={handlePrint} className={styles.printBtn}>
-            <Print sx={{ fontSize: 18 }} />
-            Print Receipt
-          </button>
           <button onClick={handleDownloadPDF} className={styles.downloadBtn}>
             <FileDownload sx={{ fontSize: 18 }} />
             Download Receipt
@@ -289,21 +438,34 @@ function PaymentSuccessContent() {
 
         {/* Receipt */}
         <div className={styles.receipt} id="receipt">
-          {/* Header with Logo */}
+          {/* Header with Logo and Order Info */}
           <div className={styles.receiptHeader}>
-            {rehasData.profile.logo && (
-              <div className={styles.logoContainer}>
-                <Image
-                  src={rehasData.profile.logo}
-                  alt="REHAS Logo"
-                  width={150}
-                  height={60}
-                  className={styles.logo}
-                />
+            <div className={styles.headerTop}>
+              {rehasData.profile.logo && (
+                <div className={styles.logoContainer}>
+                  <Image
+                    src={rehasData.profile.logo}
+                    alt="REHAS Logo"
+                    width={120}
+                    height={48}
+                    className={styles.logo}
+                  />
+                </div>
+              )}
+              <div className={styles.orderBadge}>
+                <span className={styles.orderNumber}>Order #{orderId || 'N/A'}</span>
               </div>
-            )}
-            <h2 className={styles.receiptTitle}>REHAS</h2>
-            <p className={styles.receiptSubtitle}>Order Receipt</p>
+            </div>
+            <h2 className={styles.receiptTitle}>REHAS - Cosmic Wellness</h2>
+            <p className={styles.receiptSubtitle}>Order Confirmation Receipt</p>
+          </div>
+
+          {/* Order Status */}
+          <div className={styles.statusSection}>
+            <div className={styles.statusBadge}>
+              <CheckCircle sx={{ fontSize: 20 }} />
+              <span>{method === 'cod' ? 'Order Confirmed' : 'Payment Successful'}</span>
+            </div>
           </div>
 
           {/* Order Information */}
@@ -319,101 +481,107 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
-          {/* Customer Information */}
-          {customerInfo && (
-            <div className={styles.receiptSection}>
-              <h3 className={styles.sectionTitle}>CUSTOMER INFORMATION</h3>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Name:</span>
-                <span className={styles.detailValue}>{customerInfo.full_name || 'N/A'}</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Email:</span>
-                <span className={styles.detailValue}>{customerInfo.email || 'N/A'}</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Phone:</span>
-                <span className={styles.detailValue}>{customerInfo.phone || 'N/A'}</span>
-              </div>
-
-              {/* Address section - only show for product orders */}
-              {customerInfo.order_type === 'product' && (
-                <>
-                  <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>Address:</span>
-                    <span className={styles.detailValue}>
-                      {customerInfo.address_line_1} {customerInfo.address_line_2}
-                    </span>
-                  </div>
-                  <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>City:</span>
-                    <span className={styles.detailValue}>{customerInfo.city || 'N/A'}</span>
-                  </div>
-                  <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>State:</span>
-                    <span className={styles.detailValue}>{customerInfo.state || 'N/A'}</span>
-                  </div>
-                </>
-              )}
-
-              {/* Billing Address */}
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Billing Address:</span>
-                <span className={styles.detailValue}>
-                  {rehasData.contact.address.street}, {rehasData.contact.address.city}, {rehasData.contact.address.state}, {rehasData.contact.address.country} - {rehasData.contact.address.zipCode}
-                </span>
+          {/* Customer & Delivery Information */}
+          <div className={styles.infoGrid}>
+            <div className={styles.infoCard}>
+              <h3 className={styles.cardTitle}>Customer Details</h3>
+              <div className={styles.customerInfo}>
+                <div className={styles.customerName}>{customerInfo?.full_name || 'N/A'}</div>
+                <div className={styles.customerContact}>
+                  <span>{customerInfo?.email || 'N/A'}</span>
+                  <span>{customerInfo?.phone || 'N/A'}</span>
+                </div>
               </div>
             </div>
-          )}
+
+            {customerInfo?.order_type === 'product' && (
+              <div className={styles.infoCard}>
+                <h3 className={styles.cardTitle}>Delivery Address</h3>
+                <div className={styles.addressInfo}>
+                  <div className={styles.addressText}>
+                    {customerInfo?.address_line_1} {customerInfo?.address_line_2}
+                  </div>
+                  <div className={styles.addressText}>
+                    {customerInfo?.city}, {customerInfo?.state}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Product Details */}
-          <div className={styles.receiptSection}>
-            <h3 className={styles.sectionTitle}>PRODUCT DETAILS</h3>
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Product Name:</span>
-              <span className={styles.detailValue}>{productData?.productTitle || 'N/A'}</span>
-            </div>
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Amount:</span>
-              <span className={styles.detailValue}>₹{amount || '0.00'}</span>
+          <div className={styles.productSection}>
+            <h3 className={styles.sectionTitle}>Order Summary</h3>
+            <div className={styles.productItem}>
+              <div className={styles.productInfo}>
+                <div className={styles.productName}>{productData?.productTitle || 'N/A'}</div>
+                <div className={styles.productMeta}>
+                  <span>Qty: 1</span>
+                  <span>₹{amount || '0.00'}</span>
+                </div>
+              </div>
+              <div className={styles.productPrice}>₹{amount || '0.00'}</div>
             </div>
           </div>
 
           {/* Payment Information */}
-          <div className={styles.receiptSection}>
-            <h3 className={styles.sectionTitle}>PAYMENT INFORMATION</h3>
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Payment Method:</span>
-              <span className={styles.detailValue}>
-                {method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}
-              </span>
-            </div>
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Payment ID:</span>
-              <span className={styles.detailValue}>{transactionId || 'N/A'}</span>
-            </div>
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Payment Status:</span>
-              <span className={styles.detailValue}>
-                {method === 'cod' ? 'Pending' : 'Completed'}
-              </span>
-            </div>
-          </div>
-
-          {/* Total Amount */}
-          <div className={styles.amountBox}>
-            <div className={styles.amountRow}>
-              <span>TOTAL AMOUNT:</span>
-              <span>₹{amount || '0.00'}</span>
+          <div className={styles.paymentSection}>
+            <h3 className={styles.sectionTitle}>Payment Details</h3>
+            <div className={styles.paymentGrid}>
+              <div className={styles.paymentItem}>
+                <span className={styles.paymentLabel}>Payment Method</span>
+                <span className={styles.paymentValue}>
+                  {method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}
+                </span>
+              </div>
+              <div className={styles.paymentItem}>
+                <span className={styles.paymentLabel}>Payment ID</span>
+                <span className={styles.paymentValue}>{transactionId || 'N/A'}</span>
+              </div>
+              <div className={styles.paymentItem}>
+                <span className={styles.paymentLabel}>Payment Status</span>
+                <span className={styles.paymentValue}>
+                  <span className={`${styles.statusBadge} ${method === 'cod' ? styles.statusPending : styles.statusCompleted}`}>
+                    {method === 'cod' ? 'Pending' : 'Completed'}
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Contact Information Footer */}
-          <div className={styles.contactFooter}>
-            <h4 className={styles.contactTitle}>REHAS - Cosmic Wellness</h4>
-            <p>Email: {rehasData.contact.email}</p>
-            <p>Phone: {rehasData.contact.phone}</p>
-            <p>Website: https://rehas.in</p>
+          {/* Order Total */}
+          <div className={styles.totalSection}>
+            <div className={styles.totalRow}>
+              <span className={styles.totalLabel}>Total Amount</span>
+              <span className={styles.totalAmount}>₹{amount || '0.00'}</span>
+            </div>
+          </div>
+
+          {/* Thank You Message */}
+          <div className={styles.thankYouSection}>
+            <div className={styles.thankYouMessage}>
+              <h3>Thank you for choosing REHAS!</h3>
+              <p>Your order has been {method === 'cod' ? 'confirmed' : 'successfully processed'}. 
+              {method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className={styles.contactSection}>
+            <div className={styles.contactGrid}>
+              <div className={styles.contactItem}>
+                <span className={styles.contactLabel}>Need Help?</span>
+                <span className={styles.contactValue}>{rehasData.contact.phone}</span>
+              </div>
+              <div className={styles.contactItem}>
+                <span className={styles.contactLabel}>Email</span>
+                <span className={styles.contactValue}>{rehasData.contact.email}</span>
+              </div>
+              <div className={styles.contactItem}>
+                <span className={styles.contactLabel}>Website</span>
+                <span className={styles.contactValue}>rehas.in</span>
+              </div>
+            </div>
             <p className={styles.disclaimerText}>This is an electronically generated receipt. No signature required.</p>
           </div>
         </div>

@@ -283,104 +283,42 @@
 .receipt {
   background: white;
   border: 2px solid var(--border);
-  border-radius: 8px;
-  padding: 40px;
+  border-radius: 12px;
+  padding: 32px;
   margin: 30px 0;
   text-align: left;
-  page-break-after: avoid;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.receipt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
 .receiptHeader {
   text-align: center;
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 20px;
-  margin-bottom: 25px;
-}
-
-.receiptTitle {
-  color: var(--primary);
-  font-size: 28px;
-  margin: 0 0 8px 0;
-  font-weight: 900;
-}
-
-.receiptSubtitle {
-  color: var(--text-light);
-  font-size: 14px;
-  margin: 0;
-}
-
-.receiptSection {
-  margin-bottom: 20px;
-  page-break-inside: avoid;
-}
-
-.sectionTitle {
-  color: var(--primary);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 8px;
-  margin: 0 0 12px 0;
-  text-transform: uppercase;
-}
-
-.detailRow {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  font-size: 13px;
   border-bottom: 1px solid var(--light-bg);
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  position: relative;
 }
 
-.detailRow:last-child {
-  border-bottom: none;
-}
-
-.detailLabel {
-  font-weight: 600;
-  color: var(--foreground);
-}
-
-.detailValue {
-  color: var(--text-light);
-  text-align: right;
-  word-break: break-word;
-}
-
-.amountBox {
-  margin: 25px 0;
-  page-break-inside: avoid;
-}
-
-.amountRow {
+.headerTop {
   display: flex;
   justify-content: space-between;
-  padding: 16px;
-  background: var(--light-bg);
-  border: 2px solid var(--primary);
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.receiptFooter {
-  text-align: center;
-  margin-top: 25px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.receiptFooter p {
-  margin: 8px 0;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .logoContainer {
-  margin-bottom: 12px;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -388,31 +326,275 @@
   height: auto;
 }
 
-.contactFooter {
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid var(--border);
+.orderBadge {
+  text-align: right;
   font-size: 12px;
   color: var(--text-light);
 }
 
-.contactFooter p {
-  margin: 6px 0;
-}
-
-.contactTitle {
+.orderNumber {
+  display: block;
   font-weight: 700;
   color: var(--primary);
-  font-size: 13px;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.orderDate {
+  display: block;
+  font-size: 11px;
+}
+
+.receiptTitle {
+  color: var(--primary);
+  font-size: 24px;
   margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.receiptSubtitle {
+  color: var(--text-light);
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.statusSection {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.infoCard {
+  background: var(--light-bg);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+
+.cardTitle {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.customerInfo .customerName {
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.customerContact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.addressInfo .addressText {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.productSection {
+  margin-bottom: 24px;
+}
+
+.productItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--light-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productName {
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.productMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.productPrice {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.paymentSection {
+  margin-bottom: 24px;
+}
+
+.paymentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.paymentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--light-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.paymentLabel {
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.paymentValue {
+  font-size: 13px;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusCompleted {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+}
+
+.statusPending {
+  background: rgba(251, 191, 36, 0.1);
+  color: #d97706;
+}
+
+.totalSection {
+  margin-bottom: 24px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.totalLabel {
+  font-size: 16px;
+}
+
+.totalAmount {
+  font-size: 20px;
+}
+
+.thankYouSection {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05), rgba(123, 31, 162, 0.05));
+  border-radius: 8px;
+  border: 1px solid rgba(86, 0, 103, 0.1);
+}
+
+.thankYouMessage h3 {
+  color: var(--primary);
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.thankYouMessage p {
+  color: var(--text-light);
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contactSection {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactLabel {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contactValue {
+  font-size: 14px;
+  color: var(--foreground);
+  font-weight: 600;
 }
 
 .disclaimerText {
   font-size: 11px;
   color: var(--text-muted);
-  margin-top: 8px !important;
-  margin-bottom: 0 !important;
+  margin: 0;
+  font-style: italic;
 }
 
 /* Print Media Styles */
@@ -468,6 +650,11 @@
     width: 210mm;
     height: auto;
     max-width: 210mm;
+    box-shadow: none;
+  }
+
+  .receipt::before {
+    display: none;
   }
 
   .receiptHeader {
@@ -476,12 +663,16 @@
     border-bottom: 1px solid #560067;
   }
 
+  .headerTop {
+    margin-bottom: 8px;
+  }
+
   .logoContainer {
     margin-bottom: 4px;
   }
 
   .logo {
-    max-width: 100mm;
+    max-width: 80mm;
     height: auto;
   }
 
@@ -495,67 +686,133 @@
     margin: 0;
   }
 
-  .receiptSection {
-    margin-bottom: 6px;
-    page-break-inside: avoid;
+  .statusSection {
+    margin-bottom: 12px;
   }
 
-  .sectionTitle {
-    font-size: 10px;
-    margin: 0 0 4px 0;
-    padding-bottom: 2px;
-    border-bottom: 0.5px solid #ddd;
+  .statusBadge {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
-  .detailRow {
-    padding: 3px 0;
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .infoCard {
+    padding: 12px;
+  }
+
+  .cardTitle {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .customerName {
+    font-size: 14px;
+  }
+
+  .customerContact,
+  .addressText {
     font-size: 11px;
-    border-bottom: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  }
+
+  .productSection {
+    margin-bottom: 16px;
+  }
+
+  .productItem {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .productName {
+    font-size: 13px;
+  }
+
+  .productMeta {
+    font-size: 11px;
+  }
+
+  .productPrice {
+    font-size: 14px;
+  }
+
+  .paymentSection {
+    margin-bottom: 16px;
+  }
+
+  .paymentGrid {
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .detailLabel {
-    font-weight: 600;
+  .paymentItem {
+    padding: 8px 12px;
   }
 
-  .detailValue {
+  .paymentLabel,
+  .paymentValue {
     font-size: 11px;
-    text-align: right;
   }
 
-  .amountBox {
-    margin: 6px 0;
-  }
-
-  .amountRow {
-    padding: 6px 8px;
-    font-size: 12px;
-    border-radius: 0;
-  }
-
-  .contactFooter {
-    font-size: 9px;
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 0.5px solid #ddd;
-  }
-
-  .contactFooter p {
-    margin: 2px 0;
-  }
-
-  .contactTitle {
-    font-weight: 700;
+  .statusBadge {
     font-size: 10px;
-    margin: 0 0 2px 0;
+    padding: 3px 6px;
+  }
+
+  .totalSection {
+    margin-bottom: 16px;
+  }
+
+  .totalRow {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .totalLabel {
+    font-size: 14px;
+  }
+
+  .totalAmount {
+    font-size: 18px;
+  }
+
+  .thankYouSection {
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+
+  .thankYouMessage h3 {
+    font-size: 14px;
+  }
+
+  .thankYouMessage p {
+    font-size: 12px;
+  }
+
+  .contactSection {
+    padding-top: 12px;
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .contactLabel {
+    font-size: 10px;
+  }
+
+  .contactValue {
+    font-size: 12px;
   }
 
   .disclaimerText {
-    font-size: 8px;
-    margin-top: 3px !important;
-    margin-bottom: 0 !important;
+    font-size: 9px;
   }
 
   /* A4 Size: 210mm x 297mm */
