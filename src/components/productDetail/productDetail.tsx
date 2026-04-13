@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle } from '@mui/icons-material';
+import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle, Close } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { calculateDiscountPercentage } from '@/data/productMerchandise';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
@@ -92,6 +92,7 @@ export default function ProductDetail({
   const { setProductData } = useCheckout();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPoojaSelected, setIsPoojaSelected] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const categoryPath = `/products/${product.category}`;
   const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
@@ -120,6 +121,22 @@ export default function ProductDetail({
   };
 
   const handleNextImage = () => {
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalPrevImage = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleModalNextImage = () => {
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
@@ -202,6 +219,8 @@ export default function ProductDetail({
                       src={images[currentImageIndex]}
                       alt={`${productName} - image ${currentImageIndex + 1}`}
                       className={styles.carouselImage}
+                      onClick={handleOpenModal}
+                      style={{ cursor: 'pointer' }}
                     />
                   )}
                 </div>
@@ -234,6 +253,93 @@ export default function ProductDetail({
               </div>
             )}
           </div>
+
+          {/* Image Modal */}
+          {isModalOpen && hasImages && (
+            <div className={styles.modalOverlay} onClick={handleCloseModal}>
+              <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                <button
+                  className={styles.modalClose}
+                  onClick={handleCloseModal}
+                  aria-label="Close modal"
+                >
+                  <Close sx={{ fontSize: 32 }} />
+                </button>
+                
+                <div className={styles.modalCarousel}>
+                  <button
+                    className={styles.modalNavButton}
+                    onClick={handleModalPrevImage}
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft sx={{ fontSize: 40 }} />
+                  </button>
+                  
+                  <div className={styles.modalImageWrapper}>
+                    {isVideo(images[currentImageIndex]) ? (
+                      <>
+                        {images[currentImageIndex].includes('youtube.com') || images[currentImageIndex].includes('youtu.be') || images[currentImageIndex].includes('vimeo.com') ? (
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={getYouTubeEmbedUrl(images[currentImageIndex])}
+                            title={`${productName} - video ${currentImageIndex + 1}`}
+                            className={styles.modalVideo}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        ) : (
+                          <video
+                            controls
+                            autoPlay
+                            muted
+                            loop
+                            className={styles.modalVideo}
+                            controlsList="nodownload"
+                          >
+                            <source src={images[currentImageIndex]} />
+                            Your browser does not support the video tag.
+                          </video>
+                        )}
+                      </>
+                    ) : (
+                      <img
+                        src={images[currentImageIndex]}
+                        alt={`${productName} - image ${currentImageIndex + 1}`}
+                        className={styles.modalImage}
+                      />
+                    )}
+                  </div>
+                  
+                  <button
+                    className={styles.modalNavButton}
+                    onClick={handleModalNextImage}
+                    aria-label="Next image"
+                  >
+                    <ChevronRight sx={{ fontSize: 40 }} />
+                  </button>
+                </div>
+                
+                {images.length > 1 && (
+                  <div className={styles.modalDots}>
+                    {images.map((item, index) => (
+                      <button
+                        key={index}
+                        className={`${styles.modalDot} ${index === currentImageIndex ? styles.modalDotActive : ''}`}
+                        onClick={() => setCurrentImageIndex(index)}
+                        aria-label={`Go to media ${index + 1} ${isVideo(item) ? '(video)' : '(image)'}`}
+                      />
+                    ))}
+                  </div>
+                )}
+                
+                <div className={styles.modalCounter}>
+                  {currentImageIndex + 1} / {images.length}
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className={styles.infoSection}>
             <div className={styles.priceBox}>
