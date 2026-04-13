@@ -53,7 +53,6 @@ export default function SimilarProducts({ category, currentProductSlug }: Simila
               product.originalPrice,
               product.price
             );
-            const currentPrice = parseFloat(product.price.replace(/[₹,]/g, ''));
 
             return (
               <Link
@@ -87,46 +86,34 @@ export default function SimilarProducts({ category, currentProductSlug }: Simila
                   </button>
                 </div>
 
-                <div className={styles.productInfo}>
+                <div className={styles.productDetails}>
                   <h3 className={styles.productName}>{product.name}</h3>
                   <p className={styles.productDescription}>
-                    {product.shortDescription}
+                    {product.shortDescription || product.meaning}
                   </p>
 
-                  <div className={styles.ratingSection}>
-                    <div className={styles.stars}>
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          sx={{ fontSize: 14, color: '#FFB800' }}
-                        />
-                      ))}
+                  <div className={styles.pricingSection}>
+                    <div className={styles.priceRow}>
+                      <span className={styles.originalPrice}>{product.originalPrice}</span>
+                      <span className={styles.currentPrice}>{product.price}</span>
                     </div>
-                    <span className={styles.reviewCount}>
-                      ({product.reviewCount})
-                    </span>
                   </div>
 
-                  <div className={styles.priceSection}>
-                    <div className={styles.prices}>
-                      <span className={styles.currentPrice}>
-                        {product.price}
-                      </span>
-                      <span className={styles.originalPrice}>
-                        {product.originalPrice}
-                      </span>
-                    </div>
-                    <button
-                      className={styles.shopNowBtn}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        router.push(`/product/${product.category}/${product.slug}`);
-                      }}
-                      title="View product details"
-                    >
-                      Shop Now
-                    </button>
+                  <div className={styles.usageInstruction}>
+                    {product.use}
                   </div>
+
+                  <button
+                    className={styles.buyNowBtn}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push(`/product/${product.category}/${product.slug}`);
+                    }}
+                    title="View product details"
+                  >
+                    <ShoppingCart sx={{ fontSize: 16 }} />
+                    Buy Now
+                  </button>
                 </div>
               </Link>
             );
