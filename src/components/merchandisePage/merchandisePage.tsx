@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Search } from '@mui/icons-material';
+import { CheckCircle, Search, ShoppingCart } from '@mui/icons-material';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { productMerchandiseData, calculateDiscountPercentage } from '@/data/productMerchandise';
 import { merchandiseData } from '@/data/content';
@@ -107,36 +107,48 @@ export default function MerchandisePage() {
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product.id} className={styles.productListCard}>
-              <div className={styles.productListImage}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className={styles.productListImageInner}
-                />
-              </div>
-              <div className={styles.productListContent}>
-                <span className={styles.productCategoryLabel}>{product.category === 'bracelet' ? 'Bracelet' : 'Yantra'}</span>
-                <h3>{product.name}</h3>
-                <p>{product.meaning}</p>
-                <div className={styles.productMeta}>
-                  <div className={styles.priceSection}>
-                    {product.originalPrice && (
-                      <span className={styles.originalPrice}>{product.originalPrice}</span>
-                    )}
-                    <span className={styles.currentPrice}>{product.price}</span>
-                    {product.originalPrice && product.price && (
-                      <span className={styles.discountBadge}>{calculateDiscountPercentage(product.originalPrice, product.price)}</span>
-                    )}
-                  </div>
-                  <span>{product.use}</span>
+                {/* Product Image */}
+                <div className={styles.productImageWrapper}>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className={styles.productImage}
+                  />
                 </div>
-                <Link href={product.href} className={`btn-primary ${styles.productListLink}`}>
-                  Shop Now
-                </Link>
+
+                {/* Product Details */}
+                <div className={styles.productDetails}>
+                  <h3 className={styles.productName}>{product.name}</h3>
+                  <p className={styles.productDescription}>{product.shortDescription || product.meaning}</p>
+
+                  {/* Pricing Section */}
+                  <div className={styles.pricingSection}>
+                    <div className={styles.priceRow}>
+                      <span className={styles.originalPrice}>{product.originalPrice}</span>
+                      <span className={styles.currentPrice}>{product.price}</span>
+                    </div>
+                    <div className={styles.discountBadge}>
+                      {calculateDiscountPercentage(product.originalPrice, product.price)}
+                    </div>
+                  </div>
+
+                  {/* Usage Instruction */}
+                  <div className={styles.usageInstruction}>
+                    {product.use}
+                  </div>
+
+                  {/* Buy Now Button */}
+                  <Link
+                    href={product.href}
+                    className={styles.buyNowBtn}
+                  >
+                    <ShoppingCart sx={{ fontSize: 16 }} />
+                    Buy Now
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))
+            ))
         ) : (
           <div className={styles.noResultsBox}>
             <p>No products found for your search.</p>
