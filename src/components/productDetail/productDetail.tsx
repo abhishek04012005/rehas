@@ -103,8 +103,9 @@ export default function ProductDetail({
   let currentAmount = parseFloat(productPrice.replace(/[₹,]/g, '')) || 999;
 
   if (isPoojaSelected && product.pooja?.price) {
-    // Add 100 to the base product price for pooja
-    currentAmount = currentAmount + 100;
+    // Add pooja price from productMerchandise.ts
+    const poojaPrice = parseFloat(product.pooja.price.replace(/[₹,]/g, '')) || 0;
+    currentAmount = currentAmount + poojaPrice;
     productPrice = `₹${currentAmount.toFixed(2)}`;
   }
 
@@ -401,8 +402,8 @@ export default function ProductDetail({
                   className={styles.poojaCheckbox}
                 />
                 <label htmlFor="poojaCheckbox" className={styles.poojaLabel}>
-                  <span className={styles.poojaTitle}>Add Pooja</span>
-                  <span className={styles.poojaPrice}>+ 1</span>
+                  <span className={styles.poojaTitle}>{product.pooja?.label || 'Add Pooja'}</span>
+                  <span className={styles.poojaPrice}>+ {product.pooja?.price || '₹0'}</span>
                 </label>
               </div>
               <p className={styles.poojaNote}>{product.pooja.note}</p>
