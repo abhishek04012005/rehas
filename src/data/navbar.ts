@@ -86,7 +86,7 @@ export const navbarData = {
           ],
 
       },
-    {label: 'Blog', href: '/blog' },
+    // {label: 'Blog', href: '/blog' },
   ],
   cta: {
     label: 'Book Consultation',
