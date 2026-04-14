@@ -77,10 +77,15 @@ export const navbarData = {
         { label: 'Mind Reading', href: '/courses/mind-reading', icon: 'MenuBook' },
       ],
     },
-    // {
-    //   label: 'Merchandise',
-    //   href: '/merchandise',
-    // },
+ 
+      { label: 'Merchandise', 
+        href: '/merchandise',
+          submenu: [
+            { label: 'Healing Bracelets', href: '/merchandise/bracelet', icon: 'Star' },
+            { label: 'Yantras', href: '/merchandise/yantra', icon: 'Diamond' },
+          ],
+
+      },
     {label: 'Blog', href: '/blog' },
   ],
   cta: {
