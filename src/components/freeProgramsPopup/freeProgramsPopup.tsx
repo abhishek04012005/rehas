@@ -135,9 +135,6 @@ export default function FreeProgramsPopup({
                 <div className={styles.badge}>FREE</div>
               </div>
 
-              <div className={`${styles.cardArrow} ${hoveredCard === program.id ? styles.arrowActive : ''}`}>
-                <ArrowForward />
-              </div>
             </div>
           ))}
         </div>
