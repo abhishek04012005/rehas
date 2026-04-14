@@ -48,6 +48,33 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+.cartReview {
+  max-width: 1000px;
+  margin: 20px auto 0;
+  background: #faf7ff;
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(86, 0, 103, 0.12);
+}
+
+.cartReview h3 {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.cartReview ul {
+  list-style: disc;
+  margin: 0;
+  padding-left: 22px;
+  color: #5f4a7f;
+}
+
+.cartReview li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
 .summaryItem {
   display: flex;
   flex-direction: column;

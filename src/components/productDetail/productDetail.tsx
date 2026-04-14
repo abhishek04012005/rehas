@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle, Close } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
+import { useAuth } from '@/context/AuthContext';
 import { calculateDiscountPercentage } from '@/data/productMerchandise';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import SimilarProducts from './similarProducts';
@@ -89,10 +90,11 @@ export default function ProductDetail({
   product,
 }: ProductDetailProps) {
   const router = useRouter();
-  const { setProductData } = useCheckout();
+  const { setProductData, addToCart } = useCheckout();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPoojaSelected, setIsPoojaSelected] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   
   const categoryPath = `/products/${product.category}`;
   const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
@@ -141,6 +143,8 @@ export default function ProductDetail({
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+  const { user } = useAuth();
+
   const handleCheckout = () => {
     setProductData({ 
       productTitle: productName, 
@@ -150,7 +154,31 @@ export default function ProductDetail({
       poojaLabel: isPoojaSelected ? product.pooja?.label : undefined,
       poojaPrice: isPoojaSelected ? product.pooja?.price : undefined
     });
+    if (!user) {
+      router.push('/auth?redirect=/checkout');
+      return;
+    }
     router.push('/checkout');
+  };
+
+  const handleAddToCart = () => {
+    const itemId = `${product.category}-${productName}-${isPoojaSelected ? product.pooja?.label : 'default'}`;
+    const newItem = {
+      id: itemId,
+      productId: itemId, // Add productId for database storage
+      productTitle: productName,
+      amount: currentAmount,
+      quantity: 1,
+      type: 'product' as const,
+      description: displayDescription,
+      isPoojaSelected,
+      poojaLabel: isPoojaSelected ? product.pooja?.label : undefined,
+      poojaPrice: isPoojaSelected ? product.pooja?.price : undefined,
+    };
+    addToCart(newItem);
+
+    // Show success modal instead of alert
+    setIsSuccessModalOpen(true);
   };
 
   return (
@@ -345,6 +373,36 @@ export default function ProductDetail({
             </div>
           )}
 
+          {/* Success Modal for Cart Addition */}
+          {isSuccessModalOpen && (
+            <div className={styles.successModalOverlay} onClick={() => setIsSuccessModalOpen(false)}>
+              <div className={styles.successModalContent} onClick={(e) => e.stopPropagation()}>
+                <div className={styles.successModalHeader}>
+                  <div className={styles.successIcon}>
+                    <CheckCircle sx={{ fontSize: 48, color: '#4CAF50' }} />
+                  </div>
+                  <h3 className={styles.successTitle}>Added to Cart!</h3>
+                </div>
+                <div className={styles.successModalBody}>
+                  <p className={styles.successMessage}>
+                    <strong>{productName}</strong> has been added to your cart successfully.
+                  </p>
+                  <div className={styles.successActions}>
+                    <button 
+                      className={styles.continueShoppingBtn}
+                      onClick={() => setIsSuccessModalOpen(false)}
+                    >
+                      Continue Shopping
+                    </button>
+                    <Link href="/cart" className={styles.viewCartBtn}>
+                      View Cart
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className={styles.infoSection}>
             <div className={styles.priceBox}>
               <span className={styles.priceLabel}>Sale price</span>
@@ -381,9 +439,13 @@ export default function ProductDetail({
             )}
 
             <div className={styles.actionButtons}>
+              <button onClick={handleAddToCart} className={styles.cartBtn}>
+                <ShoppingCart sx={{ fontSize: 20 }} />
+                <span>Add to Cart</span>
+              </button>
               <button onClick={handleCheckout} className={styles.buyNowBtn}>
                 <ShoppingCart sx={{ fontSize: 20 }} />
-                <span>Proceed to Checkout</span>
+                <span>Buy Now</span>
               </button>
               <p className={styles.secureCheckout}>✓ Secure checkout • Free shipping on selected items</p>
             </div>

@@ -61,7 +61,7 @@ interface FormErrors {
 }
 
 export default function EnhancedCheckoutForm({ productTitle, amount = 999, isProduct = false }: EnhancedCheckoutFormProps) {
-  const { productData } = useCheckout();
+  const { productData, cartItems, clearCart } = useCheckout();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
@@ -82,7 +82,20 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     country: 'India',
   });
 
+  const orderItems = cartItems.length > 0 ? cartItems : [{
+    id: 'single-order',
+    productTitle: productData?.productTitle || productTitle,
+    amount: productData?.amount || amount,
+    quantity: 1,
+    type: productData?.type || (isProduct ? 'product' : 'service'),
+    serviceId: productData?.serviceId,
+    description: productData?.description,
+    isPoojaSelected: productData?.isPoojaSelected,
+    poojaLabel: productData?.poojaLabel,
+    poojaPrice: productData?.poojaPrice,
+  }];
 
+  const totalAmount = orderItems.reduce((sum, item) => sum + item.amount * item.quantity, 0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     let { name, value } = e.target;
@@ -187,12 +200,17 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
           state: formData.state,
           postalCode: formData.postalCode,
           country: formData.country,
-          productTitle: productData?.productTitle || productTitle,
-          amount: productData?.amount || amount,
-          orderType: productData?.type || 'service',
-          serviceId: productData?.serviceId,
-          serviceTitle: productData?.productTitle || productTitle,
-          serviceDescription: productData?.description,
+          amount: totalAmount,
+          orderType: orderItems[0]?.type || 'service',
+          serviceId: orderItems[0]?.serviceId,
+          productTitle: orderItems.map((item) => `${item.productTitle}${item.quantity > 1 ? ` x${item.quantity}` : ''}`).join(' | '),
+          serviceTitle: orderItems[0]?.productTitle || productTitle,
+          serviceDescription: orderItems.map((item) => {
+            const pooja = item.isPoojaSelected ? ` (${item.poojaLabel || 'Pooja'})` : '';
+            return `${item.productTitle}${pooja} · Qty ${item.quantity}`;
+          }).join(' | '),
+          items: orderItems,
+          orderTotal: totalAmount,
         }),
       });
 
@@ -214,6 +232,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       setCreatedOrderId(data.orderId);
       setSubmitted(true);
       setSuccessMessage(`Order created successfully! Order ID: ${data.orderId}`);
+      clearCart();
 
       // Show order summary for 3 seconds then proceed to payment
       setTimeout(() => {
@@ -323,14 +342,28 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
         <div className={styles.orderSummary}>
           <div className={styles.summaryItem}>
             <span className={styles.label}>Service/Product:</span>
-            <span className={styles.value}>{productData?.productTitle || productTitle}</span>
+            <span className={styles.value}>{orderItems.length > 1 ? 'Multiple items in cart' : orderItems[0]?.productTitle}</span>
           </div>
           <div className={styles.summaryItem}>
             <span className={styles.label}>Amount:</span>
-            <span className={styles.value}>₹{amount}</span>
+            <span className={styles.value}>₹{totalAmount.toFixed(2)}</span>
           </div>
         </div>
       </div>
+
+      {cartItems.length > 0 && (
+        <div className={styles.cartReview}>
+          <h3>Cart items</h3>
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id}>
+                {item.productTitle}{item.quantity > 1 ? ` × ${item.quantity}` : ''} - ₹{(item.amount * item.quantity).toFixed(2)}
+                {item.isPoojaSelected && item.poojaLabel ? ` (${item.poojaLabel})` : ''}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {successMessage && (
         <div className={styles.successAlert}>

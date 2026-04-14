@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { rehasData } from '@/data/rehasData';
 import { navbarData } from '@/data/navbar';
 import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/context/AuthContext';
+import { useCheckout } from '@/context/CheckoutContext';
 import {
     WhatsApp,
     ExpandMore,
@@ -36,6 +38,9 @@ import {
     Hearing,
     Casino,
     BackHand,
+    AccountCircle,
+    ShoppingCart,
+    Storefront
 } from '@mui/icons-material';
 
 const iconMap: Record<string, React.ComponentType<any>> = {
@@ -65,6 +70,7 @@ const iconMap: Record<string, React.ComponentType<any>> = {
     Hearing,
     Casino,
     BackHand,
+    Storefront
 };
 
 const getIconComponent = (iconName: string) => {
@@ -76,6 +82,11 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+    const [profileOpen, setProfileOpen] = useState(false);
+
+    const { user, signOut } = useAuth();
+    const { cartItems } = useCheckout();
+    const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -115,6 +126,12 @@ export default function Navbar() {
     // WhatsApp message
     const whatsappMessage = encodeURIComponent('Hello! I would like to know more about REHAS services.');
     const whatsappUrl = `https://wa.me/${rehasData.social.whatsapp.replace(/\D/g, '')}?text=${whatsappMessage}`;
+
+    const handleLogout = async () => {
+        await signOut();
+        setProfileOpen(false);
+        setIsMenuOpen(false);
+    };
 
     return (
         <>
@@ -183,10 +200,43 @@ export default function Navbar() {
                         </ul>
                     </div>
 
-                    {/* CTA Button - Right Side */}
-                    <Link href={navbarData.cta.href} className={styles.bookBtn} onClick={() => setIsMenuOpen(false)}>
-                        {navbarData.cta.label}
-                    </Link>
+                    <div className={styles.actionsRight}>
+                        <Link href="/cart" className={styles.cartButton} onClick={() => setIsMenuOpen(false)}>
+                            <ShoppingCart />
+                            {cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
+                        </Link>
+
+                        {user ? (
+                            <div className={styles.profileContainer}>
+                                <button type="button" className={styles.profileButton} onClick={() => setProfileOpen(!profileOpen)}>
+                                    <AccountCircle />
+                                    <span>{user.email?.split('@')[0] || user.phone || 'Profile'}</span>
+                                </button>
+                                {profileOpen && (
+                                    <div className={styles.profileMenu}>
+                                        <Link href="/account/orders" onClick={() => setIsMenuOpen(false)}>
+                                            Order History
+                                        </Link>
+                                        <Link href="/account/settings" onClick={() => setIsMenuOpen(false)}>
+                                            Account Settings
+                                        </Link>
+                                        <button type="button" className={styles.logoutButton} onClick={handleLogout}>
+                                            Logout
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <Link href="/auth" className={styles.profileButton} onClick={() => setIsMenuOpen(false)}>
+                                <AccountCircle />
+                                <span>Sign In</span>
+                            </Link>
+                        )}
+
+                        {/* <Link href={navbarData.cta.href} className={styles.bookBtn} onClick={() => setIsMenuOpen(false)}>
+                            {navbarData.cta.label}
+                        </Link> */}
+                    </div>
                 </div>
             </nav>
 
