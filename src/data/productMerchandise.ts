@@ -1,3 +1,5 @@
+
+
 export interface MerchandiseProductDetail {
     category: 'bracelet' | 'yantra';
     name: string;
@@ -67,24 +69,25 @@ export const calculateDiscountPercentage = (originalPrice: string, currentPrice:
 export const productMerchandiseData: MerchandiseProductDetail[] = [
     {
         category: 'bracelet',
-        name: 'Pregnancy Protection Bracelet',
-        slug: 'pregnancy-bracelet',
-        tagline: 'Divine Protection for Mother & Baby',
-        qualityTag: 'AAA Quality • 100% Authentic Rudraksha • Lab Certified',
+        name: 'Rose Quartz Crystal Bracelet',
+        slug: 'rose-quartz-crystal-bracelet',
+
+        tagline: 'Stone of Love, Healing & Emotional Balance',
+        qualityTag: 'AAA Quality • 100% Natural Rose Quartz • Handcrafted',
 
         reviewCount: 128,
 
         shortDescription:
-            'A spiritually energized Rudraksha bracelet designed to protect expecting mothers, promote calmness, and support a healthy pregnancy journey.',
+            'A beautifully handcrafted Rose Quartz bracelet designed to attract love, promote emotional healing, and bring inner peace and harmony into your life.',
 
         meaning:
-            'In ancient traditions, Rudraksha beads are believed to carry divine energy. This bracelet symbolizes protection, nurturing energy, and emotional balance for both mother and unborn child.',
+            'Rose Quartz is known as the “Stone of Love.” It carries gentle, nurturing energy that promotes self-love, emotional healing, compassion, and positive relationships. This bracelet symbolizes peace, love, and emotional balance.',
 
         benefit:
-            'Emotional stability, stress reduction, spiritual protection, hormonal balance support, positive energy flow',
+            'Emotional healing, self-love, stress relief, relationship harmony, positive energy flow, heart chakra activation',
 
         use:
-            'Wear daily on the left wrist for maximum calming and protective benefits, especially during meditation, rest, or stressful moments.',
+            'Wear daily on the left wrist to absorb its calming and loving energy. Ideal for meditation, emotional healing practices, or daily wear.',
 
         price: '₹1.00',
         originalPrice: '₹1,220.00',
@@ -100,97 +103,97 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         endsIn: '33h : 59m : 53s',
 
         pooja: {
-            label: 'Add Pregnancy Blessing Pooja',
+            label: 'Add Energy Cleansing Ritual',
             note:
-                'Your bracelet will be energized through sacred rituals performed by experienced priests, specifically focused on safe pregnancy, protection, and healthy childbirth.',
+                'Your bracelet will be purified and energized through sacred rituals to enhance love, positivity, and emotional healing energy.',
             price: '₹120.00',
         },
 
         description:
-            'The Pregnancy Protection Bracelet is crafted using high-quality natural Rudraksha beads, known in Vedic traditions for their powerful spiritual vibrations. Specially designed for expecting mothers, this bracelet helps create a protective aura, reduces stress, and supports emotional well-being. Each piece is carefully handcrafted and optionally energized through sacred rituals to enhance its effectiveness. It is not just a piece of jewelry, but a spiritual companion throughout your pregnancy journey.',
+            'This Rose Quartz Crystal Bracelet is crafted from high-quality natural rose quartz beads, known for their soft pink hue and powerful emotional healing properties. It helps open the heart chakra, attract love, reduce stress, and promote inner peace. Each bracelet is carefully handcrafted with smooth, polished beads and can be optionally energized through cleansing rituals to amplify its natural vibrations. Perfect for everyday wear, meditation, or gifting, this bracelet is both a beautiful accessory and a meaningful spiritual companion.',
 
         keyFeatures: [
-            'Premium quality 5 Mukhi Rudraksha beads',
-            'Energized through Vedic rituals (optional)',
+            'Premium quality natural Rose Quartz beads',
+            'Soft pink polished finish with natural inclusions',
             'Stretchable, skin-friendly, and lightweight',
-            'Designed specifically for pregnant women',
-            'Handcrafted with attention to spiritual purity',
+            'Handcrafted with precision and care',
+            'Optional energy cleansing ritual available',
         ],
 
         benefits: [
-            'Protects from negative energies and evil eye',
-            'Promotes calmness and reduces anxiety',
-            'Supports emotional balance during pregnancy',
-            'Enhances meditation and mindfulness',
-            'Encourages positive vibrations for mother and baby',
+            'Attracts love and strengthens relationships',
+            'Promotes emotional healing and self-love',
+            'Reduces stress and anxiety',
+            'Balances the heart chakra',
+            'Encourages peace, harmony, and positivity',
         ],
 
         spiritualSignificance: [
-            'Rudraksha is associated with Lord Shiva and divine protection',
-            'Balances heart chakra and emotional energy',
-            'Traditionally used for safe pregnancy and mental peace',
-            'Helps maintain positive aura around the wearer',
+            'Rose Quartz is known as the stone of unconditional love',
+            'Associated with the heart chakra (Anahata)',
+            'Helps release emotional wounds and negativity',
+            'Encourages compassion, forgiveness, and trust',
         ],
 
         howToUse: [
-            'Wear after taking a bath in the morning',
-            'Chant "Om Namah Shivaya" 11 times while wearing (optional)',
-            'Avoid wearing during sleep if uncomfortable',
-            'Keep away from harsh chemicals or perfumes',
+            'Wear daily on the left wrist for maximum effect',
+            'Use during meditation or relaxation practices',
+            'Set your intention while wearing (love, healing, peace)',
+            'Avoid wearing during heavy physical work if uncomfortable',
         ],
 
         careInstructions: [
             'Clean gently with a soft cloth',
-            'Avoid soaking in water for long durations',
-            'Store in a clean, sacred place when not in use',
+            'Avoid exposure to harsh chemicals or perfumes',
+            'Store in a clean, dry place',
+            'Recharge by placing under moonlight occasionally',
         ],
 
         specifications: {
-            material: 'Natural Rudraksha Beads',
-            beadType: '5 Mukhi Rudraksha',
+            material: 'Natural Rose Quartz Stone',
+            beadType: 'Round Polished Beads',
             size: 'Free Size (Elastic)',
             weight: 'Lightweight',
-            origin: 'Nepal/India',
+            origin: 'Brazil/India',
         },
 
         faq: [
             {
-                question: 'Is it safe to wear during pregnancy?',
+                question: 'Is this real Rose Quartz?',
                 answer:
-                    'Yes, the bracelet is completely safe and made from natural materials. It is lightweight and comfortable for daily use.',
+                    'Yes, the bracelet is made from 100% natural Rose Quartz with visible natural inclusions.',
             },
             {
-                question: 'Will this bracelet fit my wrist?',
+                question: 'Will it fit my wrist?',
                 answer:
-                    'Yes. It is stretchable and designed to fit most wrist sizes comfortably.',
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
             },
             {
-                question: 'Is the Rudraksha original?',
+                question: 'Can I wear it daily?',
                 answer:
-                    'Absolutely. Each bead is lab-tested and verified for authenticity.',
+                    'Absolutely, it is lightweight, skin-friendly, and perfect for everyday use.',
             },
             {
-                question: 'Does it really help during pregnancy?',
+                question: 'Does it have healing properties?',
                 answer:
-                    'While it is not a medical product, many users believe it provides emotional comfort, calmness, and spiritual protection during pregnancy.',
+                    'While not a medical product, many people use Rose Quartz for emotional healing, love, and stress relief.',
             },
         ],
 
         trustBadges: [
-            '100% Authentic Rudraksha',
-            'Lab Certified',
+            '100% Natural Stone',
             'Handcrafted with Care',
-            'Trusted by 200+ Mothers',
+            'Skin-Friendly & Comfortable',
+            'Trusted by 200+ Customers',
         ],
 
         emotionalHook:
-            'Because every mother deserves divine protection, peace of mind, and a safe journey into motherhood.',
+            'Invite love, peace, and emotional healing into your life with the gentle power of Rose Quartz.',
 
         images: [
-            'https://images.unsplash.com/photo-1598151968864-b77f0dd30244?w=600&h=600&fit=crop',
-            '/assets/videos/life.mp4',
-            'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop',
+            '/assets/bracelete/rosequartzcrystal/1.png',
+            '/assets/bracelete/rosequartzcrystal/2.png',
+            '/assets/bracelete/rosequartzcrystal/3.png',
         ],
     },
     {
