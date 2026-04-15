@@ -214,10 +214,10 @@ export default function Navbar() {
                                 </button>
                                 {profileOpen && (
                                     <div className={styles.profileMenu}>
-                                        <Link href="/account/orders" onClick={() => setIsMenuOpen(false)}>
+                                        <Link href="/account/orders" onClick={() => { setIsMenuOpen(false); setProfileOpen(false); }}>
                                             Order History
                                         </Link>
-                                        <Link href="/account/settings" onClick={() => setIsMenuOpen(false)}>
+                                        <Link href="/account/settings" onClick={() => { setIsMenuOpen(false); setProfileOpen(false); }}>
                                             Account Settings
                                         </Link>
                                         <button type="button" className={styles.logoutButton} onClick={handleLogout}>
