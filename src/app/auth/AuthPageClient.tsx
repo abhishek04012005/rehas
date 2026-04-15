@@ -33,9 +33,10 @@ export default function AuthPageClient() {
 
   useEffect(() => {
     if (user) {
-      router.push('/account/orders');
+      const destination = redirectTo || '/account/orders';
+      router.push(destination);
     }
-  }, [user, router]);
+  }, [user, router, redirectTo]);
 
   useEffect(() => {
     if (resetMode) {

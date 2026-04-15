@@ -15,7 +15,7 @@ export default function Cart() {
 
   const handleProceed = () => {
     if (!user) {
-      router.push('/auth?redirect=/checkout');
+      router.push('/auth?redirect=/cart');
       return;
     }
     router.push('/checkout');
