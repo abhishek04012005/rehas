@@ -44,31 +44,77 @@
   transform: translateY(-2px);
 }
 
-.orderGrid {
-  display: grid;
-  gap: 20px;
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.orderCard {
-  background: white;
-  border: 1px solid rgba(86, 0, 103, 0.12);
-  border-radius: 22px;
-  padding: 28px;
-  box-shadow: 0 10px 30px rgba(86, 0, 103, 0.08);
-}
-
-.orderRow {
+.tableHeaderBar {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
   align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(86, 0, 103, 0.14);
 }
 
-.orderLabel {
+.summaryLabel {
+  margin: 0 0 6px;
   font-size: 0.95rem;
-  color: #777;
-  width: 160px;
+  color: var(--text-light);
+}
+
+.summaryValue {
+  margin: 0;
+  font-size: 1.9rem;
+  color: var(--primary);
+}
+
+.tableNote {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(86, 0, 103, 0.08);
+  border: 1px solid rgba(86, 0, 103, 0.12);
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 770px;
+}
+
+.ordersTable th,
+.ordersTable td {
+  text-align: left;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(86, 0, 103, 0.08);
+}
+
+.ordersTable th {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+  background: rgba(248, 244, 255, 0.9);
+}
+
+.ordersTable tbody tr:hover {
+  background: rgba(241, 232, 255, 0.9);
+}
+
+.ordersTable td {
+  font-size: 0.95rem;
+  color: var(--text-dark);
 }
 
 .statusBadge,
@@ -77,12 +123,13 @@
   padding: 8px 14px;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.82rem;
-  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  letter-spacing: 0.4px;
+  display: inline-block;
 }
 
 .statusBadge {
-  background: rgba(86, 0, 103, 0.09);
+  background: rgba(86, 0, 103, 0.1);
   color: var(--primary);
 }
 
@@ -131,13 +178,77 @@
   }
 }
 
-@media (max-width: 640px) {
-  .orderRow {
+@media (max-width: 860px) {
+  .ordersPage {
+    padding: 40px 20px;
+  }
+
+  .ordersHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tableHeaderBar {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .orderLabel {
-    width: auto;
+  .tableNote {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 720px) {
+  .tableContainer {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .ordersTable {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ordersTable thead {
+    display: none;
+  }
+
+  .ordersTable tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid rgba(86, 0, 103, 0.1);
+    border-radius: 22px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(86, 0, 103, 0.04);
+  }
+
+  .ordersTable tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .ordersTable td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .ordersTable td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 6px;
+  }
+
+  .ordersTable td span,
+  .ordersTable td strong,
+  .ordersTable td .statusBadge,
+  .ordersTable td .paymentBadge {
+    white-space: normal;
   }
 }

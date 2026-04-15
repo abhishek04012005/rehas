@@ -88,35 +88,49 @@ export default function OrdersPage() {
           </Link>
         </div>
       ) : (
-        <div className={styles.orderGrid}>
-          {orders.map((order) => (
-            <div key={order.id} className={styles.orderCard}>
-              <div className={styles.orderRow}>
-                <span className={styles.orderLabel}>Order ID</span>
-                <strong>#{order.id}</strong>
-              </div>
-              <div className={styles.orderRow}>
-                <span className={styles.orderLabel}>Placed on</span>
-                <span>{new Date(order.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-              </div>
-              <div className={styles.orderRow}>
-                <span className={styles.orderLabel}>Items</span>
-                <span>{order.product_title}</span>
-              </div>
-              <div className={styles.orderRow}>
-                <span className={styles.orderLabel}>Amount</span>
-                <span>₹{parseFloat(order.amount || '0').toFixed(2)}</span>
-              </div>
-              <div className={`${styles.orderRow} ${styles.statusRow}`}>
-                <span className={styles.orderLabel}>Status</span>
-                <span className={styles.statusBadge}>{order.status}</span>
-              </div>
-              <div className={`${styles.orderRow} ${styles.statusRow}`}>
-                <span className={styles.orderLabel}>Payment</span>
-                <span className={styles.paymentBadge}>{order.payment_status}</span>
-              </div>
+        <div className={styles.tableWrapper}>
+          <div className={styles.tableHeaderBar}>
+            <div>
+              <p className={styles.summaryLabel}>Recent orders</p>
+              <h2 className={styles.summaryValue}>{orders.length} order{orders.length > 1 ? 's' : ''}</h2>
             </div>
-          ))}
+            <span className={styles.tableNote}>Tap any row for details on mobile</span>
+          </div>
+
+          <div className={styles.tableContainer}>
+            <table className={styles.ordersTable}>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Placed</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Payment</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map((order) => (
+                  <tr key={order.id} className={styles.orderRow}>
+                    <td data-label="Order">#{order.id}</td>
+                    <td data-label="Placed">{new Date(order.created_at).toLocaleDateString('en-IN', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}</td>
+                    <td data-label="Items">{order.product_title}</td>
+                    <td data-label="Total">₹{parseFloat(order.amount || '0').toFixed(2)}</td>
+                    <td data-label="Status">
+                      <span className={styles.statusBadge}>{order.status}</span>
+                    </td>
+                    <td data-label="Payment">
+                      <span className={styles.paymentBadge}>{order.payment_status}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
