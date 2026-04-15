@@ -456,66 +456,134 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Rose Quartz Bracelet',
-        slug: 'rose-quartz-bracelet',
-        tagline: 'Heart Healing & Loving Energy',
-        qualityTag: 'AAA Quality • 100% Authentic • Lab Certified',
-        reviewCount: 44,
+        name: '7 Chakra Buddha Bracelet',
+        slug: '7-chakra-buddha-bracelet',
+
+        tagline: 'Balance Energy, Heal Chakras & Attract Positivity',
+        qualityTag: 'AAA Quality • Natural Chakra Stones • Handcrafted',
+
+        reviewCount: 124,
+
         shortDescription:
-            'A soft, loving bracelet crafted to open the heart, invite compassion, and attract harmonious relationships.',
+            'A powerful 7 Chakra Buddha bracelet designed to balance energy centers, promote healing, and attract peace, positivity, and spiritual growth.',
+
         meaning:
-            'A soft, loving bracelet crafted to open the heart, invite compassion, and attract harmonious relationships.',
-        benefit: 'Heart healing, self-love, emotional calm, relationship support',
-        use: 'Wear to support love energy and emotional healing',
-        price: '₹1,099.00',
-        originalPrice: '₹1,373.00',
-        paymentHighlights: ['Cards Accepted', '0 Extra Cost', 'Limited Time Offer'],
-        sold: 88,
-        available: 145,
-        endsIn: '27h : 05m : 59s',
+            'This bracelet is made using seven natural stones representing the seven chakras of the body. Combined with the Buddha charm, it symbolizes mindfulness, inner peace, and spiritual awakening. It helps align energy flow, remove blockages, and restore emotional and physical balance.',
+
+        benefit:
+            'Chakra balancing, emotional healing, stress relief, spiritual growth, positive energy attraction, improved focus and clarity',
+
+        use:
+            'Wear daily on the left hand to absorb healing energy and balance chakras. Ideal for meditation, yoga, spiritual practices, and daily wear.',
+
+        price: '₹149.00',
+        originalPrice: '₹1,499.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 236,
+        available: 98,
+        endsIn: '27h : 12m : 10s',
+
+        pooja: {
+            label: 'Add Chakra Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to activate all seven chakras and enhance healing, positivity, and spiritual energy.',
+            price: '₹150.00',
+        },
+
         description:
-            'Rose Quartz supports emotional healing, self-love, and peaceful relationships. This bracelet is ideal for anyone seeking a gentle energetic boost.',
+            'This 7 Chakra Buddha Bracelet is crafted using high-quality natural stones, each representing a specific chakra in the body. The vibrant colors symbolize energy flow from the root to the crown chakra, helping to restore balance and harmony. The centerpiece Buddha charm represents peace, mindfulness, and enlightenment. Wearing this bracelet helps reduce stress, improve focus, and promote emotional well-being. Each bead is polished for a smooth finish and strung on a durable elastic band for comfortable daily wear. It can also be energized through sacred rituals to enhance its spiritual properties. Ideal for meditation, healing practices, and everyday positivity.',
+
         keyFeatures: [
-            'Premium Rose Quartz beads',
-            'Supports heart chakra energy',
-            'Comfortable, everyday wear',
-            'Elegant soft pink finish',
+            'Authentic 7 chakra natural stones',
+            'Premium Buddha head charm centerpiece',
+            'Vibrant multi-color energy beads',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional chakra energy activation ritual available',
         ],
+
         benefits: [
-            'Self-love and compassion',
-            'Emotional balance',
-            'Harmonious relationships',
-            'Calm and nurturing energy',
+            'Balances all seven chakras',
+            'Promotes emotional stability and inner peace',
+            'Reduces stress and anxiety',
+            'Enhances focus, clarity, and mindfulness',
+            'Attracts positivity and spiritual growth',
+            'Supports meditation and healing practices',
         ],
+
         spiritualSignificance: [
-            'Rose Quartz is the universal stone of love in crystal healing traditions',
-            'Opens and heals the heart chakra for deep emotional work',
-            'Attracts unconditional love and divine compassion',
-            'Promotes forgiveness, peace, and inner child healing',
+            'Represents all seven chakras of the body',
+            'Helps remove energy blockages',
+            'Buddha symbolizes peace, awareness, and enlightenment',
+            'Aligns mind, body, and soul energy',
         ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation, yoga, or spiritual practices',
+            'Focus on intentions while wearing the bracelet',
+            'Cleanse regularly to maintain energy flow',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water, perfumes, and harsh chemicals',
+            'Store in a clean and dry place',
+            'Recharge under sunlight or moonlight periodically',
+        ],
+
+        specifications: {
+            material: 'Natural Chakra Stones',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light',
+            origin: 'India/Tibet',
+        },
+
         faq: [
             {
-                question: 'Can I wear this every day?',
+                question: 'What are chakra stones?',
                 answer:
-                    'Yes, it is gentle enough for daily wear and supports long-term emotional balance.',
+                    'Chakra stones are natural crystals associated with the seven energy centers in the body, helping to balance and align energy.',
             },
             {
-                question: 'Does it come with a box?',
+                question: 'Can I wear it every day?',
                 answer:
-                    'Yes, each bracelet ships in protective packaging with a care card.',
+                    'Yes, it is designed for daily wear and spiritual use.',
+            },
+            {
+                question: 'Does it really balance chakras?',
+                answer:
+                    'It is believed in spiritual practices that chakra stones help balance energy, though results vary by individual.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
             },
         ],
-        images: [
-            'https://images.unsplash.com/photo-1515562141207-6461a4b5b629?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&h=600&fit=crop',
+
+        trustBadges: [
+            '100% Natural Stones',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 200+ Customers',
         ],
-        pooja: {
-            label: 'Add Pooja',
-            note:
-                'Delivery Note: By opting for this puja, you will receive products that are specially energized with sacred rituals.',
-            price: '₹999.00',
-        },
+
+        emotionalHook:
+            'Restore balance, awaken your inner peace, and align your energy with the power of 7 Chakras.',
+
+        images: [
+            '/assets/bracelete/chakra/1.png',
+            '/assets/bracelete/chakra/2.png',
+            '/assets/bracelete/chakra/3.png',
+        ],
     },
     {
         category: 'yantra',
