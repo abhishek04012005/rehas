@@ -475,6 +475,63 @@
   gap: 20px;
 }
 
+.additionalInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.infoList,
+.specList,
+.badgeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.infoList li,
+.specItem {
+  color: var(--text-light);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.specList {
+  display: grid;
+  gap: 10px;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.specKey {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badgeItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(86, 0, 103, 0.08);
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .benefitBox,
 .useBox {
   background: linear-gradient(135deg, rgba(86, 0, 103, 0.06) 0%, rgba(146, 72, 122, 0.06) 100%);
@@ -956,6 +1013,14 @@
 
   .benefitList li {
     font-size: 14px;
+  }
+
+  .additionalInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .badgeItem {
+    width: 100%;
   }
 
   .checkoutBtn {

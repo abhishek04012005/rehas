@@ -22,7 +22,7 @@ interface AuthContextType {
   signOut: () => Promise<void>;
   sendPasswordReset: (email: string) => Promise<{ error?: string }>;
   updateProfile: (fullName: string) => Promise<{ error?: string }>;
-  changePassword: (currentPassword: string, newPassword: string, resetToken?: string, email?: string, resetToken?: string, email?: string) => Promise<{ error?: string }>;
+  changePassword: (currentPassword: string, newPassword: string, resetToken?: string, email?: string) => Promise<{ error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

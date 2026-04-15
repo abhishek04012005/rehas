@@ -198,65 +198,131 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Crystal Healing Bracelet',
-        slug: 'crystal-healing-bracelet',
-        tagline: 'Balance Your Energy & Emotions',
-        qualityTag: 'AAA Quality • 100% Authentic • Lab Certified',
-        reviewCount: 48,
+        name: 'Pyrite Bracelet',
+        slug: 'pyrite-bracelet',
+
+        tagline: 'Stone of Wealth, Protection & Confidence',
+        qualityTag: 'AAA Quality • 100% Natural Pyrite • Handcrafted',
+
+        reviewCount: 96,
+
         shortDescription:
-            'Genuine crystal beads designed to restore balance, soothe emotions, and raise your vibration throughout the day.',
+            'A powerful Pyrite bracelet designed to attract wealth, boost confidence, and protect against negative energies.',
+
         meaning:
-            'Genuine crystal beads designed to restore balance, soothe emotions, and raise your vibration throughout the day.',
-        benefit: 'Emotional balance, stress relief, intuition boost, energetic harmony',
-        use: 'Wear during meditation or emotional healing rituals',
-        price: '₹1,264.00',
-        originalPrice: '₹1,580.00',
-        paymentHighlights: ['Cards Accepted', '0 Extra Cost', 'Limited Time Offer'],
-        sold: 78,
-        available: 146,
-        endsIn: '29h : 12m : 08s',
+            'Pyrite, often called the “Stone of Wealth,” is known for its strong protective and grounding energy. It enhances confidence, attracts abundance, and shields against negativity while promoting mental clarity and strength.',
+
+        benefit:
+            'Wealth attraction, protection from negativity, confidence boost, mental clarity, energy shielding, success manifestation',
+
+        use:
+            'Wear daily on the left hand to attract wealth and protection energy. Ideal for business professionals, meditation, and manifestation practices.',
+
+        price: '₹124.00',
+        originalPrice: '₹1,499.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 178,
+        available: 132,
+        endsIn: '29h : 14m : 22s',
+
         pooja: {
-            label: 'Add Pooja',
+            label: 'Add Energy Activation Ritual',
             note:
-                'Delivery Note: By opting for this puja, you will receive products that are specially energized with sacred rituals.',
-            price: '₹999.00',
+                'Your bracelet will be purified and energized through sacred rituals to enhance wealth, protection, and success energy.',
+            price: '₹150.00',
         },
+
         description:
-            'This Crystal Healing Bracelet is crafted with selected stones that help bring emotional harmony, mental clarity, and energetic protection.',
+            'This Pyrite Bracelet is crafted from high-quality natural pyrite stones, known for their metallic golden shine and strong protective energy. Often associated with wealth and success, Pyrite helps boost confidence, improve focus, and protect against negative influences. The bracelet is carefully handcrafted with smooth, polished beads that are comfortable for daily wear. It can also be optionally energized through sacred rituals to amplify its natural vibrations. Ideal for professionals, entrepreneurs, and anyone seeking growth, protection, and financial abundance.',
+
         keyFeatures: [
-            'Genuine crystal beads for energetic balance',
-            'Smooth finish for all-day comfort',
-            'Designed to support emotional wellbeing',
-            'Perfect for daily wear and meditation',
+            'Premium quality natural Pyrite stones',
+            'Metallic golden finish with natural texture',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
         ],
+
         benefits: [
-            'Emotional balance',
-            'Stress relief',
-            'Enhanced intuition',
-            'Positive energy flow',
+            'Attracts wealth, prosperity, and success',
+            'Boosts confidence and decision-making ability',
+            'Protects from negative energy and evil eye',
+            'Enhances focus and mental clarity',
+            'Supports manifestation and goal achievement',
         ],
+
         spiritualSignificance: [
-            'Crystal healing is rooted in ancient wisdom and chakra balancing practices',
-            'Promotes alignment of physical, emotional, and spiritual energy',
-            'Supports connection to higher consciousness and inner wisdom',
-            'Enhances intuitive and psychic abilities through vibrational frequencies',
+            'Pyrite is known as the stone of wealth and abundance',
+            'Associated with the Solar Plexus Chakra (Manipura)',
+            'Acts as a shield against negative energy',
+            'Enhances willpower, confidence, and inner strength',
         ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation or manifestation rituals',
+            'Set clear intentions for wealth and protection',
+            'Avoid wearing during heavy physical activities if uncomfortable',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a dry place away from moisture',
+            'Recharge by placing near sunlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Pyrite Stone',
+            beadType: 'Square / Chunky Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Medium',
+            origin: 'Peru/India',
+        },
+
         faq: [
             {
-                question: 'How should I wear the bracelet?',
+                question: 'Is this real Pyrite?',
                 answer:
-                    'Wear it on your left wrist to receive healing energies during the day.',
+                    'Yes, the bracelet is made from 100% natural Pyrite with its signature metallic shine.',
             },
             {
-                question: 'Can I wear it while sleeping?',
+                question: 'Can I wear it every day?',
                 answer:
-                    'Yes, but remove the bracelet if you feel any discomfort while resting.',
+                    'Yes, it is durable and suitable for daily wear, but avoid exposure to water.',
+            },
+            {
+                question: 'Does it really attract wealth?',
+                answer:
+                    'Pyrite is traditionally believed to attract wealth and success, though it is not a guaranteed financial solution.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and designed to fit most wrist sizes comfortably.',
             },
         ],
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 150+ Customers',
+        ],
+
+        emotionalHook:
+            'Unlock confidence, attract wealth, and shield your energy with the powerful force of Pyrite.',
+
         images: [
-            'https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1547219141-49acc3db90f7?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1583974685839-2d4fa0ef2c3a?w=600&h=600&fit=crop',
+            '/assets/bracelete/pyrite/1.png',
+            '/assets/bracelete/pyrite/2.png',
+            '/assets/bracelete/pyrite/3.png',
         ],
     },
     {

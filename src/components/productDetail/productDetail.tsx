@@ -516,6 +516,62 @@ export default function ProductDetail({
               </ul>
             </div>
           </div>
+
+          <div className={styles.additionalInfoGrid}>
+            {product.emotionalHook && (
+              <div className={styles.infoBox}>
+                <h2 className={styles.boxTitle}>Emotional Hook</h2>
+                <p className={styles.boxContent}>{product.emotionalHook}</p>
+              </div>
+            )}
+
+            {product.careInstructions && product.careInstructions.length > 0 && (
+              <div className={styles.infoBox}>
+                <h2 className={styles.boxTitle}>Care Instructions</h2>
+                <ul className={styles.infoList}>
+                  {product.careInstructions.map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {product.howToUse && product.howToUse.length > 0 && (
+              <div className={styles.infoBox}>
+                <h2 className={styles.boxTitle}>How to Use</h2>
+                <ul className={styles.infoList}>
+                  {product.howToUse.map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {product.specifications && (
+              <div className={styles.infoBox}>
+                <h2 className={styles.boxTitle}>Specifications</h2>
+                <ul className={styles.specList}>
+                  {Object.entries(product.specifications).map(([key, value]) => (
+                    <li key={key} className={styles.specItem}>
+                      <span className={styles.specKey}>{key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase())}</span>
+                      <span>{value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {product.trustBadges && product.trustBadges.length > 0 && (
+              <div className={styles.infoBox}>
+                <h2 className={styles.boxTitle}>Trust Badges</h2>
+                <ul className={styles.badgeList}>
+                  {product.trustBadges.map((badge, index) => (
+                    <li key={index} className={styles.badgeItem}>{badge}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

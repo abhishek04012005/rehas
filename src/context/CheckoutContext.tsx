@@ -384,10 +384,10 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
       }
     } else {
       // Generate unique ID for local items (combine product ID with timestamp if needed)
-      const newItem = { 
-        ...item, 
+      const newItem: CartItem = {
+        ...item,
         productId: itemProductId,
-        id: existingItem ? existingItem.id : item.id || `local-${Date.now()}`
+        id: item.id || `local-${Date.now()}`,
       };
       
       // Add new item to local state
