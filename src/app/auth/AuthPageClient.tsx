@@ -12,10 +12,12 @@ export default function AuthPageClient() {
   const params = useSearchParams();
   const redirectTo = params.get('redirect') || '/checkout';
   const resetMode = params.get('reset') === 'true';
+  const resetToken = params.get('token');
+  const resetEmail = params.get('email');
 
   const { user, loading, signInWithEmail, signUpWithEmail, signInWithPhoneOtp, verifyPhoneOtp, sendPasswordReset, changePassword } = useAuth();
-  const [tab, setTab] = useState<'signin' | 'signup' | 'reset' | 'changePassword'>(resetMode ? 'reset' : 'signin');
-  const [resetType, setResetType] = useState<'forgot' | 'change' | null>(null);
+  const [tab, setTab] = useState<'signin' | 'signup' | 'reset' | 'changePassword'>(resetMode ? (resetToken ? 'changePassword' : 'reset') : 'signin');
+  const [resetType, setResetType] = useState<'forgot' | 'change' | null>(resetToken ? 'change' : null);
   const [fullName, setFullName] = useState('');
   const [identifier, setIdentifier] = useState(''); // email or phone
   const [password, setPassword] = useState('');
@@ -40,10 +42,16 @@ export default function AuthPageClient() {
 
   useEffect(() => {
     if (resetMode) {
-      setTab('reset');
-      setResetType('forgot');
+      if (resetToken && resetEmail) {
+        setTab('changePassword');
+        setResetType('change');
+        setIdentifier(resetEmail); // Pre-fill email for password reset
+      } else {
+        setTab('reset');
+        setResetType('forgot');
+      }
     }
-  }, [resetMode]);
+  }, [resetMode, resetToken, resetEmail]);
 
   const isEmail = (value: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -128,24 +136,45 @@ export default function AuthPageClient() {
       }
 
       if (tab === 'changePassword') {
-        if (!user) {
-          throw new Error('You must be signed in to change your password');
+        if (resetToken && resetEmail) {
+          // Handle password reset via token
+          if (!newPassword.trim()) {
+            throw new Error('Enter your new password');
+          }
+          if (newPassword.length < 6) {
+            throw new Error('New password must be at least 6 characters');
+          }
+          if (newPassword !== confirmPassword) {
+            throw new Error('Passwords do not match');
+          }
+          const result = await changePassword('', newPassword, resetToken, resetEmail);
+          if (result.error) throw new Error(result.error);
+          setMessage('Password reset successfully! You can now sign in with your new password.');
+          setTab('signin');
+          setNewPassword('');
+          setConfirmPassword('');
+          return;
+        } else {
+          // Handle regular password change for authenticated user
+          if (!user) {
+            throw new Error('You must be signed in to change your password');
+          }
+          if (!currentPassword.trim()) {
+            throw new Error('Enter your current password');
+          }
+          if (!newPassword.trim()) {
+            throw new Error('Enter your new password');
+          }
+          if (newPassword.length < 6) {
+            throw new Error('New password must be at least 6 characters');
+          }
+          const result = await changePassword(currentPassword, newPassword);
+          if (result.error) throw new Error(result.error);
+          setMessage('Password changed successfully.');
+          setCurrentPassword('');
+          setNewPassword('');
+          return;
         }
-        if (!currentPassword.trim()) {
-          throw new Error('Enter your current password');
-        }
-        if (!newPassword.trim()) {
-          throw new Error('Enter your new password');
-        }
-        if (newPassword.length < 6) {
-          throw new Error('New password must be at least 6 characters');
-        }
-        const result = await changePassword(currentPassword, newPassword);
-        if (result.error) throw new Error(result.error);
-        setMessage('Password changed successfully.');
-        setCurrentPassword('');
-        setNewPassword('');
-        return;
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Unable to authenticate';
@@ -284,7 +313,26 @@ export default function AuthPageClient() {
             </label>
           )}
 
-          {tab === 'changePassword' && (
+          {tab === 'changePassword' && resetToken && (
+            <>
+              <div className={styles.resetInfo}>
+                <p>Reset your password for: <strong>{resetEmail}</strong></p>
+              </div>
+              <label>
+                <span>New Password</span>
+                <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter new password" />
+              </label>
+              <label>
+                <span>Confirm New Password</span>
+                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm new password" />
+              </label>
+              <button type="button" className={styles.backButton} onClick={() => { setTab('signin'); setResetType(null); setMessage(''); setError(''); }}>
+                Back to Sign In
+              </button>
+            </>
+          )}
+
+          {tab === 'changePassword' && !resetToken && (
             <>
               <label>
                 <span>Current Password</span>
@@ -326,7 +374,8 @@ export default function AuthPageClient() {
             {tab === 'signin' && !isEmail(identifier) && !isPhone(identifier) && 'Sign In'}
             {tab === 'signup' && 'Create Account'}
             {tab === 'reset' && resetType === 'forgot' && 'Send Reset Link'}
-            {tab === 'changePassword' && 'Change Password'}
+            {tab === 'changePassword' && resetToken && 'Reset Password'}
+            {tab === 'changePassword' && !resetToken && 'Change Password'}
           </button>
         </form>
 

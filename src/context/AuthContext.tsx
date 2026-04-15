@@ -22,7 +22,7 @@ interface AuthContextType {
   signOut: () => Promise<void>;
   sendPasswordReset: (email: string) => Promise<{ error?: string }>;
   updateProfile: (fullName: string) => Promise<{ error?: string }>;
-  changePassword: (currentPassword: string, newPassword: string) => Promise<{ error?: string }>;
+  changePassword: (currentPassword: string, newPassword: string, resetToken?: string, email?: string, resetToken?: string, email?: string) => Promise<{ error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -232,19 +232,42 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const sendPasswordReset = async (email: string) => {
     try {
-      // First, trigger Supabase reset to get the reset link
-      const { error: supabaseError } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth?reset=true`,
-      });
+      // Check if user exists
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('id, email')
+        .eq('email', email)
+        .single();
 
-      if (supabaseError) {
-        return { error: supabaseError.message };
+      if (userError || !userData) {
+        return { error: 'No account found with this email address' };
       }
 
-      // Send custom email via EmailJS
+      // Generate reset token
+      const resetToken = crypto.randomUUID();
+      const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
+
+      // Store reset token in database
+      const { error: updateError } = await supabase
+        .from('users')
+        .update({
+          reset_token: resetToken,
+          reset_token_expires: expiresAt.toISOString(),
+        })
+        .eq('email', email);
+
+      if (updateError) {
+        console.error('Error storing reset token:', updateError);
+        return { error: 'Failed to generate reset token' };
+      }
+
+      // Generate reset link
+      const resetLink = `${window.location.origin}/auth?reset=true&token=${resetToken}&email=${encodeURIComponent(email)}`;
+
+      // Send email via EmailJS
       const templateParams = {
         to_email: email,
-        reset_link: `${window.location.origin}/auth?reset=true`,
+        reset_link: resetLink,
         user_email: email,
       };
 
@@ -260,6 +283,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       return { error: undefined };
     } catch (error) {
+      console.error('Password reset error:', error);
       return { error: 'Failed to send reset email' };
     }
   };
@@ -307,27 +331,76 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: undefined };
   };
 
-  const changePassword = async (currentPassword: string, newPassword: string) => {
-    // First verify current password by attempting to sign in
-    if (!user?.email) {
-      return { error: 'User not authenticated' };
+  const changePassword = async (currentPassword: string, newPassword: string, resetToken?: string, email?: string) => {
+    try {
+      // Handle password reset via token
+      if (resetToken && email) {
+        // Verify reset token
+        const { data: userData, error: tokenError } = await supabase
+          .from('users')
+          .select('id, email, reset_token_expires')
+          .eq('email', email)
+          .eq('reset_token', resetToken)
+          .single();
+
+        if (tokenError || !userData) {
+          return { error: 'Invalid or expired reset token' };
+        }
+
+        // Check if token is expired
+        const expiresAt = new Date(userData.reset_token_expires);
+        if (expiresAt < new Date()) {
+          return { error: 'Reset token has expired' };
+        }
+
+        // Update password and clear reset token
+        const { error: updateError } = await supabase
+          .from('users')
+          .update({
+            password: newPassword,
+            reset_token: null,
+            reset_token_expires: null,
+          })
+          .eq('email', email);
+
+        if (updateError) {
+          return { error: 'Failed to update password' };
+        }
+
+        return { error: undefined };
+      }
+
+      // Handle regular password change (authenticated user)
+      if (!user?.email) {
+        return { error: 'User not authenticated' };
+      }
+
+      // Verify current password by checking against stored password
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('password')
+        .eq('email', user.email)
+        .single();
+
+      if (userError || userData.password !== currentPassword) {
+        return { error: 'Current password is incorrect' };
+      }
+
+      // Update password
+      const { error: updateError } = await supabase
+        .from('users')
+        .update({ password: newPassword })
+        .eq('email', user.email);
+
+      if (updateError) {
+        return { error: 'Failed to update password' };
+      }
+
+      return { error: undefined };
+    } catch (error) {
+      console.error('Change password error:', error);
+      return { error: 'Failed to change password' };
     }
-
-    const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
-      email: user.email,
-      password: currentPassword,
-    });
-
-    if (signInError) {
-      return { error: 'Current password is incorrect' };
-    }
-
-    // Update password
-    const { error } = await supabase.auth.updateUser({
-      password: newPassword,
-    });
-
-    return { error: error?.message };
   };
 
   return (

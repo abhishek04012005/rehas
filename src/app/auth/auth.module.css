@@ -174,6 +174,44 @@
   margin-top: -12px;
 }
 
+.resetInfo {
+  background: rgba(86, 0, 103, 0.05);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.resetInfo p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.resetInfo strong {
+  color: var(--primary);
+}
+
+.backButton {
+  width: fit-content;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(86, 0, 103, 0.2);
+  background: rgba(86, 0, 103, 0.05);
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+.backButton:hover {
+  background: rgba(86, 0, 103, 0.1);
+  border-color: rgba(86, 0, 103, 0.3);
+}
+
 .submitBtn {
   width: fit-content;
   padding: 16px 26px;

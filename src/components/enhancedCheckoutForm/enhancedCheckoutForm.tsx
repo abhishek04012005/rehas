@@ -321,7 +321,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       <PaymentForm
         orderId={createdOrderId}
         productTitle={productData?.productTitle || productTitle}
-        amount={productData?.amount || amount}
+        amount={totalAmount}
         customerEmail={formData.email}
         customerName={formData.fullName}
         customerPhone={formData.phoneNumber}

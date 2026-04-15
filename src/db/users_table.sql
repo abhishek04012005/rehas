@@ -7,6 +7,8 @@ CREATE TABLE users (
   password TEXT NOT NULL,
   full_name TEXT,
   phone_number TEXT,
+  reset_token TEXT,
+  reset_token_expires TIMESTAMP WITH TIME ZONE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );

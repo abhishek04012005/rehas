@@ -6,13 +6,32 @@ import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 
 export default function CheckoutPageClient() {
-  const { productData } = useCheckout();
+  const { productData, cartItems } = useCheckout();
   const { user, loading } = useAuth();
 
-  // Use product data if available, otherwise use defaults
-  const productTitle = productData?.productTitle || 'Service/Product';
-  const amount = productData?.amount || 999;
-  const isProduct = productData?.type === 'product';
+  // Calculate cart total
+  const cartTotal = cartItems.reduce((sum, item) => sum + item.amount * item.quantity, 0);
+  
+  // Check localStorage for cart if not loaded yet
+  let localCartTotal = 0;
+  if (typeof window !== 'undefined' && cartTotal === 0) {
+    try {
+      const savedCart = localStorage.getItem('localCartItems');
+      if (savedCart) {
+        const parsedCart = JSON.parse(savedCart);
+        localCartTotal = parsedCart.reduce((sum: number, item: any) => sum + item.amount * item.quantity, 0);
+      }
+    } catch (error) {
+      console.error('Failed to load cart from localStorage:', error);
+    }
+  }
+
+  const totalAmount = cartTotal || localCartTotal;
+  
+  // Use cart total if available, otherwise use product data
+  const productTitle = totalAmount > 0 ? 'Cart Items' : (productData?.productTitle || 'Service/Product');
+  const amount = totalAmount > 0 ? totalAmount : (productData?.amount || 999);
+  const isProduct = totalAmount > 0 ? true : (productData?.type === 'product');
 
   if (loading) {
     return <div style={{ padding: '60px 24px' }}>Checking your session...</div>;
