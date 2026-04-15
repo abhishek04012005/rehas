@@ -327,66 +327,132 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Tigers Eye Bracelet',
-        slug: 'tigers-eye-bracelet',
-        tagline: 'Confidence, Courage & Protection',
-        qualityTag: 'AAA Quality • 100% Authentic • Lab Certified',
-        reviewCount: 39,
+        name: 'Turquoise Prayer Wheel Bracelet',
+        slug: 'turquoise-prayer-wheel-bracelet',
+
+        tagline: 'Stone of Protection, Healing & Positive Energy',
+        qualityTag: 'AAA Quality • 100% Natural Turquoise • Handcrafted',
+
+        reviewCount: 96,
+
         shortDescription:
-            'A powerful bracelet made with Tiger Eye to support courage, focus, and grounded success in every decision.',
+            'A powerful Turquoise Prayer Wheel bracelet designed to bring protection, healing energy, and spiritual balance.',
+
         meaning:
-            'A powerful bracelet made with Tiger Eye to support courage, focus, and grounded success in every decision.',
-        benefit: 'Confidence, courage, grounding, protection',
-        use: 'Wear when you need focus, protection, and personal power',
-        price: '₹1,498.75',
-        originalPrice: '₹1,873.44',
-        paymentHighlights: ['Cards Accepted', '0 Extra Cost', 'Limited Time Offer'],
-        sold: 61,
-        available: 119,
-        endsIn: '40h : 22m : 11s',
+            'Turquoise is known as a powerful healing and protective stone. Combined with the Tibetan prayer wheel charm, this bracelet symbolizes continuous positive energy flow, spiritual growth, and protection from negativity.',
+
+        benefit:
+            'Protection from negativity, emotional healing, improved communication, spiritual growth, energy balance, good fortune attraction',
+
+        use:
+            'Wear daily on the left hand to absorb healing and protective energy. Ideal for meditation, spiritual practices, and daily positive energy alignment.',
+
+        price: '₹124.00',
+        originalPrice: '₹1,499.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 178,
+        available: 132,
+        endsIn: '29h : 14m : 22s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance protection, healing, and positive energy.',
+            price: '₹150.00',
+        },
+
         description:
-            'Tiger Eye is known as a stone of courage and clarity. This bracelet helps stabilize your energy and promote inner power.',
+            'This Turquoise Prayer Wheel Bracelet is crafted from high-quality natural turquoise stones, known for their calming blue-green color and powerful protective properties. The centerpiece features a Tibetan prayer wheel charm, symbolizing the flow of positive energy and spiritual harmony. Turquoise is believed to promote emotional healing, improve communication, and protect against negative influences. The bracelet is handcrafted with smooth, polished beads for comfortable daily wear and can be energized through sacred rituals to enhance its spiritual benefits. Ideal for those seeking peace, protection, and inner balance.',
+
         keyFeatures: [
-            'Polished Tiger Eye beads',
-            'Grounding and protective energy',
-            'Designed for focus and confidence',
-            'Durable stretch cord for comfort',
+            'Premium quality natural Turquoise stones',
+            'Tibetan prayer wheel charm centerpiece',
+            'Smooth polished beads with natural patterns',
+            'Stretchable, durable, and skin-friendly',
+            'Optional energy activation ritual available',
         ],
+
         benefits: [
-            'Courage and confidence',
-            'Inner stability',
-            'Protection from negative thoughts',
-            'Improved decision-making',
+            'Protects from negative energy and evil eye',
+            'Promotes emotional healing and calmness',
+            'Enhances communication and self-expression',
+            'Supports spiritual growth and meditation',
+            'Attracts positivity, peace, and good fortune',
         ],
+
         spiritualSignificance: [
-            'Tiger Eye is a stone of power and protection in many traditions',
-            'Associated with the solar plexus chakra for personal will and strength',
-            'Known to attract prosperity through focused intention',
-            'Represents the balance between shadow and light',
+            'Turquoise is known as a powerful healing and protection stone',
+            'Associated with the Throat Chakra (Vishuddha)',
+            'Prayer wheel symbolizes continuous positive energy flow',
+            'Helps balance mind, body, and spirit',
         ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation or spiritual practices',
+            'Set clear intentions for healing and protection',
+            'Avoid wearing during heavy physical activities if uncomfortable',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a dry place away from moisture',
+            'Recharge by placing under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Turquoise Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light to Medium',
+            origin: 'Tibet/India',
+        },
+
         faq: [
             {
-                question: 'Is this bracelet good for work?',
+                question: 'Is this real Turquoise?',
                 answer:
-                    'Yes, it is especially helpful for focus and confidence during professional activities.',
+                    'Yes, the bracelet is made from natural Turquoise stones with unique color variations.',
             },
             {
-                question: 'How do I care for it?',
+                question: 'What is the use of the prayer wheel?',
                 answer:
-                    'Keep it away from water and recharge it under moonlight occasionally.',
+                    'The prayer wheel symbolizes the flow of positive energy and is believed to spread spiritual vibrations when worn.',
+            },
+            {
+                question: 'Can I wear it every day?',
+                answer:
+                    'Yes, it is suitable for daily wear, but avoid prolonged exposure to water.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and designed to fit most wrist sizes comfortably.',
             },
         ],
-        images: [
-            'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1529372839458-34c4e4e0a7c8?w=600&h=600&fit=crop',
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 150+ Customers',
         ],
-        pooja: {
-            label: 'Add Pooja',
-            note:
-                'Delivery Note: By opting for this puja, you will receive products that are specially energized with sacred rituals.',
-            price: '₹999.00',
-        },
+
+        emotionalHook:
+            'Embrace protection, healing, and spiritual harmony with the calming power of Turquoise.',
+
+        images: [
+            '/assets/bracelete/turquoise/1.png',
+            '/assets/bracelete/turquoise/2.png',
+            '/assets/bracelete/turquoise/3.png',
+        ],
     },
     {
         category: 'bracelet',
