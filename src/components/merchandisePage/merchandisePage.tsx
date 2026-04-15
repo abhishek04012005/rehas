@@ -134,9 +134,9 @@ export default function MerchandisePage() {
                   </div>
 
                   {/* Usage Instruction */}
-                  <div className={styles.usageInstruction}>
+                  {/* <div className={styles.usageInstruction}>
                     {product.use}
-                  </div>
+                  </div> */}
 
                   {/* Buy Now Button */}
                   <Link

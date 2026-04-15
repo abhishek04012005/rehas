@@ -77,13 +77,13 @@ export default function SimilarProducts({ category, currentProductSlug }: Simila
                       {discountPercentage}
                     </div>
                   )}
-                  <button
+                  {/* <button
                     className={styles.addToCheckoutBtn}
                     onClick={(e) => handleAddToCheckout(e, product)}
                     title="Add to checkout"
                   >
                     <ShoppingCart sx={{ fontSize: 18 }} />
-                  </button>
+                  </button> */}
                 </div>
 
                 <div className={styles.productDetails}>
@@ -99,9 +99,9 @@ export default function SimilarProducts({ category, currentProductSlug }: Simila
                     </div>
                   </div>
 
-                  <div className={styles.usageInstruction}>
+                  {/* <div className={styles.usageInstruction}>
                     {product.use}
-                  </div>
+                  </div> */}
 
                   <button
                     className={styles.buyNowBtn}
