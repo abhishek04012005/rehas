@@ -123,32 +123,43 @@ function PaymentSuccessContent() {
               margin-bottom: 12px;
             ">
               <div style="
-                width: 120px;
-                height: 48px;
-                background: #f0f0f0;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                border-radius: 4px;
-                font-weight: 700;
-                color: #560067;
-              ">REHAS</div>
+                gap: 12px;
+              ">
+                <div style="
+                  width: 60px;
+                  height: 30px;
+                  background: #f0f0f0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 4px;
+                  font-weight: 700;
+                  color: #560067;
+                  font-size: 12px;
+                ">LOGO</div>
+                <div style="
+                  color: #560067;
+                  font-size: 18px;
+                  font-weight: 700;
+                ">REHAS</div>
+              </div>
               <div style="text-align: right; font-size: 12px; color: #666;">
                 <div style="font-weight: 700; color: #560067; font-size: 14px; margin-bottom: 2px;">Order #${orderId || 'N/A'}</div>
                 <div>${orderDate}</div>
               </div>
             </div>
-            <h1 style="
-              color: #560067;
-              margin: 0 0 8px 0;
-              font-size: 24px;
-              font-weight: 700;
-            ">REHAS - Cosmic Wellness</h1>
-            <p style="
-              color: #666;
-              margin: 0;
-              font-size: 14px;
-            ">Order Confirmation Receipt</p>
+            <div style="
+              text-align: center;
+              margin-bottom: 8px;
+            ">
+              <p style="
+                color: #666;
+                margin: 0;
+                font-size: 14px;
+              ">Order Confirmation Receipt</p>
+            </div>
           </div>
 
           <div style="
@@ -519,22 +530,24 @@ function PaymentSuccessContent() {
           {/* Header with Logo and Order Info */}
           <div className={styles.receiptHeader}>
             <div className={styles.headerTop}>
-              {rehasData.profile.logo && (
-                <div className={styles.logoContainer}>
-                  <Image
-                    src={rehasData.profile.logo}
-                    alt="REHAS Logo"
-                    width={120}
-                    height={48}
-                    className={styles.logo}
-                  />
-                </div>
-              )}
+              <div className={styles.headerLeft}>
+                {rehasData.profile.logo && (
+                  <div className={styles.logoContainer}>
+                    <Image
+                      src={rehasData.profile.logo}
+                      alt="REHAS Logo"
+                      width={60}
+                      height={30}
+                      className={styles.logo}
+                    />
+                  </div>
+                )}
+                <h2 className={styles.receiptTitle}>REHAS</h2>
+              </div>
               <div className={styles.orderBadge}>
                 <span className={styles.orderNumber}>Order #{orderId || 'N/A'}</span>
               </div>
             </div>
-            <h2 className={styles.receiptTitle}>REHAS - Cosmic Wellness</h2>
             <p className={styles.receiptSubtitle}>Order Confirmation Receipt</p>
           </div>
 

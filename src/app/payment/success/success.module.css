@@ -317,6 +317,12 @@
   margin-bottom: 16px;
 }
 
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .logoContainer {
   flex-shrink: 0;
 }
@@ -347,8 +353,8 @@
 
 .receiptTitle {
   color: var(--primary);
-  font-size: 24px;
-  margin: 0 0 8px 0;
+  font-size: 18px;
+  margin: 0;
   font-weight: 700;
 }
 
