@@ -235,7 +235,7 @@ export const rehasData = {
 
   // Contact Information
   contact: {
-    email: 'rehas369@gmail.com',
+    email: 'contact@rehas.in',
     phone: '+91-9517973153',
     address: {
       street: 'REHAS, Chanakya Nagar Road, Agam Kua',

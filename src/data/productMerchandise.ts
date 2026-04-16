@@ -191,9 +191,9 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Invite love, peace, and emotional healing into your life with the gentle power of Rose Quartz.',
 
         images: [
-            '/assets/bracelete/rosequartzcrystal/1.png',
-            '/assets/bracelete/rosequartzcrystal/2.png',
-            '/assets/bracelete/rosequartzcrystal/3.png',
+            '/assets/bracelete/rosequartzcrystal/rosequartzcrystal_front.png',
+            '/assets/bracelete/rosequartzcrystal/rosequartzcrystal_center.png',
+            '/assets/bracelete/rosequartzcrystal/rosequartzcrystal_last.png',
         ],
     },
     {
