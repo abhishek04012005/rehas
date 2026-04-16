@@ -718,66 +718,133 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         ],
     },
     {
-        category: 'yantra',
-        name: 'Mahalaxmi Yantra',
-        slug: 'mahalaxmi-yantra',
-        tagline: 'Invite Wealth, Grace & Prosperity',
-        qualityTag: 'AAA Quality • 100% Authentic • Lab Certified',
-        reviewCount: 34,
+        category: 'bracelet',
+        name: '5 Element Energy Balance Bracelet',
+        slug: '5-element-energy-balance-bracelet',
+
+        tagline: 'Balance Your Energy, Align Nature Within You',
+        qualityTag: 'AAA Quality • Natural Multi-Stone • Handcrafted',
+
+        reviewCount: 102,
+
         shortDescription:
-            'A sacred yantra dedicated to the goddess of prosperity, designed to attract wealth and auspicious energy.',
+            'A powerful multi-stone bracelet designed to balance the five natural elements, promote harmony, and protect your energy.',
+
         meaning:
-            'A sacred yantra dedicated to the goddess of prosperity, designed to attract wealth and auspicious energy.',
-        benefit: 'Wealth attraction, prosperity, auspicious energy, abundance support',
-        use: 'Use in your home altar or business space for prosperity rituals',
-        price: '₹1,498.75',
-        originalPrice: '₹1,873.44',
-        paymentHighlights: ['Cards Accepted', '0 Extra Cost', 'Limited Time Offer'],
-        sold: 51,
-        available: 133,
-        endsIn: '25h : 15m : 12s',
+            'This bracelet is crafted using a unique combination of natural stones representing the five elements—Earth, Fire, Metal, Water, and Energy flow. It helps balance internal energies, remove blockages, and create harmony between mind, body, and environment.',
+
+        benefit:
+            'Energy balancing, protection from negativity, emotional stability, grounding, confidence boost, harmony and alignment',
+
+        use:
+            'Wear daily on the left hand to absorb balanced elemental energy. Ideal for meditation, healing practices, and daily protection.',
+
+        price: '₹149.00',
+        originalPrice: '₹1,499.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 198,
+        available: 120,
+        endsIn: '28h : 10m : 05s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to activate all five elements and enhance protection, balance, and positive energy.',
+            price: '₹150.00',
+        },
+
         description:
-            'The Mahalaxmi Yantra is a powerful tool for inviting prosperity, success, and abundance into your home or business.',
+            'This 5 Element Energy Balance Bracelet is crafted using premium natural stones, each representing a powerful natural element. The combination of green aventurine (Earth), carnelian (Fire), tiger eye (stability), black stone (protection), and hematite (metal energy) creates a perfect balance of energies. It is designed to harmonize your inner energy, protect against negativity, and promote emotional and physical well-being. Each bead is carefully polished and assembled for a comfortable and stylish daily wear. This bracelet is ideal for those seeking balance, protection, and a boost in confidence and stability.',
+
         keyFeatures: [
-            'Energized by Vedic rituals',
-            'Ideal for wealth-focused practice',
-            'Premium yantra craftsmanship',
-            'Perfect for altar display',
+            'Combination of 5 natural element stones',
+            'Premium polished multi-color beads',
+            'Balanced design for energy alignment',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
         ],
+
         benefits: [
-            'Wealth attraction',
-            'Improved financial flow',
-            'Business abundance',
-            'Spiritual grace',
+            'Balances all five natural elements',
+            'Protects from negative energy and evil eye',
+            'Promotes emotional and mental stability',
+            'Enhances grounding and confidence',
+            'Supports energy flow and harmony',
+            'Boosts positivity and inner strength',
         ],
+
         spiritualSignificance: [
-            'Mahalaxmi Yantra honors the goddess of wealth, prosperity, and abundance',
-            'Invokes divine grace and blessings for financial success and auspiciousness',
-            'Represents the flow of prosperity in all aspects of life',
-            'Traditionally used in homes and businesses for abundant manifestation',
+            'Represents the balance of Earth, Fire, Metal, and energy flow',
+            'Helps align internal and external energies',
+            'Encourages harmony between mind and body',
+            'Used in spiritual practices for energy stabilization',
         ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation or energy healing practices',
+            'Set intentions for balance and protection',
+            'Avoid wearing during heavy physical activities if uncomfortable',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a dry and clean place',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Multi-Stone (Aventurine, Carnelian, Tiger Eye, Hematite, Black Stone)',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light to Medium',
+            origin: 'India/Tibet',
+        },
+
         faq: [
             {
-                question: 'Is this yantra suitable for businesses?',
+                question: 'What are the 5 elements in this bracelet?',
                 answer:
-                    'Yes, it is often used to support financial success and auspicious growth.',
+                    'It includes stones representing Earth, Fire, Metal, grounding, and protection energies.',
             },
             {
-                question: 'Does it come with activation instructions?',
+                question: 'Can I wear it daily?',
                 answer:
-                    'Yes, each yantra includes simple guidance for activation and placement.',
+                    'Yes, it is designed for comfortable daily wear.',
+            },
+            {
+                question: 'Does it really balance energy?',
+                answer:
+                    'In spiritual practices, these stones are believed to help balance energy, though results may vary.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
             },
         ],
-        images: [
-            'https://images.unsplash.com/photo-1589519160732-57fc498494f8?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1578398967566-cbc3c8f2a1d5?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1580893438979-16ec42127dd5?w=600&h=600&fit=crop',
+
+        trustBadges: [
+            '100% Natural Stones',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 180+ Customers',
         ],
-        pooja: {
-            label: 'Add Pooja',
-            note:
-                'Delivery Note: By opting for this puja, you will receive products that are specially energized with sacred rituals.',
-            price: '₹999.00',
-        },
+
+        emotionalHook:
+            'Bring balance to your life, align your energy, and stay protected with the power of the five elements.',
+
+        images: [
+            '/assets/bracelete/5elementenergybalance/1.png',
+            '/assets/bracelete/5elementenergybalance/2.png',
+        ],
     },
 ];
