@@ -323,6 +323,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             '/assets/bracelete/pyrite/1.png',
             '/assets/bracelete/pyrite/2.png',
             '/assets/bracelete/pyrite/3.png',
+            '/assets/bracelete/pyrite/video.mp4'
         ],
     },
     {
@@ -586,67 +587,135 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         ],
     },
     {
-        category: 'yantra',
-        name: 'Sri Yantra',
-        slug: 'sri-yantra',
-        tagline: 'Harmonize Energy & Manifest Prosperity',
-        qualityTag: 'AAA Quality • 100% Authentic • Lab Certified',
-        reviewCount: 28,
+        category: 'bracelet',
+        name: 'Howlite Bracelet',
+        slug: 'howlite-bracelet',
+
+        tagline: 'Stone of Calmness, Peace & Emotional Healing',
+        qualityTag: 'AAA Quality • 100% Natural Howlite • Handcrafted',
+
+        reviewCount: 88,
+
         shortDescription:
-            'A powerful yantra that helps align your energy field, sharpen focus, and support abundance rituals.',
+            'A calming Howlite bracelet designed to reduce stress, promote peace, and bring emotional balance into your life.',
+
         meaning:
-            'A powerful yantra that helps align your energy field, sharpen focus, and support abundance rituals.',
-        benefit: 'Manifestation, mental clarity, abundance, energy alignment',
-        use: 'Place on your altar or workspace for daily energy rituals',
-        price: '₹1,264.00',
-        originalPrice: '₹1,580.00',
-        paymentHighlights: ['Cards Accepted', '0 Extra Cost', 'Limited Time Offer'],
-        sold: 43,
-        available: 98,
-        endsIn: '31h : 47m : 20s',
+            'Howlite is known as a powerful calming stone that helps soothe the mind and reduce anxiety. It absorbs negative energy, promotes patience, and encourages emotional expression while supporting inner peace and awareness.',
+
+        benefit:
+            'Stress relief, emotional healing, calmness, better sleep, anger control, mental clarity, anxiety reduction',
+
+        use:
+            'Wear daily on the left hand to absorb calming energy. Ideal for meditation, relaxation, sleep support, and emotional healing practices.',
+
+        price: '₹129.00',
+        originalPrice: '₹1,299.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 164,
+        available: 110,
+        endsIn: '26h : 45m : 18s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance calmness, emotional healing, and positive energy.',
+            price: '₹150.00',
+        },
+
         description:
-            'The Sri Yantra is one of the most revered sacred geometries for spiritual empowerment, abundance, and mental clarity.',
+            'This Howlite Bracelet is crafted from high-quality natural howlite stones, recognized for their beautiful white color with subtle grey veining. Known for its soothing energy, Howlite helps calm an overactive mind, reduce stress, and promote emotional balance. It is especially beneficial for those dealing with anxiety, anger, or sleep issues. The bracelet is handcrafted with smooth, polished beads for a comfortable and elegant daily wear experience. It can also be energized through sacred rituals to amplify its calming and healing properties. Ideal for individuals seeking peace, relaxation, and mental clarity.',
+
         keyFeatures: [
-            'Sacred Sri Yantra design',
-            'Energized for manifestation',
-            'Ideal for home or ritual space',
-            'Premium craftsmanship',
+            'Premium quality natural Howlite stones',
+            'Elegant white beads with natural grey veins',
+            'Smooth polished finish for comfortable wear',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
         ],
+
         benefits: [
-            'Abundance manifestation',
-            'Mental clarity',
-            'Spiritual balance',
-            'Energetic harmony',
+            'Reduces stress, anxiety, and overthinking',
+            'Promotes calmness and emotional stability',
+            'Helps control anger and impatience',
+            'Supports better sleep and relaxation',
+            'Enhances mindfulness and awareness',
+            'Absorbs negative energy',
         ],
+
         spiritualSignificance: [
-            'Sri Yantra is the most sacred geometry representing the divine feminine energy',
-            'Symbolizes the union of Shiva and Shakti, consciousness and creation',
-            'Activates the crown chakra and connection to divine abundance',
-            'Used for thousands of years in tantric and vedic practices for manifestation',
+            'Known as the stone of calmness and patience',
+            'Associated with the Crown Chakra (Sahasrara)',
+            'Helps quiet the mind and enhance awareness',
+            'Encourages emotional healing and spiritual growth',
         ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation or relaxation sessions',
+            'Keep near your pillow for better sleep',
+            'Set intentions for calmness and peace while wearing',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water, perfumes, and harsh chemicals',
+            'Store in a clean, dry place',
+            'Recharge under moonlight or sunlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Howlite Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light',
+            origin: 'India/USA',
+        },
+
         faq: [
             {
-                question: 'How should I place the Yantra?',
+                question: 'Is this real Howlite?',
                 answer:
-                    'Place it on your altar, workspace, or meditation area facing east or north.',
+                    'Yes, the bracelet is made from natural Howlite stones with unique veining patterns.',
             },
             {
-                question: 'Can it be used during meditation?',
+                question: 'Can it help with anxiety?',
                 answer:
-                    'Yes, it enhances focus and deepens your meditative practice.',
+                    'Howlite is traditionally believed to calm the mind and reduce stress, though results may vary.',
+            },
+            {
+                question: 'Can I wear it every day?',
+                answer:
+                    'Yes, it is comfortable and suitable for daily wear.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
             },
         ],
-        images: [
-            'https://images.unsplash.com/photo-1589519160732-57fc498494f8?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1578398967566-cbc3c8f2a1d5?w=600&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1580893438979-16ec42127dd5?w=600&h=600&fit=crop',
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 150+ Customers',
         ],
-        pooja: {
-            label: 'Add Pooja',
-            note:
-                'Delivery Note: By opting for this puja, you will receive products that are specially energized with sacred rituals.',
-            price: '₹999.00',
-        },
+
+        emotionalHook:
+            'Find peace within, calm your mind, and embrace serenity with the soothing energy of Howlite.',
+
+        images: [
+            '/assets/bracelete/howlite/1.png',
+            '/assets/bracelete/howlite/2.png',
+            '/assets/bracelete/howlite/3.png',
+        ],
     },
     {
         category: 'yantra',
