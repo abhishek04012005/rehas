@@ -583,9 +583,9 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Restore balance, awaken your inner peace, and align your energy with the power of 7 Chakras.',
 
         images: [
-            '/assets/bracelete/chakra/1.png',
-            '/assets/bracelete/chakra/2.png',
-            '/assets/bracelete/chakra/3.png',
+            '/assets/bracelete/chakra/chakra_front.png',
+            '/assets/bracelete/chakra/chakra_center.png',
+            '/assets/bracelete/chakra/chakra_last.png',
         ],
     },
     {
