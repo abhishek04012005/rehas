@@ -148,9 +148,10 @@ function PaymentSuccessContent() {
               margin-bottom: 8px;
             ">
               <p style="
-                color: #666;
+                color: #000;
                 margin: 0;
-                font-size: 14px;
+                font-size: 25px;
+                font-weight: 700;
               ">Order Confirmation Receipt</p>
             </div>
           </div>
