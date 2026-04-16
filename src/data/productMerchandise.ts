@@ -845,9 +845,9 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Bring balance to your life, align your energy, and stay protected with the power of the five elements.',
 
         images: [
-            '/assets/bracelete/5elementenergybalance/1.png',
-            '/assets/bracelete/5elementenergybalance/2.png',
-            '/assets/bracelete/5elementenergybalance/3.png',
+            '/assets/bracelete/5elementenergybalance/5elementenergybalance_front.png',
+            '/assets/bracelete/5elementenergybalance/5elementenergybalance_center.png',
+            '/assets/bracelete/5elementenergybalance/5elementenergybalance_last.png',
         ],
     },
     {
