@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronRight, ArrowBack, FavoriteBorder, PhoneInTalk, Mail, CheckCircle, Clear } from '@mui/icons-material';
-import { useCheckout } from '@/context/CheckoutContext';
+import { useCheckout, CartItem } from '@/context/CheckoutContext';
 import PaymentForm from '../paymentForm/paymentForm';
 import styles from './enhancedCheckoutForm.module.css';
 
@@ -69,6 +69,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   const [paymentMethod, setPaymentMethod] = useState<'razorpay' | 'cod' | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [savedOrderItems, setSavedOrderItems] = useState<CartItem[] | null>(null);
 
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
@@ -95,7 +96,11 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     poojaPrice: productData?.poojaPrice,
   }];
 
-  const totalAmount = orderItems.reduce((sum, item) => sum + item.amount * item.quantity, 0);
+  const activeOrderItems = savedOrderItems ?? orderItems;
+  const totalAmount = activeOrderItems.reduce((sum, item) => {
+    const itemAmount = parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0;
+    return sum + itemAmount * item.quantity;
+  }, 0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     let { name, value } = e.target;
@@ -232,7 +237,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       setCreatedOrderId(data.orderId);
       setSubmitted(true);
       setSuccessMessage(`Order created successfully! Order ID: ${data.orderId}`);
-      clearCart();
+      setSavedOrderItems(orderItems);
 
       // Show order summary for 3 seconds then proceed to payment
       setTimeout(() => {
@@ -274,15 +279,22 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
                 <span className={styles.detailLabel}>Phone</span>
                 <span className={styles.detailValue}>+91 {formData.phoneNumber}</span>
               </div>
-              <div className={styles.detailItem}>
+                <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Product/Service</span>
-                <span className={styles.detailValue}>{productData?.productTitle || productTitle}</span>
+                <span className={styles.detailValue}>{activeOrderItems.length > 1 ? 'Multiple items in cart' : activeOrderItems[0]?.productTitle || productTitle}</span>
               </div>
               <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Amount</span>
-                <span className={styles.amountValue}>₹{amount}</span>
+                <span className={styles.amountValue}>₹{totalAmount.toFixed(2)}</span>
               </div>
             </div>
+
+            {activeOrderItems.length > 1 && (
+              <div className={styles.orderItemsSummary}>
+                <span className={styles.detailLabel}>Order Items</span>
+                <span className={styles.detailValue}>{activeOrderItems.map((item) => `${item.productTitle}${item.quantity > 1 ? ` x${item.quantity}` : ''}`).join(' | ')}</span>
+              </div>
+            )}
 
             {isProduct && formData.addressLine1 && (
               <div className={styles.addressSection}>
@@ -312,15 +324,16 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   }
 
   if (showPayment && createdOrderId) {
-    const handlePaymentSuccess = (method: 'razorpay' | 'cod') => {
+    const handlePaymentSuccess = async (method: 'razorpay' | 'cod') => {
       console.log('Payment successful with method:', method);
-      // Payment success handling is done in PaymentForm
+      await clearCart();
+      setSavedOrderItems(null);
     };
 
     return (
       <PaymentForm
         orderId={createdOrderId}
-        productTitle={productData?.productTitle || productTitle}
+        productTitle={activeOrderItems.length > 1 ? 'Cart Items' : activeOrderItems[0]?.productTitle || productTitle}
         amount={totalAmount}
         customerEmail={formData.email}
         customerName={formData.fullName}

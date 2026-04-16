@@ -88,7 +88,7 @@ export default function PaymentForm({
         amount: Math.round(amount * 100), // Amount in paise
         currency: 'INR',
         name: 'REHAS',
-        description: `Payment for ${productTitle}`,
+        description: `Payment for ${productTitle} - ₹${amount}`,
         order_id: razorpayOrderId,
         customer_notification: 1,
         prefill: {

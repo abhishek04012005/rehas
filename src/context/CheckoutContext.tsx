@@ -193,7 +193,7 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
         const formattedItems: CartItem[] = data.map(item => ({
           id: item.id,
           productTitle: item.product_title,
-          amount: parseFloat(item.price),
+          amount: parseFloat((item.price || '').toString().replace(/[₹,]/g, '')) || 0,
           quantity: item.quantity,
           type: item.product_type as OrderType,
           serviceId: item.service_id,

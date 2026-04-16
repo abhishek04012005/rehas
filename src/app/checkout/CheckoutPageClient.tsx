@@ -9,29 +9,35 @@ export default function CheckoutPageClient() {
   const { productData, cartItems } = useCheckout();
   const { user, loading } = useAuth();
 
-  // Calculate cart total
-  const cartTotal = cartItems.reduce((sum, item) => sum + item.amount * item.quantity, 0);
-  
-  // Check localStorage for cart if not loaded yet
+  // Calculate cart total using current cart state
+  const cartTotal = cartItems.reduce((sum, item) => {
+    const itemAmount = parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0;
+    return sum + itemAmount * item.quantity;
+  }, 0);
+
+  // Check localStorage for cart if cart items have not been loaded yet
   let localCartTotal = 0;
-  if (typeof window !== 'undefined' && cartTotal === 0) {
+  if (typeof window !== 'undefined' && cartItems.length === 0) {
     try {
       const savedCart = localStorage.getItem('localCartItems');
       if (savedCart) {
         const parsedCart = JSON.parse(savedCart);
-        localCartTotal = parsedCart.reduce((sum: number, item: any) => sum + item.amount * item.quantity, 0);
+        localCartTotal = parsedCart.reduce((sum: number, item: any) => {
+          const amt = typeof item.amount === 'string' ? parseFloat(item.amount.replace(/[₹,]/g, '')) || 0 : item.amount || 0;
+          return sum + amt * (item.quantity || 1);
+        }, 0);
       }
     } catch (error) {
       console.error('Failed to load cart from localStorage:', error);
     }
   }
 
-  const totalAmount = cartTotal || localCartTotal;
-  
-  // Use cart total if available, otherwise use product data
-  const productTitle = totalAmount > 0 ? 'Cart Items' : (productData?.productTitle || 'Service/Product');
+  const totalAmount = cartItems.length > 0 ? cartTotal : localCartTotal;
+
+  // Use cart total when items exist, otherwise fall back to single product
+  const productTitle = cartItems.length > 0 || localCartTotal > 0 ? 'Cart Items' : (productData?.productTitle || 'Service/Product');
   const amount = totalAmount > 0 ? totalAmount : (productData?.amount || 999);
-  const isProduct = totalAmount > 0 ? true : (productData?.type === 'product');
+  const isProduct = cartItems.length > 0 || localCartTotal > 0 ? true : (productData?.type === 'product');
 
   if (loading) {
     return <div style={{ padding: '60px 24px' }}>Checking your session...</div>;
