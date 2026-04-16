@@ -4,13 +4,36 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronRight, ArrowBack, FavoriteBorder, PhoneInTalk, Mail, CheckCircle, Clear } from '@mui/icons-material';
 import { useCheckout, CartItem } from '@/context/CheckoutContext';
+import { supabase } from '@/lib/supabase';
 import PaymentForm from '../paymentForm/paymentForm';
 import styles from './enhancedCheckoutForm.module.css';
+
+interface OrderData {
+  id: number;
+  productTitle: string;
+  amount: number;
+  items?: any[];
+  orderType?: string;
+  description?: string;
+  isPoojaSelected?: boolean;
+  poojaLabel?: string;
+  poojaPrice?: string;
+  addressLine1?: string;
+  addressLine2?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
+  fullName?: string;
+  email?: string;
+  phoneNumber?: string;
+}
 
 interface EnhancedCheckoutFormProps {
   productTitle: string;
   amount?: number;
   isProduct?: boolean;
+  orderData?: OrderData;
 }
 
 const INDIAN_STATES = [
@@ -60,7 +83,7 @@ interface FormErrors {
   [key: string]: string;
 }
 
-export default function EnhancedCheckoutForm({ productTitle, amount = 999, isProduct = false }: EnhancedCheckoutFormProps) {
+export default function EnhancedCheckoutForm({ productTitle, amount = 999, isProduct = false, orderData }: EnhancedCheckoutFormProps) {
   const { productData, cartItems, clearCart } = useCheckout();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -72,29 +95,60 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   const [savedOrderItems, setSavedOrderItems] = useState<CartItem[] | null>(null);
 
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    state: '',
-    postalCode: '',
-    country: 'India',
+    fullName: orderData?.fullName || '',
+    email: orderData?.email || '',
+    phoneNumber: orderData?.phoneNumber || '',
+    addressLine1: orderData?.addressLine1 || '',
+    addressLine2: orderData?.addressLine2 || '',
+    city: orderData?.city || '',
+    state: orderData?.state || '',
+    postalCode: orderData?.postalCode || '',
+    country: orderData?.country || 'India',
   });
 
-  const orderItems = cartItems.length > 0 ? cartItems : [{
-    id: 'single-order',
-    productTitle: productData?.productTitle || productTitle,
-    amount: productData?.amount || amount,
-    quantity: 1,
-    type: productData?.type || (isProduct ? 'product' : 'service'),
-    serviceId: productData?.serviceId,
-    description: productData?.description,
-    isPoojaSelected: productData?.isPoojaSelected,
-    poojaLabel: productData?.poojaLabel,
-    poojaPrice: productData?.poojaPrice,
-  }];
+  useEffect(() => {
+    if (orderData) {
+      setFormData({
+        fullName: orderData.fullName || '',
+        email: orderData.email || '',
+        phoneNumber: orderData.phoneNumber || '',
+        addressLine1: orderData.addressLine1 || '',
+        addressLine2: orderData.addressLine2 || '',
+        city: orderData.city || '',
+        state: orderData.state || '',
+        postalCode: orderData.postalCode || '',
+        country: orderData.country || 'India',
+      });
+    }
+  }, [orderData]);
+
+  const orderItems = orderData?.items && orderData.items.length > 0
+    ? orderData.items.map((item) => ({
+        id: item.id || `order-${item.productTitle}-${Math.random()}`,
+        productTitle: item.productTitle,
+        amount: typeof item.amount === 'string' ? parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0 : item.amount || 0,
+        quantity: item.quantity || 1,
+        type: item.type || 'product',
+        serviceId: item.serviceId,
+        description: item.description,
+        isPoojaSelected: item.isPoojaSelected,
+        poojaLabel: item.poojaLabel,
+        poojaPrice: item.poojaPrice,
+      }))
+    : cartItems.length > 0
+    ? cartItems
+    : [{
+        id: 'single-order',
+        productTitle: productData?.productTitle || productTitle,
+        amount: productData?.amount || amount,
+        quantity: 1,
+        type: productData?.type || (isProduct ? 'product' : 'service'),
+        serviceId: productData?.serviceId,
+        description: productData?.description,
+        isPoojaSelected: productData?.isPoojaSelected,
+        poojaLabel: productData?.poojaLabel,
+        poojaPrice: productData?.poojaPrice,
+      }];
 
   const activeOrderItems = savedOrderItems ?? orderItems;
   const totalAmount = activeOrderItems.reduce((sum, item) => {
@@ -189,62 +243,98 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     setErrors({});
 
     try {
-      // Save order to database
-      const response = await fetch('/api/orders/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          email: formData.email,
-          phoneNumber: formData.phoneNumber,
-          addressLine1: formData.addressLine1,
-          addressLine2: formData.addressLine2,
-          city: formData.city,
-          state: formData.state,
-          postalCode: formData.postalCode,
-          country: formData.country,
-          amount: totalAmount,
-          orderType: orderItems[0]?.type || 'service',
-          serviceId: orderItems[0]?.serviceId,
-          productTitle: orderItems.map((item) => `${item.productTitle}${item.quantity > 1 ? ` x${item.quantity}` : ''}`).join(' | '),
-          serviceTitle: orderItems[0]?.productTitle || productTitle,
-          serviceDescription: orderItems.map((item) => {
-            const pooja = item.isPoojaSelected ? ` (${item.poojaLabel || 'Pooja'})` : '';
-            return `${item.productTitle}${pooja} · Qty ${item.quantity}`;
-          }).join(' | '),
-          items: orderItems,
-          orderTotal: totalAmount,
-        }),
-      });
+      let createdId: number | null = null;
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        const errorMsg = errorData.error || 'Failed to create order';
+      if (orderData?.id) {
+        const { error } = await supabase
+          .from('orders')
+          .update({
+            full_name: formData.fullName,
+            email: formData.email,
+            phone_number: formData.phoneNumber,
+            address_line_1: formData.addressLine1,
+            address_line_2: formData.addressLine2,
+            city: formData.city,
+            state: formData.state,
+            postal_code: formData.postalCode,
+            country: formData.country,
+            amount: totalAmount,
+            order_type: orderItems[0]?.type || 'service',
+            service_id: orderItems[0]?.serviceId,
+            product_title: orderItems.map((item) => `${item.productTitle}${item.quantity > 1 ? ` x${item.quantity}` : ''}`).join(' | '),
+            service_title: orderItems[0]?.productTitle || productTitle,
+            service_description: orderItems.map((item) => {
+              const pooja = item.isPoojaSelected ? ` (${item.poojaLabel || 'Pooja'})` : '';
+              return `${item.productTitle}${pooja} · Qty ${item.quantity}`;
+            }).join(' | '),
+            items: orderItems,
+            order_total: totalAmount,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', orderData.id);
 
-        // Check if it's a database setup error
-        if (response.status === 503 || errorMsg.includes('Database not initialized')) {
-          throw new Error(
-            'Database not initialized. Contact admin to execute database migration. See DATABASE_SETUP_INSTRUCTIONS.md'
-          );
+        if (error) {
+          throw error;
         }
 
-        throw new Error(errorMsg);
+        createdId = orderData.id;
+      } else {
+        const response = await fetch('/api/orders/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName: formData.fullName,
+            email: formData.email,
+            phoneNumber: formData.phoneNumber,
+            addressLine1: formData.addressLine1,
+            addressLine2: formData.addressLine2,
+            city: formData.city,
+            state: formData.state,
+            postalCode: formData.postalCode,
+            country: formData.country,
+            amount: totalAmount,
+            orderType: orderItems[0]?.type || 'service',
+            serviceId: orderItems[0]?.serviceId,
+            productTitle: orderItems.map((item) => `${item.productTitle}${item.quantity > 1 ? ` x${item.quantity}` : ''}`).join(' | '),
+            serviceTitle: orderItems[0]?.productTitle || productTitle,
+            serviceDescription: orderItems.map((item) => {
+              const pooja = item.isPoojaSelected ? ` (${item.poojaLabel || 'Pooja'})` : '';
+              return `${item.productTitle}${pooja} · Qty ${item.quantity}`;
+            }).join(' | '),
+            items: orderItems,
+            orderTotal: totalAmount,
+          }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          const errorMsg = errorData.error || 'Failed to create order';
+
+          if (response.status === 503 || errorMsg.includes('Database not initialized')) {
+            throw new Error(
+              'Database not initialized. Contact admin to execute database migration. See DATABASE_SETUP_INSTRUCTIONS.md'
+            );
+          }
+
+          throw new Error(errorMsg);
+        }
+
+        const data = await response.json();
+        createdId = data.orderId;
       }
 
-      const data = await response.json();
-      setCreatedOrderId(data.orderId);
+      setCreatedOrderId(createdId);
       setSubmitted(true);
-      setSuccessMessage(`Order created successfully! Order ID: ${data.orderId}`);
+      setSuccessMessage(`Order ${orderData?.id ? 'updated' : 'created'} successfully! Order ID: ${createdId}`);
       setSavedOrderItems(orderItems);
 
-      // Show order summary for 3 seconds then proceed to payment
       setTimeout(() => {
         setShowPayment(true);
       }, 3000);
     } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : 'Failed to create order';
+      const errorMsg = error instanceof Error ? error.message : 'Failed to save order';
       setErrors({ submit: errorMsg });
       setLoading(false);
     }

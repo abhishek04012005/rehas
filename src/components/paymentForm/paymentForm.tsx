@@ -123,9 +123,16 @@ export default function PaymentForm({
 
             // Payment successful - redirect to success page
             onPaymentSuccess('razorpay');
-            router.push(
-              `/payment/success?orderId=${orderId}&transactionId=${response.razorpay_payment_id}&amount=${amount.toFixed(2)}`
-            );
+            
+            // Store payment data in localStorage instead of URL params
+            localStorage.setItem('paymentSuccessData', JSON.stringify({
+              orderId,
+              transactionId: response.razorpay_payment_id,
+              amount: amount.toFixed(2),
+              method: 'razorpay'
+            }));
+            
+            router.push('/payment/success');
           } catch (err: any) {
             const errorMsg = err.message || 'Payment verification failed';
             console.error('Payment verification error:', err);

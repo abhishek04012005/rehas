@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense, useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, FileDownload } from '@mui/icons-material';
@@ -12,15 +11,30 @@ import { contactData } from '@/data/contact';
 import styles from './success.module.css';
 
 function PaymentSuccessContent() {
-  const searchParams = useSearchParams();
   const { productData } = useCheckout();
   const [customerInfo, setCustomerInfo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [paymentData, setPaymentData] = useState<any>(null);
 
-  const orderId = searchParams.get('orderId');
-  const transactionId = searchParams.get('transactionId');
-  const amount = searchParams.get('amount');
-  const method = searchParams.get('method') || 'razorpay';
+  useEffect(() => {
+    // Get payment data from localStorage (check both keys for different entry points)
+    const paymentData = localStorage.getItem('paymentSuccessData');
+    const receiptData = localStorage.getItem('receiptOrderData');
+    
+    const storedData = paymentData || receiptData;
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      setPaymentData(data);
+      // Clear both possible data entries
+      localStorage.removeItem('paymentSuccessData');
+      localStorage.removeItem('receiptOrderData');
+    }
+  }, []);
+
+  const orderId = paymentData?.orderId;
+  const transactionId = paymentData?.transactionId;
+  const amount = paymentData?.amount;
+  const method = paymentData?.method || 'razorpay';
 
   useEffect(() => {
     const fetchCustomerInfo = async () => {
@@ -138,6 +152,31 @@ function PaymentSuccessContent() {
           </div>
 
           <div style="
+            background: #f9f9f9;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+          ">
+            <div style="
+              color: #560067;
+              font-size: 12px;
+              font-weight: 700;
+              margin: 0 0 8px 0;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            ">Ship From</div>
+            <div style="
+              font-size: 12px;
+              color: #666;
+              line-height: 1.4;
+            ">
+              <div>REHAS, Chanakya Nagar Road, Agam Kua</div>
+              <div>Patna, Bihar, India - 800007</div>
+            </div>
+          </div>
+
+          <div style="
             margin-bottom: 20px;
             text-align: center;
           ">
@@ -190,29 +229,6 @@ function PaymentSuccessContent() {
               ">
                 <div>${customerInfo?.email || 'N/A'}</div>
                 <div>${customerInfo?.phone || 'N/A'}</div>
-              </div>
-            </div>
-            <div style="
-              background: #f9f9f9;
-              border-radius: 6px;
-              padding: 12px;
-              border: 1px solid #e0e0e0;
-            ">
-              <div style="
-                color: #560067;
-                font-size: 12px;
-                font-weight: 700;
-                margin: 0 0 8px 0;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              ">Billing Address</div>
-              <div style="
-                font-size: 12px;
-                color: #666;
-                line-height: 1.4;
-              ">
-                <div>${billingAddressLine1}</div>
-                <div>${billingAddressLine2}</div>
               </div>
             </div>
             ${customerInfo?.order_type === 'product' ? `
@@ -522,6 +538,15 @@ function PaymentSuccessContent() {
             <p className={styles.receiptSubtitle}>Order Confirmation Receipt</p>
           </div>
 
+          {/* Ship From Address */}
+          <div className={styles.receiptSection}>
+            <h3 className={styles.sectionTitle}>Ship From</h3>
+            <div className={styles.addressInfo}>
+              <div className={styles.addressText}>REHAS, Chanakya Nagar Road, Agam Kua</div>
+              <div className={styles.addressText}>Patna, Bihar, India - 800007</div>
+            </div>
+          </div>
+
           {/* Order Status */}
           <div className={styles.statusSection}>
             <div className={styles.statusBadge}>
@@ -553,14 +578,6 @@ function PaymentSuccessContent() {
                   <span>{customerInfo?.email || 'N/A'}</span>
                   <span>{customerInfo?.phone || 'N/A'}</span>
                 </div>
-              </div>
-            </div>
-
-            <div className={styles.infoCard}>
-              <h3 className={styles.cardTitle}>Billing Address</h3>
-              <div className={styles.addressInfo}>
-                <div className={styles.addressText}>{billingAddressLine1}</div>
-                <div className={styles.addressText}>{billingAddressLine2}</div>
               </div>
             </div>
 

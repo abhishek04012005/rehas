@@ -10,7 +10,20 @@ interface OrderRecord {
   id: number;
   product_title: string;
   amount: string;
+  items?: any;
+  full_name?: string;
+  email?: string;
+  phone_number?: string;
+  address_line_1?: string;
+  address_line_2?: string;
+  city?: string;
+  state?: string;
+  postal_code?: string;
+  country?: string;
   payment_status: string;
+  payment_method?: string;
+  transaction_id?: string;
+  razorpay_payment_id?: string;
   status: string;
   created_at: string;
 }
@@ -20,6 +33,7 @@ const normalizePhone = (phone: string | null) => (phone ? phone.replace(/\D/g, '
 export default function OrdersPage() {
   const { user, loading } = useAuth();
   const [orders, setOrders] = useState<OrderRecord[]>([]);
+  const [selectedOrder, setSelectedOrder] = useState<OrderRecord | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -88,7 +102,8 @@ export default function OrdersPage() {
           </Link>
         </div>
       ) : (
-        <div className={styles.tableWrapper}>
+        <>
+          <div className={styles.tableWrapper}>
           <div className={styles.tableHeaderBar}>
             <div>
               <p className={styles.summaryLabel}>Recent orders</p>
@@ -107,6 +122,7 @@ export default function OrdersPage() {
                   <th>Total</th>
                   <th>Status</th>
                   <th>Payment</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -123,8 +139,40 @@ export default function OrdersPage() {
                     <td data-label="Status">
                       <span className={styles.statusBadge}>{order.status}</span>
                     </td>
-                    <td data-label="Payment">
+                      <td data-label="Payment">
                       <span className={styles.paymentBadge}>{order.payment_status}</span>
+                    </td>
+                    <td data-label="Actions">
+                      <div className={styles.actionButtonGroup}>
+                        <button
+                          type="button"
+                          className={styles.detailsButton}
+                          onClick={() => setSelectedOrder(order)}
+                        >
+                          Details
+                        </button>
+                        {order.payment_status.toLowerCase() !== 'paid' ? (
+                          <Link href={`/checkout?orderId=${order.id}`} className={styles.actionButton}>
+                            Pay Now
+                          </Link>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              // Store order data in localStorage for receipt view
+                              localStorage.setItem('receiptOrderData', JSON.stringify({
+                                orderId: order.id,
+                                transactionId: order.razorpay_payment_id || order.transaction_id || '',
+                                amount: order.amount,
+                                method: order.payment_method || 'razorpay'
+                              }));
+                              window.location.href = '/payment/success';
+                            }}
+                            className={styles.actionButton}
+                          >
+                            Receipt
+                          </button>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -132,6 +180,99 @@ export default function OrdersPage() {
             </table>
           </div>
         </div>
+
+          {selectedOrder && (
+            <div className={styles.modalBackdrop} onClick={() => setSelectedOrder(null)}>
+              <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                <button className={styles.modalClose} onClick={() => setSelectedOrder(null)}>
+                  ×
+                </button>
+                <h2>Order #{selectedOrder.id} Details</h2>
+                <div className={styles.modalSection}>
+                  <span className={styles.modalLabel}>Placed</span>
+                  <span>{new Date(selectedOrder.created_at).toLocaleString('en-IN', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}</span>
+                </div>
+                <div className={styles.modalSection}>
+                  <span className={styles.modalLabel}>Status</span>
+                  <span>{selectedOrder.status}</span>
+                </div>
+                <div className={styles.modalSection}>
+                  <span className={styles.modalLabel}>Payment Status</span>
+                  <span>{selectedOrder.payment_status}</span>
+                </div>
+                {selectedOrder.payment_method && (
+                  <div className={styles.modalSection}>
+                    <span className={styles.modalLabel}>Payment Method</span>
+                    <span>{selectedOrder.payment_method}</span>
+                  </div>
+                )}
+                {selectedOrder.transaction_id && (
+                  <div className={styles.modalSection}>
+                    <span className={styles.modalLabel}>Transaction ID</span>
+                    <span>{selectedOrder.transaction_id}</span>
+                  </div>
+                )}
+                <div className={styles.modalSection}>
+                  <span className={styles.modalLabel}>Total Amount</span>
+                  <span>₹{parseFloat(selectedOrder.amount || '0').toFixed(2)}</span>
+                </div>
+                <div className={styles.modalSection}>
+                  <span className={styles.modalLabel}>Items</span>
+                  <div className={styles.modalItems}>
+                    {(() => {
+                      try {
+                        const items = typeof selectedOrder.items === 'string' ? JSON.parse(selectedOrder.items) : selectedOrder.items;
+                        if (Array.isArray(items) && items.length > 0) {
+                          return items.map((item: any, idx: number) => (
+                            <div key={idx} className={styles.modalItemRow}>
+                              <span>{item.productTitle || item.name || item.title || 'Item'}</span>
+                              <span>Qty {item.quantity || 1}</span>
+                              <span>₹{((typeof item.amount === 'string' ? parseFloat(item.amount.replace(/[₹,]/g, '')) : item.amount) || 0).toFixed(2)}</span>
+                            </div>
+                          ));
+                        }
+                      } catch (_err) {
+                        // ignore JSON parse errors
+                      }
+                      return <div>{selectedOrder.product_title}</div>;
+                    })()}
+                  </div>
+                </div>
+                {(selectedOrder.address_line_1 || selectedOrder.city) && (
+                  <div className={styles.modalSection}>
+                    <span className={styles.modalLabel}>Shipping Address</span>
+                    <div>
+                      <div>{selectedOrder.address_line_1}</div>
+                      {selectedOrder.address_line_2 && <div>{selectedOrder.address_line_2}</div>}
+                      <div>{selectedOrder.city}, {selectedOrder.state} - {selectedOrder.postal_code}</div>
+                      <div>{selectedOrder.country}</div>
+                    </div>
+                  </div>
+                )}
+                <div className={styles.modalActions}>
+                  {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                    <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
+                      Pay Now
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                      className={styles.modalActionButton}
+                    >
+                      Download Receipt
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
