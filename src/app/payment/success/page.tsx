@@ -343,6 +343,23 @@ function PaymentSuccessContent() {
             ` : ''}
           </div>
 
+           <div style="margin-bottom: 20px;">
+            <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 16px;
+              background: linear-gradient(135deg, #560067, #7b1fa2);
+              color: white;
+              border-radius: 6px;
+              font-size: 16px;
+              font-weight: 700;
+            ">
+              <span>Total Amount</span>
+              <span>₹${parseFloat(amount || '0').toFixed(2)}</span>
+            </div>
+          </div>
+
           <div style="margin-bottom: 20px;">
             <div style="
               color: #560067;
@@ -368,7 +385,7 @@ function PaymentSuccessContent() {
                 border-radius: 4px;
                 border: 1px solid #e0e0e0;
               ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Method</span>
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Mode</span>
                 <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
               </div>
               <div style="
@@ -405,22 +422,7 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
-          <div style="margin-bottom: 20px;">
-            <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 16px;
-              background: linear-gradient(135deg, #560067, #7b1fa2);
-              color: white;
-              border-radius: 6px;
-              font-size: 16px;
-              font-weight: 700;
-            ">
-              <span>Total Amount</span>
-              <span>₹${parseFloat(amount || '0').toFixed(2)}</span>
-            </div>
-          </div>
+         
 
           <div style="
             text-align: center;
@@ -617,12 +619,20 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
+            {/* Order Total */}
+          <div className={styles.totalSection}>
+            <div className={styles.totalRow}>
+              <span className={styles.totalLabel}>Total Amount</span>
+              <span className={styles.totalAmount}>₹{amount || '0.00'}</span>
+            </div>
+          </div>
+
           {/* Payment Information */}
           <div className={styles.paymentSection}>
             <h3 className={styles.sectionTitle}>Payment Details</h3>
             <div className={styles.paymentGrid}>
               <div className={styles.paymentItem}>
-                <span className={styles.paymentLabel}>Payment Method</span>
+                <span className={styles.paymentLabel}>Payment Mode</span>
                 <span className={styles.paymentValue}>
                   {method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}
                 </span>
@@ -642,13 +652,7 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
-          {/* Order Total */}
-          <div className={styles.totalSection}>
-            <div className={styles.totalRow}>
-              <span className={styles.totalLabel}>Total Amount</span>
-              <span className={styles.totalAmount}>₹{amount || '0.00'}</span>
-            </div>
-          </div>
+        
 
           {/* Thank You Message */}
           <div className={styles.thankYouSection}>
