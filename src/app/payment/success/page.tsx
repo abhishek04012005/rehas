@@ -20,7 +20,7 @@ function PaymentSuccessContent() {
     // Get payment data from localStorage (check both keys for different entry points)
     const paymentData = localStorage.getItem('paymentSuccessData');
     const receiptData = localStorage.getItem('receiptOrderData');
-    
+
     const storedData = paymentData || receiptData;
     if (storedData) {
       const data = JSON.parse(storedData);
@@ -275,70 +275,84 @@ function PaymentSuccessContent() {
               text-transform: uppercase;
             ">Order Summary</div>
             <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 12px;
-              background: #f9f9f9;
-              border-radius: 6px;
               border: 1px solid #e0e0e0;
-              margin-bottom: 8px;
+              border-radius: 6px;
+              overflow: hidden;
             ">
-              <div style="flex: 1;">
-                <div style="
-                  font-weight: 600;
-                  color: #333;
-                  font-size: 13px;
-                  margin-bottom: 4px;
-                ">${productData?.productTitle || 'N/A'}</div>
-                <div style="
-                  display: flex;
-                  gap: 12px;
-                  font-size: 11px;
-                  color: #666;
-                ">
-                  <span>Qty: 1</span>
-                  <span>₹${amount || '0.00'}</span>
-                </div>
+              <div style="
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 16px;
+                background: #f9f9f9;
+                color: #560067;
+                font-weight: 700;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              ">
+                <span>Product</span>
+                <span>Qty</span>
+                <span>Unit Price</span>
+                <span>Amount</span>
               </div>
               <div style="
-                font-weight: 700;
-                color: #560067;
-                font-size: 14px;
-              ">₹${amount || '0.00'}</div>
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 16px;
+                background: white;
+                border-top: 1px solid #e0e0e0;
+              ">
+                <div style="flex: 1;">
+                  <div style="
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 12px;
+                  ">${productData?.productTitle || 'N/A'}</div>
+                </div>
+                <span style="font-size: 12px; color: #666;">1</span>
+                <span style="font-size: 12px; color: #666;">₹${amount || '0.00'}</span>
+                <span style="
+                  font-weight: 700;
+                  color: #560067;
+                  font-size: 13px;
+                ">₹${amount || '0.00'}</span>
+              </div>
             </div>
             ${productData?.isPoojaSelected && productData?.poojaLabel ? `
             <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 12px;
-              background: #f9f9f9;
-              border-radius: 6px;
               border: 1px solid #e0e0e0;
-              margin-bottom: 8px;
+              border-radius: 6px;
+              overflow: hidden;
+              margin-top: 8px;
             ">
-              <div style="flex: 1;">
-                <div style="
-                  font-weight: 600;
-                  color: #333;
-                  font-size: 13px;
-                  margin-bottom: 4px;
-                ">${productData.poojaLabel}</div>
-                <div style="
-                  display: flex;
-                  gap: 12px;
-                  font-size: 11px;
-                  color: #666;
-                ">
-                  <span>Pooja Service</span>
-                </div>
-              </div>
               <div style="
-                font-weight: 700;
-                color: #560067;
-                font-size: 14px;
-              ">${productData.poojaPrice}</div>
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 16px;
+                background: white;
+                border-top: 1px solid #e0e0e0;
+              ">
+                <div style="flex: 1;">
+                  <div style="
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 12px;
+                  ">${productData.poojaLabel}</div>
+                </div>
+                <span style="font-size: 12px; color: #666;">1</span>
+                <span style="font-size: 12px; color: #666;">${productData.poojaPrice}</span>
+                <span style="
+                  font-weight: 700;
+                  color: #560067;
+                  font-size: 13px;
+                ">${productData.poojaPrice}</span>
+              </div>
             </div>
             ` : ''}
           </div>
@@ -386,7 +400,7 @@ function PaymentSuccessContent() {
                 border: 1px solid #e0e0e0;
               ">
                 <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Mode</span>
-                <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online'}</span>
+                <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
               </div>
               <div style="
                 display: flex;
@@ -397,7 +411,7 @@ function PaymentSuccessContent() {
                 border-radius: 4px;
                 border: 1px solid #e0e0e0;
               ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Razorpay Payment ID</span>
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment ID</span>
                 <span style="font-size: 11px; color: #333; font-weight: 600;">${transactionId || 'N/A'}</span>
               </div>
               <div style="
@@ -607,19 +621,25 @@ function PaymentSuccessContent() {
           {/* Product Details */}
           <div className={styles.productSection}>
             <h3 className={styles.sectionTitle}>Order Summary</h3>
-            <div className={styles.productItem}>
-              <div className={styles.productInfo}>
-                <div className={styles.productName}>{productData?.productTitle || 'N/A'}</div>
-                <div className={styles.productMeta}>
-                  <span>Qty: 1</span>
-                  <span>₹{amount || '0.00'}</span>
-                </div>
+            <div className={styles.productTable}>
+              <div className={styles.productTableHeader}>
+                <span>Product</span>
+                <span>Qty</span>
+                <span>Unit Price</span>
+                <span>Amount</span>
               </div>
-              <div className={styles.productPrice}>₹{amount || '0.00'}</div>
+              <div className={styles.productTableRow}>
+                <div className={styles.productInfo}>
+                  <div className={styles.productName}>{productData?.productTitle || 'N/A'}</div>
+                </div>
+                <span>1</span>
+                <span>₹{amount || '0.00'}</span>
+                <span className={styles.productPrice}>₹{amount || '0.00'}</span>
+              </div>
             </div>
           </div>
 
-            {/* Order Total */}
+          {/* Order Total */}
           <div className={styles.totalSection}>
             <div className={styles.totalRow}>
               <span className={styles.totalLabel}>Total Amount</span>
@@ -634,11 +654,11 @@ function PaymentSuccessContent() {
               <div className={styles.paymentItem}>
                 <span className={styles.paymentLabel}>Payment Mode</span>
                 <span className={styles.paymentValue}>
-                  {method === 'cod' ? 'Cash on Delivery' : 'Online'}
+                  {method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}
                 </span>
               </div>
               <div className={styles.paymentItem}>
-                <span className={styles.paymentLabel}>Razorpay Payment ID</span>
+                <span className={styles.paymentLabel}>Payment ID</span>
                 <span className={styles.paymentValue}>{transactionId || 'N/A'}</span>
               </div>
               <div className={styles.paymentItem}>
@@ -652,14 +672,14 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
-        
+
 
           {/* Thank You Message */}
           <div className={styles.thankYouSection}>
             <div className={styles.thankYouMessage}>
               <h3>Thank you for choosing REHAS!</h3>
-              <p>Your order has been {method === 'cod' ? 'confirmed' : 'successfully processed'}. 
-              {method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
+              <p>Your order has been {method === 'cod' ? 'confirmed' : 'successfully processed'}.
+                {method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
             </div>
           </div>
 
