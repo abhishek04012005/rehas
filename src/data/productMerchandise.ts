@@ -1109,5 +1109,398 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             '/assets/bracelete/silverhematite/2.png',
             '/assets/bracelete/silverhematite/3.png',
         ],
-    }
+    },
+    {
+        category: 'bracelet',
+        name: 'Green Aventurine Bracelet',
+        slug: 'green-aventurine-bracelet',
+
+        tagline: 'Stone of Luck, Prosperity & Opportunity',
+        qualityTag: 'AAA Quality • 100% Natural Green Aventurine • Handcrafted',
+
+        reviewCount: 138,
+
+        shortDescription:
+            'A powerful Green Aventurine bracelet designed to attract luck, success, and positive opportunities into your life.',
+
+        meaning:
+            'Green Aventurine is known as the “Stone of Opportunity” and is believed to be one of the luckiest crystals. It helps attract prosperity, success, and abundance while promoting emotional healing and inner growth.',
+
+        benefit:
+            'Luck attraction, wealth growth, emotional healing, confidence boost, positivity, opportunity enhancement',
+
+        use:
+            'Wear daily on the left hand to attract luck and positive energy. Ideal for business, career growth, interviews, and financial improvement.',
+
+        price: '₹129.00',
+        originalPrice: '₹1,299.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 265,
+        available: 150,
+        endsIn: '25h : 40m : 55s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to attract luck, prosperity, and positive opportunities.',
+            price: '₹150.00',
+        },
+
+        description:
+            'This Green Aventurine Bracelet is crafted from high-quality natural aventurine stones known for their soothing green color and powerful luck-enhancing properties. Often called the “Stone of Opportunity,” it is believed to attract wealth, success, and new opportunities. It also helps in emotional healing, reducing stress, and promoting optimism. Each bead is smoothly polished and strung on a durable elastic band for comfortable daily wear. The bracelet is perfect for individuals looking to improve their financial growth, career success, and overall positivity.',
+
+        keyFeatures: [
+            'Premium quality natural Green Aventurine stones',
+            'Smooth polished green beads with natural texture',
+            'Known as the stone of luck and prosperity',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
+        ],
+
+        benefits: [
+            'Attracts luck, success, and new opportunities',
+            'Promotes financial growth and abundance',
+            'Enhances confidence and decision-making',
+            'Supports emotional healing and positivity',
+            'Reduces stress and anxiety',
+            'Encourages growth and personal development',
+        ],
+
+        spiritualSignificance: [
+            'Known as the “Stone of Opportunity”',
+            'Associated with the Heart Chakra (Anahata)',
+            'Promotes emotional balance and harmony',
+            'Helps align energy for growth and success',
+        ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during important meetings or interviews',
+            'Set intentions for luck and success',
+            'Carry during business or financial activities',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a clean and dry place',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Green Aventurine Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light to Medium',
+            origin: 'India/Brazil',
+        },
+
+        faq: [
+            {
+                question: 'Is this real Green Aventurine?',
+                answer:
+                    'Yes, it is made from natural Green Aventurine stones with unique color variations.',
+            },
+            {
+                question: 'Can it really bring luck?',
+                answer:
+                    'Green Aventurine is traditionally believed to attract luck and opportunities, though results may vary.',
+            },
+            {
+                question: 'Can I wear it every day?',
+                answer:
+                    'Yes, it is comfortable and suitable for daily wear.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+            },
+        ],
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 250+ Customers',
+        ],
+
+        emotionalHook:
+            'Unlock your luck, attract opportunities, and step into success with the powerful energy of Green Aventurine.',
+
+        images: [
+            '/assets/bracelete/greenaventurine/1.png',
+            '/assets/bracelete/greenaventurine/2.png',
+            '/assets/bracelete/greenaventurine/3.png',
+        ],
+    },
+    {
+        category: 'bracelet',
+        name: 'Carnelian Bracelet',
+        slug: 'carnelian-bracelet',
+
+        tagline: 'Stone of Energy, Confidence & Courage',
+        qualityTag: 'AAA Quality • 100% Natural Carnelian • Handcrafted',
+
+        reviewCount: 152,
+
+        shortDescription:
+            'A powerful Carnelian bracelet designed to boost confidence, energy, and motivation while attracting success and positivity.',
+
+        meaning:
+            'Carnelian is known as the stone of motivation and courage. It energizes the body, enhances confidence, and helps overcome fear, hesitation, and laziness. It is widely used to activate inner strength and passion.',
+
+        benefit:
+            'Confidence boost, energy activation, motivation, courage, creativity, positivity',
+
+        use:
+            'Wear daily on the left hand to enhance energy and confidence. Ideal for students, professionals, entrepreneurs, and creative individuals.',
+
+        price: '₹129.00',
+        originalPrice: '₹1,299.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 310,
+        available: 165,
+        endsIn: '24h : 10m : 30s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance confidence, courage, and positive energy flow.',
+            price: '₹150.00',
+        },
+
+        description:
+            'This Carnelian Bracelet is crafted from high-quality natural carnelian stones known for their vibrant reddish-orange color and powerful energizing properties. Carnelian is widely regarded as a stone of action, helping to boost confidence, courage, and motivation. It supports overcoming fear and hesitation while promoting creativity and enthusiasm. Each bead is smoothly polished and strung on a durable elastic band for comfortable daily wear. Ideal for individuals seeking success, energy, and personal growth.',
+
+        keyFeatures: [
+            'Premium quality natural Carnelian stones',
+            'Smooth polished reddish-orange beads',
+            'Known as the stone of energy and motivation',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
+        ],
+
+        benefits: [
+            'Boosts confidence and self-belief',
+            'Increases motivation and action-taking ability',
+            'Enhances creativity and passion',
+            'Helps overcome fear and hesitation',
+            'Promotes positivity and enthusiasm',
+            'Supports success in career and goals',
+        ],
+
+        spiritualSignificance: [
+            'Known as the stone of courage and action',
+            'Associated with the Sacral Chakra (Swadhisthana)',
+            'Activates inner energy and creativity',
+            'Helps balance emotions and passion',
+        ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during important tasks or meetings',
+            'Set intentions for confidence and success',
+            'Ideal during workouts, studies, or creative work',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a dry and safe place',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Carnelian Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light to Medium',
+            origin: 'India/Brazil',
+        },
+
+        faq: [
+            {
+                question: 'Is this real Carnelian?',
+                answer:
+                    'Yes, it is made from natural Carnelian stones with unique color variations.',
+            },
+            {
+                question: 'What is Carnelian used for?',
+                answer:
+                    'Carnelian is believed to boost energy, confidence, and motivation.',
+            },
+            {
+                question: 'Can I wear it daily?',
+                answer:
+                    'Yes, it is comfortable and suitable for everyday use.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+            },
+        ],
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 300+ Customers',
+        ],
+
+        emotionalHook:
+            'Ignite your inner power, take action, and achieve your goals with the energy of Carnelian.',
+
+        images: [
+            '/assets/bracelete/carnelian/1.png',
+            '/assets/bracelete/carnelian/2.png',
+            '/assets/bracelete/carnelian/3.png',
+        ],
+    },
+    {
+        category: 'bracelet',
+        name: 'Tiger Eye Bracelet',
+        slug: 'tiger-eye-bracelet',
+
+        tagline: 'Stone of Protection, Confidence & Success',
+        qualityTag: 'AAA Quality • 100% Natural Tiger Eye • Handcrafted',
+
+        reviewCount: 168,
+
+        shortDescription:
+            'A powerful Tiger Eye bracelet designed to boost confidence, protect from negative energy, and attract success and wealth.',
+
+        meaning:
+            'Tiger Eye is known as a stone of courage and protection. It enhances confidence, strengthens willpower, and helps in making clear decisions. It is widely used for protection from negative energies and attracting prosperity.',
+
+        benefit:
+            'Confidence boost, protection, wealth attraction, focus, decision-making, courage',
+
+        use:
+            'Wear daily on the left hand for protection and confidence. Ideal for business, career growth, leadership, and decision-making situations.',
+
+        price: '₹129.00',
+        originalPrice: '₹1,299.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 342,
+        available: 180,
+        endsIn: '23h : 55m : 20s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance protection, confidence, and success energy.',
+            price: '₹150.00',
+        },
+
+        description:
+            'This Tiger Eye Bracelet is crafted from high-quality natural tiger eye stones known for their golden-brown color and unique silky shine. It is considered a powerful protection stone that helps shield against negative energy while boosting confidence and courage. Tiger Eye is also associated with attracting wealth and improving decision-making abilities. Each bead is polished to perfection and strung on a durable elastic band for comfortable daily wear. Perfect for individuals seeking strength, protection, and success.',
+
+        keyFeatures: [
+            'Premium quality natural Tiger Eye stones',
+            'Unique golden-brown striped pattern (chatoyancy effect)',
+            'Strong protection and confidence-enhancing properties',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
+        ],
+
+        benefits: [
+            'Boosts confidence and personal power',
+            'Protects from negative energy and evil eye',
+            'Enhances focus and decision-making ability',
+            'Attracts wealth and financial opportunities',
+            'Strengthens courage and willpower',
+            'Promotes mental clarity and stability',
+        ],
+
+        spiritualSignificance: [
+            'Known as the stone of protection and courage',
+            'Associated with the Solar Plexus Chakra (Manipura)',
+            'Enhances inner strength and confidence',
+            'Balances energy and promotes stability',
+        ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during important meetings or business decisions',
+            'Set intentions for protection and success',
+            'Ideal for professionals, entrepreneurs, and students',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a clean and dry place',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Tiger Eye Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light to Medium',
+            origin: 'India/South Africa',
+        },
+
+        faq: [
+            {
+                question: 'Is this real Tiger Eye?',
+                answer:
+                    'Yes, it is made from natural Tiger Eye stones with unique natural patterns.',
+            },
+            {
+                question: 'What is Tiger Eye used for?',
+                answer:
+                    'Tiger Eye is believed to provide protection, boost confidence, and attract success.',
+            },
+            {
+                question: 'Can I wear it daily?',
+                answer:
+                    'Yes, it is comfortable and suitable for everyday wear.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+            },
+        ],
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 300+ Customers',
+        ],
+
+        emotionalHook:
+            'Unlock your inner strength, stay protected, and attract success with the powerful energy of Tiger Eye.',
+
+        images: [
+            '/assets/bracelete/tigereye/1.png',
+            '/assets/bracelete/tigereye/2.png',
+            '/assets/bracelete/tigereye/3.png',
+        ],
+    },
 ];
