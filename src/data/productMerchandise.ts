@@ -979,4 +979,135 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             '/assets/bracelete/hematite/3.png',
         ],
     },
+    {
+        category: 'bracelet',
+        name: 'Silver Hematite Bracelet',
+        slug: 'silver-hematite-bracelet',
+
+        tagline: 'Grounding Power with a Premium Metallic Shine',
+        qualityTag: 'AAA Quality • Natural Silver Hematite • Handcrafted',
+
+        reviewCount: 126,
+
+        shortDescription:
+            'A premium silver-finish Hematite bracelet designed for grounding, protection, and a bold, stylish look.',
+
+        meaning:
+            'Silver Hematite is known as a powerful grounding stone with a sleek metallic appearance. It helps absorb negative energy, stabilize emotions, and enhance focus while adding a modern, luxurious touch to your style.',
+
+        benefit:
+            'Grounding, protection from negativity, mental clarity, confidence boost, emotional stability, stress relief',
+
+        use:
+            'Wear daily on the left hand to absorb grounding energy. Perfect for office wear, daily styling, meditation, and protection.',
+
+        price: '₹149.00',
+        originalPrice: '₹1,499.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 245,
+        available: 135,
+        endsIn: '27h : 20m : 10s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance grounding, protection, and positive energy flow.',
+            price: '₹150.00',
+        },
+
+        description:
+            'This Silver Hematite Bracelet is crafted from high-quality natural hematite stones with a stunning silver metallic finish. Known for its powerful grounding and protective properties, hematite helps absorb negative energy and promotes emotional balance. The sleek silver shine gives it a premium and modern look, making it perfect for both spiritual use and stylish daily wear. Each bead is polished to perfection and strung on a durable elastic band for maximum comfort. Ideal for individuals seeking protection, confidence, and a bold, elegant accessory.',
+
+        keyFeatures: [
+            'Premium natural Silver Hematite stones',
+            'High-gloss metallic silver finish',
+            'Strong grounding and protective energy',
+            'Stretchable, durable, and skin-friendly',
+            'Modern and stylish design',
+            'Optional energy activation ritual available',
+        ],
+
+        benefits: [
+            'Provides strong grounding and stability',
+            'Protects from negative energy and stress',
+            'Enhances focus and mental clarity',
+            'Boosts confidence and personal strength',
+            'Helps balance emotions and reduce anxiety',
+            'Adds a premium stylish look',
+        ],
+
+        spiritualSignificance: [
+            'Known as the stone of grounding and protection',
+            'Associated with the Root Chakra (Muladhara)',
+            'Helps align mind, body, and energy',
+            'Enhances stability and inner strength',
+        ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation for grounding',
+            'Set intentions for protection and strength',
+            'Suitable for both casual and formal wear',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a dry and clean place',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Silver Hematite Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Medium',
+            origin: 'India/USA',
+        },
+
+        faq: [
+            {
+                question: 'Is this real Hematite?',
+                answer:
+                    'Yes, it is made from natural hematite stones with a polished silver finish.',
+            },
+            {
+                question: 'Can I wear it daily?',
+                answer:
+                    'Yes, it is designed for comfortable daily wear and styling.',
+            },
+            {
+                question: 'Does it help with stress?',
+                answer:
+                    'Hematite is believed to reduce stress and provide grounding energy.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+            },
+        ],
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Premium Metallic Finish',
+            'Handcrafted with Care',
+            'Trusted by 200+ Customers',
+        ],
+
+        emotionalHook:
+            'Stay grounded, protected, and stylish with the powerful shine of Silver Hematite.',
+
+        images: [
+            '/assets/bracelete/silverhematite/1.png',
+            '/assets/bracelete/silverhematite/2.png',
+            '/assets/bracelete/silverhematite/3.png',
+        ],
+    }
 ];
