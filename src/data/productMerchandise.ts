@@ -845,6 +845,138 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         images: [
             '/assets/bracelete/5elementenergybalance/1.png',
             '/assets/bracelete/5elementenergybalance/2.png',
+            '/assets/bracelete/5elementenergybalance/3.png',
+        ],
+    },
+    {
+        category: 'bracelet',
+        name: 'Hematite Bracelet',
+        slug: 'hematite-bracelet',
+
+        tagline: 'Stone of Grounding, Protection & Strength',
+        qualityTag: 'AAA Quality • 100% Natural Hematite • Handcrafted',
+
+        reviewCount: 112,
+
+        shortDescription:
+            'A powerful Hematite bracelet designed to provide grounding, protection, and mental clarity while keeping your energy balanced.',
+
+        meaning:
+            'Hematite is known as a strong grounding and protective stone. It absorbs negative energy, stabilizes emotions, and enhances focus. This bracelet helps connect you to the earth’s energy, promoting strength, confidence, and balance in daily life.',
+
+        benefit:
+            'Grounding, protection from negativity, mental clarity, confidence boost, emotional stability, stress reduction',
+
+        use:
+            'Wear daily on the left hand to absorb grounding energy. Ideal for meditation, focus, protection, and daily wear.',
+
+        price: '₹139.00',
+        originalPrice: '₹1,299.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 210,
+        available: 140,
+        endsIn: '30h : 05m : 12s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance grounding, protection, and strength.',
+            price: '₹150.00',
+        },
+
+        description:
+            'This Hematite Bracelet is crafted using high-quality natural hematite stones, known for their sleek metallic shine and powerful grounding properties. Hematite is widely used for protection against negative energies and for stabilizing emotional and mental states. The bracelet helps improve focus, boost confidence, and provide a sense of strength and stability. Each bead is smoothly polished and strung on a durable elastic band for comfortable daily wear. It can also be energized through sacred rituals to amplify its protective and grounding effects. Ideal for individuals seeking stability, protection, and mental clarity.',
+
+        keyFeatures: [
+            'Premium quality natural Hematite stones',
+            'Metallic polished beads with high shine',
+            'Strong grounding and protective properties',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
+        ],
+
+        benefits: [
+            'Provides strong grounding and stability',
+            'Protects from negative energy and stress',
+            'Enhances focus and mental clarity',
+            'Boosts confidence and inner strength',
+            'Helps balance emotions and reduce anxiety',
+            'Supports decision-making and concentration',
+        ],
+
+        spiritualSignificance: [
+            'Known as the stone of grounding and protection',
+            'Associated with the Root Chakra (Muladhara)',
+            'Helps connect with earth energy',
+            'Stabilizes mind, body, and emotions',
+        ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation for grounding and focus',
+            'Set intentions for protection and strength',
+            'Avoid wearing during heavy physical activities if uncomfortable',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a dry place away from moisture',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Hematite Stone',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Medium',
+            origin: 'India/USA',
+        },
+
+        faq: [
+            {
+                question: 'Is this real Hematite?',
+                answer:
+                    'Yes, the bracelet is made from natural Hematite stones with a metallic finish.',
+            },
+            {
+                question: 'What is Hematite used for?',
+                answer:
+                    'Hematite is believed to provide grounding, protection, and mental clarity.',
+            },
+            {
+                question: 'Can I wear it every day?',
+                answer:
+                    'Yes, it is suitable for daily wear and long-term use.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+            },
+        ],
+
+        trustBadges: [
+            '100% Natural Stone',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 200+ Customers',
+        ],
+
+        emotionalHook:
+            'Stay grounded, protected, and powerful with the stabilizing energy of Hematite.',
+
+        images: [
+            '/assets/bracelete/hematite/1.png',
+            '/assets/bracelete/hematite/2.png',
+            '/assets/bracelete/hematite/3.png',
         ],
     },
 ];
