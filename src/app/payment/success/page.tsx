@@ -233,7 +233,7 @@ function PaymentSuccessContent() {
                 line-height: 1.4;
               ">
                 <div>${customerInfo?.email || 'N/A'}</div>
-                <div>${customerInfo?.phone || 'N/A'}</div>
+                <div>${customerInfo?.phone_number || 'N/A'}</div>
               </div>
             </div>
             ${customerInfo?.order_type === 'product' ? `
@@ -386,7 +386,7 @@ function PaymentSuccessContent() {
                 border: 1px solid #e0e0e0;
               ">
                 <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Mode</span>
-                <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
+                <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online'}</span>
               </div>
               <div style="
                 display: flex;
@@ -397,7 +397,7 @@ function PaymentSuccessContent() {
                 border-radius: 4px;
                 border: 1px solid #e0e0e0;
               ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment ID</span>
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Razorpay Payment ID</span>
                 <span style="font-size: 11px; color: #333; font-weight: 600;">${transactionId || 'N/A'}</span>
               </div>
               <div style="
@@ -584,7 +584,7 @@ function PaymentSuccessContent() {
                 <div className={styles.customerName}>{customerInfo?.full_name || 'N/A'}</div>
                 <div className={styles.customerContact}>
                   <span>{customerInfo?.email || 'N/A'}</span>
-                  <span>{customerInfo?.phone || 'N/A'}</span>
+                  <span>{customerInfo?.phone_number || 'N/A'}</span>
                 </div>
               </div>
             </div>
@@ -634,11 +634,11 @@ function PaymentSuccessContent() {
               <div className={styles.paymentItem}>
                 <span className={styles.paymentLabel}>Payment Mode</span>
                 <span className={styles.paymentValue}>
-                  {method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}
+                  {method === 'cod' ? 'Cash on Delivery' : 'Online'}
                 </span>
               </div>
               <div className={styles.paymentItem}>
-                <span className={styles.paymentLabel}>Payment ID</span>
+                <span className={styles.paymentLabel}>Razorpay Payment ID</span>
                 <span className={styles.paymentValue}>{transactionId || 'N/A'}</span>
               </div>
               <div className={styles.paymentItem}>
