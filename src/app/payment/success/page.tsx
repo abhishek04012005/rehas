@@ -468,7 +468,7 @@ function PaymentSuccessContent() {
               </div>
               <div style="display: flex; flex-direction: column; gap: 2px;">
                 <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Website</span>
-                <span style="font-size: 12px; color: #333; font-weight: 600;">rehas.in</span>
+                <span style="font-size: 12px; color: #333; font-weight: 600;">www.rehas.in</span>
               </div>
             </div>
             <p style="
@@ -676,7 +676,7 @@ function PaymentSuccessContent() {
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Website</span>
-                <span className={styles.contactValue}>rehas.in</span>
+                <span className={styles.contactValue}>www.rehas.in</span>
               </div>
             </div>
             <p className={styles.disclaimerText}>This is an electronically generated receipt. No signature required.</p>
