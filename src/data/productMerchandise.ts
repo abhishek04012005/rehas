@@ -328,28 +328,28 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Turquoise Prayer Wheel Bracelet',
-        slug: 'turquoise-prayer-wheel-bracelet',
+        name: 'Citrine Bracelet',
+        slug: 'citrine-bracelet',
 
-        tagline: 'Stone of Protection, Healing & Positive Energy',
-        qualityTag: 'AAA Quality • 100% Natural Turquoise • Handcrafted',
+        tagline: 'Stone of Wealth, Success & Positive Energy',
+        qualityTag: 'AAA Quality • 100% Natural Citrine • Handcrafted',
 
-        reviewCount: 96,
+        reviewCount: 124,
 
         shortDescription:
-            'A powerful Turquoise Prayer Wheel bracelet designed to bring protection, healing energy, and spiritual balance.',
+            'A powerful Citrine bracelet designed to attract wealth, boost confidence, and fill your life with positivity and success.',
 
         meaning:
-            'Turquoise is known as a powerful healing and protective stone. Combined with the Tibetan prayer wheel charm, this bracelet symbolizes continuous positive energy flow, spiritual growth, and protection from negativity.',
+            'Citrine is known as the Merchant’s Stone or Success Stone. It is believed to attract wealth, abundance, and prosperity while promoting positivity, confidence, and motivation. It helps remove negative energy and encourages a success-oriented mindset.',
 
         benefit:
-            'Protection from negativity, emotional healing, improved communication, spiritual growth, energy balance, good fortune attraction',
+            'Wealth attraction, success, positivity, confidence boost, energy cleansing, motivation',
 
         use:
-            'Wear daily on the left hand to absorb healing and protective energy. Ideal for meditation, spiritual practices, and daily positive energy alignment.',
+            'Wear daily on the left hand to attract prosperity and positive energy. Ideal for business growth, career success, and financial stability.',
 
-        price: '₹124.00',
-        originalPrice: '₹1,499.00',
+        price: '₹139.00',
+        originalPrice: '₹1,399.00',
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -357,85 +357,87 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Limited Time Offer'
         ],
 
-        sold: 178,
-        available: 132,
-        endsIn: '29h : 14m : 22s',
+        sold: 298,
+        available: 160,
+        endsIn: '24h : 10m : 15s',
 
         pooja: {
             label: 'Add Energy Activation Ritual',
             note:
-                'Your bracelet will be purified and energized through sacred rituals to enhance protection, healing, and positive energy.',
+                'Your bracelet will be purified and energized through sacred rituals to enhance wealth, success, and positive energy attraction.',
             price: '₹150.00',
         },
 
         description:
-            'This Turquoise Prayer Wheel Bracelet is crafted from high-quality natural turquoise stones, known for their calming blue-green color and powerful protective properties. The centerpiece features a Tibetan prayer wheel charm, symbolizing the flow of positive energy and spiritual harmony. Turquoise is believed to promote emotional healing, improve communication, and protect against negative influences. The bracelet is handcrafted with smooth, polished beads for comfortable daily wear and can be energized through sacred rituals to enhance its spiritual benefits. Ideal for those seeking peace, protection, and inner balance.',
+            'This Citrine Bracelet is crafted from premium natural citrine stones known for their warm golden-yellow glow. Citrine is widely regarded as the stone of wealth and success, helping to attract financial growth, opportunities, and prosperity. It also enhances confidence, creativity, and motivation, making it ideal for entrepreneurs, professionals, and students. Each bead is finely polished and strung on a durable elastic band, ensuring comfort and elegance for daily wear. Perfect for those seeking abundance, positivity, and personal growth.',
 
         keyFeatures: [
-            'Premium quality natural Turquoise stones',
-            'Tibetan prayer wheel charm centerpiece',
-            'Smooth polished beads with natural patterns',
+            'Premium quality natural Citrine stones',
+            'Beautiful golden-yellow translucent beads',
+            'Strong wealth and success attracting properties',
             'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
             'Optional energy activation ritual available',
         ],
 
         benefits: [
-            'Protects from negative energy and evil eye',
-            'Promotes emotional healing and calmness',
-            'Enhances communication and self-expression',
-            'Supports spiritual growth and meditation',
-            'Attracts positivity, peace, and good fortune',
+            'Attracts wealth, prosperity, and financial growth',
+            'Boosts confidence and self-esteem',
+            'Removes negative energy and promotes positivity',
+            'Enhances focus, creativity, and motivation',
+            'Supports career growth and business success',
+            'Promotes happiness and emotional balance',
         ],
 
         spiritualSignificance: [
-            'Turquoise is known as a powerful healing and protection stone',
-            'Associated with the Throat Chakra (Vishuddha)',
-            'Prayer wheel symbolizes continuous positive energy flow',
-            'Helps balance mind, body, and spirit',
+            'Known as the Merchant’s Stone or Success Stone',
+            'Associated with the Solar Plexus Chakra (Manipura)',
+            'Enhances personal power and manifestation energy',
+            'Helps in clearing negative energy and blockages',
         ],
 
         howToUse: [
             'Wear daily on the left wrist for best results',
-            'Use during meditation or spiritual practices',
-            'Set clear intentions for healing and protection',
-            'Avoid wearing during heavy physical activities if uncomfortable',
+            'Use during business meetings or important decisions',
+            'Keep intentions focused on wealth and success',
+            'Ideal for entrepreneurs, professionals, and students',
         ],
 
         careInstructions: [
             'Clean with a soft dry cloth',
             'Avoid water and harsh chemicals',
-            'Store in a dry place away from moisture',
-            'Recharge by placing under sunlight or moonlight occasionally',
+            'Store in a clean and dry place',
+            'Recharge under sunlight occasionally for best results',
         ],
 
         specifications: {
-            material: 'Natural Turquoise Stone',
+            material: 'Natural Citrine Stone',
             beadType: 'Round Polished Beads',
             size: 'Free Size (Elastic)',
             weight: 'Light to Medium',
-            origin: 'Tibet/India',
+            origin: 'Brazil/India',
         },
 
         faq: [
             {
-                question: 'Is this real Turquoise?',
+                question: 'Is this real Citrine?',
                 answer:
-                    'Yes, the bracelet is made from natural Turquoise stones with unique color variations.',
+                    'Yes, it is made from natural Citrine stones with natural color variations.',
             },
             {
-                question: 'What is the use of the prayer wheel?',
+                question: 'What is Citrine used for?',
                 answer:
-                    'The prayer wheel symbolizes the flow of positive energy and is believed to spread spiritual vibrations when worn.',
+                    'Citrine is believed to attract wealth, success, and positive energy.',
             },
             {
-                question: 'Can I wear it every day?',
+                question: 'Can I wear it daily?',
                 answer:
-                    'Yes, it is suitable for daily wear, but avoid prolonged exposure to water.',
+                    'Yes, it is comfortable and suitable for everyday use.',
             },
             {
                 question: 'Will it fit my wrist?',
                 answer:
-                    'Yes, it is stretchable and designed to fit most wrist sizes comfortably.',
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
             },
         ],
 
@@ -443,16 +445,16 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             '100% Natural Stone',
             'Handcrafted with Care',
             'Skin-Friendly & Durable',
-            'Trusted by 150+ Customers',
+            'Trusted by 250+ Customers',
         ],
 
         emotionalHook:
-            'Embrace protection, healing, and spiritual harmony with the calming power of Turquoise.',
+            'Unlock wealth, success, and positivity with the powerful energy of Citrine.',
 
         images: [
-            '/assets/bracelete/turquoise/1.png',
-            '/assets/bracelete/turquoise/2.png',
-            '/assets/bracelete/turquoise/3.png',
+            '/assets/bracelete/citrine/citrine_front.png',
+            '/assets/bracelete/citrine/citrine_center.png',
+            '/assets/bracelete/citrine/3.png',
         ],
     },
     {

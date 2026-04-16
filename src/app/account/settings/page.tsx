@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useAuth } from '@/context/AuthContext';
 import styles from './settings.module.css';
 
@@ -14,6 +15,9 @@ export default function AccountSettingsPage() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   useEffect(() => {
     if (user?.fullName) {
@@ -135,15 +139,60 @@ export default function AccountSettingsPage() {
           <h2>Change Password</h2>
           <label>
             <span>Current password</span>
-            <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Enter current password" />
+            <div className={styles.passwordInputWrapper}>
+              <input
+                type={showCurrentPassword ? 'text' : 'password'}
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                placeholder="Enter current password"
+              />
+              <button
+                type="button"
+                className={styles.passwordToggle}
+                onClick={() => setShowCurrentPassword((current) => !current)}
+                aria-label={showCurrentPassword ? 'Hide password' : 'Show password'}
+              >
+                {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+              </button>
+            </div>
           </label>
           <label>
             <span>New password</span>
-            <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter new password" />
+            <div className={styles.passwordInputWrapper}>
+              <input
+                type={showNewPassword ? 'text' : 'password'}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Enter new password"
+              />
+              <button
+                type="button"
+                className={styles.passwordToggle}
+                onClick={() => setShowNewPassword((current) => !current)}
+                aria-label={showNewPassword ? 'Hide password' : 'Show password'}
+              >
+                {showNewPassword ? <VisibilityOff /> : <Visibility />}
+              </button>
+            </div>
           </label>
           <label>
             <span>Confirm new password</span>
-            <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm new password" />
+            <div className={styles.passwordInputWrapper}>
+              <input
+                type={showConfirmPassword ? 'text' : 'password'}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm new password"
+              />
+              <button
+                type="button"
+                className={styles.passwordToggle}
+                onClick={() => setShowConfirmPassword((current) => !current)}
+                aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+              >
+                {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+              </button>
+            </div>
           </label>
           <button type="submit" className={styles.primaryButton} disabled={saving}>
             Update Password
