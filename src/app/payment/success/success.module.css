@@ -359,10 +359,10 @@
 }
 
 .receiptSubtitle {
-  color: var(--text-light);
-  font-size: 14px;
+  color: black;
+  font-size: 25px;
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .statusSection {

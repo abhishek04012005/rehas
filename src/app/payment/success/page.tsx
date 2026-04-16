@@ -127,18 +127,11 @@ function PaymentSuccessContent() {
                 align-items: center;
                 gap: 12px;
               ">
-                <div style="
+                <img src="/logohalf.svg" alt="REHAS Logo" style="
                   width: 60px;
                   height: 30px;
-                  background: #f0f0f0;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 4px;
-                  font-weight: 700;
-                  color: #560067;
-                  font-size: 12px;
-                ">LOGO</div>
+                  object-fit: contain;
+                ">
                 <div style="
                   color: #560067;
                   font-size: 18px;
@@ -570,7 +563,6 @@ function PaymentSuccessContent() {
 
           {/* Order Information */}
           <div className={styles.receiptSection}>
-            <h3 className={styles.sectionTitle}>ORDER INFORMATION</h3>
             <div className={styles.detailRow}>
               <span className={styles.detailLabel}>Order Number:</span>
               <span className={styles.detailValue}>#{orderId || 'N/A'}</span>
