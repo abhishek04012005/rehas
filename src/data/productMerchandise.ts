@@ -1503,4 +1503,135 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             '/assets/bracelete/tigereye/3.png',
         ],
     },
+    {
+        category: 'bracelet',
+        name: 'Black Onyx & Smoky Quartz Bracelet',
+        slug: 'black-onyx-smoky-quartz-bracelet',
+
+        tagline: 'Powerful Protection, Grounding & Emotional Balance',
+        qualityTag: 'AAA Quality • Natural Black Onyx & Smoky Quartz • Handcrafted',
+
+        reviewCount: 142,
+
+        shortDescription:
+            'A powerful combination bracelet designed to protect from negativity, reduce stress, and provide grounding energy.',
+
+        meaning:
+            'Black Onyx is known for strong protection and absorbing negative energy, while Smoky Quartz is a grounding stone that helps release stress, fear, and emotional blockages. Together, they create a powerful shield of protection and stability.',
+
+        benefit:
+            'Protection, grounding, stress relief, emotional balance, negativity removal, mental clarity',
+
+        use:
+            'Wear daily on the left hand for protection and grounding. Ideal for stress relief, meditation, emotional healing, and daily wear.',
+
+        price: '₹149.00',
+        originalPrice: '₹1,499.00',
+
+        paymentHighlights: [
+            'Cards & UPI Accepted',
+            'No Hidden Charges',
+            'Limited Time Offer'
+        ],
+
+        sold: 276,
+        available: 140,
+        endsIn: '26h : 15m : 40s',
+
+        pooja: {
+            label: 'Add Energy Activation Ritual',
+            note:
+                'Your bracelet will be purified and energized through sacred rituals to enhance protection, grounding, and emotional healing energy.',
+            price: '₹150.00',
+        },
+
+        description:
+            'This Black Onyx & Smoky Quartz Bracelet is crafted from premium natural stones, combining the deep black shine of onyx with the subtle translucent tones of smoky quartz. Black Onyx is widely known for its powerful protective properties, helping to shield against negative energies and emotional stress. Smoky Quartz complements this by grounding your energy, releasing anxiety, and promoting calmness. Each bead is carefully polished and strung on a durable elastic band, making it comfortable for everyday wear. This bracelet is ideal for individuals seeking protection, stability, and inner peace.',
+
+        keyFeatures: [
+            'Premium natural Black Onyx and Smoky Quartz stones',
+            'Elegant black and translucent bead combination',
+            'Strong protection and grounding energy',
+            'Stretchable, durable, and skin-friendly',
+            'Handcrafted with precision',
+            'Optional energy activation ritual available',
+        ],
+
+        benefits: [
+            'Protects from negative energy and evil eye',
+            'Provides strong grounding and stability',
+            'Reduces stress, anxiety, and emotional tension',
+            'Enhances mental clarity and focus',
+            'Promotes calmness and emotional balance',
+            'Supports spiritual and personal growth',
+        ],
+
+        spiritualSignificance: [
+            'Black Onyx is known as a powerful protection stone',
+            'Smoky Quartz is associated with grounding and detoxifying energy',
+            'Connected to the Root Chakra (Muladhara)',
+            'Helps balance energy and remove negativity',
+        ],
+
+        howToUse: [
+            'Wear daily on the left wrist for best results',
+            'Use during meditation for grounding',
+            'Set intentions for protection and calmness',
+            'Ideal for stressful environments or travel',
+        ],
+
+        careInstructions: [
+            'Clean with a soft dry cloth',
+            'Avoid water and harsh chemicals',
+            'Store in a clean and dry place',
+            'Recharge under sunlight or moonlight occasionally',
+        ],
+
+        specifications: {
+            material: 'Natural Black Onyx & Smoky Quartz',
+            beadType: 'Round Polished Beads',
+            size: 'Free Size (Elastic)',
+            weight: 'Light to Medium',
+            origin: 'India/Brazil',
+        },
+
+        faq: [
+            {
+                question: 'Is this made from real stones?',
+                answer:
+                    'Yes, it is made from natural Black Onyx and Smoky Quartz stones.',
+            },
+            {
+                question: 'What is this bracelet used for?',
+                answer:
+                    'It is believed to provide protection, grounding, and stress relief.',
+            },
+            {
+                question: 'Can I wear it daily?',
+                answer:
+                    'Yes, it is designed for comfortable daily wear.',
+            },
+            {
+                question: 'Will it fit my wrist?',
+                answer:
+                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+            },
+        ],
+
+        trustBadges: [
+            '100% Natural Stones',
+            'Handcrafted with Care',
+            'Skin-Friendly & Durable',
+            'Trusted by 250+ Customers',
+        ],
+
+        emotionalHook:
+            'Stay protected, grounded, and calm with the powerful energy of Black Onyx and Smoky Quartz.',
+
+        images: [
+            '/assets/bracelete/blackonyx&smokyquartz/1.png',
+            '/assets/bracelete/blackonyx&smokyquartz/2.png',
+            '/assets/bracelete/blackonyx&smokyquartz/3.png',
+        ],
+    },
 ];
