@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle, Close } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { useAuth } from '@/context/AuthContext';
@@ -17,7 +17,6 @@ interface ProductDetailData {
   slug?: string;
   tagline?: string;
   qualityTag?: string;
-  reviewCount?: number;
   shortDescription?: string;
   meaning: string;
   benefit: string;
@@ -30,10 +29,6 @@ interface ProductDetailData {
     premium: { price: string; label: string; description?: string };
   };
   monthlyPlan?: string;
-  paymentHighlights?: string[];
-  sold?: number;
-  available?: number;
-  endsIn?: string;
   pooja?: {
     label: string;
     note: string;
@@ -102,7 +97,6 @@ export default function ProductDetail({
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<'basic' | 'market' | 'premium'>('basic');
   
-  const categoryPath = `/products/${product.category}`;
   const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
   const productName = product.name;
   
@@ -133,20 +127,8 @@ export default function ProductDetail({
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleModalPrevImage = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const handleModalNextImage = () => {
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   const { user } = useAuth();
@@ -261,7 +243,7 @@ export default function ProductDetail({
                       src={images[currentImageIndex]}
                       alt={`${productName} - image ${currentImageIndex + 1}`}
                       className={styles.carouselImage}
-                      onClick={handleOpenModal}
+                      onClick={() => setIsModalOpen(true)}
                       style={{ cursor: 'pointer' }}
                     />
                   )}
@@ -311,7 +293,7 @@ export default function ProductDetail({
                 <div className={styles.modalCarousel}>
                   <button
                     className={styles.modalNavButton}
-                    onClick={handleModalPrevImage}
+                    onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
                     aria-label="Previous image"
                   >
                     <ChevronLeft sx={{ fontSize: 40 }} />
@@ -356,7 +338,7 @@ export default function ProductDetail({
                   
                   <button
                     className={styles.modalNavButton}
-                    onClick={handleModalNextImage}
+                    onClick={() => setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
                     aria-label="Next image"
                   >
                     <ChevronRight sx={{ fontSize: 40 }} />
@@ -444,6 +426,7 @@ export default function ProductDetail({
               </div>
             )}
 
+
             <div className={styles.pricingDetails}>
               {product.originalPrice && !product.pricingTiers && (
                 <div className={styles.pricingRow}>
@@ -465,11 +448,22 @@ export default function ProductDetail({
               )}
             </div>
 
-            {product.paymentHighlights && product.paymentHighlights.length > 0 && (
-              <div className={styles.paymentHighlights}>
-                {product.paymentHighlights.map((item, index) => (
-                  <span key={index}>{item}</span>
-                ))}
+            {product.pooja && (
+              <div className={styles.poojaSection}>
+                <div className={styles.poojaToggle}>
+                  <input
+                    type="checkbox"
+                    id="poojaCheckbox"
+                    checked={isPoojaSelected}
+                    onChange={(e) => setIsPoojaSelected(e.target.checked)}
+                    className={styles.poojaCheckbox}
+                  />
+                  <label htmlFor="poojaCheckbox" className={styles.poojaLabel}>
+                    <span className={styles.poojaTitle}>{product.pooja?.label || 'Add Pooja'}</span>
+                    <span className={styles.poojaPrice}>+ {product.pooja?.price || '₹0'}</span>
+                  </label>
+                </div>
+                <p className={styles.poojaNote}>{product.pooja.note}</p>
               </div>
             )}
 
@@ -491,25 +485,6 @@ export default function ProductDetail({
       {/* Content Below Image */}
       <section className={styles.contentBelowImage}>
         <div className={styles.contentContainer}>
-          {product.pooja && (
-            <div className={styles.poojaSection}>
-              <div className={styles.poojaToggle}>
-                <input
-                  type="checkbox"
-                  id="poojaCheckbox"
-                  checked={isPoojaSelected}
-                  onChange={(e) => setIsPoojaSelected(e.target.checked)}
-                  className={styles.poojaCheckbox}
-                />
-                <label htmlFor="poojaCheckbox" className={styles.poojaLabel}>
-                  <span className={styles.poojaTitle}>{product.pooja?.label || 'Add Pooja'}</span>
-                  <span className={styles.poojaPrice}>+ {product.pooja?.price || '₹0'}</span>
-                </label>
-              </div>
-              <p className={styles.poojaNote}>{product.pooja.note}</p>
-            </div>
-          )}
-
           <div className={styles.infoBox}>
             <h2 className={styles.boxTitle}>Product Summary</h2>
             <p className={styles.boxContent}>{displayDescription}</p>

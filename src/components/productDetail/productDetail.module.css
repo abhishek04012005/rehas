@@ -9,7 +9,8 @@
   padding: 120px 40px 80px 40px;
   color: white;
   position: relative;
-  z-index: 10;  overflow: hidden;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .hero::before {
@@ -33,7 +34,8 @@
   height: 400px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   border-radius: 50%;
-  pointer-events: none;}
+  pointer-events: none;
+}
 
 .heroContent {
   max-width: 1200px;
@@ -48,6 +50,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -264,9 +267,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -323,7 +329,6 @@
 }
 
 .pricingDetails {
-  margin-top: 24px;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -353,25 +358,7 @@
   font-weight: 700;
 }
 
-.monthlyPlan {
-  color: var(--foreground);
-  font-weight: 700;
-}
 
-.paymentHighlights {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.paymentHighlights span {
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(86, 0, 103, 0.08);
-  color: var(--foreground);
-  font-size: 14px;
-}
 
 .pricingTiers {
   margin-bottom: 24px;
@@ -465,7 +452,6 @@
 }
 
 .poojaSection {
-  margin-top: 24px;
   padding: 24px;
   background: linear-gradient(135deg, rgba(212, 165, 217, 0.12) 0%, rgba(86, 0, 103, 0.08) 100%);
   border-radius: 16px;
@@ -663,9 +649,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 20px;
   padding-top: 20px;
-  border-top: 2px solid #f0f0f0;
 }
 
 .cartBtn {
@@ -1388,6 +1372,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1409,6 +1394,7 @@
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
