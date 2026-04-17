@@ -24,6 +24,11 @@ interface ProductDetailData {
   use: string;
   price?: string;
   originalPrice?: string;
+  pricingTiers?: {
+    basic: { price: string; label: string; description?: string };
+    market: { price: string; label: string; description?: string };
+    premium: { price: string; label: string; description?: string };
+  };
   monthlyPlan?: string;
   paymentHighlights?: string[];
   sold?: number;
@@ -95,13 +100,14 @@ export default function ProductDetail({
   const [isPoojaSelected, setIsPoojaSelected] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [selectedTier, setSelectedTier] = useState<'basic' | 'market' | 'premium'>('basic');
   
   const categoryPath = `/products/${product.category}`;
   const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
   const productName = product.name;
   
   // Determine which price to show
-  let productPrice = product.price || '₹999';
+  let productPrice = product.pricingTiers ? product.pricingTiers[selectedTier].price : (product.price || '₹999');
   let currentAmount = parseFloat(productPrice.replace(/[₹,]/g, '')) || 999;
 
   if (isPoojaSelected && product.pooja?.price) {
@@ -404,19 +410,44 @@ export default function ProductDetail({
           )}
 
           <div className={styles.infoSection}>
-            <div className={styles.priceBox}>
-              <span className={styles.priceLabel}>Sale price</span>
-              <span className={styles.price}>{productPrice}</span>
-            </div>
+            {product.pricingTiers ? (
+              <div className={styles.pricingTiers}>
+                <h3 className={styles.pricingTitle}>
+                  {product.pricingTiers[selectedTier].label} Package Selected
+                </h3>
+                <div className={styles.tierOptions}>
+                  {Object.entries(product.pricingTiers).map(([tierKey, tier]) => (
+                    <div
+                      key={tierKey}
+                      className={`${styles.tierCard} ${selectedTier === tierKey ? styles.tierSelected : ''}`}
+                      onClick={() => setSelectedTier(tierKey as 'basic' | 'market' | 'premium')}
+                    >
+                      <h4 className={styles.tierLabel}>{tier.label}</h4>
+                      <span className={styles.tierPrice}>{tier.price}</span>
+                      {tier.description && <p className={styles.tierDescription}>{tier.description}</p>}
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.selectedPrice}>
+                  <span className={styles.priceLabel}>Selected Price</span>
+                  <span className={styles.price}>{productPrice}</span>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.priceBox}>
+                <span className={styles.priceLabel}>Sale price</span>
+                <span className={styles.price}>{productPrice}</span>
+              </div>
+            )}
 
             <div className={styles.pricingDetails}>
-              {product.originalPrice && (
+              {product.originalPrice && !product.pricingTiers && (
                 <div className={styles.pricingRow}>
                   <span>Regular price</span>
                   <span className={styles.regularPrice}>{product.originalPrice}</span>
                 </div>
               )}
-              {product.originalPrice && product.price && (
+              {product.originalPrice && product.price && !product.pricingTiers && (
                 <div className={styles.pricingRow}>
                   <span>Discount</span>
                   <span className={styles.discount}>{calculateDiscountPercentage(product.originalPrice, product.price)}</span>

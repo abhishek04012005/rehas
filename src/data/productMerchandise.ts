@@ -13,6 +13,11 @@ export interface MerchandiseProductDetail {
     use: string;
     price: string;
     originalPrice: string;
+    pricingTiers?: {
+        basic: { price: string; label: string; description?: string };
+        market: { price: string; label: string; description?: string };
+        premium: { price: string; label: string; description?: string };
+    };
     paymentHighlights: string[];
     sold: number;
     available: number;
@@ -91,6 +96,23 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         price: '₹1.00',
         originalPrice: '₹1,220.00',
+        pricingTiers: {
+            basic: {
+                price: '₹124.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹299.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹499.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -220,6 +242,23 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         price: '₹124.00',
         originalPrice: '₹1,499.00',
+        pricingTiers: {
+            basic: {
+                price: '₹124.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹299.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹499.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',

@@ -84,7 +84,7 @@ export const navbarData = {
       submenu: [
         { label: 'All Merchandise', href: '/merchandise', icon: 'Storefront' },
         { label: 'Healing Bracelets', href: '/merchandise/bracelet', icon: 'Star' },
-        { label: 'Yantras', href: '/merchandise/yantra', icon: 'Diamond' },
+        // { label: 'Yantras', href: '/merchandise/yantra', icon: 'Diamond' },
       ],
 
     },

@@ -36,7 +36,7 @@ const yantraProducts = allProducts.filter((p) => p.category === 'yantra');
 const categoryTabs = [
   { id: 'all', title: 'All Products', count: allProducts.length },
   { id: 'bracelet', title: 'Bracelets', count: braceletProducts.length },
-  { id: 'yantra', title: 'Yantras', count: yantraProducts.length },
+  // { id: 'yantra', title: 'Yantras', count: yantraProducts.length },
 ];
 
 export default function MerchandisePage() {
