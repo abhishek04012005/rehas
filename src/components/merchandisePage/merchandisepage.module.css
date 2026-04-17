@@ -108,6 +108,55 @@
   margin: 24px 0 16px;
 }
 
+@media (max-width: 768px) {
+  .productControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sortAndFilter {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.sortAndFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: var(--light-bg);
+  border: 1px solid var(--border);
+}
+
+.sortIcon {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.sortSelect {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--foreground);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.sortSelect:focus {
+  outline: none;
+}
+
 .searchBox {
   display: inline-flex;
   align-items: center;

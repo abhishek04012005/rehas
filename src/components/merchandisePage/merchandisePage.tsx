@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Search, ShoppingCart } from '@mui/icons-material';
+import { CheckCircle, Search, ShoppingCart, Sort } from '@mui/icons-material';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { productMerchandiseData, calculateDiscountPercentage } from '@/data/productMerchandise';
 import { merchandiseData } from '@/data/content';
@@ -42,12 +42,38 @@ const categoryTabs = [
 export default function MerchandisePage() {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'bracelet' | 'yantra'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest'>('newest');
+
+  const sortOptions = [
+    { value: 'newest', label: 'Newest First' },
+    { value: 'name-asc', label: 'Name (A-Z)' },
+    { value: 'name-desc', label: 'Name (Z-A)' },
+    { value: 'price-low', label: 'Price (Low to High)' },
+    { value: 'price-high', label: 'Price (High to Low)' },
+  ];
 
   const filteredProducts = (selectedCategory === 'all' ? allProducts : selectedCategory === 'bracelet' ? braceletProducts : yantraProducts).filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.meaning.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.use.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortBy) {
+      case 'name-asc':
+        return a.name.localeCompare(b.name);
+      case 'name-desc':
+        return b.name.localeCompare(a.name);
+      case 'price-low':
+        return parseFloat(a.price.replace(/[₹,]/g, '')) - parseFloat(b.price.replace(/[₹,]/g, ''));
+      case 'price-high':
+        return parseFloat(b.price.replace(/[₹,]/g, '')) - parseFloat(a.price.replace(/[₹,]/g, ''));
+      case 'newest':
+      default:
+        // Assuming newer products have higher IDs (you might want to add a date field)
+        return parseInt(b.id.split('-')[1] || '0') - parseInt(a.id.split('-')[1] || '0');
+    }
+  });
 
   return (
     <div className={styles.merchandise}>
@@ -84,28 +110,46 @@ export default function MerchandisePage() {
               <Search className={styles.searchButtonIcon} />
             </button>
           </div>
-          <div className={styles.categoryFilter}>
-            {categoryTabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                className={`${styles.categoryButton} ${selectedCategory === tab.id ? styles.categoryButtonActive : ''}`}
-                onClick={() => setSelectedCategory(tab.id as 'all' | 'bracelet' | 'yantra')}
+          
+          <div className={styles.sortAndFilter}>
+            <div className={styles.sortBox}>
+              <Sort className={styles.sortIcon} />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest')}
+                className={styles.sortSelect}
               >
-                {tab.title}
-                <span className={styles.categoryCount}>{tab.count}</span>
-              </button>
-            ))}
+                {sortOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <div className={styles.categoryFilter}>
+              {categoryTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  className={`${styles.categoryButton} ${selectedCategory === tab.id ? styles.categoryButtonActive : ''}`}
+                  onClick={() => setSelectedCategory(tab.id as 'all' | 'bracelet' | 'yantra')}
+                >
+                  {tab.title}
+                  <span className={styles.categoryCount}>{tab.count}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className={styles.productCount}>
-          Showing {filteredProducts.length} item{filteredProducts.length !== 1 ? 's' : ''}
+          Showing {sortedProducts.length} item{sortedProducts.length !== 1 ? 's' : ''}
         </div>
 
         <div className={styles.productListGrid}>
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+          {sortedProducts.length > 0 ? (
+            sortedProducts.map((product) => (
               <div key={product.id} className={styles.productListCard}>
                 {/* Product Image */}
                 <div className={styles.productImageWrapper}>

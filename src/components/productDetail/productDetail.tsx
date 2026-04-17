@@ -49,6 +49,9 @@ interface ProductDetailData {
   };
   trustBadges?: string[];
   emotionalHook?: string;
+  zodiacSign?: string;
+  planet?: string;
+  mulankNumber?: string;
   faq?: {
     question: string;
     answer: string;
@@ -63,6 +66,26 @@ const isVideo = (url: string): boolean => {
   const isVideoFile = videoExtensions.some(ext => url.toLowerCase().includes(ext));
   const isYouTube = url.includes('youtube.com') || url.includes('youtu.be') || url.includes('vimeo.com');
   return isVideoFile || isYouTube;
+};
+
+// Helper function to get zodiac sign symbol
+const getZodiacSymbol = (sign: string): string => {
+  const signMap: { [key: string]: string } = {
+    'Aries': '♈',
+    'Taurus': '♉',
+    'Gemini': '♊',
+    'Cancer': '♋',
+    'Leo': '♌',
+    'Virgo': '♍',
+    'Libra': '♎',
+    'Scorpio': '♏',
+    'Sagittarius': '♐',
+    'Capricorn': '♑',
+    'Aquarius': '♒',
+    'Pisces': '♓',
+    'All Signs': '♈♉♊♋♌♍♎♏♐♑♒♓'
+  };
+  return signMap[sign] || '✨';
 };
 
 // Helper function to get YouTube embed URL
@@ -489,6 +512,54 @@ export default function ProductDetail({
             <h2 className={styles.boxTitle}>Product Summary</h2>
             <p className={styles.boxContent}>{displayDescription}</p>
           </div>
+
+          {/* Astrological Information Section */}
+          {(product.zodiacSign || product.planet || product.mulankNumber) && (
+            <div className={styles.astrologicalGrid}>
+              {product.zodiacSign && (
+                <div className={styles.astrologicalBox}>
+                  <h3 className={styles.boxTitle}>
+                    <span className={styles.zodiacSymbol}>{getZodiacSymbol(product.zodiacSign.split(',')[0].trim())}</span>
+                    Zodiac Sign
+                  </h3>
+                  <ul className={styles.benefitList}>
+                    <li>
+                      <CheckCircle sx={{ fontSize: 18 }} />
+                      <span>{product.zodiacSign}</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {product.planet && (
+                <div className={styles.astrologicalBox}>
+                  <h3 className={styles.boxTitle}>
+                    <span className={styles.planetSymbol}>🪐</span>
+                    Planet
+                  </h3>
+                  <ul className={styles.benefitList}>
+                    <li>
+                      <CheckCircle sx={{ fontSize: 18 }} />
+                      <span>{product.planet}</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {product.mulankNumber && (
+                <div className={styles.astrologicalBox}>
+                  <h3 className={styles.boxTitle}>
+                    <span className={styles.numberSymbol}>✨</span>
+                    Mulank
+                  </h3>
+                  <ul className={styles.benefitList}>
+                    <li>
+                      <CheckCircle sx={{ fontSize: 18 }} />
+                      <span>{product.mulankNumber}</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
 
           {product.keyFeatures && product.keyFeatures.length > 0 && (
             <div className={styles.infoBox}>

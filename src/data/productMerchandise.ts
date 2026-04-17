@@ -42,6 +42,9 @@ export interface MerchandiseProductDetail {
     };
     trustBadges?: string[];
     emotionalHook?: string;
+    zodiacSign?: string;
+    planet?: string;
+    mulankNumber?: string;
     faq: {
         question: string;
         answer: string;
@@ -212,6 +215,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Invite love, peace, and emotional healing into your life with the gentle power of Rose Quartz.',
 
+        zodiacSign: 'Taurus, Libra',
+        planet: 'Venus',
+        mulankNumber: '6',
+
         images: [
             '/assets/bracelete/rosequartzcrystal/rosequartzcrystal_front.png',
             '/assets/bracelete/rosequartzcrystal/rosequartzcrystal_center.png',
@@ -358,6 +365,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Unlock confidence, attract wealth, and shield your energy with the powerful force of Pyrite.',
 
+        zodiacSign: 'Leo',
+        planet: 'Mars',
+        mulankNumber: '3',
+
         images: [
             '/assets/bracelete/pyrite/1.png',
             '/assets/bracelete/pyrite/2.png',
@@ -490,6 +501,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Unlock wealth, success, and positivity with the powerful energy of Citrine.',
 
+        zodiacSign: 'Aries, Leo, Libra',
+        planet: 'Sun',
+        mulankNumber: '6',
+
         images: [
             '/assets/bracelete/citrine/citrine_front.png',
             '/assets/bracelete/citrine/citrine_center.png',
@@ -620,6 +635,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         emotionalHook:
             'Restore balance, awaken your inner peace, and align your energy with the power of 7 Chakras.',
+
+        zodiacSign: 'All Signs',
+        planet: 'All Planets',
+        mulankNumber: '7',
 
         images: [
             '/assets/bracelete/chakra/chakra_front.png',
@@ -752,6 +771,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Find peace within, calm your mind, and embrace serenity with the soothing energy of Howlite.',
 
+        zodiacSign: 'Gemini',
+        planet: 'Moon',
+        mulankNumber: '2',
+
         images: [
             '/assets/bracelete/howlite/1.png',
             '/assets/bracelete/howlite/2.png',
@@ -882,6 +905,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         emotionalHook:
             'Bring balance to your life, align your energy, and stay protected with the power of the five elements.',
+
+        zodiacSign: 'All Signs',
+        planet: 'All Planets',
+        mulankNumber: '5',
 
         images: [
             '/assets/bracelete/5elementenergybalance/5elementenergybalance_front.png',
@@ -1014,6 +1041,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Stay grounded, protected, and powerful with the stabilizing energy of Hematite.',
 
+        zodiacSign: 'Aries, Aquarius',
+        planet: 'Mars',
+        mulankNumber: '9',
+
         images: [
             '/assets/bracelete/hematite/1.png',
             '/assets/bracelete/hematite/2.png',
@@ -1144,6 +1175,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         emotionalHook:
             'Stay grounded, protected, and stylish with the powerful shine of Silver Hematite.',
+
+        zodiacSign: 'Aries, Aquarius',
+        planet: 'Mars',
+        mulankNumber: '9',
 
         images: [
             '/assets/bracelete/silverhematite/1.png',
@@ -1276,6 +1311,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Unlock your luck, attract opportunities, and step into success with the powerful energy of Green Aventurine.',
 
+        zodiacSign: 'Taurus, Virgo',
+        planet: 'Mercury',
+        mulankNumber: '3',
+
         images: [
             '/assets/bracelete/greenaventurine/1.png',
             '/assets/bracelete/greenaventurine/2.png',
@@ -1406,6 +1445,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         emotionalHook:
             'Ignite your inner power, take action, and achieve your goals with the energy of Carnelian.',
+
+        zodiacSign: 'Taurus, Cancer, Leo, Virgo',
+        planet: 'Sun',
+        mulankNumber: '5',
 
         images: [
             '/assets/bracelete/carnelian/1.png',
@@ -1538,6 +1581,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         emotionalHook:
             'Unlock your inner strength, stay protected, and attract success with the powerful energy of Tiger Eye.',
 
+        zodiacSign: 'Leo',
+        planet: 'Sun',
+        mulankNumber: '4',
+
         images: [
             '/assets/bracelete/tigereye/1.png',
             '/assets/bracelete/tigereye/2.png',
@@ -1668,6 +1715,10 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         emotionalHook:
             'Stay protected, grounded, and calm with the powerful energy of Black Onyx and Smoky Quartz.',
+
+        zodiacSign: 'Scorpio, Sagittarius, Capricorn',
+        planet: 'Saturn',
+        mulankNumber: '8',
 
         images: [
             '/assets/bracelete/blackonyx&smokyquartz/1.png',
