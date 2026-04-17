@@ -411,8 +411,27 @@
 
 .tierSelected {
   border-color: var(--primary);
-  background: linear-gradient(135deg, rgba(86, 0, 103, 0.05) 0%, rgba(212, 165, 217, 0.05) 100%);
-  box-shadow: 0 4px 12px rgba(86, 0, 103, 0.2);
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.15) 0%, rgba(212, 165, 217, 0.15) 100%);
+  box-shadow: 0 6px 20px rgba(86, 0, 103, 0.3);
+  transform: translateY(-2px);
+  position: relative;
+}
+
+.tierSelected::before {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .tierLabel {

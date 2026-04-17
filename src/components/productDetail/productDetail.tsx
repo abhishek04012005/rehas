@@ -152,13 +152,15 @@ export default function ProductDetail({
   const { user } = useAuth();
 
   const handleCheckout = () => {
+    const tierLabel = product.pricingTiers ? product.pricingTiers[selectedTier].label : '';
     setProductData({ 
-      productTitle: productName, 
+      productTitle: product.pricingTiers ? `${productName} (${tierLabel})` : productName, 
       amount: currentAmount,
       type: 'product',
       isPoojaSelected: isPoojaSelected,
       poojaLabel: isPoojaSelected ? product.pooja?.label : undefined,
-      poojaPrice: isPoojaSelected ? product.pooja?.price : undefined
+      poojaPrice: isPoojaSelected ? product.pooja?.price : undefined,
+      selectedTier: product.pricingTiers ? selectedTier : undefined
     });
     if (!user) {
       router.push('/auth?redirect=/checkout');
@@ -168,11 +170,12 @@ export default function ProductDetail({
   };
 
   const handleAddToCart = () => {
-    const itemId = `${product.category}-${productName}-${isPoojaSelected ? product.pooja?.label : 'default'}`;
+    const tierLabel = product.pricingTiers ? product.pricingTiers[selectedTier].label : '';
+    const itemId = `${product.category}-${productName}-${tierLabel}-${isPoojaSelected ? product.pooja?.label : 'default'}`;
     const newItem = {
       id: itemId,
       productId: itemId, // Add productId for database storage
-      productTitle: productName,
+      productTitle: product.pricingTiers ? `${productName} (${tierLabel})` : productName,
       amount: currentAmount,
       quantity: 1,
       type: 'product' as const,
@@ -180,6 +183,7 @@ export default function ProductDetail({
       isPoojaSelected,
       poojaLabel: isPoojaSelected ? product.pooja?.label : undefined,
       poojaPrice: isPoojaSelected ? product.pooja?.price : undefined,
+      selectedTier: product.pricingTiers ? selectedTier : undefined,
     };
     addToCart(newItem);
 
@@ -391,7 +395,7 @@ export default function ProductDetail({
                 </div>
                 <div className={styles.successModalBody}>
                   <p className={styles.successMessage}>
-                    <strong>{productName}</strong> has been added to your cart successfully.
+                    <strong>{product.pricingTiers ? `${productName} (${product.pricingTiers[selectedTier].label})` : productName}</strong> has been added to your cart successfully.
                   </p>
                   <div className={styles.successActions}>
                     <button 
