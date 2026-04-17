@@ -493,7 +493,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         images: [
             '/assets/bracelete/citrine/citrine_front.png',
             '/assets/bracelete/citrine/citrine_center.png',
-            '/assets/bracelete/citrine/3.png',
+            '/assets/bracelete/citrine/citrine_back.png',
         ],
     },
     {
