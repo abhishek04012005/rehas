@@ -135,25 +135,39 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
         poojaLabel: item.poojaLabel,
         poojaPrice: item.poojaPrice,
       }))
+    : productData && productData.productTitle
+    ? [{
+        id: 'buy-now-order',
+        productTitle: productData.productTitle,
+        amount: productData.amount,
+        quantity: 1,
+        type: productData.type || 'product',
+        serviceId: productData.serviceId,
+        description: productData.description,
+        isPoojaSelected: productData.isPoojaSelected,
+        poojaLabel: productData.poojaLabel,
+        poojaPrice: productData.poojaPrice,
+      }]
     : cartItems.length > 0
     ? cartItems
     : [{
         id: 'single-order',
-        productTitle: productData?.productTitle || productTitle,
-        amount: productData?.amount || amount,
+        productTitle: productTitle,
+        amount: amount,
         quantity: 1,
-        type: productData?.type || (isProduct ? 'product' : 'service'),
-        serviceId: productData?.serviceId,
-        description: productData?.description,
-        isPoojaSelected: productData?.isPoojaSelected,
-        poojaLabel: productData?.poojaLabel,
-        poojaPrice: productData?.poojaPrice,
+        type: isProduct ? 'product' : 'service',
+        serviceId: undefined,
+        description: undefined,
+        isPoojaSelected: undefined,
+        poojaLabel: undefined,
+        poojaPrice: undefined,
       }];
 
   const activeOrderItems = savedOrderItems ?? orderItems;
   const totalAmount = activeOrderItems.reduce((sum, item) => {
-    const itemAmount = parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0;
-    return sum + itemAmount * item.quantity;
+    const itemAmount = Number(item.amount) || 0;
+    const quantity = Number(item.quantity) || 1;
+    return sum + itemAmount * quantity;
   }, 0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -375,7 +389,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
               </div>
               <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Amount</span>
-                <span className={styles.amountValue}>₹{totalAmount.toFixed(2)}</span>
+                <span className={styles.amountValue}>₹{isNaN(totalAmount) ? '0.00' : totalAmount.toFixed(2)}</span>
               </div>
             </div>
 
@@ -449,12 +463,12 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
           </div>
           <div className={styles.summaryItem}>
             <span className={styles.label}>Amount:</span>
-            <span className={styles.value}>₹{totalAmount.toFixed(2)}</span>
+            <span className={styles.value}>₹{isNaN(totalAmount) ? '0.00' : totalAmount.toFixed(2)}</span>
           </div>
         </div>
       </div>
 
-      {cartItems.length > 0 && (
+      {!productData && cartItems.length > 0 && (
         <div className={styles.cartReview}>
           <h3>Cart items</h3>
           <ul>

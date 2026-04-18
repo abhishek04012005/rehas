@@ -8,7 +8,7 @@ import styles from './cart.module.css';
 
 export default function Cart() {
   const router = useRouter();
-  const { cartItems, removeFromCart, updateCartItemQuantity, clearCart } = useCheckout();
+  const { cartItems, removeFromCart, updateCartItemQuantity, clearCart, setProductData } = useCheckout();
   const { user } = useAuth();
 
   const totalAmount = cartItems.reduce((sum, item) => sum + item.amount * item.quantity, 0);
@@ -18,6 +18,8 @@ export default function Cart() {
       router.push('/auth?redirect=/cart');
       return;
     }
+    // Clear any existing productData since this is cart checkout
+    setProductData(null);
     router.push('/checkout');
   };
 

@@ -49,7 +49,20 @@ const CheckoutContext = createContext<CheckoutContextType | undefined>(undefined
 
 export function CheckoutProvider({ children }: { children: ReactNode }) {
   const [productData, setProductData] = useState<ProductData | null>(null);
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    // Initialize cartItems from localStorage synchronously
+    if (typeof window !== 'undefined') {
+      try {
+        const savedCart = localStorage.getItem('localCartItems');
+        if (savedCart) {
+          return JSON.parse(savedCart);
+        }
+      } catch (error) {
+        console.error('Failed to load cart from localStorage:', error);
+      }
+    }
+    return [];
+  });
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
 
@@ -475,15 +488,8 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
         setProductData(JSON.parse(savedProduct));
       }
       
-      // Also load local cart from localStorage if user is not logged in
-      if (!user?.id) {
-        const savedCart = localStorage.getItem('localCartItems');
-        if (savedCart) {
-          const parsedCart = JSON.parse(savedCart);
-          setCartItems(parsedCart);
-          console.log('Loaded local cart from localStorage:', parsedCart.length, 'items');
-        }
-      }
+      // For logged-in users, load cart from database
+      // For non-logged-in users, cart is already loaded from localStorage in initial state
     } catch (error) {
       console.error('Failed to load checkout data from localStorage:', error);
     }

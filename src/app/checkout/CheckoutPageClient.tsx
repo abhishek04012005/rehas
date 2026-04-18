@@ -29,8 +29,8 @@ interface OrderCheckoutData {
 }
 
 export default function CheckoutPageClient() {
-  const { productData, cartItems } = useCheckout();
-  const { user, loading } = useAuth();
+  const { productData, cartItems, loading: cartLoading } = useCheckout();
+  const { user, loading: authLoading } = useAuth();
   const [orderIdParam, setOrderIdParam] = useState<string | null>(null);
 
   const [existingOrder, setExistingOrder] = useState<OrderCheckoutData | null>(null);
@@ -99,8 +99,9 @@ export default function CheckoutPageClient() {
 
   // Calculate cart total using current cart state
   const cartTotal = cartItems.reduce((sum, item) => {
-    const itemAmount = parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0;
-    return sum + itemAmount * item.quantity;
+    const itemAmount = Number(item.amount) || 0;
+    const quantity = Number(item.quantity) || 1;
+    return sum + itemAmount * quantity;
   }, 0);
 
   // Check localStorage for cart if cart items have not been loaded yet
@@ -111,8 +112,9 @@ export default function CheckoutPageClient() {
       if (savedCart) {
         const parsedCart = JSON.parse(savedCart);
         localCartTotal = parsedCart.reduce((sum: number, item: any) => {
-          const amt = typeof item.amount === 'string' ? parseFloat(item.amount.replace(/[₹,]/g, '')) || 0 : item.amount || 0;
-          return sum + amt * (item.quantity || 1);
+          const itemAmount = Number(item.amount) || 0;
+          const quantity = Number(item.quantity) || 1;
+          return sum + itemAmount * quantity;
         }, 0);
       }
     } catch (error) {
@@ -122,11 +124,12 @@ export default function CheckoutPageClient() {
 
   const totalAmount = cartItems.length > 0 ? cartTotal : localCartTotal;
   const hasCart = cartItems.length > 0 || localCartTotal > 0;
-  const productTitle = existingOrder ? existingOrder.productTitle : hasCart ? 'Cart Items' : (productData?.productTitle || 'Service/Product');
-  const amount = existingOrder ? existingOrder.amount : hasCart ? totalAmount : (productData?.amount || 999);
-  const isProduct = existingOrder ? (existingOrder.orderType === 'product' || true) : hasCart ? true : (productData?.type === 'product');
+  const hasProductData = productData && productData.productTitle;
+  const productTitle = existingOrder ? existingOrder.productTitle : hasProductData ? productData.productTitle : hasCart ? 'Cart Items' : 'Service/Product';
+  const amount = existingOrder ? existingOrder.amount : hasProductData ? (productData.amount || 0) : hasCart ? totalAmount : 999;
+  const isProduct = existingOrder ? (existingOrder.orderType === 'product' || true) : hasProductData ? (productData.type === 'product') : hasCart ? true : false;
 
-  if (loading || orderLoading) {
+  if (authLoading || orderLoading || cartLoading) {
     return <div style={{ padding: '60px 24px' }}>Checking your session and order details...</div>;
   }
 
