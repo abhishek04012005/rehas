@@ -93,6 +93,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   const [errors, setErrors] = useState<FormErrors>({});
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [savedOrderItems, setSavedOrderItems] = useState<CartItem[] | null>(null);
+  const [acceptTerms, setAcceptTerms] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
     fullName: orderData?.fullName || '',
@@ -648,11 +649,28 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
           </div>
         )}
 
+        {/* Terms and Conditions */}
+        <div className={styles.termsSection}>
+          <label className={styles.termsLabel}>
+            <input
+              type="checkbox"
+              checked={acceptTerms}
+              onChange={(e) => setAcceptTerms(e.target.checked)}
+              className={styles.termsCheckbox}
+              required
+            />
+            <span className={styles.termsText}>
+              I agree to the <Link href="/terms-of-service" target="_blank" className={styles.termsLink}>Terms of Service</Link> and 
+              acknowledge that this purchase is non-refundable after completion.
+            </span>
+          </label>
+        </div>
+
         {/* Submit Button */}
         <button
           type="submit"
           className={styles.submitBtn}
-          disabled={loading || submitted}
+          disabled={loading || submitted || !acceptTerms}
         >
           {loading ? 'Processing...' : submitted ? 'Order Created!' : 'Continue to Payment'}
           {!loading && !submitted && <ChevronRight fontSize="small" />}
