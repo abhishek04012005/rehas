@@ -105,7 +105,7 @@ export default function AccountSettingsPage() {
       <div className={styles.headerSection}>
         <div>
           <h1>Account Settings</h1>
-          <p>Update your profile name and change your password securely.</p>
+          <p>Update your profile and change your password securely.</p>
         </div>
         <Link href="/account/orders" className={styles.linkButton}>
           View Order History

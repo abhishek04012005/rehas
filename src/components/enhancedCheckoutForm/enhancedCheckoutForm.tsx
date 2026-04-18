@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronRight, ArrowBack, FavoriteBorder, PhoneInTalk, Mail, CheckCircle, Clear } from '@mui/icons-material';
+import { ChevronRight, ArrowBack, FavoriteBorder, PhoneInTalk, Mail, CheckCircle, Clear, RadioButtonUnchecked, RadioButtonChecked } from '@mui/icons-material';
 import { useCheckout, CartItem } from '@/context/CheckoutContext';
+import { useAuth, UserAddress } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
 import PaymentForm from '../paymentForm/paymentForm';
 import styles from './enhancedCheckoutForm.module.css';
@@ -85,6 +86,7 @@ interface FormErrors {
 
 export default function EnhancedCheckoutForm({ productTitle, amount = 999, isProduct = false, orderData }: EnhancedCheckoutFormProps) {
   const { productData, cartItems, clearCart } = useCheckout();
+  const { user, getUserAddresses } = useAuth();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
@@ -94,6 +96,10 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [savedOrderItems, setSavedOrderItems] = useState<CartItem[] | null>(null);
   const [acceptTerms, setAcceptTerms] = useState(false);
+  const [savedAddresses, setSavedAddresses] = useState<UserAddress[]>([]);
+  const [selectedAddressId, setSelectedAddressId] = useState<number | null>(null);
+  const [addressMode, setAddressMode] = useState<'saved' | 'new'>('new');
+  const [showNewAddressForm, setShowNewAddressForm] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
     fullName: orderData?.fullName || '',
@@ -123,21 +129,59 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     }
   }, [orderData]);
 
+  // Load saved addresses when user is available
+  useEffect(() => {
+    const loadSavedAddresses = async () => {
+      if (user) {
+        const result = await getUserAddresses();
+        const addresses = result.data ?? [];
+        if (addresses.length > 0) {
+          setSavedAddresses(addresses);
+          setAddressMode('saved');
+          setShowNewAddressForm(false);
+          // Auto-select the default address if available
+          const defaultAddress = addresses.find(addr => addr.is_default);
+          if (defaultAddress) {
+            setSelectedAddressId(defaultAddress.id);
+            // Populate form with default address
+            setFormData(prev => ({
+              ...prev,
+              fullName: defaultAddress.full_name,
+              phoneNumber: defaultAddress.phone_number || '',
+              addressLine1: defaultAddress.address_line_1,
+              addressLine2: defaultAddress.address_line_2 || '',
+              city: defaultAddress.city,
+              state: defaultAddress.state,
+              postalCode: defaultAddress.postal_code,
+              country: defaultAddress.country,
+            }));
+          }
+        } else {
+          setSavedAddresses([]);
+          setAddressMode('new');
+          setShowNewAddressForm(true);
+        }
+      }
+    };
+
+    loadSavedAddresses();
+  }, [user, getUserAddresses])
+
   const orderItems = orderData?.items && orderData.items.length > 0
     ? orderData.items.map((item) => ({
-        id: item.id || `order-${item.productTitle}-${Math.random()}`,
-        productTitle: item.productTitle,
-        amount: typeof item.amount === 'string' ? parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0 : item.amount || 0,
-        quantity: item.quantity || 1,
-        type: item.type || 'product',
-        serviceId: item.serviceId,
-        description: item.description,
-        isPoojaSelected: item.isPoojaSelected,
-        poojaLabel: item.poojaLabel,
-        poojaPrice: item.poojaPrice,
-      }))
+      id: item.id || `order-${item.productTitle}-${Math.random()}`,
+      productTitle: item.productTitle,
+      amount: typeof item.amount === 'string' ? parseFloat(String(item.amount).replace(/[₹,]/g, '')) || 0 : item.amount || 0,
+      quantity: item.quantity || 1,
+      type: item.type || 'product',
+      serviceId: item.serviceId,
+      description: item.description,
+      isPoojaSelected: item.isPoojaSelected,
+      poojaLabel: item.poojaLabel,
+      poojaPrice: item.poojaPrice,
+    }))
     : productData && productData.productTitle
-    ? [{
+      ? [{
         id: 'buy-now-order',
         productTitle: productData.productTitle,
         amount: productData.amount,
@@ -149,20 +193,20 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
         poojaLabel: productData.poojaLabel,
         poojaPrice: productData.poojaPrice,
       }]
-    : cartItems.length > 0
-    ? cartItems
-    : [{
-        id: 'single-order',
-        productTitle: productTitle,
-        amount: amount,
-        quantity: 1,
-        type: isProduct ? 'product' : 'service',
-        serviceId: undefined,
-        description: undefined,
-        isPoojaSelected: undefined,
-        poojaLabel: undefined,
-        poojaPrice: undefined,
-      }];
+      : cartItems.length > 0
+        ? cartItems
+        : [{
+          id: 'single-order',
+          productTitle: productTitle,
+          amount: amount,
+          quantity: 1,
+          type: isProduct ? 'product' : 'service',
+          serviceId: undefined,
+          description: undefined,
+          isPoojaSelected: undefined,
+          poojaLabel: undefined,
+          poojaPrice: undefined,
+        }];
 
   const activeOrderItems = savedOrderItems ?? orderItems;
   const totalAmount = activeOrderItems.reduce((sum, item) => {
@@ -193,6 +237,42 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     }
   };
 
+  const handleAddressSelect = (address: UserAddress) => {
+    setSelectedAddressId(address.id);
+    setFormData({
+      fullName: address.full_name,
+      email: formData.email, // Keep existing email
+      phoneNumber: address.phone_number || '',
+      addressLine1: address.address_line_1,
+      addressLine2: address.address_line_2 || '',
+      city: address.city,
+      state: address.state,
+      postalCode: address.postal_code,
+      country: address.country,
+    });
+    setAddressMode('saved');
+    setShowNewAddressForm(false);
+  };
+
+  const handleAddressModeChange = (mode: 'saved' | 'new') => {
+    setAddressMode(mode);
+    if (mode === 'new') {
+      setSelectedAddressId(null);
+      setShowNewAddressForm(true);
+      setFormData(prev => ({
+        ...prev,
+        addressLine1: '',
+        addressLine2: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: 'India',
+      }));
+    } else {
+      setShowNewAddressForm(false);
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -200,9 +280,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       newErrors.fullName = 'Full name is required';
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Invalid email address';
     }
 
@@ -224,8 +302,8 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     //   }
     // }
 
-    // Address validation only if it's a product
-    if (isProduct) {
+    // Address validation - always required
+    if (addressMode === 'new') {
       if (!formData.addressLine1.trim()) {
         newErrors.addressLine1 = 'Address line 1 is required';
       }
@@ -240,6 +318,10 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
 
       if (!formData.postalCode.trim()) {
         newErrors.postalCode = 'Postal code is required';
+      }
+    } else if (addressMode === 'saved') {
+      if (!selectedAddressId) {
+        newErrors.addressSelection = 'Please select a saved address';
       }
     }
 
@@ -384,7 +466,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
                 <span className={styles.detailLabel}>Phone</span>
                 <span className={styles.detailValue}>+91 {formData.phoneNumber}</span>
               </div>
-                <div className={styles.detailItem}>
+              <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Product/Service</span>
                 <span className={styles.detailValue}>{activeOrderItems.length > 1 ? 'Multiple items in cart' : activeOrderItems[0]?.productTitle || productTitle}</span>
               </div>
@@ -498,156 +580,224 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       )}
 
       <form className={styles.form} onSubmit={handleSubmit}>
-        {/* Personal Information Section */}
-        <div className={styles.formSection}>
-          <h3>
-            <FavoriteBorder fontSize="small" />
-            Personal Information
-          </h3>
+        {/* Show Personal Info section only when NOT using saved address mode */}
 
-          <div className={styles.formGroup}>
-            <label htmlFor="fullName">Full Name *</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              placeholder="Enter your full name"
-              className={errors.fullName ? styles.inputError : ''}
-            />
-            {errors.fullName && <span className={styles.errorText}>{errors.fullName}</span>}
-          </div>
-
-          <div className={styles.formRow}>
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="email">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="your.email@example.com"
-                className={errors.email ? styles.inputError : ''}
-              />
-              {errors.email && <span className={styles.errorText}>{errors.email}</span>}
-            </div>
-
-            <div className={styles.formGroup} style={{ flex: 1 }}>
-              <label htmlFor="phoneNumber">Phone Number *</label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                placeholder="10-digit number"
-                maxLength={10}
-                className={errors.phoneNumber ? styles.inputError : ''}
-              />
-              {errors.phoneNumber && <span className={styles.errorText}>{errors.phoneNumber}</span>}
-            </div>
-          </div>
-
-
+        <h4 className={styles.selectAddressHeading}>Choose how to provide shipping details</h4>
+        <div className={styles.addressModeToggle}>
+          <button
+            type="button"
+            className={`${styles.modeButton} ${addressMode === 'saved' ? styles.activeModeButton : ''}`}
+            onClick={() => handleAddressModeChange('saved')}
+          >
+            Select saved address
+          </button>
+          <button
+            type="button"
+            className={`${styles.modeButton} ${addressMode === 'new' ? styles.activeModeButton : ''}`}
+            onClick={() => handleAddressModeChange('new')}
+          >
+            Fill all details
+          </button>
         </div>
-
-        {/* Shipping Address Section - Only for products */}
-        {isProduct && (
+        {!(isProduct && savedAddresses.length > 0 && addressMode === 'saved') && (
           <div className={styles.formSection}>
-            <h3>Shipping Address</h3>
+            <h3>
+              <FavoriteBorder fontSize="small" />
+              Personal Information
+            </h3>
 
             <div className={styles.formGroup}>
-              <label htmlFor="addressLine1">Address Line 1 *</label>
+              <label htmlFor="fullName">Full Name *</label>
               <input
                 type="text"
-                id="addressLine1"
-                name="addressLine1"
-                value={formData.addressLine1}
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
-                placeholder="House number, street address"
-                className={errors.addressLine1 ? styles.inputError : ''}
+                placeholder="Enter your full name"
+                className={errors.fullName ? styles.inputError : ''}
               />
-              {errors.addressLine1 && <span className={styles.errorText}>{errors.addressLine1}</span>}
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="addressLine2">Address Line 2</label>
-              <input
-                type="text"
-                id="addressLine2"
-                name="addressLine2"
-                value={formData.addressLine2}
-                onChange={handleChange}
-                placeholder="Apartment, floor, building name (optional)"
-              />
+              {errors.fullName && <span className={styles.errorText}>{errors.fullName}</span>}
             </div>
 
             <div className={styles.formRow}>
               <div className={styles.formGroup} style={{ flex: 1 }}>
-                <label htmlFor="city">City *</label>
+                <label htmlFor="email">Email Address</label>
                 <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  placeholder="City"
-                  className={errors.city ? styles.inputError : ''}
+                  placeholder="your.email@example.com"
+                  className={errors.email ? styles.inputError : ''}
                 />
-                {errors.city && <span className={styles.errorText}>{errors.city}</span>}
+                {errors.email && <span className={styles.errorText}>{errors.email}</span>}
               </div>
 
               <div className={styles.formGroup} style={{ flex: 1 }}>
-                <label htmlFor="state">State *</label>
-                <select
-                  id="state"
-                  name="state"
-                  value={formData.state}
+                <label htmlFor="phoneNumber">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
                   onChange={handleChange}
-                  className={errors.state ? styles.inputError : ''}
-                >
-                  <option value="">Select State</option>
-                  {INDIAN_STATES.map((state) => (
-                    <option key={state} value={state}>
-                      {state}
-                    </option>
-                  ))}
-                </select>
-                {errors.state && <span className={styles.errorText}>{errors.state}</span>}
+                  placeholder="10-digit number"
+                  maxLength={10}
+                  className={errors.phoneNumber ? styles.inputError : ''}
+                />
+                {errors.phoneNumber && <span className={styles.errorText}>{errors.phoneNumber}</span>}
               </div>
             </div>
 
-            <div className={styles.formRow}>
-              <div className={styles.formGroup} style={{ flex: 1 }}>
-                <label htmlFor="postalCode">Postal Code *</label>
-                <input
-                  type="text"
-                  id="postalCode"
-                  name="postalCode"
-                  value={formData.postalCode}
-                  onChange={handleChange}
-                  placeholder="6-digit postal code"
-                  className={errors.postalCode ? styles.inputError : ''}
-                />
-                {errors.postalCode && <span className={styles.errorText}>{errors.postalCode}</span>}
-              </div>
-
-              <div className={styles.formGroup} style={{ flex: 1 }}>
-                <label htmlFor="country">Country</label>
-                <input
-                  type="text"
-                  id="country"
-                  name="country"
-                  value={formData.country}
-                  readOnly
-                  className={styles.inputReadonly}
-                />
-              </div>
-            </div>
           </div>
         )}
+
+        {/* Shipping Address Section - Always show */}
+        <div className={styles.formSection}>
+          <h3>Shipping Address</h3>
+
+          {savedAddresses.length > 0 && (
+            <div className={styles.addressSelection}>
+
+
+              {addressMode === 'saved' && (
+                <div className={styles.addressList}>
+                  {savedAddresses.map((address) => (
+                    <div
+                      key={address.id}
+                      className={`${styles.addressOption} ${selectedAddressId === address.id ? styles.selected : ''}`}
+                      onClick={() => handleAddressSelect(address)}
+                    >
+                      <div className={styles.addressRadio}>
+                        {selectedAddressId === address.id ? (
+                          <RadioButtonChecked sx={{ fontSize: 20, color: 'var(--primary)' }} />
+                        ) : (
+                          <RadioButtonUnchecked sx={{ fontSize: 20, color: '#ccc' }} />
+                        )}
+                      </div>
+                      <div className={styles.addressDetails}>
+                        <div className={styles.addressHeader}>
+                          <span className={styles.addressType}>{address.address_type}</span>
+                          {address.is_default && <span className={styles.defaultBadge}>Default</span>}
+                        </div>
+                        <div className={styles.addressContent}>
+                          <p className={styles.addressName}>{address.full_name}</p>
+                          {address.phone_number && <p className={styles.addressPhone}>{address.phone_number}</p>}
+                          <p className={styles.addressLine}>{address.address_line_1}</p>
+                          {address.address_line_2 && <p className={styles.addressLine}>{address.address_line_2}</p>}
+                          <p className={styles.addressCity}>
+                            {address.city}, {address.state} {address.postal_code}
+                          </p>
+                          <p className={styles.addressCountry}>{address.country}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {addressMode === 'saved' && errors.addressSelection && (
+                <span className={styles.errorText}>{errors.addressSelection}</span>
+              )}
+            </div>
+          )}
+
+          {/* Address Form - Show when in 'new' mode OR when no saved addresses exist */}
+          {(addressMode === 'new' || savedAddresses.length === 0) && (
+            <div className={styles.newAddressForm}>
+              <div className={styles.formGroup}>
+                <label htmlFor="addressLine1">Address Line 1 *</label>
+                <input
+                  type="text"
+                  id="addressLine1"
+                  name="addressLine1"
+                  value={formData.addressLine1}
+                  onChange={handleChange}
+                  placeholder="House number, street address"
+                  className={errors.addressLine1 ? styles.inputError : ''}
+                />
+                {errors.addressLine1 && <span className={styles.errorText}>{errors.addressLine1}</span>}
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="addressLine2">Address Line 2</label>
+                <input
+                  type="text"
+                  id="addressLine2"
+                  name="addressLine2"
+                  value={formData.addressLine2}
+                  onChange={handleChange}
+                  placeholder="Apartment, floor, building name (optional)"
+                />
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.formGroup} style={{ flex: 1 }}>
+                  <label htmlFor="city">City *</label>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    placeholder="City"
+                    className={errors.city ? styles.inputError : ''}
+                  />
+                  {errors.city && <span className={styles.errorText}>{errors.city}</span>}
+                </div>
+
+                <div className={styles.formGroup} style={{ flex: 1 }}>
+                  <label htmlFor="state">State *</label>
+                  <select
+                    id="state"
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                    className={errors.state ? styles.inputError : ''}
+                  >
+                    <option value="">Select State</option>
+                    {INDIAN_STATES.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.state && <span className={styles.errorText}>{errors.state}</span>}
+                </div>
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.formGroup} style={{ flex: 1 }}>
+                  <label htmlFor="postalCode">Postal Code *</label>
+                  <input
+                    type="text"
+                    id="postalCode"
+                    name="postalCode"
+                    value={formData.postalCode}
+                    onChange={handleChange}
+                    placeholder="6-digit postal code"
+                    className={errors.postalCode ? styles.inputError : ''}
+                  />
+                  {errors.postalCode && <span className={styles.errorText}>{errors.postalCode}</span>}
+                </div>
+
+                <div className={styles.formGroup} style={{ flex: 1 }}>
+                  <label htmlFor="country">Country</label>
+                  <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value={formData.country}
+                    readOnly
+                    className={styles.inputReadonly}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Terms and Conditions */}
         <div className={styles.termsSection}>
@@ -660,7 +810,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
               required
             />
             <span className={styles.termsText}>
-              I agree to the <Link href="/terms-of-service" target="_blank" className={styles.termsLink}>Terms of Service</Link> and 
+              I agree to the <Link href="/terms-of-service" target="_blank" className={styles.termsLink}>Terms of Service</Link> and
               acknowledge that this purchase is non-refundable after completion.
             </span>
           </label>

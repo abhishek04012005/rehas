@@ -12,6 +12,25 @@ export interface AuthUser {
   fullName?: string | null;
 }
 
+export interface UserAddress {
+  id: number;
+  user_id: string;
+  address_type: 'home' | 'work' | 'other';
+  full_name: string;
+  email?: string;
+  phone_number?: string;
+  address_line_1: string;
+  address_line_2?: string;
+  city: string;
+  state: string;
+  postal_code: string;
+  country: string;
+  is_default: boolean;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
 interface AuthContextType {
   user: AuthUser | null;
   loading: boolean;
@@ -23,6 +42,11 @@ interface AuthContextType {
   sendPasswordReset: (email: string) => Promise<{ error?: string }>;
   updateProfile: (fullName: string) => Promise<{ error?: string }>;
   changePassword: (currentPassword: string, newPassword: string, resetToken?: string, email?: string) => Promise<{ error?: string }>;
+  getUserAddresses: () => Promise<{ data?: UserAddress[]; error?: string }>;
+  addUserAddress: (address: Omit<UserAddress, 'id' | 'user_id' | 'created_at' | 'updated_at'>) => Promise<{ data?: UserAddress; error?: string }>;
+  updateUserAddress: (id: number, address: Partial<Omit<UserAddress, 'id' | 'user_id' | 'created_at' | 'updated_at'>>) => Promise<{ error?: string }>;
+  deleteUserAddress: (id: number) => Promise<{ error?: string }>;
+  setDefaultAddress: (id: number) => Promise<{ error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -232,6 +256,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const sendPasswordReset = async (email: string) => {
     try {
+      // Validate email format
+      if (!email || !email.includes('@')) {
+        return { error: 'Please enter a valid email address' };
+      }
+
+      console.log('EmailJS Config Check:');
+      console.log('- Public Key available:', !!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+      console.log('- Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+      console.log('- Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+
+      // Check if EmailJS credentials are configured
+      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID) {
+        console.error('EmailJS credentials not configured');
+        return { error: 'Email service is not properly configured. Please contact support.' };
+      }
+
       // Check if user exists
       const { data: userData, error: userError } = await supabase
         .from('users')
@@ -240,12 +280,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         .single();
 
       if (userError || !userData) {
-        return { error: 'No account found with this email address' };
+        console.warn(`Password reset requested for non-existent email: ${email}`);
+        // Don't reveal if email exists for security
+        return { error: 'If this email exists in our system, you will receive a password reset link shortly.' };
       }
 
       // Generate reset token
       const resetToken = crypto.randomUUID();
       const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
+
+      console.log('Storing reset token for email:', email);
 
       // Store reset token in database
       const { error: updateError } = await supabase
@@ -258,33 +302,109 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (updateError) {
         console.error('Error storing reset token:', updateError);
-        return { error: 'Failed to generate reset token' };
+        return { error: 'Failed to generate reset token. Please try again.' };
       }
+
+      console.log('Reset token stored successfully');
 
       // Generate reset link
-      const resetLink = `${window.location.origin}/auth?reset=true&token=${resetToken}&email=${encodeURIComponent(email)}`;
+      const resetLink = `${typeof window !== 'undefined' ? window.location.origin : 'https://yourapp.com'}/auth?reset=true&token=${resetToken}&email=${encodeURIComponent(email)}`;
 
-      // Send email via EmailJS
+      console.log('Generated reset link:', resetLink);
+
+      // Prepare template parameters for EmailJS
+      // Note: Variable names must match exactly what's in the EmailJS template
       const templateParams = {
+        email: email,
         to_email: email,
         reset_link: resetLink,
-        user_email: email,
+        user_name: email.split('@')[0], // Extract username from email
       };
 
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id',
-        templateParams
-      );
+      console.log('Template parameters prepared:', JSON.stringify(templateParams, null, 2));
+      console.log('Attempting to send email via EmailJS...');
+      console.log('Using Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+      console.log('Using Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
 
-      if (result.status !== 200) {
-        return { error: 'Failed to send reset email' };
+      // Send email via EmailJS with error handling
+      let emailResponse;
+      try {
+        emailResponse = await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+          templateParams
+        );
+        console.log('EmailJS response:', emailResponse);
+      } catch (emailError: any) {
+        console.error('EmailJS error caught!');
+        console.error('Full error object:', emailError);
+        console.error('Error constructor:', emailError?.constructor?.name);
+        console.error('Error toString:', emailError?.toString?.());
+        
+        // Try to extract error properties
+        const errorInfo: any = {
+          type: typeof emailError,
+          isError: emailError instanceof Error,
+          hasMessage: 'message' in emailError,
+          hasStatus: 'status' in emailError,
+          hasText: 'text' in emailError,
+        };
+        
+        // Get all enumerable properties
+        try {
+          errorInfo.keys = Object.keys(emailError);
+          errorInfo.entries = Object.entries(emailError);
+        } catch (e) {
+          console.error('Could not extract error properties:', e);
+        }
+        
+        // Try to serialize the error
+        try {
+          errorInfo.serialized = JSON.stringify(emailError);
+        } catch (e) {
+          errorInfo.serialized = 'Could not serialize';
+        }
+        
+        // Get individual properties if they exist
+        if (emailError?.message) errorInfo.message = emailError.message;
+        if (emailError?.status) errorInfo.status = emailError.status;
+        if (emailError?.text) errorInfo.text = emailError.text;
+        if (emailError?.responseText) errorInfo.responseText = emailError.responseText;
+        if (emailError?.statusText) errorInfo.statusText = emailError.statusText;
+        
+        console.error('EmailJS error details:', errorInfo);
+        throw emailError;
       }
 
-      return { error: undefined };
-    } catch (error) {
-      console.error('Password reset error:', error);
-      return { error: 'Failed to send reset email' };
+      if (emailResponse?.status === 200) {
+        console.log('Password reset email sent successfully');
+        return { error: undefined };
+      } else {
+        console.error('EmailJS returned unexpected status:', emailResponse?.status);
+        return { error: 'Failed to send reset email. Please try again.' };
+      }
+    } catch (error: any) {
+      console.error('Password reset error caught:', error);
+      console.error('Error type:', typeof error);
+      console.error('Error keys:', error ? Object.keys(error) : 'null');
+      console.error('Error stringified:', JSON.stringify(error));
+      
+      if (error instanceof Error) {
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+      }
+      
+      // Provide friendlier error message
+      let errorMsg = 'Failed to send reset email. Please try again later.';
+      if (error?.message?.includes('Invalid service ID')) {
+        errorMsg = 'Email service is misconfigured. Please contact support.';
+      } else if (error?.message?.includes('Invalid template ID')) {
+        errorMsg = 'Email template is misconfigured. Please contact support.';
+      } else if (error?.message?.includes('Network')) {
+        errorMsg = 'Network error. Please check your internet connection.';
+      }
+      
+      return { error: errorMsg };
     }
   };
 
@@ -403,6 +523,245 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const getUserAddresses = async () => {
+    if (!user) {
+      return { error: 'User not authenticated' };
+    }
+
+    // Validate user.id is a proper string UUID
+    if (!user.id || typeof user.id !== 'string' || user.id.trim() === '') {
+      console.error('Invalid user ID for get addresses:', user.id, 'Type:', typeof user.id);
+      return { error: 'Invalid user ID' };
+    }
+
+    const { data, error } = await supabase
+      .from('user_addresses')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('is_active', true)
+      .order('is_default', { ascending: false })
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching addresses:', error);
+      return { error: error.message };
+    }
+
+    return { data };
+  };
+
+  const addUserAddress = async (address: Omit<UserAddress, 'id' | 'user_id' | 'created_at' | 'updated_at'>) => {
+    try {
+      if (!user) {
+        return { error: 'User not authenticated' };
+      }
+
+      console.log('Adding address for user:', user.id, 'Type:', typeof user.id);
+      console.log('Address data received:', address);
+
+      // Validate user.id is a proper string UUID
+      if (!user.id || typeof user.id !== 'string' || user.id.trim() === '') {
+        console.error('Invalid user ID:', user.id, 'Type:', typeof user.id);
+        return { error: 'Invalid user ID' };
+      }
+
+      // If this is set as default, unset other defaults for this user and type
+      if (address.is_default) {
+        const { error: updateError } = await supabase
+          .from('user_addresses')
+          .update({ is_default: false })
+          .eq('user_id', user.id)
+          .eq('address_type', address.address_type);
+
+        if (updateError) {
+          console.error('Error updating default addresses:', updateError);
+          // Continue with insert even if update fails
+        }
+      }
+
+      console.log('Inserting address with data:', {
+        user_id: user.id,
+        address_type: address.address_type,
+        full_name: address.full_name,
+        email: address.email,
+        phone_number: address.phone_number,
+        address_line_1: address.address_line_1,
+        address_line_2: address.address_line_2,
+        city: address.city,
+        state: address.state,
+        postal_code: address.postal_code,
+        country: address.country,
+        is_default: address.is_default,
+        is_active: address.is_active,
+      });
+
+      const { data, error } = await supabase
+        .from('user_addresses')
+        .insert({
+          user_id: user.id,
+          address_type: address.address_type,
+          full_name: address.full_name,
+          email: address.email || null,
+          phone_number: address.phone_number || null,
+          address_line_1: address.address_line_1,
+          address_line_2: address.address_line_2 || null,
+          city: address.city,
+          state: address.state,
+          postal_code: address.postal_code,
+          country: address.country,
+          is_default: address.is_default || false,
+          is_active: address.is_active !== false,
+        })
+        .select()
+        .single();
+
+      console.log('Supabase response - data:', data, 'error:', error);
+
+      if (error) {
+        console.error('Error adding address:', error);
+        console.error('Error code:', error.code);
+        console.error('Error message:', error.message);
+        console.error('Error details:', error.details);
+        console.error('Error hint:', error.hint);
+        console.error('Error details - user_id:', user.id, 'Type:', typeof user.id);
+        console.error('Address data being inserted:', {
+          user_id: user.id,
+          address_type: address.address_type,
+          full_name: address.full_name,
+          email: address.email,
+        });
+        return { error: error.message || 'Failed to add address' };
+      }
+
+      console.log('Address added successfully:', data);
+      return { data };
+    } catch (err) {
+      console.error('Exception in addUserAddress:', err);
+      return { error: 'An unexpected error occurred while adding the address' };
+    }
+  };
+
+  const updateUserAddress = async (id: number, updates: Partial<Omit<UserAddress, 'id' | 'user_id' | 'created_at' | 'updated_at'>>) => {
+    if (!user) {
+      return { error: 'User not authenticated' };
+    }
+
+    // Validate user.id is a proper string UUID
+    if (!user.id || typeof user.id !== 'string' || user.id.trim() === '') {
+      console.error('Invalid user ID for update:', user.id, 'Type:', typeof user.id);
+      return { error: 'Invalid user ID' };
+    }
+
+    // If setting as default, unset other defaults for this user and type
+    if (updates.is_default) {
+      const { data: currentAddress, error: fetchError } = await supabase
+        .from('user_addresses')
+        .select('address_type')
+        .eq('id', id)
+        .single();
+
+      if (fetchError) {
+        console.error('Error fetching current address:', fetchError);
+        return { error: fetchError.message };
+      }
+
+      if (currentAddress) {
+        const { error: updateError } = await supabase
+          .from('user_addresses')
+          .update({ is_default: false })
+          .eq('user_id', user.id)
+          .eq('address_type', currentAddress.address_type)
+          .neq('id', id);
+
+        if (updateError) {
+          console.error('Error updating default addresses:', updateError);
+          // Continue with update even if unsetting defaults fails
+        }
+      }
+    }
+
+    const { error } = await supabase
+      .from('user_addresses')
+      .update(updates)
+      .eq('id', id)
+      .eq('user_id', user.id);
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    return { error: undefined };
+  };
+
+  const deleteUserAddress = async (id: number) => {
+    if (!user) {
+      return { error: 'User not authenticated' };
+    }
+
+    // Validate user.id is a proper string UUID
+    if (!user.id || typeof user.id !== 'string' || user.id.trim() === '') {
+      console.error('Invalid user ID for delete:', user.id, 'Type:', typeof user.id);
+      return { error: 'Invalid user ID' };
+    }
+
+    const { error } = await supabase
+      .from('user_addresses')
+      .update({ is_active: false })
+      .eq('id', id)
+      .eq('user_id', user.id);
+
+    if (error) {
+      console.error('Error deleting address:', error);
+      return { error: error.message };
+    }
+
+    return { error: undefined };
+  };
+
+  const setDefaultAddress = async (id: number) => {
+    if (!user) {
+      return { error: 'User not authenticated' };
+    }
+
+    // Validate user.id is a proper string UUID
+    if (!user.id || typeof user.id !== 'string' || user.id.trim() === '') {
+      console.error('Invalid user ID for set default:', user.id, 'Type:', typeof user.id);
+      return { error: 'Invalid user ID' };
+    }
+
+    // Get the address type for this address
+    const { data: address } = await supabase
+      .from('user_addresses')
+      .select('address_type')
+      .eq('id', id)
+      .eq('user_id', user.id)
+      .single();
+
+    if (!address) {
+      return { error: 'Address not found' };
+    }
+
+    // Unset all defaults for this type
+    await supabase
+      .from('user_addresses')
+      .update({ is_default: false })
+      .eq('user_id', user.id)
+      .eq('address_type', address.address_type);
+
+    // Set this address as default
+    const { error } = await supabase
+      .from('user_addresses')
+      .update({ is_default: true })
+      .eq('id', id)
+      .eq('user_id', user.id);
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    return { error: undefined };
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -416,6 +775,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         sendPasswordReset,
         updateProfile,
         changePassword,
+        getUserAddresses,
+        addUserAddress,
+        updateUserAddress,
+        deleteUserAddress,
+        setDefaultAddress,
       }}
     >
       {children}

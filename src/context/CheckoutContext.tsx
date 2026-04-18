@@ -76,17 +76,34 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
 
     try {
       // Get current database cart
-      const { data: dbCartItems } = await supabase
+      const { data: dbCartItems, error: dbError } = await supabase
         .from('cart_items')
         .select('*')
         .eq('user_id', cartUserId);
+
+      if (dbError) {
+        const errorMsg = formatDbError(dbError);
+        console.warn('Error fetching DB cart items:', errorMsg);
+        
+        // If UUID error, it means the user ID type might not be matching
+        if (errorMsg.includes('invalid input syntax for type uuid')) {
+          console.error('Critical: user_id type mismatch detected. user_id:', cartUserId, 'type:', typeof cartUserId);
+        }
+        // Continue with sync even if DB fetch fails - we'll try to add items
+      }
 
       console.log('Current DB items:', dbCartItems?.length || 0);
 
       // For each local item, check if it exists in DB
       if (localItems.length > 0) {
         for (const localItem of localItems) {
-          const localProductId = localItem.productId || localItem.id;
+          let localProductId: string = localItem.productId || localItem.id;
+          
+          // Ensure product ID is string
+          if (typeof localProductId === 'number') {
+            localProductId = (localProductId as number).toString();
+          }
+          
           const existsInDb = dbCartItems?.some((dbItem) => dbItem.product_id === localProductId);
           
           if (!existsInDb) {
@@ -108,7 +125,13 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
 
             const { error: insertError } = await supabase.from('cart_items').insert([dbItem]);
             if (insertError) {
-              console.error('Error syncing item to database:', formatDbError(insertError));
+              const errorMsg = formatDbError(insertError);
+              console.error('Error syncing item to database:', errorMsg);
+              
+              if (errorMsg.includes('invalid input syntax for type uuid')) {
+                console.error('UUID Sync Error - localProductId:', localProductId, 'type:', typeof localProductId);
+                console.error('UUID Sync Error - cartUserId:', cartUserId, 'type:', typeof cartUserId);
+              }
             } else {
               console.log('Synced item to database:', localProductId);
             }
@@ -132,6 +155,7 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
       console.log('Cart sync completed');
     } catch (error) {
       console.error('Failed to sync cart to database:', error);
+      console.error('Sync exception details:', error);
     }
   };
 
@@ -292,14 +316,28 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
     if (!user?.id) return;
 
     try {
-      console.log('Removing item from database:', itemId);
+      console.log('Removing item from database:', itemId, 'Type:', typeof itemId);
+      
+      // Ensure itemId is a valid UUID format or handle appropriately
+      if (!itemId || typeof itemId !== 'string' || itemId.trim() === '') {
+        console.error('Invalid itemId to remove:', itemId);
+        return false;
+      }
+
       const { error } = await supabase
         .from('cart_items')
         .delete()
         .eq('id', itemId);
 
       if (error) {
-        console.error('Error removing item from database:', formatDbError(error));
+        const errorMsg = formatDbError(error);
+        console.error('Error removing item from database:', errorMsg);
+        
+        // If it's a UUID syntax error, the item might not exist
+        if (errorMsg.includes('invalid input syntax for type uuid')) {
+          console.warn('ItemId appears invalid, skipping database removal:', itemId);
+          return true; // Consider it success since the item shouldn't be there
+        }
         return false;
       }
 
@@ -321,9 +359,22 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
 
     try {
       console.log('Adding item to database:', item.productId || item.id);
+      
+      // Validate product_id is not a plain number that could cause UUID errors
+      let productId: string = item.productId || item.id;
+      if (typeof productId === 'number') {
+        productId = (productId as number).toString();
+        console.warn('Converted numeric product_id to string:', productId);
+      }
+      
+      if (!productId || typeof productId !== 'string' || productId.trim() === '') {
+        console.error('Invalid productId, cannot add to database:', productId);
+        return false;
+      }
+
       const dbItem = {
         user_id: cartUserId,
-        product_id: item.productId || item.id,
+        product_id: productId,
         product_title: item.productTitle,
         product_type: item.type || 'product',
         price: item.amount.toString(),
@@ -341,7 +392,14 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
         .insert([dbItem]);
 
       if (error) {
-        console.error('Error adding item to database:', formatDbError(error));
+        const errorMsg = formatDbError(error);
+        console.error('Error adding item to database:', errorMsg);
+        
+        // If UUID error, log the problematic value for debugging
+        if (errorMsg.includes('invalid input syntax for type uuid')) {
+          console.error('UUID Error Details - cartUserId:', cartUserId, 'Type:', typeof cartUserId);
+          console.error('UUID Error Details - productId:', productId, 'Type:', typeof productId);
+        }
         return false;
       }
 
@@ -352,6 +410,7 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
       return true;
     } catch (error) {
       console.error('Failed to add item to database:', error);
+      console.error('Exception details:', error);
       return false;
     }
   };

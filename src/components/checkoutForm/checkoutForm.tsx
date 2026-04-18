@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -236,7 +237,7 @@ export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFor
 
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label htmlFor="email">Email Address *</label>
+              <label htmlFor="email">Email Address</label>
               <input
                 type="email"
                 id="email"
@@ -244,7 +245,6 @@ export default function CheckoutForm({ productTitle, amount = 999 }: CheckoutFor
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                required
               />
             </div>
 

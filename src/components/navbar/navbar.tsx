@@ -83,10 +83,16 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<number | null>(null);
     const [profileOpen, setProfileOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     const { user, signOut } = useAuth();
     const { cartItems } = useCheckout();
     const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+    // Ensure component is mounted before rendering dynamic content
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -203,10 +209,10 @@ export default function Navbar() {
                     <div className={styles.actionsRight}>
                         <Link href="/cart" className={styles.cartButton} onClick={() => setIsMenuOpen(false)}>
                             <ShoppingCart />
-                            {cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
+                            {mounted && cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
                         </Link>
 
-                        {user ? (
+                        {user && mounted ? (
                             <div className={styles.profileContainer}>
                                 <button type="button" className={styles.profileButton} onClick={() => setProfileOpen(!profileOpen)}>
                                     <AccountCircle />
@@ -216,6 +222,9 @@ export default function Navbar() {
                                     <div className={styles.profileMenu}>
                                         <Link href="/account/orders" onClick={() => { setIsMenuOpen(false); setProfileOpen(false); }}>
                                             Order History
+                                        </Link>
+                                        <Link href="/account/addresses" onClick={() => { setIsMenuOpen(false); setProfileOpen(false); }}>
+                                            Address Book
                                         </Link>
                                         <Link href="/account/settings" onClick={() => { setIsMenuOpen(false); setProfileOpen(false); }}>
                                             Account Settings
