@@ -46,6 +46,17 @@ export default function MerchandisePage() {
   const [sortBy, setSortBy] = useState<'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest'>('newest');
   const [reviewStats, setReviewStats] = useState<{ [key: string]: { total: number; average: number } }>({});
   const [reviewsLoading, setReviewsLoading] = useState(true);
+  const [productsLoading, setProductsLoading] = useState(true);
+
+  // Initialize products on mount
+  useEffect(() => {
+    setProductsLoading(true);
+    // Simulate brief loading time for better UX
+    const timer = setTimeout(() => {
+      setProductsLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Fetch review stats for all products
   useEffect(() => {
@@ -185,7 +196,24 @@ export default function MerchandisePage() {
         </div>
 
         <div className={styles.productListGrid}>
-          {sortedProducts.length > 0 ? (
+          {productsLoading ? (
+            // Show skeleton loaders while loading
+            Array.from({ length: 8 }).map((_, index) => (
+              <div key={`skeleton-${index}`} className={styles.skeletonProductCard}>
+                <div className={styles.skeletonProductImage}></div>
+                <div className={styles.skeletonProductDetails}>
+                  <div className={styles.skeletonProductName}></div>
+                  <div className={styles.skeletonProductDescription}></div>
+                  <div className={styles.skeletonProductDescription}></div>
+                  <div className={styles.skeletonPricing}>
+                    <div className={styles.skeletonPrice}></div>
+                    <div className={styles.skeletonPrice}></div>
+                  </div>
+                  <div className={styles.skeletonButton}></div>
+                </div>
+              </div>
+            ))
+          ) : sortedProducts.length > 0 ? (
             sortedProducts.map((product) => (
               <div key={product.id} className={styles.productListCard}>
                 {/* Product Image */}
@@ -256,12 +284,12 @@ export default function MerchandisePage() {
                 </div>
               </div>
             ))
-        ) : (
-          <div className={styles.noResultsBox}>
-            <p>No products found for your search.</p>
-            <p>Try a different keyword or select another category.</p>
-          </div>
-        )}
+          ) : (
+            <div className={styles.noResultsBox}>
+              <p>No products found for your search.</p>
+              <p>Try a different keyword or select another category.</p>
+            </div>
+          )}
         </div>
       </section>
 
