@@ -14,9 +14,9 @@ export interface MerchandiseProductDetail {
     price: string;
     originalPrice: string;
     pricingTiers?: {
-        basic: { price: string; label: string; description?: string };
-        market: { price: string; label: string; description?: string };
-        premium: { price: string; label: string; description?: string };
+        basic: { price: string; originalPrice?: string; label: string; description?: string };
+        market: { price: string; originalPrice?: string; label: string; description?: string };
+        premium: { price: string; originalPrice?: string; label: string; description?: string };
     };
     paymentHighlights: string[];
     sold: number;
@@ -98,20 +98,23 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Wear daily on the left wrist to absorb its calming and loving energy. Ideal for meditation, emotional healing practices, or daily wear.',
 
         price: '₹499.00',
-        originalPrice: '₹1,999.00',
+        originalPrice: '₹999.00',
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,499.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹2,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -252,16 +255,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -403,16 +409,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -555,16 +564,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -706,16 +718,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -857,16 +872,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -1009,16 +1027,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -1161,16 +1182,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -1313,16 +1337,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -1465,16 +1492,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -1617,16 +1647,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -1769,16 +1802,19 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         pricingTiers: {
             basic: {
                 price: '₹499.00',
+                originalPrice: '₹1,999.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
                 price: '₹999.00',
+                originalPrice: '₹1,999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
                 price: '₹1699.00',
+                originalPrice: '₹1,999.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }

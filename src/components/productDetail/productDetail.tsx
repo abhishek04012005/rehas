@@ -24,9 +24,9 @@ interface ProductDetailData {
   price?: string;
   originalPrice?: string;
   pricingTiers?: {
-    basic: { price: string; label: string; description?: string };
-    market: { price: string; label: string; description?: string };
-    premium: { price: string; label: string; description?: string };
+    basic: { price: string; originalPrice?: string; label: string; description?: string };
+    market: { price: string; originalPrice?: string; label: string; description?: string };
+    premium: { price: string; originalPrice?: string; label: string; description?: string };
   };
   monthlyPlan?: string;
   pooja?: {
@@ -433,6 +433,16 @@ export default function ProductDetail({
                     >
                       <h4 className={styles.tierLabel}>{tier.label}</h4>
                       <span className={styles.tierPrice}>{tier.price}</span>
+                      {tier.originalPrice && (
+                        <span className={styles.tierOriginalPrice}>
+                          {tier.originalPrice}
+                        </span>
+                      )}
+                      {tier.originalPrice && (
+                        <span className={styles.tierDiscount}>
+                          {calculateDiscountPercentage(tier.originalPrice, tier.price)}
+                        </span>
+                      )}
                       {tier.description && <p className={styles.tierDescription}>{tier.description}</p>}
                     </div>
                   ))}
