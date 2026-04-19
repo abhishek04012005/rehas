@@ -713,6 +713,23 @@ export default function ProductDetail({
               <p>If you have any concerns, our support team is available to help at support@rehas.in.</p>
             </div>
           </div>
+
+          {/* No Refund for Energy-Activated Products */}
+          <div className={styles.energyActivationPolicy}>
+            <h3>Why No Refund for Energy-Activated Bracelets?</h3>
+            <p>
+              When you select the <strong>"Energy Cleansing Ritual"</strong> or <strong>"Energy Activation Ritual"</strong> option, a sacred puja (ritual ceremony) is performed on your bracelet with your name and intention. Once this spiritual activation is completed:
+            </p>
+            <ul>
+              <li><strong>Personalized Energy Work:</strong> The bracelet becomes spiritually personalized to you through ritual activation</li>
+              <li><strong>Irreversible Process:</strong> The energy work performed cannot be reversed or transferred</li>
+              <li><strong>Spiritual Commitment:</strong> The ritual creates a sacred bond between you and the crystal's healing energy</li>
+              <li><strong>No Returns Accepted:</strong> Bracelets with completed puja ceremonies are non-refundable under any circumstances</li>
+            </ul>
+            <p className={styles.policyNote}>
+              Please ensure you are ready for the spiritual commitment before selecting the energy activation ritual. If you prefer to purchase without the ritual, you can choose a bracelet without this service, which is still subject to our standard no-refund policy.
+            </p>
+          </div>
         </div>
       </section>
 
