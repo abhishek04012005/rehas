@@ -559,7 +559,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to absorb healing energy and balance chakras. Ideal for meditation, yoga, spiritual practices, and daily wear.',
 
-             price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -713,7 +713,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         use:
             'Wear daily on the left hand to absorb calming energy. Ideal for meditation, relaxation, sleep support, and emotional healing practices.',
-     price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -848,45 +848,47 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: '5 Element Energy Balance Bracelet',
-        slug: '5-element-energy-balance-bracelet',
+        name: 'Money Magnet Bracelet',
+        slug: 'money-magnet-bracelet',
 
-        tagline: 'Balance Your Energy, Align Nature Within You',
-        qualityTag: 'AAA Quality • Natural Multi-Stone • Handcrafted',
+        tagline: 'Attract Wealth, Luck & Financial Growth',
+        qualityTag: 'AAA Quality • Wealth Energy Stones • Handcrafted',
 
-        reviewCount: 102,
+        reviewCount: 186,
 
         shortDescription:
-            'A powerful multi-stone bracelet designed to balance the five natural elements, promote harmony, and protect your energy.',
+            'A powerful energy bracelet designed to attract wealth, financial growth, and new opportunities while boosting confidence and positivity.',
 
         meaning:
-            'This bracelet is crafted using a unique combination of natural stones representing the five elements—Earth, Fire, Metal, Water, and Energy flow. It helps balance internal energies, remove blockages, and create harmony between mind, body, and environment.',
+            'This bracelet is crafted using powerful wealth-attracting stones that are believed to activate abundance energy. It helps align your mindset with success, remove financial blockages, and attract money, opportunities, and prosperity into your life.',
 
         benefit:
-            'Energy balancing, protection from negativity, emotional stability, grounding, confidence boost, harmony and alignment',
+            'Wealth attraction, financial growth, luck, success, confidence boost, positivity, opportunity attraction',
 
         use:
-            'Wear daily on the left hand to absorb balanced elemental energy. Ideal for meditation, healing practices, and daily protection.',
-     price: '₹499.00',
+            'Wear daily on the left hand to attract money and opportunities. Ideal for business owners, job seekers, and anyone looking to improve financial stability.',
+
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
+
         pricingTiers: {
             basic: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
                 label: 'Basic',
-                description: 'Standard quality bracelet'
+                description: 'Standard wealth energy bracelet'
             },
             market: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
-                description: 'Premium quality with better stones'
+                label: 'Premium',
+                description: 'Stronger energy stones for better results'
             },
             premium: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
-                description: 'Highest quality with energy activation'
+                label: 'Elite',
+                description: 'Activated bracelet with enhanced energy ritual'
             }
         },
 
@@ -896,61 +898,61 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Limited Time Offer'
         ],
 
-        sold: 198,
-        available: 120,
-        endsIn: '28h : 10m : 05s',
+        sold: 342,
+        available: 95,
+        endsIn: '22h : 40m : 10s',
 
         pooja: {
-            label: 'Add Energy Activation Ritual',
+            label: 'Add Wealth Activation Ritual',
             note:
-                'Your bracelet will be purified and energized through sacred rituals to activate all five elements and enhance protection, balance, and positive energy.',
+                'Your bracelet will be purified and energized through sacred rituals to activate wealth, success, and abundance energy.',
             price: '₹150.00',
         },
 
         description:
-            'This 5 Element Energy Balance Bracelet is crafted using premium natural stones, each representing a powerful natural element. The combination of green aventurine (Earth), carnelian (Fire), tiger eye (stability), black stone (protection), and hematite (metal energy) creates a perfect balance of energies. It is designed to harmonize your inner energy, protect against negativity, and promote emotional and physical well-being. Each bead is carefully polished and assembled for a comfortable and stylish daily wear. This bracelet is ideal for those seeking balance, protection, and a boost in confidence and stability.',
+            'This Money Magnet Bracelet is designed using carefully selected stones known for attracting wealth, success, and prosperity. It works by aligning your energy with abundance and removing negative financial blocks. The bracelet enhances confidence, decision-making ability, and positivity, helping you seize opportunities and grow financially. Each bead is polished to perfection and strung on a durable elastic band for comfortable everyday wear. Perfect for those who want to attract money, improve business growth, or achieve financial success.',
 
         keyFeatures: [
-            'Combination of 5 natural element stones',
-            'Premium polished multi-color beads',
-            'Balanced design for energy alignment',
+            'Designed for wealth and abundance attraction',
+            'Premium polished energy stones',
+            'Strong financial and success energy',
             'Stretchable, durable, and skin-friendly',
             'Handcrafted with precision',
-            'Optional energy activation ritual available',
+            'Optional wealth activation ritual available',
         ],
 
         benefits: [
-            'Balances all five natural elements',
-            'Protects from negative energy and evil eye',
-            'Promotes emotional and mental stability',
-            'Enhances grounding and confidence',
-            'Supports energy flow and harmony',
-            'Boosts positivity and inner strength',
+            'Attracts money, wealth, and prosperity',
+            'Opens new income and opportunity channels',
+            'Boosts confidence and decision-making power',
+            'Removes financial blockages',
+            'Enhances positivity and success mindset',
+            'Supports business and career growth',
         ],
 
         spiritualSignificance: [
-            'Represents the balance of Earth, Fire, Metal, and energy flow',
-            'Helps align internal and external energies',
-            'Encourages harmony between mind and body',
-            'Used in spiritual practices for energy stabilization',
+            'Known as a wealth and abundance attracting bracelet',
+            'Aligns energy with financial success',
+            'Activates manifestation and prosperity energy',
+            'Helps remove negative money blocks',
         ],
 
         howToUse: [
             'Wear daily on the left wrist for best results',
-            'Use during meditation or energy healing practices',
-            'Set intentions for balance and protection',
-            'Avoid wearing during heavy physical activities if uncomfortable',
+            'Use during business meetings or financial decisions',
+            'Set intention for money, success, and growth',
+            'Avoid negative thinking while wearing',
         ],
 
         careInstructions: [
             'Clean with a soft dry cloth',
-            'Avoid water and harsh chemicals',
-            'Store in a dry and clean place',
-            'Recharge under sunlight or moonlight occasionally',
+            'Avoid water and chemicals',
+            'Store in a clean and dry place',
+            'Recharge under sunlight or moonlight',
         ],
 
         specifications: {
-            material: 'Natural Multi-Stone (Aventurine, Carnelian, Tiger Eye, Hematite, Black Stone)',
+            material: 'Natural Energy Stones',
             beadType: 'Round Polished Beads',
             size: 'Free Size (Elastic)',
             weight: 'Light to Medium',
@@ -959,9 +961,9 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         faq: [
             {
-                question: 'What are the 5 elements in this bracelet?',
+                question: 'What does this bracelet do?',
                 answer:
-                    'It includes stones representing Earth, Fire, Metal, grounding, and protection energies.',
+                    'It is believed to attract wealth, opportunities, and financial growth.',
             },
             {
                 question: 'Can I wear it daily?',
@@ -969,35 +971,35 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
                     'Yes, it is designed for comfortable daily wear.',
             },
             {
-                question: 'Does it really balance energy?',
+                question: 'Does it really attract money?',
                 answer:
-                    'In spiritual practices, these stones are believed to help balance energy, though results may vary.',
+                    'In spiritual belief, it helps align your energy with abundance and opportunities.',
             },
             {
                 question: 'Will it fit my wrist?',
                 answer:
-                    'Yes, it is stretchable and fits most wrist sizes comfortably.',
+                    'Yes, it is stretchable and fits most wrist sizes.',
             },
         ],
 
         trustBadges: [
-            '100% Natural Stones',
+            'Wealth Energy Stones',
             'Handcrafted with Care',
             'Skin-Friendly & Durable',
-            'Trusted by 180+ Customers',
+            'Trusted by 300+ Customers',
         ],
 
         emotionalHook:
-            'Bring balance to your life, align your energy, and stay protected with the power of the five elements.',
+            'Turn your energy into a magnet for money, success, and unlimited opportunities.',
 
         zodiacSign: 'All Signs',
-        planet: 'All Planets',
-        mulankNumber: '5',
+        planet: 'Jupiter (Wealth & Growth)',
+        mulankNumber: '3',
 
         images: [
-            '/assets/bracelete/5elementenergybalance/5elementenergybalance_front.png',
-            '/assets/bracelete/5elementenergybalance/5elementenergybalance_center.png',
-            '/assets/bracelete/5elementenergybalance/5elementenergybalance_last.png',
+            '/assets/bracelete/moneymagnet/moneymagnet_front.png',
+            '/assets/bracelete/moneymagnet/moneymagnet_center.png',
+            '/assets/bracelete/moneymagnet/moneymagnet_last.png',
         ],
     },
     {
@@ -1022,7 +1024,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to absorb grounding energy. Ideal for meditation, focus, protection, and daily wear.',
 
-            price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -1177,7 +1179,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to absorb grounding energy. Perfect for office wear, daily styling, meditation, and protection.',
 
-             price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -1312,8 +1314,8 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-            name: 'Green Aventurine Bracelet',
-            slug: 'green-aventurine-bracelet',
+        name: 'Green Aventurine Bracelet',
+        slug: 'green-aventurine-bracelet',
 
         tagline: 'Stone of Luck, Prosperity & Opportunity',
         qualityTag: 'AAA Quality • 100% Natural Green Aventurine • Handcrafted',
@@ -1332,7 +1334,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to attract luck and positive energy. Ideal for business, career growth, interviews, and financial improvement.',
 
-             price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -1487,7 +1489,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to enhance energy and confidence. Ideal for students, professionals, entrepreneurs, and creative individuals.',
 
-           price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -1642,7 +1644,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand for protection and confidence. Ideal for business, career growth, leadership, and decision-making situations.',
 
-            price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
@@ -1797,7 +1799,7 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand for protection and grounding. Ideal for stress relief, meditation, emotional healing, and daily wear.',
 
-             price: '₹499.00',
+        price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
