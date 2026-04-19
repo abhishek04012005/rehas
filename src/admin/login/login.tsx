@@ -48,11 +48,26 @@ export default function AdminLogin() {
         return;
       }
 
-      // Verify password with bcrypt
-      const passwordMatch = await bcryptjs.compare(
-        credentials.password,
-        user.password_hash
-      );
+      // Verify password with bcrypt if already hashed.
+      // For legacy records where password_hash may contain plain text,
+      // compare directly once and migrate the stored value to bcrypt.
+      const storedPassword = user.password_hash || '';
+      const isBcryptHash = storedPassword.startsWith('$2a$') || storedPassword.startsWith('$2b$') || storedPassword.startsWith('$2y$');
+      let passwordMatch = false;
+
+      if (isBcryptHash) {
+        passwordMatch = await bcryptjs.compare(credentials.password, storedPassword);
+      } else {
+        passwordMatch = credentials.password === storedPassword;
+
+        if (passwordMatch) {
+          const hashedPassword = await bcryptjs.hash(credentials.password, 12);
+          await supabase
+            .from('admin_users')
+            .update({ password_hash: hashedPassword })
+            .eq('id', user.id);
+        }
+      }
 
       if (!passwordMatch) {
         setError('Invalid username or password');

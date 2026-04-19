@@ -1,25 +1,40 @@
 'use client';
 
 import { Suspense, useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, FileDownload } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { supabase } from '@/lib/supabase';
 import { rehasData } from '@/data/rehasData';
+import { contactData } from '@/data/contact';
 import styles from './success.module.css';
 
 function PaymentSuccessContent() {
-  const searchParams = useSearchParams();
   const { productData } = useCheckout();
   const [customerInfo, setCustomerInfo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [paymentData, setPaymentData] = useState<any>(null);
 
-  const orderId = searchParams.get('orderId');
-  const transactionId = searchParams.get('transactionId');
-  const amount = searchParams.get('amount');
-  const method = searchParams.get('method') || 'razorpay';
+  useEffect(() => {
+    // Get payment data from localStorage (check both keys for different entry points)
+    const paymentData = localStorage.getItem('paymentSuccessData');
+    const receiptData = localStorage.getItem('receiptOrderData');
+
+    const storedData = paymentData || receiptData;
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      setPaymentData(data);
+      // Clear both possible data entries
+      localStorage.removeItem('paymentSuccessData');
+      localStorage.removeItem('receiptOrderData');
+    }
+  }, []);
+
+  const orderId = paymentData?.orderId;
+  const transactionId = paymentData?.transactionId;
+  const amount = paymentData?.amount;
+  const method = paymentData?.method || 'razorpay';
 
   useEffect(() => {
     const fetchCustomerInfo = async () => {
@@ -56,6 +71,10 @@ function PaymentSuccessContent() {
     minute: '2-digit',
     second: '2-digit',
   });
+
+  const billingLocation = contactData.info.cards.find((card) => card.title === 'Location');
+  const billingAddressLine1 = billingLocation?.value || '';
+  const billingAddressLine2 = billingLocation?.secondaryText || '';
 
   const handleDownloadPDF = async () => {
     // Dynamically import html2pdf to avoid SSR issues
@@ -104,32 +123,62 @@ function PaymentSuccessContent() {
               margin-bottom: 12px;
             ">
               <div style="
-                width: 120px;
-                height: 48px;
-                background: #f0f0f0;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                border-radius: 4px;
-                font-weight: 700;
-                color: #560067;
-              ">REHAS</div>
+                gap: 12px;
+              ">
+                <img src="/logohalf.svg" alt="REHAS Logo" style="
+                  width: 60px;
+                  height: 30px;
+                  object-fit: contain;
+                ">
+                <div style="
+                  color: #560067;
+                  font-size: 18px;
+                  font-weight: 700;
+                ">REHAS</div>
+              </div>
               <div style="text-align: right; font-size: 12px; color: #666;">
                 <div style="font-weight: 700; color: #560067; font-size: 14px; margin-bottom: 2px;">Order #${orderId || 'N/A'}</div>
                 <div>${orderDate}</div>
               </div>
             </div>
-            <h1 style="
+            <div style="
+              text-align: center;
+              margin-bottom: 8px;
+            ">
+              <p style="
+                color: #000;
+                margin: 0;
+                font-size: 25px;
+                font-weight: 700;
+              ">Order Confirmation Receipt</p>
+            </div>
+          </div>
+
+          <div style="
+            background: #f9f9f9;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+          ">
+            <div style="
               color: #560067;
-              margin: 0 0 8px 0;
-              font-size: 24px;
+              font-size: 12px;
               font-weight: 700;
-            ">REHAS - Cosmic Wellness</h1>
-            <p style="
+              margin: 0 0 8px 0;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            ">Ship From</div>
+            <div style="
+              font-size: 12px;
               color: #666;
-              margin: 0;
-              font-size: 14px;
-            ">Order Confirmation Receipt</p>
+              line-height: 1.4;
+            ">
+              <div>REHAS, Chanakya Nagar Road, Agam Kua</div>
+              <div>Patna, Bihar, India - 800007</div>
+            </div>
           </div>
 
           <div style="
@@ -184,7 +233,7 @@ function PaymentSuccessContent() {
                 line-height: 1.4;
               ">
                 <div>${customerInfo?.email || 'N/A'}</div>
-                <div>${customerInfo?.phone || 'N/A'}</div>
+                <div>${customerInfo?.phone_number || 'N/A'}</div>
               </div>
             </div>
             ${customerInfo?.order_type === 'product' ? `
@@ -208,7 +257,7 @@ function PaymentSuccessContent() {
                 line-height: 1.4;
               ">
                 <div>${customerInfo?.address_line_1} ${customerInfo?.address_line_2}</div>
-                <div>${customerInfo?.city}, ${customerInfo?.state}</div>
+                <div>${customerInfo?.city}, ${customerInfo?.state} - ${customerInfo?.postal_code || customerInfo?.postalCode || 'N/A'}</div>
               </div>
             </div>
             ` : ''}
@@ -226,37 +275,102 @@ function PaymentSuccessContent() {
               text-transform: uppercase;
             ">Order Summary</div>
             <div style="
+              border: 1px solid #e0e0e0;
+              border-radius: 6px;
+              overflow: hidden;
+            ">
+              <div style="
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 16px;
+                background: #f9f9f9;
+                color: #560067;
+                font-weight: 700;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              ">
+                <span>Product</span>
+                <span>Qty</span>
+                <span>Unit Price</span>
+                <span>Amount</span>
+              </div>
+              <div style="
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 16px;
+                background: white;
+                border-top: 1px solid #e0e0e0;
+              ">
+                <div style="flex: 1;">
+                  <div style="
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 12px;
+                  ">${productData?.productTitle || 'N/A'}</div>
+                </div>
+                <span style="font-size: 12px; color: #666;">1</span>
+                <span style="font-size: 12px; color: #666;">₹${amount || '0.00'}</span>
+                <span style="
+                  font-weight: 700;
+                  color: #560067;
+                  font-size: 13px;
+                ">₹${amount || '0.00'}</span>
+              </div>
+            </div>
+            ${productData?.isPoojaSelected && productData?.poojaLabel ? `
+            <div style="
+              border: 1px solid #e0e0e0;
+              border-radius: 6px;
+              overflow: hidden;
+              margin-top: 8px;
+            ">
+              <div style="
+                display: grid;
+                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 16px;
+                background: white;
+                border-top: 1px solid #e0e0e0;
+              ">
+                <div style="flex: 1;">
+                  <div style="
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 12px;
+                  ">${productData.poojaLabel}</div>
+                </div>
+                <span style="font-size: 12px; color: #666;">1</span>
+                <span style="font-size: 12px; color: #666;">${productData.poojaPrice}</span>
+                <span style="
+                  font-weight: 700;
+                  color: #560067;
+                  font-size: 13px;
+                ">${productData.poojaPrice}</span>
+              </div>
+            </div>
+            ` : ''}
+          </div>
+
+           <div style="margin-bottom: 20px;">
+            <div style="
               display: flex;
               justify-content: space-between;
               align-items: center;
-              padding: 12px;
-              background: #f9f9f9;
+              padding: 16px;
+              background: linear-gradient(135deg, #560067, #7b1fa2);
+              color: white;
               border-radius: 6px;
-              border: 1px solid #e0e0e0;
-              margin-bottom: 8px;
+              font-size: 16px;
+              font-weight: 700;
             ">
-              <div style="flex: 1;">
-                <div style="
-                  font-weight: 600;
-                  color: #333;
-                  font-size: 13px;
-                  margin-bottom: 4px;
-                ">${productData?.productTitle || 'N/A'}</div>
-                <div style="
-                  display: flex;
-                  gap: 12px;
-                  font-size: 11px;
-                  color: #666;
-                ">
-                  <span>Qty: 1</span>
-                  <span>₹${amount || '0.00'}</span>
-                </div>
-              </div>
-              <div style="
-                font-weight: 700;
-                color: #560067;
-                font-size: 14px;
-              ">₹${amount || '0.00'}</div>
+              <span>Total Amount</span>
+              <span>₹${parseFloat(amount || '0').toFixed(2)}</span>
             </div>
           </div>
 
@@ -285,7 +399,7 @@ function PaymentSuccessContent() {
                 border-radius: 4px;
                 border: 1px solid #e0e0e0;
               ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Method</span>
+                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Mode</span>
                 <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
               </div>
               <div style="
@@ -322,22 +436,7 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
-          <div style="margin-bottom: 20px;">
-            <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 16px;
-              background: linear-gradient(135deg, #560067, #7b1fa2);
-              color: white;
-              border-radius: 6px;
-              font-size: 16px;
-              font-weight: 700;
-            ">
-              <span>Total Amount</span>
-              <span>₹${amount || '0.00'}</span>
-            </div>
-          </div>
+         
 
           <div style="
             text-align: center;
@@ -383,7 +482,7 @@ function PaymentSuccessContent() {
               </div>
               <div style="display: flex; flex-direction: column; gap: 2px;">
                 <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Website</span>
-                <span style="font-size: 12px; color: #333; font-weight: 600;">rehas.in</span>
+                <span style="font-size: 12px; color: #333; font-weight: 600;">www.rehas.in</span>
               </div>
             </div>
             <p style="
@@ -441,23 +540,34 @@ function PaymentSuccessContent() {
           {/* Header with Logo and Order Info */}
           <div className={styles.receiptHeader}>
             <div className={styles.headerTop}>
-              {rehasData.profile.logo && (
-                <div className={styles.logoContainer}>
-                  <Image
-                    src={rehasData.profile.logo}
-                    alt="REHAS Logo"
-                    width={120}
-                    height={48}
-                    className={styles.logo}
-                  />
-                </div>
-              )}
+              <div className={styles.headerLeft}>
+                {rehasData.profile.logo && (
+                  <div className={styles.logoContainer}>
+                    <Image
+                      src={rehasData.profile.logo}
+                      alt="REHAS Logo"
+                      width={60}
+                      height={30}
+                      className={styles.logo}
+                    />
+                  </div>
+                )}
+                <h2 className={styles.receiptTitle}>REHAS</h2>
+              </div>
               <div className={styles.orderBadge}>
                 <span className={styles.orderNumber}>Order #{orderId || 'N/A'}</span>
               </div>
             </div>
-            <h2 className={styles.receiptTitle}>REHAS - Cosmic Wellness</h2>
             <p className={styles.receiptSubtitle}>Order Confirmation Receipt</p>
+          </div>
+
+          {/* Ship From Address */}
+          <div className={styles.receiptSection}>
+            <h3 className={styles.sectionTitle}>Ship From</h3>
+            <div className={styles.addressInfo}>
+              <div className={styles.addressText}>REHAS, Chanakya Nagar Road, Agam Kua</div>
+              <div className={styles.addressText}>Patna, Bihar, India - 800007</div>
+            </div>
           </div>
 
           {/* Order Status */}
@@ -470,7 +580,6 @@ function PaymentSuccessContent() {
 
           {/* Order Information */}
           <div className={styles.receiptSection}>
-            <h3 className={styles.sectionTitle}>ORDER INFORMATION</h3>
             <div className={styles.detailRow}>
               <span className={styles.detailLabel}>Order Number:</span>
               <span className={styles.detailValue}>#{orderId || 'N/A'}</span>
@@ -489,7 +598,7 @@ function PaymentSuccessContent() {
                 <div className={styles.customerName}>{customerInfo?.full_name || 'N/A'}</div>
                 <div className={styles.customerContact}>
                   <span>{customerInfo?.email || 'N/A'}</span>
-                  <span>{customerInfo?.phone || 'N/A'}</span>
+                  <span>{customerInfo?.phone_number || 'N/A'}</span>
                 </div>
               </div>
             </div>
@@ -502,7 +611,7 @@ function PaymentSuccessContent() {
                     {customerInfo?.address_line_1} {customerInfo?.address_line_2}
                   </div>
                   <div className={styles.addressText}>
-                    {customerInfo?.city}, {customerInfo?.state}
+                    {customerInfo?.city}, {customerInfo?.state} - {customerInfo?.postal_code || customerInfo?.postalCode || 'N/A'}
                   </div>
                 </div>
               </div>
@@ -512,15 +621,29 @@ function PaymentSuccessContent() {
           {/* Product Details */}
           <div className={styles.productSection}>
             <h3 className={styles.sectionTitle}>Order Summary</h3>
-            <div className={styles.productItem}>
-              <div className={styles.productInfo}>
-                <div className={styles.productName}>{productData?.productTitle || 'N/A'}</div>
-                <div className={styles.productMeta}>
-                  <span>Qty: 1</span>
-                  <span>₹{amount || '0.00'}</span>
-                </div>
+            <div className={styles.productTable}>
+              <div className={styles.productTableHeader}>
+                <span>Product</span>
+                <span>Qty</span>
+                <span>Unit Price</span>
+                <span>Amount</span>
               </div>
-              <div className={styles.productPrice}>₹{amount || '0.00'}</div>
+              <div className={styles.productTableRow}>
+                <div className={styles.productInfo}>
+                  <div className={styles.productName}>{productData?.productTitle || 'N/A'}</div>
+                </div>
+                <span>1</span>
+                <span>₹{amount || '0.00'}</span>
+                <span className={styles.productPrice}>₹{amount || '0.00'}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Order Total */}
+          <div className={styles.totalSection}>
+            <div className={styles.totalRow}>
+              <span className={styles.totalLabel}>Total Amount</span>
+              <span className={styles.totalAmount}>₹{amount || '0.00'}</span>
             </div>
           </div>
 
@@ -529,7 +652,7 @@ function PaymentSuccessContent() {
             <h3 className={styles.sectionTitle}>Payment Details</h3>
             <div className={styles.paymentGrid}>
               <div className={styles.paymentItem}>
-                <span className={styles.paymentLabel}>Payment Method</span>
+                <span className={styles.paymentLabel}>Payment Mode</span>
                 <span className={styles.paymentValue}>
                   {method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}
                 </span>
@@ -549,20 +672,14 @@ function PaymentSuccessContent() {
             </div>
           </div>
 
-          {/* Order Total */}
-          <div className={styles.totalSection}>
-            <div className={styles.totalRow}>
-              <span className={styles.totalLabel}>Total Amount</span>
-              <span className={styles.totalAmount}>₹{amount || '0.00'}</span>
-            </div>
-          </div>
+
 
           {/* Thank You Message */}
           <div className={styles.thankYouSection}>
             <div className={styles.thankYouMessage}>
               <h3>Thank you for choosing REHAS!</h3>
-              <p>Your order has been {method === 'cod' ? 'confirmed' : 'successfully processed'}. 
-              {method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
+              <p>Your order has been {method === 'cod' ? 'confirmed' : 'successfully processed'}.
+                {method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
             </div>
           </div>
 
@@ -579,7 +696,7 @@ function PaymentSuccessContent() {
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Website</span>
-                <span className={styles.contactValue}>rehas.in</span>
+                <span className={styles.contactValue}>www.rehas.in</span>
               </div>
             </div>
             <p className={styles.disclaimerText}>This is an electronically generated receipt. No signature required.</p>

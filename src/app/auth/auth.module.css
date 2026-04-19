@@ -1,0 +1,453 @@
+:root {
+  --auth-card: #ffffff;
+  --auth-border: rgba(86, 0, 103, 0.12);
+  --auth-background: rgba(86, 0, 103, 0.03);
+}
+
+.container {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, rgba(245, 245, 245, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.card {
+  width: min(900px, 100%);
+  background: var(--auth-card);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--auth-border);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 32px 40px 20px;
+  border-bottom: 1px solid rgba(86, 0, 103, 0.08);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  color: var(--primary);
+}
+
+.header p {
+  margin: 10px 0 0;
+  color: var(--text-light);
+  max-width: 520px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tabBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 24px 40px 0;
+  background: var(--auth-background);
+}
+
+.tabBar button {
+  border: 1px solid rgba(86, 0, 103, 0.16);
+  background: transparent;
+  padding: 12px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #444;
+  transition: all 0.25s ease;
+}
+
+.activeTab {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.statusSuccess,
+.statusError {
+  max-width: 900px;
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.statusSuccess {
+  background: #e6f7ff;
+  color: #0f4c81;
+  border: 1px solid #b8e1ff;
+}
+
+.statusError {
+  background: #fff1f0;
+  color: #a61d24;
+  border: 1px solid #ffccd5;
+}
+
+.form {
+  padding: 40px 40px 50px;
+  display: grid;
+  gap: 24px;
+}
+
+.form label {
+  display: grid;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.form input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(86, 0, 103, 0.18);
+  background: #f8f4fb;
+  color: #222;
+  font-size: 1rem;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInputWrapper input {
+  flex: 1;
+  padding-right: 52px;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #5f2b82;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.passwordToggle:hover {
+  opacity: 0.85;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(86, 0, 103, 0.08);
+}
+
+.forgotPasswordLink {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  padding: 0;
+  margin-top: -12px;
+}
+
+.resetInfo {
+  background: rgba(86, 0, 103, 0.05);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.resetInfo p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.resetInfo strong {
+  color: var(--primary);
+}
+
+.backButton {
+  width: fit-content;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(86, 0, 103, 0.2);
+  background: rgba(86, 0, 103, 0.05);
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+.backButton:hover {
+  background: rgba(86, 0, 103, 0.1);
+  border-color: rgba(86, 0, 103, 0.3);
+}
+
+.submitBtn {
+  width: fit-content;
+  padding: 16px 26px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  font-size: 1rem;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.footerText {
+  padding: 0 40px 40px;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.secondaryLink {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.resetOptions {
+  display: grid;
+  gap: 20px;
+  text-align: center;
+}
+
+.resetOptions h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.optionButton {
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+}
+
+.optionButton:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.backButton {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(86, 0, 103, 0.08);
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.backButton:hover {
+  background: rgba(86, 0, 103, 0.15);
+}
+
+@media (max-width: 860px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form {
+    padding: 30px 26px 40px;
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+}
+
+/* OTP Signup Styles */
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: rgba(86, 0, 103, 0.03);
+  border-radius: 12px;
+}
+
+.stepActive,
+.stepCompleted,
+.stepInactive {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.stepActive {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 6px rgba(86, 0, 103, 0.12);
+}
+
+.stepCompleted {
+  background: #4CAF50;
+  color: white;
+}
+
+.stepInactive {
+  background: rgba(86, 0, 103, 0.08);
+  color: var(--text-light);
+}
+
+.stepLine {
+  width: 32px;
+  height: 3px;
+  background: rgba(86, 0, 103, 0.15);
+  flex-shrink: 0;
+}
+
+.otpInfo {
+  background: rgba(86, 0, 103, 0.05);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.otpInfo p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.emailDisplay {
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  font-size: 1.05rem !important;
+  margin-top: 8px !important;
+}
+
+.verifiedInfo {
+  background: rgba(76, 175, 80, 0.08);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.verifiedInfo p {
+  margin: 0;
+  color: #2E7D32;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.checkIcon {
+  color: #4CAF50;
+  font-size: 1.8rem;
+}
+
+.changeEmailBtn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(86, 0, 103, 0.2);
+  background: white;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.changeEmailBtn:hover {
+  background: rgba(86, 0, 103, 0.05);
+  border-color: var(--primary);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 10px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header p,
+  .footerText {
+    font-size: 0.95rem;
+  }
+
+  .stepIndicator {
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 16px;
+  }
+
+  .stepActive,
+  .stepCompleted,
+  .stepInactive {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .stepLine {
+    width: 20px;
+  }
+}

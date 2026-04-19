@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Search, ShoppingCart } from '@mui/icons-material';
+import { CheckCircle, Search, ShoppingCart, Sort, Star } from '@mui/icons-material';
+import { supabase } from '@/lib/supabase';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { productMerchandiseData, calculateDiscountPercentage } from '@/data/productMerchandise';
 import { merchandiseData } from '@/data/content';
@@ -36,18 +37,91 @@ const yantraProducts = allProducts.filter((p) => p.category === 'yantra');
 const categoryTabs = [
   { id: 'all', title: 'All Products', count: allProducts.length },
   { id: 'bracelet', title: 'Bracelets', count: braceletProducts.length },
-  { id: 'yantra', title: 'Yantras', count: yantraProducts.length },
+  // { id: 'yantra', title: 'Yantras', count: yantraProducts.length },
 ];
 
 export default function MerchandisePage() {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'bracelet' | 'yantra'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest'>('newest');
+  const [reviewStats, setReviewStats] = useState<{ [key: string]: { total: number; average: number } }>({});
+  const [reviewsLoading, setReviewsLoading] = useState(true);
+  const [productsLoading, setProductsLoading] = useState(true);
+
+  // Initialize products on mount
+  useEffect(() => {
+    setProductsLoading(true);
+    // Simulate brief loading time for better UX
+    const timer = setTimeout(() => {
+      setProductsLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Fetch review stats for all products
+  useEffect(() => {
+    const fetchAllReviewStats = async () => {
+      setReviewsLoading(true);
+      try {
+        const stats: { [key: string]: { total: number; average: number } } = {};
+        
+        for (const product of allProducts) {
+          const { data: reviews, error } = await supabase
+            .from('product_reviews')
+            .select('rating')
+            .eq('product_id', product.slug)
+            .eq('status', 'approved');
+
+          if (!error && reviews && reviews.length > 0) {
+            const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length);
+            stats[product.slug] = {
+              total: reviews.length,
+              average: parseFloat(avgRating.toFixed(1))
+            };
+          }
+        }
+        
+        setReviewStats(stats);
+      } catch (error) {
+        console.error('Error fetching review stats:', error);
+      } finally {
+        setReviewsLoading(false);
+      }
+    };
+
+    fetchAllReviewStats();
+  }, []);
+
+  const sortOptions = [
+    { value: 'newest', label: 'Newest First' },
+    { value: 'name-asc', label: 'Name (A-Z)' },
+    { value: 'name-desc', label: 'Name (Z-A)' },
+    { value: 'price-low', label: 'Price (Low to High)' },
+    { value: 'price-high', label: 'Price (High to Low)' },
+  ];
 
   const filteredProducts = (selectedCategory === 'all' ? allProducts : selectedCategory === 'bracelet' ? braceletProducts : yantraProducts).filter((product) =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.meaning.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.use.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortBy) {
+      case 'name-asc':
+        return a.name.localeCompare(b.name);
+      case 'name-desc':
+        return b.name.localeCompare(a.name);
+      case 'price-low':
+        return parseFloat(a.price.replace(/[₹,]/g, '')) - parseFloat(b.price.replace(/[₹,]/g, ''));
+      case 'price-high':
+        return parseFloat(b.price.replace(/[₹,]/g, '')) - parseFloat(a.price.replace(/[₹,]/g, ''));
+      case 'newest':
+      default:
+        // Assuming newer products have higher IDs (you might want to add a date field)
+        return parseInt(b.id.split('-')[1] || '0') - parseInt(a.id.split('-')[1] || '0');
+    }
+  });
 
   return (
     <div className={styles.merchandise}>
@@ -84,28 +158,63 @@ export default function MerchandisePage() {
               <Search className={styles.searchButtonIcon} />
             </button>
           </div>
-          <div className={styles.categoryFilter}>
-            {categoryTabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                className={`${styles.categoryButton} ${selectedCategory === tab.id ? styles.categoryButtonActive : ''}`}
-                onClick={() => setSelectedCategory(tab.id as 'all' | 'bracelet' | 'yantra')}
+          
+          <div className={styles.sortAndFilter}>
+            <div className={styles.sortBox}>
+              <Sort className={styles.sortIcon} />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest')}
+                className={styles.sortSelect}
               >
-                {tab.title}
-                <span className={styles.categoryCount}>{tab.count}</span>
-              </button>
-            ))}
+                {sortOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <div className={styles.categoryFilter}>
+              {categoryTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  className={`${styles.categoryButton} ${selectedCategory === tab.id ? styles.categoryButtonActive : ''}`}
+                  onClick={() => setSelectedCategory(tab.id as 'all' | 'bracelet' | 'yantra')}
+                >
+                  {tab.title}
+                  <span className={styles.categoryCount}>{tab.count}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className={styles.productCount}>
-          Showing {filteredProducts.length} item{filteredProducts.length !== 1 ? 's' : ''}
+          Showing {sortedProducts.length} item{sortedProducts.length !== 1 ? 's' : ''}
         </div>
 
         <div className={styles.productListGrid}>
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+          {productsLoading ? (
+            // Show skeleton loaders while loading
+            Array.from({ length: 8 }).map((_, index) => (
+              <div key={`skeleton-${index}`} className={styles.skeletonProductCard}>
+                <div className={styles.skeletonProductImage}></div>
+                <div className={styles.skeletonProductDetails}>
+                  <div className={styles.skeletonProductName}></div>
+                  <div className={styles.skeletonProductDescription}></div>
+                  <div className={styles.skeletonProductDescription}></div>
+                  <div className={styles.skeletonPricing}>
+                    <div className={styles.skeletonPrice}></div>
+                    <div className={styles.skeletonPrice}></div>
+                  </div>
+                  <div className={styles.skeletonButton}></div>
+                </div>
+              </div>
+            ))
+          ) : sortedProducts.length > 0 ? (
+            sortedProducts.map((product) => (
               <div key={product.id} className={styles.productListCard}>
                 {/* Product Image */}
                 <div className={styles.productImageWrapper}>
@@ -115,6 +224,32 @@ export default function MerchandisePage() {
                     fill
                     className={styles.productImage}
                   />
+                  
+                  {/* Review Stats Badge */}
+                  {reviewsLoading ? (
+                    <div className={styles.reviewBadgeSkeleton}>
+                      <div className={styles.skeletonStars}></div>
+                      <div className={styles.skeletonText}></div>
+                    </div>
+                  ) : reviewStats[product.slug] && reviewStats[product.slug].total > 0 ? (
+                    <div className={styles.reviewBadge}>
+                      <div className={styles.starRating}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            sx={{
+                              fontSize: 14,
+                              color: i < Math.round(reviewStats[product.slug].average) ? '#ffc107' : '#e0e0e0',
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <div className={styles.ratingText}>
+                        <span className={styles.avgScore}>{reviewStats[product.slug].average}</span>
+                        <span className={styles.reviewCountText}>({reviewStats[product.slug].total})</span>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
 
                 {/* Product Details */}
@@ -134,9 +269,9 @@ export default function MerchandisePage() {
                   </div>
 
                   {/* Usage Instruction */}
-                  <div className={styles.usageInstruction}>
+                  {/* <div className={styles.usageInstruction}>
                     {product.use}
-                  </div>
+                  </div> */}
 
                   {/* Buy Now Button */}
                   <Link
@@ -149,12 +284,12 @@ export default function MerchandisePage() {
                 </div>
               </div>
             ))
-        ) : (
-          <div className={styles.noResultsBox}>
-            <p>No products found for your search.</p>
-            <p>Try a different keyword or select another category.</p>
-          </div>
-        )}
+          ) : (
+            <div className={styles.noResultsBox}>
+              <p>No products found for your search.</p>
+              <p>Try a different keyword or select another category.</p>
+            </div>
+          )}
         </div>
       </section>
 

@@ -23,10 +23,23 @@ export async function POST(request: NextRequest) {
       serviceId,
       serviceTitle,
       serviceDescription,
+      items,
+      orderTotal,
     } = body;
 
+    const finalAmount = typeof orderTotal === 'number' ? orderTotal : amount;
+    const itemSummary = Array.isArray(items) && items.length > 0
+      ? items.map((item: any) => {
+          const pooja = item.isPoojaSelected ? ` (${item.poojaLabel || 'Pooja'})` : '';
+          return `${item.productTitle}${pooja} x${item.quantity || 1}`;
+        }).join(' | ')
+      : productTitle;
+    const descriptionSummary = Array.isArray(items) && items.length > 0
+      ? items.map((item: any) => `${item.productTitle}${item.isPoojaSelected ? ` (${item.poojaLabel || 'Pooja'})` : ''} · Qty ${item.quantity || 1}`).join(' | ')
+      : serviceDescription;
+
     // Validation
-    if (!fullName || !email || !phoneNumber || !productTitle || !amount) {
+    if (!fullName || !email || !phoneNumber || !finalAmount) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -51,7 +64,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Calculate amount in paise
-    const amountInPaise = Math.round(amount * 100);
+    const amountInPaise = Math.round(finalAmount * 100);
 
     console.log('Creating order:', {
       fullName,
@@ -80,10 +93,10 @@ export async function POST(request: NextRequest) {
           state: state,
           postal_code: postalCode,
           country: country,
-          product_title: productTitle,
-          service_title: serviceTitle || productTitle,
-          service_description: serviceDescription,
-          amount: amount,
+          product_title: itemSummary || productTitle,
+          service_title: serviceTitle || itemSummary || productTitle,
+          service_description: descriptionSummary,
+          amount: finalAmount,
           amount_in_paise: amountInPaise,
           currency: 'INR',
           order_type: orderType,

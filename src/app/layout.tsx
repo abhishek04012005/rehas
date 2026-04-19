@@ -7,6 +7,7 @@ import AutoEnquiryPopup from "@/components/autoEnquiryPopup/autoEnquiryPopup";
 import Footer from "@/components/footer/footer";
 import SchemaComponent from "@/components/schemaComponent/schemaComponent";
 import { CheckoutProvider } from "@/context/CheckoutContext";
+import { AuthProvider } from "@/context/AuthContext";
 import { organizationSchema } from "@/lib/seoConfig";
 
 const geistSans = Geist({
@@ -86,13 +87,15 @@ export default function RootLayout({
         <SchemaComponent schema={organizationSchema} />
       </head>
       <body>
-        <CheckoutProvider>
-          <PageLoadingWrapper />
-          <AutoEnquiryPopup />
-          <NavbarWrapper />
-          {children}
-          <Footer />
-        </CheckoutProvider>
+        <AuthProvider>
+          <CheckoutProvider>
+            <PageLoadingWrapper />
+            <AutoEnquiryPopup />
+            <NavbarWrapper />
+            {children}
+            <Footer />
+          </CheckoutProvider>
+        </AuthProvider>
       </body>
     </html>
     

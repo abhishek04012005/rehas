@@ -109,7 +109,7 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
 
         <div className={styles.productsGrid}>
           {filteredProducts.length > 0 ? (
-            filteredProducts.slice(0, 3).map((product, index) => (
+            filteredProducts.map((product, index) => (
               <div key={index} className={styles.productCard}>
                 {/* Product Image */}
                 <div className={styles.productImageWrapper}>
@@ -117,8 +117,7 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
                     <Image
                       src={product.images[0]}
                       alt={product.name}
-                      width={400}
-                      height={300}
+                      fill
                       className={styles.productImage}
                       priority={index < 3}
                     />
@@ -146,9 +145,9 @@ export default function ProductShowcase({ data, category }: ProductShowcaseProps
                   </div>
 
                   {/* Usage Instruction */}
-                  <div className={styles.usageInstruction}>
+                  {/* <div className={styles.usageInstruction}>
                     {product.use}
-                  </div>
+                  </div> */}
 
                   {/* Buy Now Button */}
                   <Link

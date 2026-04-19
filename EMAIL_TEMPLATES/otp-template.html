@@ -1,0 +1,304 @@
+<!-- OTP Email Template for REHAS -->
+<!-- Use this HTML in your EmailJS template -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email - REHAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #560067 0%, #92487a 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(86, 0, 103, 0.15);
+        }
+        .header {
+            background: linear-gradient(135deg, #560067 0%, #92487a 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -30%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+        .logo-container {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        .logo-img {
+          background-color: white;
+            height: 50px;
+            width: auto;
+          padding: 0.2rem;
+          border-radius: 10px;
+        }
+        .header h1 {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        .header-subtitle {
+            color: #d4a5d9;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+        .content {
+            padding: 45px 35px;
+        }
+        .greeting {
+            font-size: 16px;
+            color: #171717;
+            margin-bottom: 15px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .intro-text {
+            font-size: 15px;
+            color: #666666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .otp-box {
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            border: 2px solid #d4a5d9;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            margin: 35px 0;
+            position: relative;
+        }
+        .otp-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #560067, #92487a);
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0;
+        }
+        .otp-label {
+            font-size: 11px;
+            color: #999999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .otp-code {
+            font-size: 48px;
+            font-weight: 700;
+            color: #560067;
+            letter-spacing: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            line-height: 1;
+        }
+        .otp-timer {
+            font-size: 13px;
+            color: #92487a;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+        .instructions {
+            background: #fafafa;
+            border-left: 4px solid #560067;
+            padding: 18px 20px;
+            margin: 28px 0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #171717;
+            line-height: 1.8;
+        }
+        .instructions strong {
+            color: #560067;
+            font-weight: 600;
+        }
+        .instructions ul {
+            margin: 12px 0 0 20px;
+            padding: 0;
+        }
+        .instructions li {
+            margin: 8px 0;
+            color: #666666;
+        }
+        .security-alert {
+            background: #fff5f0;
+            border-left: 4px solid #d4a5d9;
+            padding: 18px 20px;
+            margin: 28px 0;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #560067;
+            line-height: 1.8;
+        }
+        .security-alert strong {
+            color: #560067;
+            font-weight: 600;
+        }
+        .support-text {
+            color: #666666;
+            margin-top: 25px;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        .support-link {
+            color: #560067;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #d4a5d9;
+        }
+        .support-link:hover {
+            color: #92487a;
+        }
+        .footer {
+            background: #fafafa;
+            padding: 30px 35px;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+        .footer-text {
+            font-size: 12px;
+            color: #666666;
+            margin: 0 0 12px 0;
+            font-weight: 500;
+        }
+        .footer-tagline {
+            font-size: 12px;
+            color: #999999;
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+        .footer-links {
+            font-size: 12px;
+        }
+        .footer-link {
+            color: #560067;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 8px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .footer-link:hover {
+            border-bottom-color: #560067;
+        }
+        .divider {
+            height: 1px;
+            background: #e5e5e5;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/abhishek04012005/rehas/e9a2156673f9a0db573395bfe000abccb7ce0ce3/public/logohalf.svg" alt="REHAS" class="logo-img">
+            </div>
+            <h1>Verify Your Email</h1>
+            <p class="header-subtitle">Secure your REHAS account</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="greeting">
+                Hello {{user_email}},
+            </div>
+
+            <p class="intro-text">
+                Thank you for joining REHAS! To complete your registration and unlock the full potential of your account, please verify your email address using the code below.
+            </p>
+
+            <!-- OTP Box -->
+            <div class="otp-box">
+                <div class="otp-label">Your Verification Code</div>
+                <div class="otp-code">{{otp_code}}</div>
+                <div class="otp-timer">⏱️ Valid for 10 minutes</div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions">
+                <strong>How to verify your email:</strong>
+                <ul>
+                    <li>Copy the code above</li>
+                    <li>Enter it on the verification page</li>
+                    <li>This code will expire in 10 minutes for security</li>
+                    <li>Never share this code with anyone</li>
+                </ul>
+            </div>
+
+            <!-- Security Alert -->
+            <div class="security-alert">
+                <strong>🔒 Security Notice:</strong> If you didn't request this verification code, please ignore this email. Your account credentials remain secure.
+            </div>
+
+            <p class="support-text">
+                Need help? Contact our support team at 
+                <a href="mailto:support@rehas.in" class="support-link">support@rehas.in</a>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                © 2026 REHAS. All rights reserved.
+            </p>
+            <p class="footer-tagline">
+                Bridging ancient cosmic wisdom with modern holistic wellness
+            </p>
+            <div class="footer-links">
+                <a href="https://rehas.in" class="footer-link">Visit Website</a>
+                <span style="color: #e5e5e5;">•</span>
+                <a href="mailto:contact@rehas.in" class="footer-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

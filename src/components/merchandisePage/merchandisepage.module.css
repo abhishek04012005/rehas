@@ -108,6 +108,124 @@
   margin: 24px 0 16px;
 }
 
+@media (max-width: 768px) {
+  .productControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sortAndFilter {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.sortAndFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--light-bg) 0%, #f5f0ff 100%);
+  border: 2px solid var(--primary);
+  box-shadow: 0 4px 15px rgba(86, 0, 103, 0.1);
+  position: relative;
+  min-width: 280px;
+  transition: all 0.3s ease;
+}
+
+.sortBox:hover {
+  box-shadow: 0 6px 20px rgba(86, 0, 103, 0.2);
+  border-color: var(--secondary);
+}
+
+.sortIcon {
+  font-size: 1.3rem;
+  color: var(--primary);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.sortSelect {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--foreground);
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+  padding: 0 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 28px;
+  accent-color: var(--primary);
+}
+
+.sortSelect:hover {
+  color: var(--primary);
+}
+
+.sortSelect:focus {
+  outline: none;
+  color: var(--primary);
+}
+
+.sortSelect option {
+  background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%) !important;
+  color: #2d2d2d !important;
+  padding: 16px 22px !important;
+  border: 1px solid #e8e8e8 !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  margin: 6px 0 !important;
+  letter-spacing: 0.2px !important;
+}
+
+.sortSelect option:first-child {
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf7ff 100%) !important;
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  border: 2px solid var(--primary) !important;
+  padding: 15px 21px !important;
+}
+
+.sortSelect option:disabled {
+  background: #f5f5f5 !important;
+  color: #a0a0a0 !important;
+  opacity: 0.6 !important;
+}
+
+.sortSelect option:checked {
+  background: linear-gradient(135deg, #560067 0%, #6d1b7d 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  border: 2px solid #560067 !important;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+.sortBox::after {
+  content: '▼';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  color: var(--primary);
+  pointer-events: none;
+}
+
 .searchBox {
   display: inline-flex;
   align-items: center;
@@ -210,10 +328,107 @@
 
 .productListGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+/* Product Skeleton Loaders */
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeletonProductCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.skeletonProductImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeletonProductDetails {
+  padding: 16px;
+}
+
+.skeletonProductName {
+  height: 18px;
+  width: 80%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.skeletonProductDescription {
+  height: 14px;
+  width: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeletonProductDescription:last-of-type {
+  width: 90%;
+  margin-bottom: 16px;
+}
+
+.skeletonPricing {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skeletonPrice {
+  height: 16px;
+  width: 80px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeletonButton {
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 6px;
+}
+
+@media (max-width: 1280px) {
+  .productListGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .productListGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .productListGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .noResultsBox {
@@ -269,7 +484,7 @@
 .productImageWrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  aspect-ratio: 1 / 1;
   background: linear-gradient(135deg, rgba(86, 0, 103, 0.06) 0%, rgba(146, 72, 122, 0.06) 100%);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -288,6 +503,90 @@
 
 .productListCard:hover .productImage {
   transform: scale(1.08);
+}
+
+/* Review Badge */
+.reviewBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.starRating {
+  display: flex;
+  gap: 2px;
+}
+
+.ratingText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.avgScore {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.reviewCountText {
+  color: #666;
+  font-size: 11px;
+}
+
+/* Review Badge Skeleton Loader */
+.reviewBadgeSkeleton {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.skeletonStars {
+  display: flex;
+  gap: 2px;
+  height: 14px;
+  width: 72px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeletonText {
+  height: 16px;
+  width: 50px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Product Details Section */
