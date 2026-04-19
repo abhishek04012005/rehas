@@ -45,10 +45,12 @@ export default function MerchandisePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest'>('newest');
   const [reviewStats, setReviewStats] = useState<{ [key: string]: { total: number; average: number } }>({});
+  const [reviewsLoading, setReviewsLoading] = useState(true);
 
   // Fetch review stats for all products
   useEffect(() => {
     const fetchAllReviewStats = async () => {
+      setReviewsLoading(true);
       try {
         const stats: { [key: string]: { total: number; average: number } } = {};
         
@@ -71,6 +73,8 @@ export default function MerchandisePage() {
         setReviewStats(stats);
       } catch (error) {
         console.error('Error fetching review stats:', error);
+      } finally {
+        setReviewsLoading(false);
       }
     };
 
@@ -194,7 +198,12 @@ export default function MerchandisePage() {
                   />
                   
                   {/* Review Stats Badge */}
-                  {reviewStats[product.slug] && reviewStats[product.slug].total > 0 && (
+                  {reviewsLoading ? (
+                    <div className={styles.reviewBadgeSkeleton}>
+                      <div className={styles.skeletonStars}></div>
+                      <div className={styles.skeletonText}></div>
+                    </div>
+                  ) : reviewStats[product.slug] && reviewStats[product.slug].total > 0 ? (
                     <div className={styles.reviewBadge}>
                       <div className={styles.starRating}>
                         {[...Array(5)].map((_, i) => (
@@ -212,7 +221,7 @@ export default function MerchandisePage() {
                         <span className={styles.reviewCountText}>({reviewStats[product.slug].total})</span>
                       </div>
                     </div>
-                  )}
+                  ) : null}
                 </div>
 
                 {/* Product Details */}
