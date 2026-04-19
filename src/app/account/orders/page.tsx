@@ -29,6 +29,20 @@ interface OrderRecord {
   created_at: string;
 }
 
+interface ReviewRecord {
+  id: number;
+  product_id: string;
+  product_name: string;
+  user_name: string;
+  user_email: string;
+  rating: number;
+  review_title: string;
+  review_content: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
+}
+
 // Helper function to validate UUID format
 const isValidUUID = (uuid: string): boolean => {
   const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -42,9 +56,44 @@ const titleToSlug = (title: string): string => {
   return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 };
 
+// Helper function to get product slug from order
+const getProductSlugFromOrder = (order: OrderRecord): string => {
+  let productName = order.product_title;
+
+  // Try to extract from items JSON
+  try {
+    const items = typeof order.items === 'string' ? JSON.parse(order.items) : order.items;
+    if (Array.isArray(items) && items.length > 0) {
+      const firstItem = items[0];
+      productName = firstItem.productTitle || firstItem.name || productName;
+    }
+  } catch (_err) {
+    // Use product_title as fallback
+  }
+
+  // Find product in merchandise data
+  const matchedProduct = productMerchandiseData.find(
+    (product) => product.name.toLowerCase() === productName.toLowerCase()
+  );
+
+  if (matchedProduct) {
+    return matchedProduct.slug;
+  }
+
+  // Try partial match
+  const productWords = productName.toLowerCase().split(' ');
+  const partialMatch = productMerchandiseData.find((product) => {
+    const merchandiseName = product.name.toLowerCase();
+    return productWords.slice(0, 2).every(word => merchandiseName.includes(word));
+  });
+
+  return partialMatch ? partialMatch.slug : titleToSlug(productName);
+};
+
 export default function OrdersPage() {
   const { user, loading } = useAuth();
   const [orders, setOrders] = useState<OrderRecord[]>([]);
+  const [userReviews, setUserReviews] = useState<ReviewRecord[]>([]);
   const [selectedOrder, setSelectedOrder] = useState<OrderRecord | null>(null);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [reviewData, setReviewData] = useState({
@@ -80,6 +129,17 @@ export default function OrdersPage() {
       } else if (data) {
         setOrders(data as OrderRecord[]);
       }
+
+      // Fetch user reviews
+      const { data: reviewsData, error: reviewsError } = await supabase
+        .from('product_reviews')
+        .select('*')
+        .eq('user_email', user.email || '');
+
+      if (!reviewsError && reviewsData) {
+        setUserReviews(reviewsData as ReviewRecord[]);
+      }
+
       setIsLoading(false);
     };
 
@@ -354,26 +414,87 @@ export default function OrdersPage() {
                 )}
 
                 {!showReviewForm ? (
-                  <div className={styles.modalActions}>
-                    <button
-                      className={styles.modalActionButton}
-                      onClick={() => setShowReviewForm(true)}
-                    >
-                      ⭐ Add Review
-                    </button>
-                    {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
-                      <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
-                        Pay Now
-                      </Link>
-                    ) : (
-                      <Link
-                        href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
-                        className={styles.modalActionButton}
-                      >
-                        Download Receipt
-                      </Link>
-                    )}
-                  </div>
+                  (() => {
+                    const productSlug = getProductSlugFromOrder(selectedOrder);
+                    const existingReview = userReviews.find(
+                      (review) => review.product_id === productSlug
+                    );
+
+                    if (existingReview) {
+                      return (
+                        <div className={styles.reviewDisplayContainer}>
+                          <h3>Your Review</h3>
+                          <div className={styles.reviewCard}>
+                            <div className={styles.reviewHeader}>
+                              <div className={styles.reviewRating}>
+                                {[1, 2, 3, 4, 5].map((num) => (
+                                  <span key={num} className={styles.reviewStar}>
+                                    {existingReview.rating >= num ? '★' : '☆'}
+                                  </span>
+                                ))}
+                                <span className={styles.ratingValue}>{existingReview.rating}.0</span>
+                              </div>
+                              <span className={styles.reviewStatus}>{existingReview.status}</span>
+                            </div>
+                            <h4 className={styles.reviewTitle}>{existingReview.review_title}</h4>
+                            <p className={styles.reviewContent}>{existingReview.review_content}</p>
+                            <div className={styles.reviewMeta}>
+                              <span className={styles.reviewDate}>
+                                {new Date(existingReview.created_at).toLocaleDateString('en-IN', {
+                                  day: 'numeric',
+                                  month: 'short',
+                                  year: 'numeric',
+                                })}
+                              </span>
+                            </div>
+                          </div>
+                          <div className={styles.modalActions}>
+                            <button
+                              className={styles.modalActionButton}
+                              onClick={() => setShowReviewForm(true)}
+                            >
+                              ✎ Edit Review
+                            </button>
+                            {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                              <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
+                                Pay Now
+                              </Link>
+                            ) : (
+                              <Link
+                                href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                                className={styles.modalActionButton}
+                              >
+                                Download Receipt
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div className={styles.modalActions}>
+                        <button
+                          className={styles.modalActionButton}
+                          onClick={() => setShowReviewForm(true)}
+                        >
+                          ⭐ Add Review
+                        </button>
+                        {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                          <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
+                            Pay Now
+                          </Link>
+                        ) : (
+                          <Link
+                            href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                            className={styles.modalActionButton}
+                          >
+                            Download Receipt
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })()
                 ) : (
                   <div className={styles.reviewFormContainer}>
                     <h3>Add Review for {selectedOrder.product_title}</h3>

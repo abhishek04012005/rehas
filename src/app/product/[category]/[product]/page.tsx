@@ -1,8 +1,5 @@
 import { Metadata } from 'next';
 import ProductDetail from '@/components/productDetail';
-import { productHealingData } from '@/data/productHealing';
-import { productTherapyData } from '@/data/productTherapy';
-import { productAstrologyData } from '@/data/productAstrology';
 import { productMerchandiseData } from '@/data/productMerchandise';
 
 type Params = Promise<{
@@ -10,54 +7,17 @@ type Params = Promise<{
   product: string;
 }>;
 
-// Get all products from data files
-const getAllProducts = () => {
-  const allProducts = [
-    { category: 'healing', data: productHealingData },
-    { category: 'therapy', data: productTherapyData },
-    { category: 'astrology', data: productAstrologyData },
-  ];
-
-  const products: any[] = [];
-  allProducts.forEach(({ category, data }) => {
-    if (data.practices?.list) {
-      data.practices.list.forEach((product: any, index: number) => {
-        const sessionPrice = data.sessions?.types?.[index]?.price || '₹999';
-        products.push({
-          category,
-          name: product.name,
-          slug: product.name.toLowerCase().replace(/\s+/g, '-'),
-          meaning: product.meaning,
-          benefit: product.benefit,
-          use: product.use,
-          price: sessionPrice,
-        });
-      });
-    }
-  });
-
-  productMerchandiseData.forEach((product) => {
-    products.push({
-      category: product.category,
-      name: product.name,
-      slug: product.slug,
-      meaning: product.shortDescription,
-      benefit: product.benefits.join(', '),
-      use: product.description,
-      price: product.price,
-    });
-  });
-
-  return products;
+// Get all merchandise products
+const getAllMerchandiseProducts = () => {
+  return productMerchandiseData.map((product) => ({
+    category: product.category,
+    slug: product.slug,
+  }));
 };
 
-// Generate static params for all products
+// Generate static params only for merchandise products
 export async function generateStaticParams() {
-  const products = getAllProducts();
-  return products.map((product) => ({
-    category: product.category,
-    product: product.slug,
-  }));
+  return getAllMerchandiseProducts();
 }
 
 // Generate metadata
@@ -67,8 +27,7 @@ export async function generateMetadata(props: {
   const params = await props.params;
   const { category, product: productSlug } = params;
   
-  const products = getAllProducts();
-  const productData = products.find(
+  const productData = productMerchandiseData.find(
     (p) => p.category === category && p.slug === productSlug
   );
 
@@ -81,7 +40,7 @@ export async function generateMetadata(props: {
 
   return {
     title: `${productData.name} | Premium ${category.charAt(0).toUpperCase() + category.slice(1)} Products | REHAS`,
-    description: productData.meaning,
+    description: productData.shortDescription,
     keywords: [
       productData.name,
       category,
@@ -92,8 +51,14 @@ export async function generateMetadata(props: {
     ],
     openGraph: {
       title: `${productData.name} | REHAS`,
-      description: productData.meaning,
+      description: productData.shortDescription,
       type: 'website',
+      images: productData.images && productData.images.length > 0 ? [{
+        url: productData.images[0],
+        width: 1200,
+        height: 630,
+        alt: productData.name,
+      }] : undefined,
     },
   };
 }
@@ -104,8 +69,7 @@ export default async function ProductPage(props: {
   const params = await props.params;
   const { category, product: productSlug } = params;
 
-  const products = getAllProducts();
-  const productData = products.find(
+  const productData = productMerchandiseData.find(
     (p) => p.category === category && p.slug === productSlug
   );
 
@@ -118,24 +82,5 @@ export default async function ProductPage(props: {
     );
   }
 
-  const merchandiseProduct = productMerchandiseData.find(
-    (product) => product.category === category && product.slug === productSlug
-  );
-
-  if (merchandiseProduct) {
-    return <ProductDetail product={{ ...merchandiseProduct, slug: productSlug }} />;
-  }
-
-  return (
-    <ProductDetail
-      product={{
-        name: productData.name,
-        category,
-        meaning: productData.meaning,
-        benefit: productData.benefit,
-        use: productData.use,
-        price: productData.price,
-      }}
-    />
-  );
+  return <ProductDetail product={productData as any} />;
 }

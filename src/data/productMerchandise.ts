@@ -14,9 +14,9 @@ export interface MerchandiseProductDetail {
     price: string;
     originalPrice: string;
     pricingTiers?: {
-        basic: { price: string; originalPrice?: string; label: string; description?: string };
-        market: { price: string; originalPrice?: string; label: string; description?: string };
-        premium: { price: string; originalPrice?: string; label: string; description?: string };
+        root: { price: string; originalPrice?: string; label: string; description?: string };
+        aura: { price: string; originalPrice?: string; label: string; description?: string };
+        divine: { price: string; originalPrice?: string; label: string; description?: string };
     };
     paymentHighlights: string[];
     sold: number;
@@ -100,22 +100,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,499.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹2,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -253,22 +253,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -407,22 +407,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -562,22 +562,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -716,22 +716,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -872,22 +872,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         originalPrice: '₹1,999.00',
 
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard wealth energy bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Aura',
                 description: 'Stronger energy stones for better results'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Elite',
+                label: 'Divine',
                 description: 'Activated bracelet with enhanced energy ritual'
             }
         },
@@ -1027,22 +1027,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -1183,22 +1183,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         originalPrice: '₹1,999.00',
 
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Aura',
                 description: 'Higher quality stones with stronger shine'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Elite',
+                label: 'Divine',
                 description: 'Energy activated premium bracelet'
             }
         },
@@ -1338,22 +1338,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -1494,22 +1494,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         originalPrice: '₹1,999.00',
 
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Aura',
                 description: 'Higher quality stones with deeper energy'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Elite',
+                label: 'Divine',
                 description: 'Energy activated premium bracelet'
             }
         },
@@ -1649,22 +1649,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         price: '₹499.00',
         originalPrice: '₹1,999.00',
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
+                label: 'Aura',
                 description: 'Premium quality with better stones'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Divine',
                 description: 'Highest quality with energy activation'
             }
         },
@@ -1805,22 +1805,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         originalPrice: '₹1,999.00',
 
         pricingTiers: {
-            basic: {
+            root: {
                 price: '₹499.00',
                 originalPrice: '₹1,999.00',
-                label: 'Basic',
+                label: 'Root',
                 description: 'Standard quality bracelet'
             },
-            market: {
+            aura: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
+                label: 'Aura',
                 description: 'Better stone quality with stronger energy'
             },
-            premium: {
+            divine: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Elite',
+                label: 'Divine',
                 description: 'Energy activated premium bracelet'
             }
         },
