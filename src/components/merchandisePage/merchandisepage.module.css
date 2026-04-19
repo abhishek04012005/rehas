@@ -507,17 +507,10 @@
 
 /* Review Badge */
 .reviewBadge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: white;
-  border-radius: 8px;
-  padding: 8px 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  gap: 8px;
   z-index: 10;
 }
 
@@ -546,17 +539,10 @@
 
 /* Review Badge Skeleton Loader */
 .reviewBadgeSkeleton {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: white;
-  border-radius: 8px;
-  padding: 8px 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  gap: 8px;
   z-index: 10;
 }
 
