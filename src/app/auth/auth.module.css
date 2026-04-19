@@ -304,6 +304,121 @@
   }
 }
 
+/* OTP Signup Styles */
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: rgba(86, 0, 103, 0.03);
+  border-radius: 12px;
+}
+
+.stepActive,
+.stepCompleted,
+.stepInactive {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.stepActive {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 6px rgba(86, 0, 103, 0.12);
+}
+
+.stepCompleted {
+  background: #4CAF50;
+  color: white;
+}
+
+.stepInactive {
+  background: rgba(86, 0, 103, 0.08);
+  color: var(--text-light);
+}
+
+.stepLine {
+  width: 32px;
+  height: 3px;
+  background: rgba(86, 0, 103, 0.15);
+  flex-shrink: 0;
+}
+
+.otpInfo {
+  background: rgba(86, 0, 103, 0.05);
+  border: 1px solid rgba(86, 0, 103, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.otpInfo p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.emailDisplay {
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  font-size: 1.05rem !important;
+  margin-top: 8px !important;
+}
+
+.verifiedInfo {
+  background: rgba(76, 175, 80, 0.08);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.verifiedInfo p {
+  margin: 0;
+  color: #2E7D32;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.checkIcon {
+  color: #4CAF50;
+  font-size: 1.8rem;
+}
+
+.changeEmailBtn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(86, 0, 103, 0.2);
+  background: white;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.changeEmailBtn:hover {
+  background: rgba(86, 0, 103, 0.05);
+  border-color: var(--primary);
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 20px 10px;
@@ -316,5 +431,23 @@
   .header p,
   .footerText {
     font-size: 0.95rem;
+  }
+
+  .stepIndicator {
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 16px;
+  }
+
+  .stepActive,
+  .stepCompleted,
+  .stepInactive {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .stepLine {
+    width: 20px;
   }
 }

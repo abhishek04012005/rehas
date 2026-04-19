@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowBack, Visibility, VisibilityOff } from '@mui/icons-material';
+import { ArrowBack, Visibility, VisibilityOff, CheckCircle } from '@mui/icons-material';
 import { useAuth } from '@/context/AuthContext';
 import styles from './auth.module.css';
 
@@ -19,9 +19,8 @@ export default function AuthPageClient() {
   const [tab, setTab] = useState<'signin' | 'signup' | 'reset' | 'changePassword'>(resetMode ? (resetToken ? 'changePassword' : 'reset') : 'signin');
   const [resetType, setResetType] = useState<'forgot' | 'change' | null>(resetToken ? 'change' : null);
   const [fullName, setFullName] = useState('');
-  const [identifier, setIdentifier] = useState(''); // email or phone
+  const [identifier, setIdentifier] = useState(''); // email or phone for signin
   const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [otpSent, setOtpSent] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
@@ -32,6 +31,12 @@ export default function AuthPageClient() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  // OTP Signup state
+  const [signupOtpStep, setSignupOtpStep] = useState<'email' | 'verify' | 'details'>('email');
+  const [signupEmail, setSignupEmail] = useState('');
+  const [signupOtpCode, setSignupOtpCode] = useState('');
+  const [signupOtpVerified, setSignupOtpVerified] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -101,31 +106,96 @@ export default function AuthPageClient() {
       }
 
       if (tab === 'signup') {
-        if (!fullName.trim()) {
-          throw new Error('Enter your full name');
+        // Step 1: Send OTP to email
+        if (signupOtpStep === 'email') {
+          if (!signupEmail.trim() || !isEmail(signupEmail)) {
+            throw new Error('Enter a valid email address');
+          }
+          // Call send-otp API
+          const sendOtpResponse = await fetch('/api/auth/send-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: signupEmail.trim() }),
+          });
+          if (!sendOtpResponse.ok) {
+            const data = await sendOtpResponse.json();
+            throw new Error(data.error || 'Failed to send OTP');
+          }
+          setSignupOtpStep('verify');
+          setMessage('OTP sent to your email. Check your inbox.');
+          return;
         }
-        if (!identifier.trim() || !isEmail(identifier)) {
-          throw new Error('Enter a valid email address');
+
+        // Step 2: Verify OTP
+        if (signupOtpStep === 'verify') {
+          if (!signupOtpCode.trim() || signupOtpCode.length !== 6) {
+            throw new Error('Enter a valid 6-digit OTP');
+          }
+          // Call verify-otp API
+          const verifyOtpResponse = await fetch('/api/auth/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: signupEmail.trim(), otp: signupOtpCode.trim() }),
+          });
+          if (!verifyOtpResponse.ok) {
+            const data = await verifyOtpResponse.json();
+            throw new Error(data.error || 'Invalid OTP');
+          }
+          setSignupOtpVerified(true);
+          setSignupOtpStep('details');
+          setMessage('OTP verified! Now enter your account details.');
+          return;
         }
-        if (!password.trim()) {
-          throw new Error('Enter a password');
+
+        // Step 3: Create account
+        if (signupOtpStep === 'details') {
+          if (!signupOtpVerified) {
+            throw new Error('Please verify your OTP first');
+          }
+          if (!fullName.trim()) {
+            throw new Error('Enter your full name');
+          }
+          if (!password.trim()) {
+            throw new Error('Enter a password');
+          }
+          if (password.length < 6) {
+            throw new Error('Password must be at least 6 characters');
+          }
+          if (password !== confirmPassword) {
+            throw new Error('Passwords do not match');
+          }
+
+          // Call signup-otp API
+          const signupResponse = await fetch('/api/auth/signup-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: signupEmail.trim(),
+              password: password,
+              fullName: fullName.trim(),
+            }),
+          });
+          if (!signupResponse.ok) {
+            const data = await signupResponse.json();
+            throw new Error(data.error || 'Failed to create account');
+          }
+
+          // Reset signup form
+          setMessage('Account created successfully! Signing you in...');
+          setFullName('');
+          setPassword('');
+          setConfirmPassword('');
+          setSignupEmail('');
+          setSignupOtpCode('');
+          setSignupOtpStep('email');
+          setSignupOtpVerified(false);
+
+          // Auto sign in with email
+          const signInResult = await signInWithEmail(signupEmail.trim(), password);
+          if (signInResult.error) throw new Error(signInResult.error);
+          router.push(redirectTo);
+          return;
         }
-        if (password.length < 6) {
-          throw new Error('Password must be at least 6 characters');
-        }
-        if (password !== confirmPassword) {
-          throw new Error('Passwords do not match');
-        }
-        if (!phone.trim() || !/^[0-9]{10}$/.test(phone)) {
-          throw new Error('Enter a valid 10-digit phone number');
-        }
-        const result = await signUpWithEmail(identifier.trim(), password, fullName.trim(), phone.trim());
-        if (result.error) throw new Error(result.error);
-        setMessage('Sign up successful. Please sign in to continue.');
-        setTab('signin');
-        setPassword('');
-        setConfirmPassword('');
-        return;
       }
 
       if (tab === 'reset') {
@@ -201,7 +271,19 @@ export default function AuthPageClient() {
           <button type="button" className={tab === 'signin' ? styles.activeTab  : ''} onClick={() => { setTab('signin'); setOtpSent(false); setMessage(''); setError(''); }}>
             Sign In
           </button>
-          <button type="button" className={tab === 'signup' ? styles.activeTab : ''} onClick={() => { setTab('signup'); setOtpSent(false); setMessage(''); setError(''); }}>
+          <button type="button" className={tab === 'signup' ? styles.activeTab : ''} onClick={() => { 
+            setTab('signup'); 
+            setOtpSent(false); 
+            setMessage(''); 
+            setError('');
+            setSignupOtpStep('email');
+            setSignupOtpVerified(false);
+            setSignupOtpCode('');
+            setSignupEmail('');
+            setFullName('');
+            setPassword('');
+            setConfirmPassword('');
+          }}>
             Sign Up
           </button>
           <button type="button" className={tab === 'reset' ? styles.activeTab : ''} onClick={() => { setTab('reset'); setOtpSent(false); setMessage(''); setError(''); }}>
@@ -214,72 +296,121 @@ export default function AuthPageClient() {
 
         <form className={styles.form} onSubmit={handleSubmit}>
           {tab === 'signup' && (
-            <label>
-              <span>Full name</span>
-              <input value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Enter full name" />
-            </label>
-          )}
-
-          {tab === 'signup' && (
-            <label>
-              <span>Email address</span>
-              <input type="text" value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder="your.email@gmail.com" />
-            </label>
-          )}
-
-          {tab === 'signup' && (
-            <label className={styles.passwordField}>
-              <span>Password</span>
-              <div className={styles.passwordInputWrapper}>
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
-                />
-                <button
-                  type="button"
-                  className={styles.passwordToggle}
-                  onClick={() => setShowPassword((current) => !current)}
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </button>
+            <div className={styles.stepIndicator}>
+              <div className={signupOtpStep === 'email' ? styles.stepActive : signupOtpStep === 'verify' || signupOtpStep === 'details' ? styles.stepCompleted : styles.stepInactive}>
+                {signupOtpStep === 'verify' || signupOtpStep === 'details' ? <CheckCircle /> : 1}
               </div>
-            </label>
-          )}
-
-          {tab === 'signup' && (
-            <label className={styles.passwordField}>
-              <span>Confirm Password</span>
-              <div className={styles.passwordInputWrapper}>
-                <input
-                  type={showConfirmPassword ? 'text' : 'password'}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Re-enter password"
-                />
-                <button
-                  type="button"
-                  className={styles.passwordToggle}
-                  onClick={() => setShowConfirmPassword((current) => !current)}
-                  aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
-                >
-                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                </button>
+              <div className={styles.stepLine}></div>
+              <div className={signupOtpStep === 'verify' ? styles.stepActive : signupOtpStep === 'details' ? styles.stepCompleted : styles.stepInactive}>
+                {signupOtpStep === 'details' ? <CheckCircle /> : 2}
               </div>
-            </label>
+              <div className={styles.stepLine}></div>
+              <div className={signupOtpStep === 'details' ? styles.stepActive : styles.stepInactive}>
+                3
+              </div>
+            </div>
           )}
 
-          {tab === 'signup' && (
-            <label>
-              <span>Phone number</span>
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
-                placeholder="9876543210"
-              />
-            </label>
+          {/* SIGNUP: Email Input */}
+          {tab === 'signup' && signupOtpStep === 'email' && (
+            <>
+              <label>
+                <span>Email address</span>
+                <input
+                  type="email"
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
+                  placeholder="your.email@gmail.com"
+                />
+              </label>
+            </>
+          )}
+
+          {/* SIGNUP: OTP Verification */}
+          {tab === 'signup' && signupOtpStep === 'verify' && (
+            <>
+              <div className={styles.otpInfo}>
+                <p>We sent a verification code to:</p>
+                <p className={styles.emailDisplay}>{signupEmail}</p>
+              </div>
+              <label>
+                <span>Enter 6-digit OTP</span>
+                <input
+                  type="text"
+                  value={signupOtpCode}
+                  onChange={(e) => setSignupOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                  placeholder="123456"
+                  maxLength={6}
+                />
+              </label>
+              <button
+                type="button"
+                className={styles.changeEmailBtn}
+                onClick={() => {
+                  setSignupOtpStep('email');
+                  setSignupOtpCode('');
+                }}
+              >
+                Use a different email
+              </button>
+            </>
+          )}
+
+          {/* SIGNUP: Account Details */}
+          {tab === 'signup' && signupOtpStep === 'details' && (
+            <>
+              <div className={styles.verifiedInfo}>
+                <CheckCircle className={styles.checkIcon} />
+                <p>Email verified successfully!</p>
+              </div>
+              <label>
+                <span>Full name</span>
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="John Doe"
+                />
+              </label>
+              <label>
+                <span>Password</span>
+                <div className={styles.passwordInputWrapper}>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="At least 6 characters"
+                  />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowPassword((current) => !current)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
+              </label>
+              <label>
+                <span>Confirm Password</span>
+                <div className={styles.passwordInputWrapper}>
+                  <input
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Re-enter password"
+                  />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowConfirmPassword((current) => !current)}
+                    aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                  >
+                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
+              </label>
+            </>
           )}
 
           {tab === 'reset' && resetType === null && (
@@ -372,7 +503,9 @@ export default function AuthPageClient() {
             {tab === 'signin' && isEmail(identifier) && 'Sign In with Email'}
             {tab === 'signin' && isPhone(identifier) && (otpSent ? 'Verify OTP' : 'Send OTP')}
             {tab === 'signin' && !isEmail(identifier) && !isPhone(identifier) && 'Sign In'}
-            {tab === 'signup' && 'Create Account'}
+            {tab === 'signup' && signupOtpStep === 'email' && 'Send OTP'}
+            {tab === 'signup' && signupOtpStep === 'verify' && 'Verify OTP'}
+            {tab === 'signup' && signupOtpStep === 'details' && 'Create Account'}
             {tab === 'reset' && resetType === 'forgot' && 'Send Reset Link'}
             {tab === 'changePassword' && resetToken && 'Reset Password'}
             {tab === 'changePassword' && !resetToken && 'Change Password'}

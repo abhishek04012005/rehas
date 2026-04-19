@@ -1,0 +1,35 @@
+Subject: Your REHAS Verification Code - {{otp_code}}
+
+---
+
+Hello {{user_email}},
+
+Thank you for signing up with REHAS! To complete your registration, please use the verification code below.
+
+YOUR VERIFICATION CODE:
+{{otp_code}}
+
+⏱️ This code will expire in 10 minutes.
+
+HOW TO USE THIS CODE:
+1. Enter this code on the verification page
+2. This code will expire in 10 minutes  
+3. For security, never share this code with anyone
+
+SECURITY ALERT:
+If you didn't request this code, someone may be trying to access your account. 
+Please ignore this email and change your password if needed.
+
+NEED HELP?
+Contact our support team:
+- Email: support@rehas.com
+- Website: https://rehas.in
+
+---
+
+© 2026 REHAS. All rights reserved.
+Bridging ancient cosmic wisdom with modern wellness.
+
+---
+
+This is an automated message, please do not reply to this email.

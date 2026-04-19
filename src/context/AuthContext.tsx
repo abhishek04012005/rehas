@@ -67,9 +67,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   useEffect(() => {
-    // Initialize EmailJS
+    // Initialize EmailJS with password reset public key
     emailjs.init({
-      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key_here',
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_PUBLIC_KEY || 'your_public_key_here',
     });
 
     let mounted = true;
@@ -262,12 +262,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       console.log('EmailJS Config Check:');
-      console.log('- Public Key available:', !!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
-      console.log('- Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-      console.log('- Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+      console.log('- Public Key available:', !!process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_PUBLIC_KEY);
+      console.log('- Service ID:', process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_SERVICE_ID);
+      console.log('- Template ID:', process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_TEMPLATE_ID);
 
       // Check if EmailJS credentials are configured
-      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID) {
+      if (!process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_SERVICE_ID || !process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_TEMPLATE_ID) {
         console.error('EmailJS credentials not configured');
         return { error: 'Email service is not properly configured. Please contact support.' };
       }
@@ -323,15 +323,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       console.log('Template parameters prepared:', JSON.stringify(templateParams, null, 2));
       console.log('Attempting to send email via EmailJS...');
-      console.log('Using Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-      console.log('Using Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+      console.log('Using Service ID:', process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_SERVICE_ID);
+      console.log('Using Template ID:', process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_TEMPLATE_ID);
 
       // Send email via EmailJS with error handling
       let emailResponse;
       try {
         emailResponse = await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+          process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_SERVICE_ID || '',
+          process.env.NEXT_PUBLIC_EMAILJS_PASSWORD_RESET_TEMPLATE_ID || '',
           templateParams
         );
         console.log('EmailJS response:', emailResponse);
