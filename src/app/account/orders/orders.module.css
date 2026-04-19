@@ -295,6 +295,136 @@
   border: 1px solid #ffccd5;
 }
 
+.successBox {
+  max-width: 900px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: #f6ffed;
+  color: #274d1f;
+  border: 1px solid #b7eb8f;
+}
+
+.reviewFormContainer {
+  margin-top: 30px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(86, 0, 103, 0.03) 0%, rgba(86, 0, 103, 0.01) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(86, 0, 103, 0.1);
+}
+
+.reviewFormContainer h3 {
+  margin: 0 0 20px 0;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(86, 0, 103, 0.2);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(86, 0, 103, 0.1);
+}
+
+.formInput::placeholder {
+  color: var(--text-light);
+}
+
+.ratingInput {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.starButton {
+  background: none;
+  border: 1px solid rgba(86, 0, 103, 0.2);
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.starButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.starButton.active {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  border-color: var(--primary);
+}
+
+.reviewFormActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.submitButton,
+.cancelButton {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(86, 0, 103, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background: rgba(86, 0, 103, 0.1);
+  color: var(--primary);
+}
+
+.cancelButton:hover {
+  background: rgba(86, 0, 103, 0.15);
+}
+
 @media (max-width: 860px) {
   .ordersPage {
     padding: 40px 20px;
