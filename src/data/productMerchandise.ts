@@ -1159,28 +1159,29 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Silver Hematite Bracelet',
-        slug: 'silver-hematite-bracelet',
+        name: 'Silver Pyrite Bracelet',
+        slug: 'silver-pyrite-bracelet',
 
-        tagline: 'Grounding Power with a Premium Metallic Shine',
-        qualityTag: 'AAA Quality • Natural Silver Hematite • Handcrafted',
+        tagline: 'Luxury Wealth Magnet with Powerful Protection',
+        qualityTag: 'AAA Quality • Natural Silver Pyrite • Handcrafted',
 
-        reviewCount: 126,
+        reviewCount: 168,
 
         shortDescription:
-            'A premium silver-finish Hematite bracelet designed for grounding, protection, and a bold, stylish look.',
+            'A premium silver-finish Pyrite bracelet designed to attract wealth, success, and protect against negative energy.',
 
         meaning:
-            'Silver Hematite is known as a powerful grounding stone with a sleek metallic appearance. It helps absorb negative energy, stabilize emotions, and enhance focus while adding a modern, luxurious touch to your style.',
+            'Silver Pyrite is known as the ultimate money magnet stone. It attracts wealth, abundance, and success while also acting as a powerful shield against negative energy. Its metallic shine represents prosperity, confidence, and strength.',
 
         benefit:
-            'Grounding, protection from negativity, mental clarity, confidence boost, emotional stability, stress relief',
+            'Wealth attraction, financial growth, protection, confidence boost, success energy, positivity',
 
         use:
-            'Wear daily on the left hand to absorb grounding energy. Perfect for office wear, daily styling, meditation, and protection.',
+            'Wear daily on the left hand to attract wealth and success. Ideal for business, career growth, financial stability, and daily styling.',
 
         price: '₹499.00',
         originalPrice: '₹1,999.00',
+
         pricingTiers: {
             basic: {
                 price: '₹499.00',
@@ -1191,14 +1192,14 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             market: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
-                description: 'Premium quality with better stones'
+                label: 'Premium',
+                description: 'Higher quality stones with stronger shine'
             },
             premium: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
-                description: 'Highest quality with energy activation'
+                label: 'Elite',
+                description: 'Energy activated premium bracelet'
             }
         },
 
@@ -1208,82 +1209,82 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Limited Time Offer'
         ],
 
-        sold: 245,
-        available: 135,
-        endsIn: '27h : 20m : 10s',
+        sold: 312,
+        available: 110,
+        endsIn: '23h : 30m : 20s',
 
         pooja: {
-            label: 'Add Energy Activation Ritual',
+            label: 'Add Wealth Activation Ritual',
             note:
-                'Your bracelet will be purified and energized through sacred rituals to enhance grounding, protection, and positive energy flow.',
+                'Your bracelet will be purified and energized through sacred rituals to activate money attraction, success energy, and protection.',
             price: '₹150.00',
         },
 
         description:
-            'This Silver Hematite Bracelet is crafted from high-quality natural hematite stones with a stunning silver metallic finish. Known for its powerful grounding and protective properties, hematite helps absorb negative energy and promotes emotional balance. The sleek silver shine gives it a premium and modern look, making it perfect for both spiritual use and stylish daily wear. Each bead is polished to perfection and strung on a durable elastic band for maximum comfort. Ideal for individuals seeking protection, confidence, and a bold, elegant accessory.',
+            'This Silver Pyrite Bracelet is crafted from premium quality natural pyrite stones with a stunning metallic silver finish. Known as the stone of wealth and success, pyrite is believed to attract money, opportunities, and financial growth while protecting the wearer from negative energy. Its luxurious shine gives it a bold and modern look, making it perfect for both spiritual use and stylish daily wear. Each bead is finely polished and strung on a strong elastic band, ensuring comfort and durability. Ideal for those who want to attract abundance while maintaining a powerful and confident presence.',
 
         keyFeatures: [
-            'Premium natural Silver Hematite stones',
-            'High-gloss metallic silver finish',
-            'Strong grounding and protective energy',
+            'Premium natural Silver Pyrite stones',
+            'High-gloss metallic luxury finish',
+            'Strong wealth and success attracting energy',
             'Stretchable, durable, and skin-friendly',
-            'Modern and stylish design',
-            'Optional energy activation ritual available',
+            'Modern and premium design',
+            'Optional wealth activation ritual available',
         ],
 
         benefits: [
-            'Provides strong grounding and stability',
-            'Protects from negative energy and stress',
-            'Enhances focus and mental clarity',
-            'Boosts confidence and personal strength',
-            'Helps balance emotions and reduce anxiety',
-            'Adds a premium stylish look',
+            'Attracts wealth, money, and financial opportunities',
+            'Acts as a powerful money magnet',
+            'Protects from negative energy and evil eye',
+            'Boosts confidence and decision-making power',
+            'Enhances success mindset and motivation',
+            'Adds a premium and stylish look',
         ],
 
         spiritualSignificance: [
-            'Known as the stone of grounding and protection',
-            'Associated with the Root Chakra (Muladhara)',
-            'Helps align mind, body, and energy',
-            'Enhances stability and inner strength',
+            'Known as the Money Magnet or Wealth Stone',
+            'Associated with the Solar Plexus Chakra (Manipura)',
+            'Represents prosperity, power, and success',
+            'Helps remove financial blockages and negativity',
         ],
 
         howToUse: [
             'Wear daily on the left wrist for best results',
-            'Use during meditation for grounding',
-            'Set intentions for protection and strength',
-            'Suitable for both casual and formal wear',
+            'Use during business meetings or financial decisions',
+            'Set intention for wealth and success',
+            'Ideal for entrepreneurs and professionals',
         ],
 
         careInstructions: [
             'Clean with a soft dry cloth',
-            'Avoid water and harsh chemicals',
+            'Avoid water and chemicals',
             'Store in a dry and clean place',
-            'Recharge under sunlight or moonlight occasionally',
+            'Recharge under sunlight occasionally',
         ],
 
         specifications: {
-            material: 'Natural Silver Hematite Stone',
+            material: 'Natural Silver Pyrite Stone',
             beadType: 'Round Polished Beads',
             size: 'Free Size (Elastic)',
             weight: 'Medium',
-            origin: 'India/USA',
+            origin: 'Peru/India',
         },
 
         faq: [
             {
-                question: 'Is this real Hematite?',
+                question: 'Is this real Pyrite?',
                 answer:
-                    'Yes, it is made from natural hematite stones with a polished silver finish.',
+                    'Yes, it is made from natural pyrite stones with a polished silver finish.',
+            },
+            {
+                question: 'What is this bracelet used for?',
+                answer:
+                    'It is believed to attract wealth, success, and protect from negative energy.',
             },
             {
                 question: 'Can I wear it daily?',
                 answer:
-                    'Yes, it is designed for comfortable daily wear and styling.',
-            },
-            {
-                question: 'Does it help with stress?',
-                answer:
-                    'Hematite is believed to reduce stress and provide grounding energy.',
+                    'Yes, it is designed for everyday use and styling.',
             },
             {
                 question: 'Will it fit my wrist?',
@@ -1294,22 +1295,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         trustBadges: [
             '100% Natural Stone',
-            'Premium Metallic Finish',
+            'Luxury Metallic Finish',
             'Handcrafted with Care',
-            'Trusted by 200+ Customers',
+            'Trusted by 300+ Customers',
         ],
 
         emotionalHook:
-            'Stay grounded, protected, and stylish with the powerful shine of Silver Hematite.',
+            'Turn your energy into a powerful money magnet with the luxury shine of Silver Pyrite.',
 
-        zodiacSign: 'Aries, Aquarius',
-        planet: 'Mars',
-        mulankNumber: '9',
+        zodiacSign: 'Leo, Aries',
+        planet: 'Sun',
+        mulankNumber: '1',
 
         images: [
-            '/assets/bracelete/silverhematite/1.png',
-            '/assets/bracelete/silverhematite/2.png',
-            '/assets/bracelete/silverhematite/3.png',
+            '/assets/bracelete/silverpyrite/silverpyrite_front.png',
+            '/assets/bracelete/silverpyrite/silverpyrite_center.png',
+            '/assets/bracelete/silverpyrite/silverpyrite_last.png',
         ],
     },
     {
@@ -1469,28 +1470,29 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Carnelian Bracelet',
-        slug: 'carnelian-bracelet',
+        name: 'Red Jasper Bracelet',
+        slug: 'red-jasper-bracelet',
 
-        tagline: 'Stone of Energy, Confidence & Courage',
-        qualityTag: 'AAA Quality • 100% Natural Carnelian • Handcrafted',
+        tagline: 'Stone of Strength, Stability & Inner Power',
+        qualityTag: 'AAA Quality • 100% Natural Red Jasper • Handcrafted',
 
-        reviewCount: 152,
+        reviewCount: 148,
 
         shortDescription:
-            'A powerful Carnelian bracelet designed to boost confidence, energy, and motivation while attracting success and positivity.',
+            'A powerful Red Jasper bracelet designed to provide strength, stability, grounding, and emotional balance.',
 
         meaning:
-            'Carnelian is known as the stone of motivation and courage. It energizes the body, enhances confidence, and helps overcome fear, hesitation, and laziness. It is widely used to activate inner strength and passion.',
+            'Red Jasper is known as the stone of endurance and stability. It provides grounding energy, enhances inner strength, and helps maintain emotional balance during stressful situations. It is widely used for protection, courage, and steady growth.',
 
         benefit:
-            'Confidence boost, energy activation, motivation, courage, creativity, positivity',
+            'Strength, grounding, emotional stability, protection, courage, stress relief, endurance',
 
         use:
-            'Wear daily on the left hand to enhance energy and confidence. Ideal for students, professionals, entrepreneurs, and creative individuals.',
+            'Wear daily on the left hand for grounding and stability. Ideal for stressful environments, decision-making, and maintaining emotional balance.',
 
         price: '₹499.00',
         originalPrice: '₹1,999.00',
+
         pricingTiers: {
             basic: {
                 price: '₹499.00',
@@ -1501,14 +1503,14 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             market: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
-                description: 'Premium quality with better stones'
+                label: 'Premium',
+                description: 'Higher quality stones with deeper energy'
             },
             premium: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
-                description: 'Highest quality with energy activation'
+                label: 'Elite',
+                description: 'Energy activated premium bracelet'
             }
         },
 
@@ -1518,50 +1520,50 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             'Limited Time Offer'
         ],
 
-        sold: 310,
-        available: 165,
-        endsIn: '24h : 10m : 30s',
+        sold: 276,
+        available: 140,
+        endsIn: '23h : 50m : 15s',
 
         pooja: {
             label: 'Add Energy Activation Ritual',
             note:
-                'Your bracelet will be purified and energized through sacred rituals to enhance confidence, courage, and positive energy flow.',
+                'Your bracelet will be purified and energized through sacred rituals to enhance strength, protection, and grounding energy.',
             price: '₹150.00',
         },
 
         description:
-            'This Carnelian Bracelet is crafted from high-quality natural carnelian stones known for their vibrant reddish-orange color and powerful energizing properties. Carnelian is widely regarded as a stone of action, helping to boost confidence, courage, and motivation. It supports overcoming fear and hesitation while promoting creativity and enthusiasm. Each bead is smoothly polished and strung on a durable elastic band for comfortable daily wear. Ideal for individuals seeking success, energy, and personal growth.',
+            'This Red Jasper Bracelet is crafted from premium quality natural red jasper stones, known for their deep earthy red color and powerful grounding properties. Red Jasper is widely regarded as a stone of strength, stability, and protection. It helps calm emotions, improve focus, and provide the endurance needed to handle challenges. The bracelet is carefully polished and strung on a durable elastic band, ensuring comfort for everyday wear. Perfect for individuals seeking stability, courage, and a balanced mindset.',
 
         keyFeatures: [
-            'Premium quality natural Carnelian stones',
-            'Smooth polished reddish-orange beads',
-            'Known as the stone of energy and motivation',
+            'Premium natural Red Jasper stones',
+            'Deep earthy red polished beads',
+            'Strong grounding and stabilizing energy',
             'Stretchable, durable, and skin-friendly',
             'Handcrafted with precision',
             'Optional energy activation ritual available',
         ],
 
         benefits: [
-            'Boosts confidence and self-belief',
-            'Increases motivation and action-taking ability',
-            'Enhances creativity and passion',
-            'Helps overcome fear and hesitation',
-            'Promotes positivity and enthusiasm',
-            'Supports success in career and goals',
+            'Provides strength and emotional stability',
+            'Helps reduce stress and anxiety',
+            'Enhances grounding and focus',
+            'Boosts courage and resilience',
+            'Protects from negative energy',
+            'Supports long-term growth and balance',
         ],
 
         spiritualSignificance: [
-            'Known as the stone of courage and action',
-            'Associated with the Sacral Chakra (Swadhisthana)',
-            'Activates inner energy and creativity',
-            'Helps balance emotions and passion',
+            'Known as the stone of endurance and stability',
+            'Associated with the Root Chakra (Muladhara)',
+            'Promotes grounding and inner strength',
+            'Helps balance emotions and energy flow',
         ],
 
         howToUse: [
             'Wear daily on the left wrist for best results',
-            'Use during important tasks or meetings',
-            'Set intentions for confidence and success',
-            'Ideal during workouts, studies, or creative work',
+            'Use during stressful situations for calmness',
+            'Set intentions for strength and stability',
+            'Ideal for meditation and grounding practices',
         ],
 
         careInstructions: [
@@ -1572,28 +1574,28 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         ],
 
         specifications: {
-            material: 'Natural Carnelian Stone',
+            material: 'Natural Red Jasper Stone',
             beadType: 'Round Polished Beads',
             size: 'Free Size (Elastic)',
-            weight: 'Light to Medium',
+            weight: 'Medium',
             origin: 'India/Brazil',
         },
 
         faq: [
             {
-                question: 'Is this real Carnelian?',
+                question: 'Is this real Red Jasper?',
                 answer:
-                    'Yes, it is made from natural Carnelian stones with unique color variations.',
+                    'Yes, it is made from natural Red Jasper stones with unique earthy tones.',
             },
             {
-                question: 'What is Carnelian used for?',
+                question: 'What is Red Jasper used for?',
                 answer:
-                    'Carnelian is believed to boost energy, confidence, and motivation.',
+                    'It is believed to provide grounding, strength, and emotional stability.',
             },
             {
                 question: 'Can I wear it daily?',
                 answer:
-                    'Yes, it is comfortable and suitable for everyday use.',
+                    'Yes, it is designed for comfortable daily wear.',
             },
             {
                 question: 'Will it fit my wrist?',
@@ -1604,22 +1606,22 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         trustBadges: [
             '100% Natural Stone',
+            'Grounding Energy',
             'Handcrafted with Care',
-            'Skin-Friendly & Durable',
-            'Trusted by 300+ Customers',
+            'Trusted by 250+ Customers',
         ],
 
         emotionalHook:
-            'Ignite your inner power, take action, and achieve your goals with the energy of Carnelian.',
+            'Stay strong, grounded, and unshakable with the powerful energy of Red Jasper.',
 
-        zodiacSign: 'Taurus, Cancer, Leo, Virgo',
-        planet: 'Sun',
-        mulankNumber: '5',
+        zodiacSign: 'Aries, Scorpio, Capricorn',
+        planet: 'Mars',
+        mulankNumber: '9',
 
         images: [
-            '/assets/bracelete/carnelian/1.png',
-            '/assets/bracelete/carnelian/2.png',
-            '/assets/bracelete/carnelian/3.png',
+            '/assets/bracelete/redjasper/redjasper_front.png',
+            '/assets/bracelete/redjasper/redjasper_center.png',
+            '/assets/bracelete/redjasper/redjasper_last.png',
         ],
     },
     {
