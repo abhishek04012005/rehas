@@ -1,0 +1,16 @@
+{
+  "reviews": [
+    {
+      "id": "review_001",
+      "productId": "rose-quartz-crystal-bracelet",
+      "productName": "Rose Quartz Healing Bracelet",
+      "userName": "Priya Sharma",
+      "userEmail": "priya@example.com",
+      "rating": 5,
+      "title": "Truly Life-Changing",
+      "content": "I purchased this bracelet with the energy activation ritual and felt an immediate shift in my energy. The quality is exceptional and the craftsmanship is evident. Highly recommended! The rose quartz energy is so soothing and calming.",
+      "createdAt": "2024-03-15T10:30:00Z",
+      "isPurchased": true
+    }
+  ]
+}

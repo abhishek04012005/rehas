@@ -9,6 +9,7 @@ import { useAuth } from '@/context/AuthContext';
 import { calculateDiscountPercentage } from '@/data/productMerchandise';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import SimilarProducts from './similarProducts';
+import ReviewsSection from './reviewsSection';
 import styles from './productDetail.module.css';
 
 interface ProductDetailData {
@@ -760,6 +761,9 @@ export default function ProductDetail({
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <ReviewsSection productId={product.slug || ''} productName={product.name} />
 
       {/* Similar Products Section - Only for merchandise products */}
       {product.slug && product.category && (
