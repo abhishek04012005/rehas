@@ -86,7 +86,7 @@ interface FormErrors {
 
 export default function EnhancedCheckoutForm({ productTitle, amount = 999, isProduct = false, orderData }: EnhancedCheckoutFormProps) {
   const { productData, cartItems, clearCart } = useCheckout();
-  const { user, getUserAddresses } = useAuth();
+  const { user, getUserAddresses, addUserAddress } = useAuth();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
@@ -100,6 +100,9 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   const [selectedAddressId, setSelectedAddressId] = useState<number | null>(null);
   const [addressMode, setAddressMode] = useState<'saved' | 'new'>('new');
   const [showNewAddressForm, setShowNewAddressForm] = useState(false);
+  const [shouldSaveAddress, setShouldSaveAddress] = useState(false);
+  const [addressType, setAddressType] = useState<'home' | 'work' | 'other'>('home');
+  const [savingAddress, setSavingAddress] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
     fullName: orderData?.fullName || '',
@@ -273,6 +276,47 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
     }
   };
 
+  const saveAddressToProfile = async (): Promise<boolean> => {
+    if (!user || !shouldSaveAddress) return true;
+    
+    try {
+      setSavingAddress(true);
+      const { error } = await addUserAddress({
+        address_type: addressType,
+        full_name: formData.fullName,
+        phone_number: formData.phoneNumber,
+        address_line_1: formData.addressLine1,
+        address_line_2: formData.addressLine2,
+        city: formData.city,
+        state: formData.state,
+        postal_code: formData.postalCode,
+        country: formData.country,
+        is_default: savedAddresses.length === 0, // Set as default if first address
+        is_active: true,
+      });
+      
+      if (error) {
+        console.error('Error saving address:', error);
+        setErrors(prev => ({ ...prev, submit: `Failed to save address: ${error}` }));
+        return false;
+      }
+      
+      // Reload saved addresses
+      const result = await getUserAddresses();
+      if (result.data) {
+        setSavedAddresses(result.data);
+      }
+      
+      return true;
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : 'Failed to save address';
+      console.error('Error saving address:', errorMsg);
+      return false;
+    } finally {
+      setSavingAddress(false);
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -426,6 +470,15 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       setSubmitted(true);
       setSuccessMessage(`Order ${orderData?.id ? 'updated' : 'created'} successfully! Order ID: ${createdId}`);
       setSavedOrderItems(orderItems);
+
+      // Save address to profile if requested
+      if (user && shouldSaveAddress && addressMode === 'new') {
+        const addressSaved = await saveAddressToProfile();
+        if (!addressSaved) {
+          setLoading(false);
+          return;
+        }
+      }
 
       setTimeout(() => {
         setShowPayment(true);
@@ -582,23 +635,27 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       <form className={styles.form} onSubmit={handleSubmit}>
         {/* Show Personal Info section only when NOT using saved address mode */}
 
-        <h4 className={styles.selectAddressHeading}>Choose how to provide shipping details</h4>
-        <div className={styles.addressModeToggle}>
-          <button
-            type="button"
-            className={`${styles.modeButton} ${addressMode === 'saved' ? styles.activeModeButton : ''}`}
-            onClick={() => handleAddressModeChange('saved')}
-          >
-            Select saved address
-          </button>
-          <button
-            type="button"
-            className={`${styles.modeButton} ${addressMode === 'new' ? styles.activeModeButton : ''}`}
-            onClick={() => handleAddressModeChange('new')}
-          >
-            Fill all details
-          </button>
-        </div>
+        {savedAddresses.length > 0 && (
+          <h4 className={styles.selectAddressHeading}>Choose how to provide shipping details</h4>
+        )}
+        {savedAddresses.length > 0 && (
+          <div className={styles.addressModeToggle}>
+            <button
+              type="button"
+              className={`${styles.modeButton} ${addressMode === 'saved' ? styles.activeModeButton : ''}`}
+              onClick={() => handleAddressModeChange('saved')}
+            >
+              Select saved address
+            </button>
+            <button
+              type="button"
+              className={`${styles.modeButton} ${addressMode === 'new' ? styles.activeModeButton : ''}`}
+              onClick={() => handleAddressModeChange('new')}
+            >
+              Fill all details
+            </button>
+          </div>
+        )}
         {!(isProduct && savedAddresses.length > 0 && addressMode === 'saved') && (
           <div className={styles.formSection}>
             <h3>
@@ -708,6 +765,19 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
           {(addressMode === 'new' || savedAddresses.length === 0) && (
             <div className={styles.newAddressForm}>
               <div className={styles.formGroup}>
+                <label htmlFor="addressType">Address Type *</label>
+                <select
+                  id="addressType"
+                  value={addressType}
+                  onChange={(e) => setAddressType(e.target.value as 'home' | 'work' | 'other')}
+                >
+                  <option value="home">Home</option>
+                  <option value="work">Work</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div className={styles.formGroup}>
                 <label htmlFor="addressLine1">Address Line 1 *</label>
                 <input
                   type="text"
@@ -799,6 +869,23 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
           )}
         </div>
 
+        {/* Save Address Option - Show when user is logged in and entering a new address */}
+        {user && (addressMode === 'new' || savedAddresses.length === 0) && (
+          <div className={styles.saveAddressSection}>
+            <label className={styles.saveAddressLabel}>
+              <input
+                type="checkbox"
+                checked={shouldSaveAddress}
+                onChange={(e) => setShouldSaveAddress(e.target.checked)}
+                className={styles.saveAddressCheckbox}
+              />
+              <span className={styles.saveAddressText}>
+                Save this address for future purchases
+              </span>
+            </label>
+          </div>
+        )}
+
         {/* Terms and Conditions */}
         <div className={styles.termsSection}>
           <label className={styles.termsLabel}>
@@ -820,10 +907,10 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
         <button
           type="submit"
           className={styles.submitBtn}
-          disabled={loading || submitted || !acceptTerms}
+          disabled={loading || submitted || !acceptTerms || savingAddress}
         >
-          {loading ? 'Processing...' : submitted ? 'Order Created!' : 'Continue to Payment'}
-          {!loading && !submitted && <ChevronRight fontSize="small" />}
+          {loading || savingAddress ? 'Processing...' : submitted ? 'Order Created!' : 'Continue to Payment'}
+          {!loading && !submitted && !savingAddress && <ChevronRight fontSize="small" />}
         </button>
       </form>
     </div>

@@ -97,21 +97,21 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left wrist to absorb its calming and loving energy. Ideal for meditation, emotional healing practices, or daily wear.',
 
-        price: '₹1.00',
-        originalPrice: '₹1,220.00',
+        price: '₹499.00',
+        originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
-                price: '₹124.00',
+                price: '₹499.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
-                price: '₹299.00',
+                price: '₹999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
-                price: '₹499.00',
+                price: '₹1699.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -247,21 +247,21 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to attract wealth and protection energy. Ideal for business professionals, meditation, and manifestation practices.',
 
-        price: '₹124.00',
-        originalPrice: '₹1,499.00',
+        price: '₹499.00',
+        originalPrice: '₹1,999.00',
         pricingTiers: {
             basic: {
-                price: '₹124.00',
+                price: '₹499.00',
                 label: 'Basic',
                 description: 'Standard quality bracelet'
             },
             market: {
-                price: '₹299.00',
+                price: '₹999.00',
                 label: 'Market Segment',
                 description: 'Premium quality with better stones'
             },
             premium: {
-                price: '₹499.00',
+                price: '₹1699.00',
                 label: 'Premium',
                 description: 'Highest quality with energy activation'
             }
@@ -398,8 +398,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to attract prosperity and positive energy. Ideal for business growth, career success, and financial stability.',
 
-        price: '₹139.00',
-        originalPrice: '₹1,399.00',
+        price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -533,8 +550,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to absorb healing energy and balance chakras. Ideal for meditation, yoga, spiritual practices, and daily wear.',
 
-        price: '₹149.00',
-        originalPrice: '₹1,499.00',
+             price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -667,9 +701,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         use:
             'Wear daily on the left hand to absorb calming energy. Ideal for meditation, relaxation, sleep support, and emotional healing practices.',
-
-        price: '₹129.00',
-        originalPrice: '₹1,299.00',
+     price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -802,9 +852,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
 
         use:
             'Wear daily on the left hand to absorb balanced elemental energy. Ideal for meditation, healing practices, and daily protection.',
-
-        price: '₹149.00',
-        originalPrice: '₹1,499.00',
+     price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -938,8 +1004,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to absorb grounding energy. Ideal for meditation, focus, protection, and daily wear.',
 
-        price: '₹139.00',
-        originalPrice: '₹1,299.00',
+            price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -1073,8 +1156,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to absorb grounding energy. Perfect for office wear, daily styling, meditation, and protection.',
 
-        price: '₹149.00',
-        originalPrice: '₹1,499.00',
+             price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -1208,8 +1308,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to attract luck and positive energy. Ideal for business, career growth, interviews, and financial improvement.',
 
-        price: '₹129.00',
-        originalPrice: '₹1,299.00',
+             price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -1343,8 +1460,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand to enhance energy and confidence. Ideal for students, professionals, entrepreneurs, and creative individuals.',
 
-        price: '₹129.00',
-        originalPrice: '₹1,299.00',
+           price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -1478,8 +1612,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand for protection and confidence. Ideal for business, career growth, leadership, and decision-making situations.',
 
-        price: '₹129.00',
-        originalPrice: '₹1,299.00',
+            price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
 
         paymentHighlights: [
             'Cards & UPI Accepted',
@@ -1613,9 +1764,25 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         use:
             'Wear daily on the left hand for protection and grounding. Ideal for stress relief, meditation, emotional healing, and daily wear.',
 
-        price: '₹149.00',
-        originalPrice: '₹1,499.00',
-
+             price: '₹499.00',
+        originalPrice: '₹1,999.00',
+        pricingTiers: {
+            basic: {
+                price: '₹499.00',
+                label: 'Basic',
+                description: 'Standard quality bracelet'
+            },
+            market: {
+                price: '₹999.00',
+                label: 'Market Segment',
+                description: 'Premium quality with better stones'
+            },
+            premium: {
+                price: '₹1699.00',
+                label: 'Premium',
+                description: 'Highest quality with energy activation'
+            }
+        },
         paymentHighlights: [
             'Cards & UPI Accepted',
             'No Hidden Charges',

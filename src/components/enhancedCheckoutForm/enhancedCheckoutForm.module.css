@@ -768,6 +768,35 @@
   }
 }
 
+.saveAddressSection {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+}
+
+.saveAddressLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.saveAddressCheckbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.saveAddressText {
+  color: #333;
+  font-weight: 500;
+}
+
 .termsSection {
   margin-top: 20px;
   padding: 20px;
