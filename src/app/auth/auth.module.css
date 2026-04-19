@@ -55,26 +55,48 @@
 .tabBar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 24px 40px 0;
-  background: var(--auth-background);
+  gap: 12px;
+  padding: 28px 40px 0;
+  background: transparent;
+  position: relative;
+  border-bottom: 2px solid rgba(86, 0, 103, 0.08);
 }
 
 .tabBar button {
-  border: 1px solid rgba(86, 0, 103, 0.16);
+  border: none;
   background: transparent;
-  padding: 12px 18px;
-  border-radius: 999px;
+  padding: 14px 28px;
+  border-radius: 12px 12px 0 0;
   cursor: pointer;
   font-weight: 700;
-  color: #444;
-  transition: all 0.25s ease;
+  color: #888;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+.tabBar button:hover {
+  color: var(--primary);
+  background: rgba(86, 0, 103, 0.04);
 }
 
 .activeTab {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
-  border-color: transparent;
+  background: rgba(86, 0, 103, 0.06);
+  color: var(--primary);
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 3px 3px 0 0;
 }
 
 .statusSuccess,
