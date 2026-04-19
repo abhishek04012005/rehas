@@ -426,6 +426,45 @@
   transform: scale(1.08);
 }
 
+/* Review Badge */
+.reviewBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.starRating {
+  display: flex;
+  gap: 2px;
+}
+
+.ratingText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.avgScore {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.reviewCountText {
+  color: #666;
+  font-size: 11px;
+}
+
 /* Product Details Section */
 .productDetails {
   display: flex;

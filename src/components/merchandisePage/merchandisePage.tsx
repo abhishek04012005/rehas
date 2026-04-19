@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Search, ShoppingCart, Sort } from '@mui/icons-material';
+import { CheckCircle, Search, ShoppingCart, Sort, Star } from '@mui/icons-material';
+import { supabase } from '@/lib/supabase';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import { productMerchandiseData, calculateDiscountPercentage } from '@/data/productMerchandise';
 import { merchandiseData } from '@/data/content';
@@ -43,6 +44,38 @@ export default function MerchandisePage() {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'bracelet' | 'yantra'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'name-asc' | 'name-desc' | 'price-low' | 'price-high' | 'newest'>('newest');
+  const [reviewStats, setReviewStats] = useState<{ [key: string]: { total: number; average: number } }>({});
+
+  // Fetch review stats for all products
+  useEffect(() => {
+    const fetchAllReviewStats = async () => {
+      try {
+        const stats: { [key: string]: { total: number; average: number } } = {};
+        
+        for (const product of allProducts) {
+          const { data: reviews, error } = await supabase
+            .from('product_reviews')
+            .select('rating')
+            .eq('product_id', product.slug)
+            .eq('status', 'approved');
+
+          if (!error && reviews && reviews.length > 0) {
+            const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length);
+            stats[product.slug] = {
+              total: reviews.length,
+              average: parseFloat(avgRating.toFixed(1))
+            };
+          }
+        }
+        
+        setReviewStats(stats);
+      } catch (error) {
+        console.error('Error fetching review stats:', error);
+      }
+    };
+
+    fetchAllReviewStats();
+  }, []);
 
   const sortOptions = [
     { value: 'newest', label: 'Newest First' },
@@ -159,6 +192,27 @@ export default function MerchandisePage() {
                     fill
                     className={styles.productImage}
                   />
+                  
+                  {/* Review Stats Badge */}
+                  {reviewStats[product.slug] && reviewStats[product.slug].total > 0 && (
+                    <div className={styles.reviewBadge}>
+                      <div className={styles.starRating}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            sx={{
+                              fontSize: 14,
+                              color: i < Math.round(reviewStats[product.slug].average) ? '#ffc107' : '#e0e0e0',
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <div className={styles.ratingText}>
+                        <span className={styles.avgScore}>{reviewStats[product.slug].average}</span>
+                        <span className={styles.reviewCountText}>({reviewStats[product.slug].total})</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Product Details */}

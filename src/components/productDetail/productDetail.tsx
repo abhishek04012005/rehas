@@ -2,10 +2,11 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState } from 'react';
-import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle, Close } from '@mui/icons-material';
+import { useState, useEffect } from 'react';
+import { ShoppingCart, CheckCircle, ChevronRight, EmojiEvents, ChevronLeft, PlayCircle, Close, Star } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { useAuth } from '@/context/AuthContext';
+import { supabase } from '@/lib/supabase';
 import { calculateDiscountPercentage } from '@/data/productMerchandise';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import SimilarProducts from './similarProducts';
@@ -120,6 +121,8 @@ export default function ProductDetail({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<'basic' | 'market' | 'premium'>('basic');
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [averageRating, setAverageRating] = useState(0);
   
   const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
   const productName = product.name;
@@ -142,6 +145,33 @@ export default function ProductDetail({
   
   const images = product.images && product.images.length > 0 ? product.images : [];
   const hasImages = images.length > 0;
+
+  // Fetch review stats
+  useEffect(() => {
+    const fetchReviewStats = async () => {
+      try {
+        const { data: reviews, error } = await supabase
+          .from('product_reviews')
+          .select('rating')
+          .eq('product_id', product.slug)
+          .eq('status', 'approved');
+
+        if (error) throw error;
+
+        if (reviews && reviews.length > 0) {
+          setTotalReviews(reviews.length);
+          const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
+          setAverageRating(parseFloat(avgRating));
+        }
+      } catch (error) {
+        console.error('Error fetching review stats:', error);
+      }
+    };
+
+    if (product.slug) {
+      fetchReviewStats();
+    }
+  }, [product.slug]);
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -298,6 +328,27 @@ export default function ProductDetail({
                     title={isVideo(item) ? 'Video' : 'Image'}
                   />
                 ))}
+              </div>
+            )}
+
+            {/* Review Stats Badge */}
+            {totalReviews > 0 && (
+              <div className={styles.reviewStatsBadge}>
+                <div className={styles.starsContainer}>
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      sx={{
+                        fontSize: 16,
+                        color: i < Math.round(averageRating) ? '#ffc107' : '#e0e0e0',
+                      }}
+                    />
+                  ))}
+                </div>
+                <div className={styles.reviewsInfo}>
+                  <span className={styles.averageScore}>{averageRating}</span>
+                  <span className={styles.reviewCount}>({totalReviews} review{totalReviews !== 1 ? 's' : ''})</span>
+                </div>
               </div>
             )}
           </div>

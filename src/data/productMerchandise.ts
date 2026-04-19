@@ -1312,8 +1312,8 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Green Aventurine Bracelet',
-        slug: 'green-aventurine-bracelet',
+            name: 'Green Aventurine Bracelet',
+            slug: 'green-aventurine-bracelet',
 
         tagline: 'Stone of Luck, Prosperity & Opportunity',
         qualityTag: 'AAA Quality • 100% Natural Green Aventurine • Handcrafted',

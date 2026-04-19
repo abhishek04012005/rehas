@@ -239,6 +239,40 @@
   border-radius: 999px;
 }
 
+.reviewStatsBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.starsContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.reviewsInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.averageScore {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.reviewCount {
+  font-size: 14px;
+  color: #666;
+}
+
 .productImageWrapper {
   width: 100%;
   max-width: 450px;
