@@ -123,6 +123,7 @@ export default function ProductDetail({
   const [selectedTier, setSelectedTier] = useState<'basic' | 'market' | 'premium'>('basic');
   const [totalReviews, setTotalReviews] = useState(0);
   const [averageRating, setAverageRating] = useState(0);
+  const [reviewsLoading, setReviewsLoading] = useState(true);
   
   const categoryDisplay = product.category.charAt(0).toUpperCase() + product.category.slice(1);
   const productName = product.name;
@@ -149,6 +150,7 @@ export default function ProductDetail({
   // Fetch review stats
   useEffect(() => {
     const fetchReviewStats = async () => {
+      setReviewsLoading(true);
       try {
         const { data: reviews, error } = await supabase
           .from('product_reviews')
@@ -165,6 +167,8 @@ export default function ProductDetail({
         }
       } catch (error) {
         console.error('Error fetching review stats:', error);
+      } finally {
+        setReviewsLoading(false);
       }
     };
 
@@ -332,7 +336,12 @@ export default function ProductDetail({
             )}
 
             {/* Review Stats Badge */}
-            {totalReviews > 0 && (
+            {reviewsLoading ? (
+              <div className={styles.reviewStatsBadgeSkeleton}>
+                <div className={styles.skeletonStarsBadge}></div>
+                <div className={styles.skeletonTextBadge}></div>
+              </div>
+            ) : totalReviews > 0 ? (
               <div className={styles.reviewStatsBadge}>
                 <div className={styles.starsContainer}>
                   {[...Array(5)].map((_, i) => (
@@ -350,7 +359,7 @@ export default function ProductDetail({
                   <span className={styles.reviewCount}>({totalReviews} review{totalReviews !== 1 ? 's' : ''})</span>
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
 
           {/* Image Modal */}

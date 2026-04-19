@@ -256,7 +256,26 @@ export default function ReviewsSection({
     return (
       <section className={styles.reviewsSection}>
         <div className={styles.reviewsContainer}>
-          <p>Loading reviews...</p>
+          <div className={styles.reviewsHeaderSkeleton}>
+            <div className={styles.skeletonTitle}></div>
+            <div className={styles.skeletonSubtitle}></div>
+          </div>
+          <div className={styles.reviewsListSkeleton}>
+            {[1, 2, 3].map((index) => (
+              <div key={index} className={styles.reviewItemSkeleton}>
+                <div className={styles.skeletonReviewHeader}>
+                  <div className={styles.skeletonAvatar}></div>
+                  <div className={styles.skeletonReviewerInfo}>
+                    <div className={styles.skeletonName}></div>
+                    <div className={styles.skeletonRating}></div>
+                  </div>
+                </div>
+                <div className={styles.skeletonReviewTitle}></div>
+                <div className={styles.skeletonReviewContent}></div>
+                <div className={styles.skeletonReviewContent}></div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     );
