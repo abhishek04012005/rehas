@@ -31,7 +31,22 @@ export default function TermsOfService() {
       ],
     },
     {
-      title: '3. Disclaimer',
+      title: '3. Refund Policy',
+      content: [
+        'No Refunds: We do not offer refunds for product purchases. All sales are final unless otherwise stated.',
+        'Exceptions: In rare cases of damage during shipping, please contact support immediately with photos for review.',
+        'Support: If you have any concerns, our support team is available to help at support@rehas.in.',
+        'Why No Refund for Energy-Activated Bracelets?',
+        'When you select the "Energy Cleansing Ritual" or "Energy Activation Ritual" option, a sacred puja (ritual ceremony) is performed on your bracelet with your name and intention. Once this spiritual activation is completed:',
+        '• Personalized Energy Work: The bracelet becomes spiritually personalized to you through ritual activation',
+        '• Irreversible Process: The energy work performed cannot be reversed or transferred',
+        '• Spiritual Commitment: The ritual creates a sacred bond between you and the crystal\'s healing energy',
+        '• No Returns Accepted: Bracelets with completed puja ceremonies are non-refundable under any circumstances',
+        'Please ensure you are ready for the spiritual commitment before selecting the energy activation ritual. If you prefer to purchase without the ritual, you can choose a bracelet without this service, which is still subject to our standard no-refund policy.',
+      ],
+    },
+    {
+      title: '4. Disclaimer',
       content: [
         'The materials on REHAS website are provided on an "as is" basis without warranties of any kind, either express or implied.',
         'REHAS disclaims all warranties including, but not limited to, warranties of merchantability, fitness for a particular purpose, and non-infringement.',
@@ -39,14 +54,14 @@ export default function TermsOfService() {
       ],
     },
     {
-      title: '4. Limitations of Liability',
+      title: '5. Limitations of Liability',
       content: [
         'In no event shall REHAS or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on the REHAS website.',
         'Even if REHAS or an authorized representative has been notified orally or in writing of the possibility of such damage, the liability shall not exceed the amount paid by you, if any, for the materials.',
       ],
     },
     {
-      title: '5. Accuracy of Materials',
+      title: '6. Accuracy of Materials',
       content: [
         'The materials appearing on REHAS website could include technical, typographical, or photographic errors.',
         'REHAS does not warrant that any of the materials on its website are accurate, complete, or current.',
@@ -54,7 +69,7 @@ export default function TermsOfService() {
       ],
     },
     {
-      title: '6. Links',
+      title: '7. Links',
       content: [
         'REHAS has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site.',
         'The inclusion of any link does not imply endorsement by REHAS of the site.',
@@ -62,21 +77,21 @@ export default function TermsOfService() {
       ],
     },
     {
-      title: '7. Modifications',
+      title: '8. Modifications',
       content: [
         'REHAS may revise these terms of service for its website at any time without notice.',
         'By using this website, you are agreeing to be bound by the then current version of these terms of service.',
       ],
     },
     {
-      title: '8. Governing Law',
+      title: '9. Governing Law',
       content: [
         'These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which REHAS operates.',
         'You irrevocably submit to the exclusive jurisdiction of the courts in that location.',
       ],
     },
     {
-      title: '9. User Responsibilities',
+      title: '10. User Responsibilities',
       content: [
         'You are responsible for maintaining the confidentiality of your account information and password.',
         'You agree to accept responsibility for all activities that occur under your account.',
@@ -84,7 +99,7 @@ export default function TermsOfService() {
       ],
     },
     {
-      title: '10. Contact Information',
+      title: '11. Contact Information',
       content: [
         'If you have any questions about these terms of service, please contact us at:',
         `Email: ${contactData.info.cards[0].value}`,

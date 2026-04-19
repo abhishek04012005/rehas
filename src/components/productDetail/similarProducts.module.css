@@ -227,6 +227,74 @@
   box-shadow: 0 6px 16px rgba(86, 0, 103, 0.25);
 }
 
+/* Review Badge */
+.reviewBadge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.starRating {
+  display: flex;
+  gap: 2px;
+}
+
+.ratingText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.avgScore {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.reviewCountText {
+  color: #666;
+  font-size: 11px;
+}
+
+/* Review Badge Skeleton Loader */
+.reviewBadgeSkeleton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.skeletonStars {
+  display: flex;
+  gap: 2px;
+  height: 14px;
+  width: 72px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeletonText {
+  height: 16px;
+  width: 50px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 @media (max-width: 768px) {
   .productsGrid {
     grid-template-columns: 1fr;

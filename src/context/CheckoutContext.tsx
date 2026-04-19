@@ -19,7 +19,7 @@ export interface CartItem {
   poojaPrice?: string;
   productId?: string;
   productImage?: string;
-  selectedTier?: 'basic' | 'market' | 'premium';
+  selectedTier?: 'root' | 'aura' | 'divine';
 }
 
 export interface ProductData {
@@ -31,7 +31,7 @@ export interface ProductData {
   isPoojaSelected?: boolean;
   poojaLabel?: string;
   poojaPrice?: string;
-  selectedTier?: 'basic' | 'market' | 'premium';
+  selectedTier?: 'root' | 'aura' | 'divine';
 }
 
 interface CheckoutContextType {

@@ -5,12 +5,13 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowBack, Visibility, VisibilityOff, CheckCircle } from '@mui/icons-material';
 import { useAuth } from '@/context/AuthContext';
+import NavbarWrapper from '@/components/navbarWrapper';
 import styles from './auth.module.css';
 
 export default function AuthPageClient() {
   const router = useRouter();
   const params = useSearchParams();
-  const redirectTo = params.get('redirect') || '/checkout';
+  const redirectTo = params.get('redirect') || '/merchandise';
   const resetMode = params.get('reset') === 'true';
   const resetToken = params.get('token');
   const resetEmail = params.get('email');
@@ -28,6 +29,8 @@ export default function AuthPageClient() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -255,8 +258,10 @@ export default function AuthPageClient() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
+    <>
+      <NavbarWrapper />
+      <div className={styles.container}>
+        <div className={styles.card}>
         <div className={styles.header}>
           <div>
             <h1>Welcome to REHAS</h1>
@@ -451,11 +456,31 @@ export default function AuthPageClient() {
               </div>
               <label>
                 <span>New Password</span>
-                <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter new password" />
+                <div className={styles.passwordInputWrapper}>
+                  <input type={showNewPassword ? 'text' : 'password'} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter new password" />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowNewPassword((current) => !current)}
+                    aria-label={showNewPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
               </label>
               <label>
                 <span>Confirm New Password</span>
-                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm new password" />
+                <div className={styles.passwordInputWrapper}>
+                  <input type={showConfirmPassword ? 'text' : 'password'} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm new password" />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowConfirmPassword((current) => !current)}
+                    aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                  >
+                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
               </label>
               <button type="button" className={styles.backButton} onClick={() => { setTab('signin'); setResetType(null); setMessage(''); setError(''); }}>
                 Back to Sign In
@@ -467,11 +492,31 @@ export default function AuthPageClient() {
             <>
               <label>
                 <span>Current Password</span>
-                <input type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Enter current password" />
+                <div className={styles.passwordInputWrapper}>
+                  <input type={showCurrentPassword ? 'text' : 'password'} value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Enter current password" />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowCurrentPassword((current) => !current)}
+                    aria-label={showCurrentPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
               </label>
               <label>
                 <span>New Password</span>
-                <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter new password" />
+                <div className={styles.passwordInputWrapper}>
+                  <input type={showNewPassword ? 'text' : 'password'} value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="Enter new password" />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowNewPassword((current) => !current)}
+                    aria-label={showNewPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
               </label>
             </>
           )}
@@ -479,12 +524,22 @@ export default function AuthPageClient() {
           {tab === 'signin' && (
             <>
               <label>
-                <span>Email or Phone</span>
-                <input type="text" value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder="your.email@gmail.com or 9876543210" />
+                <span>Email</span>
+                <input type="email" value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder="your.email@gmail.com" />
               </label>
               <label>
                 <span>Password</span>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+                <div className={styles.passwordInputWrapper}>
+                  <input type={showPassword ? 'text' : 'password'} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowPassword((current) => !current)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </button>
+                </div>
               </label>
               <button type="button" className={styles.forgotPasswordLink} onClick={() => { setResetType('forgot'); setTab('reset'); setMessage(''); setError(''); }}>
                 Forgot Password?
@@ -499,17 +554,19 @@ export default function AuthPageClient() {
             </label>
           )}
 
-          <button type="submit" className={styles.submitBtn} disabled={submitting || loading || (tab === 'reset' && resetType === null)}>
-            {tab === 'signin' && isEmail(identifier) && 'Sign In with Email'}
-            {tab === 'signin' && isPhone(identifier) && (otpSent ? 'Verify OTP' : 'Send OTP')}
-            {tab === 'signin' && !isEmail(identifier) && !isPhone(identifier) && 'Sign In'}
-            {tab === 'signup' && signupOtpStep === 'email' && 'Send OTP'}
-            {tab === 'signup' && signupOtpStep === 'verify' && 'Verify OTP'}
-            {tab === 'signup' && signupOtpStep === 'details' && 'Create Account'}
-            {tab === 'reset' && resetType === 'forgot' && 'Send Reset Link'}
-            {tab === 'changePassword' && resetToken && 'Reset Password'}
-            {tab === 'changePassword' && !resetToken && 'Change Password'}
-          </button>
+          {!(tab === 'reset' && resetType === null) && (
+            <button type="submit" className={styles.submitBtn} disabled={submitting || loading}>
+              {tab === 'signin' && isEmail(identifier) && 'Sign In with Email'}
+              {tab === 'signin' && isPhone(identifier) && (otpSent ? 'Verify OTP' : 'Send OTP')}
+              {tab === 'signin' && !isEmail(identifier) && !isPhone(identifier) && 'Sign In'}
+              {tab === 'signup' && signupOtpStep === 'email' && 'Send OTP'}
+              {tab === 'signup' && signupOtpStep === 'verify' && 'Verify OTP'}
+              {tab === 'signup' && signupOtpStep === 'details' && 'Create Account'}
+              {tab === 'reset' && resetType === 'forgot' && 'Send Reset Link'}
+              {tab === 'changePassword' && resetToken && 'Reset Password'}
+              {tab === 'changePassword' && !resetToken && 'Change Password'}
+            </button>
+          )}
         </form>
 
         <div className={styles.footerText}>
@@ -517,6 +574,7 @@ export default function AuthPageClient() {
           <Link href="/checkout" className={styles.secondaryLink}>Proceed as guest on checkout</Link>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

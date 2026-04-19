@@ -224,7 +224,13 @@ export default function MerchandisePage() {
                     fill
                     className={styles.productImage}
                   />
-                  
+                </div>
+
+                {/* Product Details */}
+                <div className={styles.productDetails}>
+                  <h3 className={styles.productName}>{product.name}</h3>
+                  <p className={styles.productDescription}>{product.shortDescription || product.meaning}</p>
+
                   {/* Review Stats Badge */}
                   {reviewsLoading ? (
                     <div className={styles.reviewBadgeSkeleton}>
@@ -250,12 +256,6 @@ export default function MerchandisePage() {
                       </div>
                     </div>
                   ) : null}
-                </div>
-
-                {/* Product Details */}
-                <div className={styles.productDetails}>
-                  <h3 className={styles.productName}>{product.name}</h3>
-                  <p className={styles.productDescription}>{product.shortDescription || product.meaning}</p>
 
                   {/* Pricing Section */}
                   <div className={styles.pricingSection}>

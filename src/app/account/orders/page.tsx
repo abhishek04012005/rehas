@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
+import { productMerchandiseData } from '@/data/productMerchandise';
 import styles from './orders.module.css';
 
 interface OrderRecord {
@@ -28,12 +29,81 @@ interface OrderRecord {
   created_at: string;
 }
 
+interface ReviewRecord {
+  id: number;
+  product_id: string;
+  product_name: string;
+  user_name: string;
+  user_email: string;
+  rating: number;
+  review_title: string;
+  review_content: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
+}
+
+// Helper function to validate UUID format
+const isValidUUID = (uuid: string): boolean => {
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  return uuidRegex.test(uuid);
+};
+
 const normalizePhone = (phone: string | null) => (phone ? phone.replace(/\D/g, '').slice(-10) : '');
+
+// Helper function to convert product title to slug
+const titleToSlug = (title: string): string => {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+};
+
+// Helper function to get product slug from order
+const getProductSlugFromOrder = (order: OrderRecord): string => {
+  let productName = order.product_title;
+
+  // Try to extract from items JSON
+  try {
+    const items = typeof order.items === 'string' ? JSON.parse(order.items) : order.items;
+    if (Array.isArray(items) && items.length > 0) {
+      const firstItem = items[0];
+      productName = firstItem.productTitle || firstItem.name || productName;
+    }
+  } catch (_err) {
+    // Use product_title as fallback
+  }
+
+  // Find product in merchandise data
+  const matchedProduct = productMerchandiseData.find(
+    (product) => product.name.toLowerCase() === productName.toLowerCase()
+  );
+
+  if (matchedProduct) {
+    return matchedProduct.slug;
+  }
+
+  // Try partial match
+  const productWords = productName.toLowerCase().split(' ');
+  const partialMatch = productMerchandiseData.find((product) => {
+    const merchandiseName = product.name.toLowerCase();
+    return productWords.slice(0, 2).every(word => merchandiseName.includes(word));
+  });
+
+  return partialMatch ? partialMatch.slug : titleToSlug(productName);
+};
 
 export default function OrdersPage() {
   const { user, loading } = useAuth();
   const [orders, setOrders] = useState<OrderRecord[]>([]);
+  const [userReviews, setUserReviews] = useState<ReviewRecord[]>([]);
   const [selectedOrder, setSelectedOrder] = useState<OrderRecord | null>(null);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewData, setReviewData] = useState({
+    rating: 5,
+    title: '',
+    content: '',
+  });
+  const [reviewSubmitting, setReviewSubmitting] = useState(false);
+  const [reviewError, setReviewError] = useState('');
+  const [reviewSuccess, setReviewSuccess] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -59,11 +129,98 @@ export default function OrdersPage() {
       } else if (data) {
         setOrders(data as OrderRecord[]);
       }
+
+      // Fetch user reviews
+      const { data: reviewsData, error: reviewsError } = await supabase
+        .from('product_reviews')
+        .select('*')
+        .eq('user_email', user.email || '');
+
+      if (!reviewsError && reviewsData) {
+        setUserReviews(reviewsData as ReviewRecord[]);
+      }
+
       setIsLoading(false);
     };
 
     fetchOrders();
   }, [user]);
+
+  const handleReviewSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedOrder || !user) return;
+
+    setReviewSubmitting(true);
+    setReviewError('');
+    setReviewSuccess('');
+
+    try {
+      // Extract product name from order items or use product_title
+      let productName = selectedOrder.product_title;
+
+      // Try to extract from items JSON
+      try {
+        const items = typeof selectedOrder.items === 'string' ? JSON.parse(selectedOrder.items) : selectedOrder.items;
+        if (Array.isArray(items) && items.length > 0) {
+          const firstItem = items[0];
+          productName = firstItem.productTitle || firstItem.name || productName;
+        }
+      } catch (_err) {
+        // Use product_title as fallback
+      }
+
+      // Find product in merchandise data - try exact match first, then partial match
+      let matchedProduct = productMerchandiseData.find(
+        (product) => product.name.toLowerCase() === productName.toLowerCase()
+      );
+
+      // If no exact match, try to find by partial match (first few words)
+      if (!matchedProduct) {
+        const productWords = productName.toLowerCase().split(' ');
+        matchedProduct = productMerchandiseData.find((product) => {
+          const merchandiseName = product.name.toLowerCase();
+          return productWords.some(word => merchandiseName.includes(word)) &&
+                 productWords.slice(0, 2).every(word => merchandiseName.includes(word));
+        });
+      }
+
+      // Get the correct slug from merchandise data or fallback
+      const productSlug = matchedProduct ? matchedProduct.slug : titleToSlug(productName);
+      const finalProductName = matchedProduct ? matchedProduct.name : productName;
+
+      // Only include user_id if it's a valid UUID
+      const userId = user.id && isValidUUID(user.id) ? user.id : null;
+
+      const { error: submitError } = await supabase.from('product_reviews').insert({
+        product_id: productSlug,
+        product_name: finalProductName,
+        user_id: userId,
+        user_name: selectedOrder.full_name || user.email?.split('@')[0] || 'Anonymous',
+        user_email: user.email || '',
+        rating: reviewData.rating,
+        review_title: reviewData.title,
+        review_content: reviewData.content,
+        is_verified_purchase: true,
+        status: 'approved',
+        created_at: new Date().toISOString(),
+      });
+
+      if (submitError) {
+        setReviewError(submitError.message || 'Failed to submit review');
+      } else {
+        setReviewSuccess('Review submitted successfully! It will appear after admin approval.');
+        setReviewData({ rating: 5, title: '', content: '' });
+        setShowReviewForm(false);
+        setTimeout(() => {
+          setReviewSuccess('');
+        }, 3000);
+      }
+    } catch (err: any) {
+      setReviewError(err.message || 'An error occurred while submitting your review');
+    } finally {
+      setReviewSubmitting(false);
+    }
+  };
 
   if (loading || isLoading) {
     return <div className={styles.loading}>Loading your order history...</div>;
@@ -255,20 +412,192 @@ export default function OrdersPage() {
                     </div>
                   </div>
                 )}
-                <div className={styles.modalActions}>
-                  {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
-                    <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
-                      Pay Now
-                    </Link>
-                  ) : (
-                    <Link
-                      href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
-                      className={styles.modalActionButton}
-                    >
-                      Download Receipt
-                    </Link>
-                  )}
-                </div>
+
+                {!showReviewForm ? (
+                  (() => {
+                    const productSlug = getProductSlugFromOrder(selectedOrder);
+                    const existingReview = userReviews.find(
+                      (review) => review.product_id === productSlug
+                    );
+
+                    if (existingReview) {
+                      return (
+                        <div className={styles.reviewDisplayContainer}>
+                          <h3>Your Review</h3>
+                          <div className={styles.reviewCard}>
+                            <div className={styles.reviewHeader}>
+                              <div className={styles.reviewRating}>
+                                {[1, 2, 3, 4, 5].map((num) => (
+                                  <span key={num} className={styles.reviewStar}>
+                                    {existingReview.rating >= num ? '★' : '☆'}
+                                  </span>
+                                ))}
+                                <span className={styles.ratingValue}>{existingReview.rating}.0</span>
+                              </div>
+                              <span className={styles.reviewStatus}>{existingReview.status}</span>
+                            </div>
+                            <h4 className={styles.reviewTitle}>{existingReview.review_title}</h4>
+                            <p className={styles.reviewContent}>{existingReview.review_content}</p>
+                            <div className={styles.reviewMeta}>
+                              <span className={styles.reviewDate}>
+                                {new Date(existingReview.created_at).toLocaleDateString('en-IN', {
+                                  day: 'numeric',
+                                  month: 'short',
+                                  year: 'numeric',
+                                })}
+                              </span>
+                            </div>
+                          </div>
+                          <div className={styles.modalActions}>
+                            <button
+                              className={styles.modalActionButton}
+                              onClick={() => setShowReviewForm(true)}
+                            >
+                              ✎ Edit Review
+                            </button>
+                            {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                              <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
+                                Pay Now
+                              </Link>
+                            ) : (
+                              <Link
+                                href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                                className={styles.modalActionButton}
+                              >
+                                Download Receipt
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div className={styles.modalActions}>
+                        <button
+                          className={styles.modalActionButton}
+                          onClick={() => setShowReviewForm(true)}
+                        >
+                          ⭐ Add Review
+                        </button>
+                        {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                          <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
+                            Pay Now
+                          </Link>
+                        ) : (
+                          <Link
+                            href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                            className={styles.modalActionButton}
+                          >
+                            Download Receipt
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })()
+                ) : (
+                  <div className={styles.reviewFormContainer}>
+                    <h3>Add Review for {selectedOrder.product_title}</h3>
+                    
+                    {reviewError && <div className={styles.errorBox}>{reviewError}</div>}
+                    {reviewSuccess && <div className={styles.successBox}>{reviewSuccess}</div>}
+                    
+                    {reviewSubmitting ? (
+                      <div className={styles.reviewSkeletonLoader}>
+                        <div className={styles.formGroup}>
+                          <div className={styles.skeletonLabel}></div>
+                          <div className={styles.ratingInput}>
+                            {[1, 2, 3, 4, 5].map((num) => (
+                              <div key={num} className={styles.skeletonStar}></div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                          <div className={styles.skeletonLabel}></div>
+                          <div className={styles.skeletonInput}></div>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                          <div className={styles.skeletonLabel}></div>
+                          <div className={styles.skeletonTextarea}></div>
+                          <div className={styles.skeletonTextarea}></div>
+                          <div className={styles.skeletonTextarea}></div>
+                        </div>
+
+                        <div className={styles.reviewFormActions}>
+                          <div className={styles.skeletonButton}></div>
+                          <div className={styles.skeletonButton}></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleReviewSubmit}>
+                        <div className={styles.formGroup}>
+                          <label>Rating</label>
+                          <div className={styles.ratingInput}>
+                            {[1, 2, 3, 4, 5].map((num) => (
+                              <button
+                                key={num}
+                                type="button"
+                                className={`${styles.starButton} ${reviewData.rating >= num ? styles.active : ''}`}
+                                onClick={() => setReviewData({ ...reviewData, rating: num })}
+                              >
+                                ★
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                          <label htmlFor="review-title">Review Title</label>
+                          <input
+                            id="review-title"
+                            type="text"
+                            placeholder="E.g., Excellent product!"
+                            value={reviewData.title}
+                            onChange={(e) => setReviewData({ ...reviewData, title: e.target.value })}
+                            required
+                            className={styles.formInput}
+                          />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                          <label htmlFor="review-content">Your Review</label>
+                          <textarea
+                            id="review-content"
+                            placeholder="Share your thoughts about this product..."
+                            value={reviewData.content}
+                            onChange={(e) => setReviewData({ ...reviewData, content: e.target.value })}
+                            required
+                            rows={4}
+                            className={styles.formInput}
+                          />
+                        </div>
+
+                        <div className={styles.reviewFormActions}>
+                          <button
+                            type="submit"
+                            disabled={reviewSubmitting}
+                            className={styles.submitButton}
+                          >
+                            {reviewSubmitting ? 'Submitting...' : 'Submit Review'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowReviewForm(false);
+                              setReviewError('');
+                              setReviewSuccess('');
+                            }}
+                            className={styles.cancelButton}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           )}

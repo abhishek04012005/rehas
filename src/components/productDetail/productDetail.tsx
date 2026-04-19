@@ -26,9 +26,9 @@ interface ProductDetailData {
   price?: string;
   originalPrice?: string;
   pricingTiers?: {
-    basic: { price: string; originalPrice?: string; label: string; description?: string };
-    market: { price: string; originalPrice?: string; label: string; description?: string };
-    premium: { price: string; originalPrice?: string; label: string; description?: string };
+    root: { price: string; originalPrice?: string; label: string; description?: string };
+    aura: { price: string; originalPrice?: string; label: string; description?: string };
+    divine: { price: string; originalPrice?: string; label: string; description?: string };
   };
   monthlyPlan?: string;
   pooja?: {
@@ -120,7 +120,7 @@ export default function ProductDetail({
   const [isPoojaSelected, setIsPoojaSelected] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  const [selectedTier, setSelectedTier] = useState<'basic' | 'market' | 'premium'>('basic');
+  const [selectedTier, setSelectedTier] = useState<'root' | 'aura' | 'divine'>('root');
   const [totalReviews, setTotalReviews] = useState(0);
   const [averageRating, setAverageRating] = useState(0);
   const [reviewsLoading, setReviewsLoading] = useState(true);
@@ -490,7 +490,7 @@ export default function ProductDetail({
                     <div
                       key={tierKey}
                       className={`${styles.tierCard} ${selectedTier === tierKey ? styles.tierSelected : ''}`}
-                      onClick={() => setSelectedTier(tierKey as 'basic' | 'market' | 'premium')}
+                      onClick={() => setSelectedTier(tierKey as 'root' | 'aura' | 'divine')}
                     >
                       <h4 className={styles.tierLabel}>{tier.label}</h4>
                       <span className={styles.tierPrice}>{tier.price}</span>

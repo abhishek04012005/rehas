@@ -328,7 +328,7 @@ export default function AllReviewsPage({
                   <div className={styles.reviewHeader}>
                     <div className={styles.reviewerInfo}>
                       <h3 className={styles.reviewerName}>{review.userName}</h3>
-                      <p className={styles.reviewDate}>
+                      {/* <p className={styles.reviewDate}>
                         {new Date(review.createdAt).toLocaleDateString(
                           'en-IN',
                           {
@@ -337,7 +337,7 @@ export default function AllReviewsPage({
                             day: 'numeric',
                           }
                         )}
-                      </p>
+                      </p> */}
                     </div>
                     {user?.id === review.userId && (
                       <button
