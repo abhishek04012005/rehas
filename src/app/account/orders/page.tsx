@@ -381,70 +381,100 @@ export default function OrdersPage() {
                     {reviewError && <div className={styles.errorBox}>{reviewError}</div>}
                     {reviewSuccess && <div className={styles.successBox}>{reviewSuccess}</div>}
                     
-                    <form onSubmit={handleReviewSubmit}>
-                      <div className={styles.formGroup}>
-                        <label>Rating</label>
-                        <div className={styles.ratingInput}>
-                          {[1, 2, 3, 4, 5].map((num) => (
-                            <button
-                              key={num}
-                              type="button"
-                              className={`${styles.starButton} ${reviewData.rating >= num ? styles.active : ''}`}
-                              onClick={() => setReviewData({ ...reviewData, rating: num })}
-                            >
-                              ★
-                            </button>
-                          ))}
+                    {reviewSubmitting ? (
+                      <div className={styles.reviewSkeletonLoader}>
+                        <div className={styles.formGroup}>
+                          <div className={styles.skeletonLabel}></div>
+                          <div className={styles.ratingInput}>
+                            {[1, 2, 3, 4, 5].map((num) => (
+                              <div key={num} className={styles.skeletonStar}></div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                          <div className={styles.skeletonLabel}></div>
+                          <div className={styles.skeletonInput}></div>
+                        </div>
+
+                        <div className={styles.formGroup}>
+                          <div className={styles.skeletonLabel}></div>
+                          <div className={styles.skeletonTextarea}></div>
+                          <div className={styles.skeletonTextarea}></div>
+                          <div className={styles.skeletonTextarea}></div>
+                        </div>
+
+                        <div className={styles.reviewFormActions}>
+                          <div className={styles.skeletonButton}></div>
+                          <div className={styles.skeletonButton}></div>
                         </div>
                       </div>
+                    ) : (
+                      <form onSubmit={handleReviewSubmit}>
+                        <div className={styles.formGroup}>
+                          <label>Rating</label>
+                          <div className={styles.ratingInput}>
+                            {[1, 2, 3, 4, 5].map((num) => (
+                              <button
+                                key={num}
+                                type="button"
+                                className={`${styles.starButton} ${reviewData.rating >= num ? styles.active : ''}`}
+                                onClick={() => setReviewData({ ...reviewData, rating: num })}
+                              >
+                                ★
+                              </button>
+                            ))}
+                          </div>
+                        </div>
 
-                      <div className={styles.formGroup}>
-                        <label htmlFor="review-title">Review Title</label>
-                        <input
-                          id="review-title"
-                          type="text"
-                          placeholder="E.g., Excellent product!"
-                          value={reviewData.title}
-                          onChange={(e) => setReviewData({ ...reviewData, title: e.target.value })}
-                          required
-                          className={styles.formInput}
-                        />
-                      </div>
+                        <div className={styles.formGroup}>
+                          <label htmlFor="review-title">Review Title</label>
+                          <input
+                            id="review-title"
+                            type="text"
+                            placeholder="E.g., Excellent product!"
+                            value={reviewData.title}
+                            onChange={(e) => setReviewData({ ...reviewData, title: e.target.value })}
+                            required
+                            className={styles.formInput}
+                          />
+                        </div>
 
-                      <div className={styles.formGroup}>
-                        <label htmlFor="review-content">Your Review</label>
-                        <textarea
-                          id="review-content"
-                          placeholder="Share your thoughts about this product..."
-                          value={reviewData.content}
-                          onChange={(e) => setReviewData({ ...reviewData, content: e.target.value })}
-                          required
-                          rows={4}
-                          className={styles.formInput}
-                        />
-                      </div>
+                        <div className={styles.formGroup}>
+                          <label htmlFor="review-content">Your Review</label>
+                          <textarea
+                            id="review-content"
+                            placeholder="Share your thoughts about this product..."
+                            value={reviewData.content}
+                            onChange={(e) => setReviewData({ ...reviewData, content: e.target.value })}
+                            required
+                            rows={4}
+                            className={styles.formInput}
+                          />
+                        </div>
 
-                      <div className={styles.reviewFormActions}>
-                        <button
-                          type="submit"
-                          disabled={reviewSubmitting}
-                          className={styles.submitButton}
-                        >
-                          {reviewSubmitting ? 'Submitting...' : 'Submit Review'}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setShowReviewForm(false);
-                            setReviewError('');
-                            setReviewSuccess('');
-                          }}
-                          className={styles.cancelButton}
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </form>
+                        <div className={styles.reviewFormActions}>
+                          <button
+                            type="submit"
+                            disabled={reviewSubmitting}
+                            className={styles.submitButton}
+                          >
+                            {reviewSubmitting ? 'Submitting...' : 'Submit Review'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowReviewForm(false);
+                              setReviewError('');
+                              setReviewSuccess('');
+                            }}
+                            className={styles.cancelButton}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    )}
                   </div>
                 )}
               </div>
