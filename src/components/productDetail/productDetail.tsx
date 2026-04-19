@@ -823,7 +823,11 @@ export default function ProductDetail({
       </section>
 
       {/* Reviews Section */}
-      <ReviewsSection productId={product.slug || ''} productName={product.name} />
+      <ReviewsSection 
+        productId={product.slug || ''} 
+        productName={product.name}
+        category={product.category}
+      />
 
       {/* Similar Products Section - Only for merchandise products */}
       {product.slug && product.category && (

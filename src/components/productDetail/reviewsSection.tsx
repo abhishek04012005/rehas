@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Star, SendOutlined, Delete, ExpandMore } from '@mui/icons-material';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
@@ -28,14 +29,15 @@ interface ReviewsData {
 export default function ReviewsSection({
   productId,
   productName,
+  category,
 }: {
   productId: string;
   productName: string;
+  category?: string;
 }) {
   const { user } = useAuth();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showAllReviews, setShowAllReviews] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     rating: 5,
@@ -398,8 +400,9 @@ export default function ReviewsSection({
             </div>
           ) : (
             <>
-              {/* Show only 3 latest reviews when not showing all */}
-              {(showAllReviews ? reviews : reviews.slice(0, 2))
+              {/* Show only 2 latest reviews */}
+              {reviews
+                .slice(0, 2)
                 .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                 .map((review) => (
                   <div key={review.id} className={styles.reviewItem}>
@@ -447,26 +450,15 @@ export default function ReviewsSection({
               </div>
             ))}
 
-              {/* Show All Reviews Button */}
-              {reviews.length > 2 && !showAllReviews && (
-                <button
+              {/* Show All Reviews Button - Navigate to dedicated page */}
+              {reviews.length > 2 && (
+                <Link
+                  href={`/product/${category || 'merchandise'}/${productId}/reviews`}
                   className={styles.showAllReviewsBtn}
-                  onClick={() => setShowAllReviews(true)}
                 >
                   <ExpandMore sx={{ fontSize: 20 }} />
                   Show All {reviews.length} Reviews
-                </button>
-              )}
-
-              {/* Show Less Button */}
-              {showAllReviews && reviews.length > 2 && (
-                <button
-                  className={styles.showLessReviewsBtn}
-                  onClick={() => setShowAllReviews(false)}
-                >
-                  <ExpandMore sx={{ fontSize: 20, transform: 'rotate(180deg)' }} />
-                  Show Less
-                </button>
+                </Link>
               )}
             </>
           )}
