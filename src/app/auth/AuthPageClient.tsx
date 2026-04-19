@@ -554,17 +554,19 @@ export default function AuthPageClient() {
             </label>
           )}
 
-          <button type="submit" className={styles.submitBtn} disabled={submitting || loading || (tab === 'reset' && resetType === null)}>
-            {tab === 'signin' && isEmail(identifier) && 'Sign In with Email'}
-            {tab === 'signin' && isPhone(identifier) && (otpSent ? 'Verify OTP' : 'Send OTP')}
-            {tab === 'signin' && !isEmail(identifier) && !isPhone(identifier) && 'Sign In'}
-            {tab === 'signup' && signupOtpStep === 'email' && 'Send OTP'}
-            {tab === 'signup' && signupOtpStep === 'verify' && 'Verify OTP'}
-            {tab === 'signup' && signupOtpStep === 'details' && 'Create Account'}
-            {tab === 'reset' && resetType === 'forgot' && 'Send Reset Link'}
-            {tab === 'changePassword' && resetToken && 'Reset Password'}
-            {tab === 'changePassword' && !resetToken && 'Change Password'}
-          </button>
+          {!(tab === 'reset' && resetType === null) && (
+            <button type="submit" className={styles.submitBtn} disabled={submitting || loading}>
+              {tab === 'signin' && isEmail(identifier) && 'Sign In with Email'}
+              {tab === 'signin' && isPhone(identifier) && (otpSent ? 'Verify OTP' : 'Send OTP')}
+              {tab === 'signin' && !isEmail(identifier) && !isPhone(identifier) && 'Sign In'}
+              {tab === 'signup' && signupOtpStep === 'email' && 'Send OTP'}
+              {tab === 'signup' && signupOtpStep === 'verify' && 'Verify OTP'}
+              {tab === 'signup' && signupOtpStep === 'details' && 'Create Account'}
+              {tab === 'reset' && resetType === 'forgot' && 'Send Reset Link'}
+              {tab === 'changePassword' && resetToken && 'Reset Password'}
+              {tab === 'changePassword' && !resetToken && 'Change Password'}
+            </button>
+          )}
         </form>
 
         <div className={styles.footerText}>

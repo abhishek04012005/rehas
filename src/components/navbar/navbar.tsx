@@ -209,6 +209,7 @@ export default function Navbar() {
                     <div className={styles.actionsRight}>
                         <Link href="/cart" className={styles.cartButton} onClick={() => setIsMenuOpen(false)}>
                             <ShoppingCart />
+                            {!mounted && <span className={styles.cartCountSkeleton}></span>}
                             {mounted && cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
                         </Link>
 
