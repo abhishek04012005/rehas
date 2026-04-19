@@ -2,7 +2,9 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { ShoppingCart, Star, Percent } from '@mui/icons-material';
+import { supabase } from '@/lib/supabase';
 import { productMerchandiseData, calculateDiscountPercentage } from '@/data/productMerchandise';
 import { useCheckout } from '@/context/CheckoutContext';
 import styles from './similarProducts.module.css';
@@ -15,6 +17,8 @@ interface SimilarProductsProps {
 export default function SimilarProducts({ category, currentProductSlug }: SimilarProductsProps) {
   const router = useRouter();
   const { setProductData } = useCheckout();
+  const [reviewStats, setReviewStats] = useState<{ [key: string]: { total: number; average: number } }>({});
+  const [reviewsLoading, setReviewsLoading] = useState(true);
 
   // Get similar products from same category, excluding current product
   const similarProducts = productMerchandiseData
@@ -23,6 +27,42 @@ export default function SimilarProducts({ category, currentProductSlug }: Simila
         product.category === category && product.slug !== currentProductSlug
     )
     .slice(0, 3); // Show maximum 3 similar products
+
+  // Fetch review stats for similar products
+  useEffect(() => {
+    const fetchReviewStats = async () => {
+      setReviewsLoading(true);
+      try {
+        const stats: { [key: string]: { total: number; average: number } } = {};
+
+        for (const product of similarProducts) {
+          const { data: reviews, error } = await supabase
+            .from('product_reviews')
+            .select('rating')
+            .eq('product_id', product.slug)
+            .eq('status', 'approved');
+
+          if (!error && reviews && reviews.length > 0) {
+            const avgRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+            stats[product.slug] = {
+              total: reviews.length,
+              average: parseFloat(avgRating.toFixed(1)),
+            };
+          }
+        }
+
+        setReviewStats(stats);
+      } catch (error) {
+        console.error('Error fetching review stats:', error);
+      } finally {
+        setReviewsLoading(false);
+      }
+    };
+
+    if (similarProducts.length > 0) {
+      fetchReviewStats();
+    }
+  }, [category, currentProductSlug]);
 
   if (similarProducts.length === 0) {
     return null;
@@ -91,6 +131,32 @@ export default function SimilarProducts({ category, currentProductSlug }: Simila
                   <p className={styles.productDescription}>
                     {product.shortDescription || product.meaning}
                   </p>
+
+                  {/* Review Stats Badge */}
+                  {reviewsLoading ? (
+                    <div className={styles.reviewBadgeSkeleton}>
+                      <div className={styles.skeletonStars}></div>
+                      <div className={styles.skeletonText}></div>
+                    </div>
+                  ) : reviewStats[product.slug] && reviewStats[product.slug].total > 0 ? (
+                    <div className={styles.reviewBadge}>
+                      <div className={styles.starRating}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            sx={{
+                              fontSize: 14,
+                              color: i < Math.round(reviewStats[product.slug].average) ? '#ffc107' : '#e0e0e0',
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <div className={styles.ratingText}>
+                        <span className={styles.avgScore}>{reviewStats[product.slug].average}</span>
+                        <span className={styles.reviewCountText}>({reviewStats[product.slug].total})</span>
+                      </div>
+                    </div>
+                  ) : null}
 
                   <div className={styles.pricingSection}>
                     <div className={styles.priceRow}>
