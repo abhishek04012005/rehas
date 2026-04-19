@@ -1781,28 +1781,29 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
     },
     {
         category: 'bracelet',
-        name: 'Black Onyx & Smoky Quartz Bracelet',
-        slug: 'black-onyx-smoky-quartz-bracelet',
+        name: 'Sulemani Hakik Bracelet',
+        slug: 'sulemani-hakik-bracelet',
 
-        tagline: 'Powerful Protection, Grounding & Emotional Balance',
-        qualityTag: 'AAA Quality • Natural Black Onyx & Smoky Quartz • Handcrafted',
+        tagline: 'Powerful Protection from Evil Eye & Negative Energy',
+        qualityTag: 'AAA Quality • Natural Sulemani Hakik • Handcrafted',
 
-        reviewCount: 142,
+        reviewCount: 198,
 
         shortDescription:
-            'A powerful combination bracelet designed to protect from negativity, reduce stress, and provide grounding energy.',
+            'A highly powerful Sulemani Hakik bracelet designed to protect from evil eye, negativity, black magic, and bring emotional strength and stability.',
 
         meaning:
-            'Black Onyx is known for strong protection and absorbing negative energy, while Smoky Quartz is a grounding stone that helps release stress, fear, and emotional blockages. Together, they create a powerful shield of protection and stability.',
+            'Sulemani Hakik (Black Agate) is known as one of the most powerful protection stones in astrology. It is believed to shield the wearer from evil eye, negative energy, and black magic while promoting emotional balance, courage, and inner strength.',
 
         benefit:
-            'Protection, grounding, stress relief, emotional balance, negativity removal, mental clarity',
+            'Evil eye protection, negativity removal, black magic protection, grounding, emotional balance, strength',
 
         use:
-            'Wear daily on the left hand for protection and grounding. Ideal for stress relief, meditation, emotional healing, and daily wear.',
+            'Wear daily on the left hand for maximum protection. Ideal for those facing negativity, stress, fear, or spiritual disturbances.',
 
         price: '₹499.00',
         originalPrice: '₹1,999.00',
+
         pricingTiers: {
             basic: {
                 price: '₹499.00',
@@ -1813,98 +1814,99 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
             market: {
                 price: '₹999.00',
                 originalPrice: '₹1,999.00',
-                label: 'Market Segment',
-                description: 'Premium quality with better stones'
+                label: 'Premium',
+                description: 'Better stone quality with stronger energy'
             },
             premium: {
                 price: '₹1699.00',
                 originalPrice: '₹1,999.00',
-                label: 'Premium',
-                description: 'Highest quality with energy activation'
+                label: 'Elite',
+                description: 'Energy activated premium bracelet'
             }
         },
+
         paymentHighlights: [
             'Cards & UPI Accepted',
             'No Hidden Charges',
             'Limited Time Offer'
         ],
 
-        sold: 276,
-        available: 140,
-        endsIn: '26h : 15m : 40s',
+        sold: 420,
+        available: 120,
+        endsIn: '22h : 55m : 25s',
 
         pooja: {
-            label: 'Add Energy Activation Ritual',
+            label: 'Add Protection Activation Ritual',
             note:
-                'Your bracelet will be purified and energized through sacred rituals to enhance protection, grounding, and emotional healing energy.',
+                'Your bracelet will be purified and energized through sacred rituals to enhance protection from evil eye, negativity, and black magic.',
             price: '₹150.00',
         },
 
         description:
-            'This Black Onyx & Smoky Quartz Bracelet is crafted from premium natural stones, combining the deep black shine of onyx with the subtle translucent tones of smoky quartz. Black Onyx is widely known for its powerful protective properties, helping to shield against negative energies and emotional stress. Smoky Quartz complements this by grounding your energy, releasing anxiety, and promoting calmness. Each bead is carefully polished and strung on a durable elastic band, making it comfortable for everyday wear. This bracelet is ideal for individuals seeking protection, stability, and inner peace.',
+            'This Sulemani Hakik Bracelet is crafted from premium natural black agate stones, known for their deep black color and strong protective energy. Sulemani Hakik is widely used in astrology and spiritual practices for protection against evil eye, jealousy, and negative influences. It helps calm the mind, reduce fear, and provide emotional strength. Each bead is finely polished and strung on a durable elastic band for comfortable daily wear. Ideal for those seeking protection, stability, and peace of mind.',
 
         keyFeatures: [
-            'Premium natural Black Onyx and Smoky Quartz stones',
-            'Elegant black and translucent bead combination',
-            'Strong protection and grounding energy',
+            'Premium natural Sulemani Hakik (Black Agate)',
+            'Deep black polished beads',
+            'Strong protection and negativity shielding energy',
             'Stretchable, durable, and skin-friendly',
             'Handcrafted with precision',
-            'Optional energy activation ritual available',
+            'Optional protection activation ritual available',
         ],
 
         benefits: [
-            'Protects from negative energy and evil eye',
-            'Provides strong grounding and stability',
-            'Reduces stress, anxiety, and emotional tension',
-            'Enhances mental clarity and focus',
-            'Promotes calmness and emotional balance',
-            'Supports spiritual and personal growth',
+            'Protects from evil eye and negative energy',
+            'Shields against black magic and jealousy',
+            'Provides emotional strength and stability',
+            'Reduces fear, anxiety, and stress',
+            'Enhances grounding and mental clarity',
+            'Promotes peace and confidence',
         ],
 
         spiritualSignificance: [
-            'Black Onyx is known as a powerful protection stone',
-            'Smoky Quartz is associated with grounding and detoxifying energy',
-            'Connected to the Root Chakra (Muladhara)',
-            'Helps balance energy and remove negativity',
+            'Known as one of the strongest protection stones',
+            'Associated with the Root Chakra (Muladhara)',
+            'Used in spiritual and astrological remedies',
+            'Helps remove negative vibrations and blockages',
         ],
 
         howToUse: [
             'Wear daily on the left wrist for best results',
-            'Use during meditation for grounding',
-            'Set intentions for protection and calmness',
-            'Ideal for stressful environments or travel',
+            'Use during travel or stressful situations',
+            'Set intention for protection and peace',
+            'Avoid removing frequently for consistent energy',
         ],
 
         careInstructions: [
             'Clean with a soft dry cloth',
             'Avoid water and harsh chemicals',
-            'Store in a clean and dry place',
+            'Store in a safe and dry place',
             'Recharge under sunlight or moonlight occasionally',
         ],
 
         specifications: {
-            material: 'Natural Black Onyx & Smoky Quartz',
+            material: 'Natural Sulemani Hakik (Black Agate)',
             beadType: 'Round Polished Beads',
             size: 'Free Size (Elastic)',
-            weight: 'Light to Medium',
-            origin: 'India/Brazil',
+            weight: 'Medium',
+            origin: 'India',
         },
 
         faq: [
             {
-                question: 'Is this made from real stones?',
+                question: 'Is this real Sulemani Hakik?',
                 answer:
-                    'Yes, it is made from natural Black Onyx and Smoky Quartz stones.',
+                    'Yes, it is made from natural Sulemani Hakik (Black Agate) stones.',
             },
             {
                 question: 'What is this bracelet used for?',
                 answer:
-                    'It is believed to provide protection, grounding, and stress relief.',
+                    'It is believed to protect from evil eye, negativity, and black magic.',
             },
             {
                 question: 'Can I wear it daily?',
                 answer:
-                    'Yes, it is designed for comfortable daily wear.',
+                    'Yes, it is designed for everyday use.',
             },
             {
                 question: 'Will it fit my wrist?',
@@ -1914,23 +1916,23 @@ export const productMerchandiseData: MerchandiseProductDetail[] = [
         ],
 
         trustBadges: [
-            '100% Natural Stones',
+            '100% Natural Stone',
+            'Strong Protection Energy',
             'Handcrafted with Care',
-            'Skin-Friendly & Durable',
-            'Trusted by 250+ Customers',
+            'Trusted by 400+ Customers',
         ],
 
         emotionalHook:
-            'Stay protected, grounded, and calm with the powerful energy of Black Onyx and Smoky Quartz.',
+            'Stay protected from negativity and evil eye with the powerful shield of Sulemani Hakik.',
 
-        zodiacSign: 'Scorpio, Sagittarius, Capricorn',
+        zodiacSign: 'Capricorn, Aquarius, Scorpio',
         planet: 'Saturn',
         mulankNumber: '8',
 
         images: [
-            '/assets/bracelete/blackonyx&smokyquartz/1.png',
-            '/assets/bracelete/blackonyx&smokyquartz/2.png',
-            '/assets/bracelete/blackonyx&smokyquartz/3.png',
+            '/assets/bracelete/sulemanihakik/sulemanihakik_front.png',
+            '/assets/bracelete/sulemanihakik/sulemanihakik_center.png',
+            '/assets/bracelete/sulemanihakik/sulemanihakik_last.png',
         ],
     },
 ];
