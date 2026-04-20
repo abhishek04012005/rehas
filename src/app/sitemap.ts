@@ -1,8 +1,5 @@
 import { MetadataRoute } from "next";
 import { blogData } from "@/data/blog";
-import { productHealingData } from "@/data/productHealing";
-import { productTherapyData } from "@/data/productTherapy";
-import { productAstrologyData } from "@/data/productAstrology";
 import { getCitiesWithSlugs } from "@/data/cities";
 import { productMerchandiseData } from "@/data/productMerchandise";
 
@@ -219,22 +216,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Limited dynamic product routes (top categories only)
-  const productCategories = [
-    { category: "healing", data: productHealingData },
-    { category: "therapy", data: productTherapyData },
-    { category: "astrology", data: productAstrologyData },
-  ];
-
-  const productRoutes: MetadataRoute.Sitemap = productCategories.flatMap(({ category, data }) => {
-    const practices = ((data.practices?.list || []).slice(0, 10) as any[]).map((practice: any, index: number) => ({
-      url: `${baseUrl}/product/${category}/${practice.slug || practice.id || index}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }));
-    return practices;
-  });
 
   // Merchandise products (base routes without city)
   const merchandiseProductRoutes: MetadataRoute.Sitemap = productMerchandiseData.map(product => ({
@@ -255,5 +236,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // Combine all routes
-  return [...staticRoutes, ...blogPosts, ...cityServiceRoutes, ...productRoutes, ...merchandiseProductRoutes, ...merchandiseProductsCityRoutes];
+  return [...staticRoutes, ...blogPosts, ...cityServiceRoutes, ...merchandiseProductRoutes, ...merchandiseProductsCityRoutes];
 }

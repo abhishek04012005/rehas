@@ -1,40 +1,16 @@
 import { Metadata } from 'next';
 import AllReviewsPage from '../../../../../components/productDetail/allReviewsPage';
 import { productMerchandiseData } from '@/data/productMerchandise';
-import { productHealingData } from '@/data/productHealing';
-import { productTherapyData } from '@/data/productTherapy';
-import { productAstrologyData } from '@/data/productAstrology';
+
 
 type Params = Promise<{
   category: string;
   product: string;
 }>;
 
-// Get all products from data files
+// Get all products from merchandise data
 const getAllProducts = () => {
-  const allProducts = [
-    { category: 'healing', data: productHealingData },
-    { category: 'therapy', data: productTherapyData },
-    { category: 'astrology', data: productAstrologyData },
-  ];
-
   const products: any[] = [];
-  allProducts.forEach(({ category, data }) => {
-    if (data.practices?.list) {
-      data.practices.list.forEach((product: any, index: number) => {
-        const sessionPrice = data.sessions?.types?.[index]?.price || '₹999';
-        products.push({
-          category,
-          name: product.name,
-          slug: product.name.toLowerCase().replace(/\s+/g, '-'),
-          meaning: product.meaning,
-          benefit: product.benefit,
-          use: product.use,
-          price: sessionPrice,
-        });
-      });
-    }
-  });
 
   productMerchandiseData.forEach((product) => {
     products.push({
