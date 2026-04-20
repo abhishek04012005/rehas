@@ -62,7 +62,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.rehas.in',
+            value: 'rehas.in',
           },
         ],
       },
