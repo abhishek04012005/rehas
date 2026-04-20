@@ -2,7 +2,7 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const kundliAnalysisData: HealingServiceData = {
   hero: {
-    title: 'Kundali',
+    title: 'Kundali Analysis',
     subtitle: 'Decode Your Destiny Through Vedic Astrology',
     description:
       'Unlock the secrets of your life through comprehensive Kundli (birth chart) analysis. Our expert Vedic astrologers provide deep insights into your personality, life events, and spiritual path.',

@@ -46,10 +46,10 @@ export const navbarData = {
       submenu: [
         { label: 'Numerology', href: '/astrology/numerology', icon: 'Numbers' },
         { label: 'Vedic Astro', href: '/astrology/vedic', icon: 'PublicOutlined' },
-        { label: 'Tarot Card', href: '/service/tarot', icon: 'CreditCard' },
+        { label: 'Tarot Card', href: '/astrology/tarot', icon: 'CreditCard' },
         { label: 'Cowrie Reading', href: '/astrology/cowrie-reading', icon: 'Casino' },
-        { label: 'Palm Reading', href: '/service/palm-reading', icon: 'BackHand' },
-        { label: 'Kundli', href: '/service/kundli-analysis', icon: 'Description' },
+        { label: 'Palm Reading', href: '/astrology/palm-reading', icon: 'BackHand' },
+        { label: 'Kundli', href: '/astrology/kundli-analysis', icon: 'Description' },
 
       ],
     },

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import EnquiryModal from '@/components/enquiryModal';
 import FreeProgramsPopup from '@/components/freeProgramsPopup';
 import { supabase } from '@/lib/supabase';
@@ -24,6 +25,7 @@ interface Settings {
 }
 
 export default function AutoEnquiryPopup() {
+  const pathname = usePathname();
   const [enquiryOpen, setEnquiryOpen] = useState(false);
   const [freeOpen, setFreeOpen] = useState(false);
   const [settings, setSettings] = useState<Settings>({
@@ -35,6 +37,9 @@ export default function AutoEnquiryPopup() {
     free_programs_cta_text: 'Ready to start your wellness journey?',
     programs_config: [],
   });
+
+  // Check if current page is a merchandise product page or merchandise listing page
+  const isMerchandisePage = pathname?.match(/^\/merchandise|^\/product\/(bracelet|yantra)\/[^/]+($|\/)/);
 
   useEffect(() => {
     // Check if popup is enabled
@@ -78,7 +83,7 @@ export default function AutoEnquiryPopup() {
   }, []);
 
   useEffect(() => {
-    if (!settings.popup_enabled) return;
+    if (!settings.popup_enabled || isMerchandisePage) return;
 
     // Check if user has already closed the popup in this session
     const popupShown = sessionStorage.getItem('enquiryPopupShown');
@@ -107,14 +112,14 @@ export default function AutoEnquiryPopup() {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [settings]);
+  }, [settings, isMerchandisePage]);
 
   const handleClose = () => {
     setEnquiryOpen(false);
     setFreeOpen(false);
   };
 
-  if (!settings.popup_enabled) return null;
+  if (!settings.popup_enabled || isMerchandisePage) return null;
 
   return (
     <>

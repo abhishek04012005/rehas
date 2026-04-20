@@ -109,10 +109,12 @@ const getYouTubeEmbedUrl = (url: string): string => {
 
 interface ProductDetailProps {
   product: ProductDetailData;
+  city?: string;
 }
 
 export default function ProductDetail({
   product,
+  city,
 }: ProductDetailProps) {
   const router = useRouter();
   const { setProductData, addToCart } = useCheckout();
@@ -233,6 +235,47 @@ export default function ProductDetail({
 
   return (
     <main className={styles.container}>
+      {/* SEO Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'Product',
+            'name': product.name,
+            'description': product.shortDescription,
+            'image': product.images || [],
+            'sku': product.slug,
+            'brand': {
+              '@type': 'Brand',
+              'name': 'REHAS'
+            },
+            'offers': {
+              '@type': 'Offer',
+              'url': `${process.env.NEXT_PUBLIC_BASE_URL}/product/${product.category}/${product.slug}`,
+              'priceCurrency': 'INR',
+              'price': product.price?.replace(/[₹,]/g, '') || '0',
+              'availability': 'https://schema.org/InStock',
+              'seller': {
+                '@type': 'Organization',
+                'name': 'REHAS Wellness'
+              }
+            },
+            'aggregateRating': {
+              '@type': 'AggregateRating',
+              'bestRating': '5',
+              'worstRating': '1',
+              'ratingCount': product.slug ? 'dynamic' : '0'
+            },
+            'category': product.category,
+            'author': {
+              '@type': 'Organization',
+              'name': 'REHAS Wellness Platform'
+            }
+          })
+        }}
+      />
+      
       {/* Header */}
       <section className={styles.hero}>
         <LineArtBackground />
