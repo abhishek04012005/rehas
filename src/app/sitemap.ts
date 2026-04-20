@@ -4,6 +4,7 @@ import { productHealingData } from "@/data/productHealing";
 import { productTherapyData } from "@/data/productTherapy";
 import { productAstrologyData } from "@/data/productAstrology";
 import { getCitiesWithSlugs } from "@/data/cities";
+import { productMerchandiseData } from "@/data/productMerchandise";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rehas.in";
@@ -235,6 +236,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return practices;
   });
 
+  // Merchandise products (base routes without city)
+  const merchandiseProductRoutes: MetadataRoute.Sitemap = productMerchandiseData.map(product => ({
+    url: `${baseUrl}/product/${product.category}/${product.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  // Merchandise products with city variations
+  const merchandiseProductsCityRoutes: MetadataRoute.Sitemap = productMerchandiseData.flatMap(product =>
+    citiesWithSlugs.map(city => ({
+      url: `${baseUrl}/product/${product.category}/${product.slug}/${city.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    }))
+  );
+
   // Combine all routes
-  return [...staticRoutes, ...blogPosts, ...cityServiceRoutes, ...productRoutes];
+  return [...staticRoutes, ...blogPosts, ...cityServiceRoutes, ...productRoutes, ...merchandiseProductRoutes, ...merchandiseProductsCityRoutes];
 }

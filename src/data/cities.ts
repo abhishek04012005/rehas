@@ -11,6 +11,11 @@ export interface CityMetadata {
     title: string;
     description: string;
     services: Record<string, ServiceMetadata>;
+    seo?: {
+        keywords: string[];
+        longTailKeywords: string[];
+        localBusinessName: string;
+    };
 }
 
 

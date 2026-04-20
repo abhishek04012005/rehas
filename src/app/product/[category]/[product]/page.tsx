@@ -38,27 +38,76 @@ export async function generateMetadata(props: {
     };
   }
 
+  const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://rehas.in';
+  const productUrl = `${baseUrl}/product/${category}/${productSlug}`;
+
+  // Enhanced keywords including cities and healing modalities
+  const keywordsList = [
+    productData.name,
+    `${productData.name} bracelet`,
+    `${productData.name} buy online`,
+    `natural ${productData.name}`,
+    category,
+    categoryTitle,
+    `buy ${category}`,
+    `best ${category}`,
+    'crystal healing',
+    'spiritual healing',
+    'holistic wellness',
+    'healing crystals',
+    'wellness products',
+    'spiritual products',
+    'energy healing',
+    'chakra balancing',
+    'astrology products',
+    'manifestation tools',
+    'meditation aid',
+    'stress relief',
+    'emotional healing',
+    productData.zodiacSign ? `${productData.zodiacSign} bracelet` : '',
+    productData.planet ? `${productData.planet} stone` : '',
+    'India',
+    'buy online',
+    'free shipping',
+    'authentic crystals',
+    'certified products',
+    'REHAS healing',
+  ].filter(Boolean);
+
   return {
-    title: `${productData.name} | Premium ${category.charAt(0).toUpperCase() + category.slice(1)} Products | REHAS`,
-    description: productData.shortDescription,
-    keywords: [
-      productData.name,
-      category,
-      'product',
-      'wellness',
-      'healing',
-      'REHAS',
-    ],
+    title: `${productData.name} - Buy Premium ${categoryTitle} Online | REHAS`,
+    description: `${productData.shortDescription} - Authentic ${categoryTitle} for holistic wellness. Fast shipping across India. ✓ Certified products.`,
+    keywords: keywordsList,
+    authors: [{ name: 'REHAS Wellness' }],
+    creator: 'REHAS',
+    publisher: 'REHAS Wellness Platform',
+    robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    alternates: {
+      canonical: productUrl,
+    },
     openGraph: {
-      title: `${productData.name} | REHAS`,
+      title: `${productData.name} - Premium ${categoryTitle}`,
       description: productData.shortDescription,
       type: 'website',
-      images: productData.images && productData.images.length > 0 ? [{
-        url: productData.images[0],
+      url: productUrl,
+      images: productData.images && productData.images.length > 0 ? productData.images.map((img, idx) => ({
+        url: img,
         width: 1200,
         height: 630,
-        alt: productData.name,
-      }] : undefined,
+        alt: `${productData.name} - Image ${idx + 1}`,
+      })) : [],
+    } as any,
+    twitter: {
+      card: 'summary_large_image',
+      title: `${productData.name} - Premium ${categoryTitle}`,
+      description: productData.shortDescription,
+      images: productData.images && productData.images.length > 0 ? [productData.images[0]] : undefined,
+    },
+    other: {
+      'og:price:amount': productData.price.replace(/[₹,]/g, ''),
+      'og:price:currency': 'INR',
+      'product:availability': 'in stock',
     },
   };
 }
