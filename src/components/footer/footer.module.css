@@ -5,7 +5,7 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -95,7 +95,7 @@
 
 .footerGrid {
   display: grid;
-  grid-template-columns: 1.2fr repeat(6, 1fr);
+  grid-template-columns: 1.2fr repeat(7, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
 }

@@ -15,6 +15,13 @@ export const footerData = {
   },
   sections: [
     {
+      title: 'Merchandise',
+      links: [
+        { label: 'All Merchandise', href: '/merchandise' },
+        { label: 'Healing Bracelets', href: '/merchandise/bracelet' },
+      ],
+    },
+    {
       title: 'Healing',
       links: [
         { label: 'Reiki', href: '/healing/reiki' },
