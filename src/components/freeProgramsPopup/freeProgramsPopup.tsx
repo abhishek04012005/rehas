@@ -50,72 +50,79 @@ export default function FreeProgramsPopup({
     setShowEnquiryModal(false);
   };
 
-  if (!isOpen) return null;
+  if (!isOpen && !showEnquiryModal) return null;
 
   const displayPrograms = DEFAULT_PROGRAMS;
 
   return (
     <>
-      <div className={styles.overlay} onClick={handlePopupClose} />
-      <div className={styles.modal}>
-        {/* Close Button */}
-        <button className={styles.closeBtn} onClick={handlePopupClose}>
-          <Close />
-        </button>
+      {!showEnquiryModal && (
+        <>
+          <div className={styles.overlay} onClick={handlePopupClose} />
+          <div className={styles.modal}>
+            {/* Close Button */}
+            <button className={styles.closeBtn} onClick={handlePopupClose}>
+              <Close />
+            </button>
 
-        {/* CTA Section - Top */}
-        <div className={styles.topCTA}>
-          <h2>Join Our Free Program</h2>
-          <button
-            className={styles.enquiryBtn}
-            onClick={() => setShowEnquiryModal(true)}
-          >
-            Enquiry Now
-            <ArrowForward className={styles.btnIcon} />
-          </button>
-        </div>
+            {/* CTA Section - Top */}
+            <div className={styles.topCTA}>
+              <h2>Join Our Free Program</h2>
+              <button
+                className={styles.enquiryBtn}
+                onClick={() => setShowEnquiryModal(true)}
+              >
+                Enquiry Now
+                <ArrowForward className={styles.btnIcon} />
+              </button>
+            </div>
 
-        {/* Program Card - Simplified */}
-        <div className={styles.programsGrid}>
-          {displayPrograms.map((program) => (
-            <div key={program.id} className={styles.programCard}>
-              <div className={styles.cardHeader}>
-                <h3 className={styles.cardTitle}>{program.title}</h3>
-                <div className={styles.freeBadge}>
-                  <LocalFireDepartment className={styles.fireIcon} />
-                  FREE
+            {/* Program Card - Simplified */}
+            <div className={styles.programsGrid}>
+              {displayPrograms.map((program) => (
+                <div key={program.id} className={styles.programCard}>
+                  <div className={styles.cardHeader}>
+                    <h3 className={styles.cardTitle}>{program.title}</h3>
+                    <div className={styles.freeBadge}>
+                      <LocalFireDepartment className={styles.fireIcon} />
+                      FREE
+                    </div>
+                  </div>
+
+                  <div className={styles.cardBody}>
+                    <div className={styles.infoRow}>
+                      <span className={styles.label}>{program.schedule}</span>
+                      <span className={styles.dot}>•</span>
+                      <span className={styles.label}>{program.time}</span>
+                    </div>
+                    <p className={styles.description}>{program.description}</p>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Quick Features */}
+            <div className={styles.quickFeatures}>
+              <div className={styles.featureItem}>
+                <Favorite className={styles.featureIcon} />
+                <span>Expert Training</span>
               </div>
-
-              <div className={styles.cardBody}>
-                <div className={styles.infoRow}>
-                  <span className={styles.label}>{program.schedule}</span>
-                  <span className={styles.dot}>•</span>
-                  <span className={styles.label}>{program.time}</span>
-                </div>
-                <p className={styles.description}>{program.description}</p>
+              <div className={styles.featureItem}>
+                <Star className={styles.featureIcon} />
+                <span>Certified Program</span>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Quick Features */}
-        <div className={styles.quickFeatures}>
-          <div className={styles.featureItem}>
-            <Favorite className={styles.featureIcon} />
-            <span>Expert Training</span>
           </div>
-          <div className={styles.featureItem}>
-            <Star className={styles.featureIcon} />
-            <span>Certified Program</span>
-          </div>
-        </div>
-      </div>
+        </>
+      )}
 
       {showEnquiryModal && (
         <EnquiryModal
           isOpen={showEnquiryModal}
-          onClose={handleEnquiryModalClose}
+          onClose={() => {
+            setShowEnquiryModal(false);
+            onClose();
+          }}
         />
       )}
     </>
