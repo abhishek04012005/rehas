@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
+  title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
   description: "Explore cosmic wisdom through astrology, meditation, and wellness services. Book your consultation with REHAS experts for personalized spiritual guidance and healing.",
   keywords: "astrology, meditation, wellness, spiritual guidance, birth chart reading, yoga, cosmic wisdom",
   authors: [{ name: "REHAS" }],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
+    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services. Book your consultation with REHAS experts.",
     url: "https://rehas.in",
     siteName: "REHAS",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
+    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services.",
     images: ["https://rehas.in/og-image.png"],
     creator: "@REHAS",

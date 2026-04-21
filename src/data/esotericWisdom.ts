@@ -2,7 +2,7 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const esotericWisdomData: HealingServiceData = {
   hero: {
-    title: 'Tantric & Esoteric Wisdom - M.Y.T',
+    title: 'Tantric & Esoteric Wisdom - M.Y.T.',
     subtitle: 'The Secret Teachings of Enlightened Masters',
     description:
       'Access the hidden knowledge preserved by esoteric traditions. Learn advanced tantric practices and secret teachings for ultimate spiritual mastery.',

@@ -50,7 +50,7 @@ export const footerData = {
       ],
     },
     {
-      title: 'M.Y.T Wisdom',
+      title: 'M.Y.T. Wisdom',
       links: [
         { label: 'Mantra', href: '/myt/mantra' },
         { label: 'Yantra', href: '/myt/yantra' },
@@ -64,7 +64,7 @@ export const footerData = {
         { label: 'Healing', href: '/courses/healing' },
         { label: 'Therapy', href: '/courses/therapy' },
         { label: 'Astrology', href: '/courses/astrology' },
-        { label: 'M.Y.T', href: '/courses/myt' },
+        { label: 'M.Y.T.', href: '/courses/myt' },
         { label: 'Mind Reading', href: '/courses/mind-reading' },
 
       ],

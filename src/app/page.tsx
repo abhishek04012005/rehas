@@ -9,7 +9,7 @@ import Founder from '@/components/founder';
 import TestimonialSlider from '@/components/testimonialSlider';
 
 export const metadata: Metadata = {
-  title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
+  title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
   description: "Discover personalized astrology readings, meditation guidance, and wellness services. Connect with cosmic wisdom for spiritual transformation and healing.",
   keywords: ["astrology", "birth chart reading", "meditation", "wellness", "spiritual guidance", "yoga", "cosmic wisdom", "horoscope", "astrology readings", "healing services"],
   authors: [{ name: "REHAS" }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
+    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services. Connect with cosmic wisdom for spiritual transformation and healing.",
     url: "https://rehas.in",
     siteName: "REHAS",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T Wisdom | Mind Reading",
+    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services.",
     images: ["https://rehas.in/og-image.png"],
     creator: "@REHAS",

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `M.Y.T Tantra in ${cityData.name} | REHAS`;
+  const title = `M.Y.T. Tantra in ${cityData.name} | REHAS`;
   const description = `Master the ancient science of tantra in ${cityData.name}, ${cityData.state}. Spiritual practices for energy transformation.`;
   const keywords = [
     `MYT tantra ${cityData.name}`,
@@ -75,7 +75,7 @@ export default async function MYTTantraPage({ params }: Props) {
     ...mytTantraData,
     hero: {
       ...mytTantraData.hero,
-      title: `M.Y.T Tantra in ${cityData.name}`,
+      title: `M.Y.T. Tantra in ${cityData.name}`,
       subtitle: `Master ancient tantric practices in ${cityData.name}, ${cityData.state}`,
     },
   };

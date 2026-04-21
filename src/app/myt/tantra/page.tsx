@@ -3,7 +3,7 @@ import HealingService from '@/components/healingService';
 import { mytTantraData } from '@/data/mytTantra';
 
 export const metadata: Metadata = {
-  title: 'Tantra - M.Y.T Wisdom | REHAS',
+  title: 'Tantra - M.Y.T. Wisdom | REHAS',
   description:
     'Explore the path of tantra for transformation. Advanced practices for kundalini awakening, consciousness expansion, and enlightenment.',
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'Energy Work',
   ],
   openGraph: {
-    title: 'Tantra - M.Y.T Wisdom | REHAS',
+    title: 'Tantra - M.Y.T. Wisdom | REHAS',
     description: 'Master tantric practices for spiritual transformation and enlightenment.',
     type: 'website',
   },

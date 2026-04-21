@@ -4,7 +4,7 @@ import { mytMantraData } from '@/data/mytMantra';
 import { createMetadata } from '@/lib/seoConfig';
 
 export const metadata: Metadata = createMetadata(
-  'Mantra - M.Y.T Wisdom | Sacred Sound & Consciousness | REHAS',
+  'Mantra - M.Y.T. Wisdom | Sacred Sound & Consciousness | REHAS',
   'Master the sacred science of mantras. Learn divine sound vibrations for consciousness elevation, chakra activation, and manifestation.',
   [
     'Mantra',

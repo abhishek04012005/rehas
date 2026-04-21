@@ -2,15 +2,15 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const mytMantraData: HealingServiceData = {
   hero: {
-    title: 'Mantra - M.Y.T Wisdom',
+    title: 'Mantra - M.Y.T. Wisdom',
     subtitle: 'Sacred Sound and Vibration',
     description:
       'Unlock the ancient power of sacred mantras. Learn how repetition of divine syllables creates transformative vibrations that elevate consciousness and manifest desires.',
   },
   overview: {
-    title: 'Understanding Mantra in M.Y.T Wisdom',
+    title: 'Understanding Mantra in M.Y.T. Wisdom',
     description:
-      'Mantra is the mystical science of sacred sounds and syllables. Each mantra carries specific vibrations that resonate with cosmic forces and internal energy centers. In M.Y.T (Mantra-Yantra-Tantra) Wisdom tradition, mantras form the foundational practice for spiritual awakening, healing, and manifestation. Through proper chanting and understanding, practitioners align their consciousness with universal forces.',
+      'Mantra is the mystical science of sacred sounds and syllables. Each mantra carries specific vibrations that resonate with cosmic forces and internal energy centers. In M.Y.T. (Mantra-Yantra-Tantra) Wisdom tradition, mantras form the foundational practice for spiritual awakening, healing, and manifestation. Through proper chanting and understanding, practitioners align their consciousness with universal forces.',
     image: '/assets/service/mantramyt.png',
   },
   benefits: {
@@ -50,7 +50,7 @@ export const mytMantraData: HealingServiceData = {
     ],
   },
   process: {
-    title: 'M.Y.T Mantra Practice Process',
+    title: 'M.Y.T. Mantra Practice Process',
     steps: [
       {
         number: '01',
@@ -75,7 +75,7 @@ export const mytMantraData: HealingServiceData = {
     ],
   },
   mantras: {
-    title: 'Sacred Mantras in M.Y.T Tradition',
+    title: 'Sacred Mantras in M.Y.T. Tradition',
     description: 'Explore the most powerful mantras from ancient wisdom traditions',
     list: [
       {
@@ -117,7 +117,7 @@ export const mytMantraData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'M.Y.T Mantra Services',
+    title: 'M.Y.T. Mantra Services',
     types: [
       {
         name: 'Basic Mantra Healing',
@@ -154,7 +154,7 @@ export const mytMantraData: HealingServiceData = {
         originalPrice: '₹24,999',
         description: 'Comprehensive mastery with personal spiritual guidance.',
         includes: [
-          'Complete M.Y.T Mantra system',
+          'Complete M.Y.T. Mantra system',
           '20+ sacred mantras mastered',
           'Individual mantra initiation',
           'Chakra and meridian activation',
@@ -166,7 +166,7 @@ export const mytMantraData: HealingServiceData = {
     ],
   },
   faq: {
-    title: 'M.Y.T Mantra FAQ',
+    title: 'M.Y.T. Mantra FAQ',
     questions: [
       {
         question: 'Do I need to believe to benefit from mantras?',

@@ -2,7 +2,7 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const himalayanTantraData: HealingServiceData = {
   hero: {
-    title: 'Himalayan Tantra - M.Y.T Wisdom',
+    title: 'Himalayan Tantra - M.Y.T. Wisdom',
     subtitle: 'The Ancient Mountain Wisdom Path',
     description:
       'Explore the profound practices preserved in the Himalayas. Learn the tantric teachings of the mountain sages for ultimate spiritual transformation.',

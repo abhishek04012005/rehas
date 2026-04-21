@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `M.Y.T Mantra in ${cityData.name} | REHAS`;
+  const title = `M.Y.T. Mantra in ${cityData.name} | REHAS`;
   const description = `Master the sacred science of mantras in ${cityData.name}, ${cityData.state}. Divine sound vibrations for consciousness elevation.`;
   const keywords = [
     `MYT mantra ${cityData.name}`,
@@ -75,7 +75,7 @@ export default async function MYTMantraPage({ params }: Props) {
     ...mytMantraData,
     hero: {
       ...mytMantraData.hero,
-      title: `M.Y.T Mantra in ${cityData.name}`,
+      title: `M.Y.T. Mantra in ${cityData.name}`,
       subtitle: `Master sacred mantras and consciousness elevation in ${cityData.name}, ${cityData.state}`,
     },
   };

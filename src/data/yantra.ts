@@ -2,7 +2,7 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const yanthaData: HealingServiceData = {
   hero: {
-    title: 'Yantra - M.Y.T Wisdom',
+    title: 'Yantra - M.Y.T. Wisdom',
     subtitle: 'Sacred Geometry and Visual Mantras',
     description:
       'Harness the transformative power of sacred geometry. Yantras are visual representations of cosmic principles that align your consciousness with divine forces.',
@@ -10,7 +10,7 @@ export const yanthaData: HealingServiceData = {
   overview: {
     title: 'The Science of Yantra',
     description:
-      'Yantra is the visual and geometric counterpart to mantra. These sacred diagrams contain cosmic principles encoded in geometric patterns. When meditated upon, yantras activate the nervous system and align consciousness with universal frequencies. In M.Y.T Wisdom, yantras serve as meditation tools that create energetic shifts and facilitate spiritual awakening through visual resonance.',
+      'Yantra is the visual and geometric counterpart to mantra. These sacred diagrams contain cosmic principles encoded in geometric patterns. When meditated upon, yantras activate the nervous system and align consciousness with universal frequencies. In M.Y.T. Wisdom, yantras serve as meditation tools that create energetic shifts and facilitate spiritual awakening through visual resonance.',
     image: '/assets/service/yantramyt.png',
   },
   benefits: {
@@ -50,7 +50,7 @@ export const yanthaData: HealingServiceData = {
     ],
   },
   process: {
-    title: 'M.Y.T Yantra Practice Process',
+    title: 'M.Y.T. Yantra Practice Process',
     steps: [
       {
         number: '01',
@@ -75,7 +75,7 @@ export const yanthaData: HealingServiceData = {
     ],
   },
   practices: {
-    title: 'Sacred Yantras in M.Y.T Tradition',
+    title: 'Sacred Yantras in M.Y.T. Tradition',
     description: 'Powerful yantras for different spiritual objectives',
     list: [
       {
@@ -117,7 +117,7 @@ export const yanthaData: HealingServiceData = {
     ],
   },
   sessions: {
-    title: 'M.Y.T Yantra Services',
+    title: 'M.Y.T. Yantra Services',
     types: [
       {
         name: 'Basic Yantra Healing',
@@ -155,7 +155,7 @@ export const yanthaData: HealingServiceData = {
         originalPrice: '₹29,999',
         description: 'Complete mastery with professional yantra guidance.',
         includes: [
-          'Complete M.Y.T Yantra system',
+          'Complete M.Y.T. Yantra system',
           '15+ sacred yantras',
           'Personal yantra selection',
           'Advanced activation rituals',
@@ -167,7 +167,7 @@ export const yanthaData: HealingServiceData = {
     ],
   },
   faq: {
-    title: 'M.Y.T Yantra FAQ',
+    title: 'M.Y.T. Yantra FAQ',
     questions: [
       {
         question: 'Where should I keep my yantra?',

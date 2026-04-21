@@ -2,19 +2,19 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const mytTantraData: HealingServiceData = {
   hero: {
-    title: 'Tantra - M.Y.T Wisdom',
+    title: 'Tantra - M.Y.T. Wisdom',
     subtitle: 'The Path of Integration and Transformation',
     description:
       'Explore the profound practices of Tantra. Through tantra, integrate all aspects of existence into a unified spiritual path leading to enlightenment and liberation.',
   },
   overview: {
-    title: 'The Essence of M.Y.T Tantra',
+    title: 'The Essence of M.Y.T. Tantra',
     description:
-      'Tantra, the third pillar of M.Y.T Wisdom, is the practical path of integration. It teaches that all aspects of existence—body, mind, energy, and consciousness—can be harnessed for spiritual transformation. Unlike paths that renounce the world, tantra embraces it while transcending it. Through specific practices, rituals, and meditations, tantra practitioners awaken dormant kundalini energy and achieve ultimate liberation while living in the world.',
+      'Tantra, the third pillar of M.Y.T. Wisdom, is the practical path of integration. It teaches that all aspects of existence—body, mind, energy, and consciousness—can be harnessed for spiritual transformation. Unlike paths that renounce the world, tantra embraces it while transcending it. Through specific practices, rituals, and meditations, tantra practitioners awaken dormant kundalini energy and achieve ultimate liberation while living in the world.',
     image: '/assets/service/tantramyt.png',
   },
   benefits: {
-    title: 'Benefits of M.Y.T Tantra Practice',
+    title: 'Benefits of M.Y.T. Tantra Practice',
     description: 'Transform through the integrated path of tantra',
     items: [
       {
@@ -50,7 +50,7 @@ export const mytTantraData: HealingServiceData = {
     ],
   },
   process: {
-    title: 'M.Y.T Tantra Practice Path',
+    title: 'M.Y.T. Tantra Practice Path',
     steps: [
       {
         number: '01',
@@ -75,7 +75,7 @@ export const mytTantraData: HealingServiceData = {
     ],
   },
   practices: {
-    title: 'M.Y.T Tantric Services',
+    title: 'M.Y.T. Tantric Services',
     description: 'Core tantric techniques for spiritual transformation',
     list: [
       {
@@ -153,9 +153,9 @@ export const mytTantraData: HealingServiceData = {
         duration: '90 days',
         price: '₹20,999',
         originalPrice: '₹37,999',
-        description: 'Complete mastery of M.Y.T Tantra with personalized guidance.',
+        description: 'Complete mastery of M.Y.T. Tantra with personalized guidance.',
         includes: [
-          'Complete M.Y.T Tantra curriculum',
+          'Complete M.Y.T. Tantra curriculum',
           'Kundalini awakening practices',
           'Advanced ritual work',
           'Individual energy assessment',
@@ -167,12 +167,12 @@ export const mytTantraData: HealingServiceData = {
     ],
   },
   faq: {
-    title: 'M.Y.T Tantra FAQ',
+    title: 'M.Y.T. Tantra FAQ',
     questions: [
       {
         question: 'Is tantra sexual?',
         answer:
-          'Traditional tantra includes sacred sexuality as one aspect, but M.Y.T Tantra encompasses much more—meditation, rituals, energy work, and non-dual consciousness. Sexual practices are optional and never forced.',
+          'Traditional tantra includes sacred sexuality as one aspect, but M.Y.T. Tantra encompasses much more—meditation, rituals, energy work, and non-dual consciousness. Sexual practices are optional and never forced.',
       },
       {
         question: 'Is tantra safe?',
@@ -192,7 +192,7 @@ export const mytTantraData: HealingServiceData = {
       {
         question: 'Can tantra conflict with my religion?',
         answer:
-          'M.Y.T Tantra is philosophical and can complement any religion. It enhances spiritual practice without creating conflicts.',
+          'M.Y.T. Tantra is philosophical and can complement any religion. It enhances spiritual practice without creating conflicts.',
       },
       {
         question: 'What if I experience kundalini symptoms?',
@@ -203,7 +203,7 @@ export const mytTantraData: HealingServiceData = {
   },
   cta: {
     title: 'Begin Your Tantric Journey',
-    subtitle: 'Unlock the transformative power of M.Y.T Tantra and achieve spiritual awakening.',
+    subtitle: 'Unlock the transformative power of M.Y.T. Tantra and achieve spiritual awakening.',
     buttons: [
       {
         label: 'Enroll Now',

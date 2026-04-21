@@ -109,7 +109,7 @@ export const servicesData = {
     },
     {
       id: 'mytwisdom',
-      title: 'M.Y.T Wisdom',
+      title: 'M.Y.T. Wisdom',
       description:
         'Harness the healing vibrations of sound. Our sound therapists use singing bowls, tuning forks, and binaural beats to realign your energy centers and promote healing.',
       muiIcon: 'MusicNote',

@@ -54,7 +54,7 @@ export const navbarData = {
       ],
     },
     {
-      label: 'M.Y.T. Wisdom',
+      label: 'M.Y.T.. Wisdom',
       href: '/myt-wisdom',
       submenu: [
         { label: 'Mantra', href: '/myt/mantra', icon: 'Notifications' },
@@ -73,7 +73,7 @@ export const navbarData = {
         { label: 'Healing', href: '/courses/healing', icon: 'SchoolOutlined' },
         { label: 'Therapy', href: '/courses/therapy', icon: 'Numbers' },
         { label: 'Astrology', href: '/courses/astrology', icon: 'PublicOutlined' },
-        { label: 'M.Y.T', href: '/courses/myt', icon: 'MicOutlined' },
+        { label: 'M.Y.T.', href: '/courses/myt', icon: 'MicOutlined' },
         { label: 'Mind Reading', href: '/courses/mind-reading', icon: 'MenuBook' },
       ],
     },

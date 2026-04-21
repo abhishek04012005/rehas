@@ -3,7 +3,7 @@ import HealingService from '@/components/healingService';
 import { yanthaData } from '@/data/yantra';
 
 export const metadata: Metadata = {
-  title: 'Yantra - M.Y.T Wisdom | REHAS',
+  title: 'Yantra - M.Y.T. Wisdom | REHAS',
   description:
     'Explore sacred geometry and visual mantras. Yantra meditation for energy activation, abundance, and cosmic connection.',
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'Abundance',
   ],
   openGraph: {
-    title: 'Yantra - M.Y.T Wisdom | REHAS',
+    title: 'Yantra - M.Y.T. Wisdom | REHAS',
     description: 'Master sacred geometry through powerful yantra meditation.',
     type: 'website',
   },

@@ -2,7 +2,7 @@ import { HealingServiceData } from '@/components/healingService/healingService';
 
 export const mantraManipulationData: HealingServiceData = {
   hero: {
-    title: 'Mantra Manipulation - M.Y.T Wisdom',
+    title: 'Mantra Manipulation - M.Y.T. Wisdom',
     subtitle: 'Advanced Control of Sacred Sound Energy',
     description:
       'Master the art of manipulating mantra energy for specific goals. Learn advanced techniques to direct and amplify mantra power for manifestation and transformation.',
