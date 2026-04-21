@@ -12,6 +12,19 @@ export const otpService = {
         return { error: 'Invalid email address' };
       }
 
+      // Check if email is already registered
+      const { data: existingUser, error: existingError } = await supabase
+        .from('users')
+        .select('id, email')
+        .eq('email', email)
+        .single();
+
+      // If no error and got data, email exists (user already registered)
+      if (!existingError && existingUser) {
+        console.warn('⚠️ Email already registered for signup:', email);
+        return { error: 'This email is already registered. Please sign in instead.' };
+      }
+
       // Generate 6-digit OTP
       const otp = Math.floor(100000 + Math.random() * 900000).toString();
       console.log('📝 Generated OTP for', email, ':', otp);

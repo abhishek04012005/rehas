@@ -31,9 +31,11 @@ export async function POST(request: NextRequest) {
 
     if (result.error) {
       console.warn(`⚠️ [send-otp] OTP service error: ${result.error}`);
+      // Return 409 Conflict for email already exists, 400 for other errors
+      const statusCode = result.error.toLowerCase().includes('already registered') ? 409 : 400;
       return NextResponse.json(
         { error: result.error },
-        { status: 400 }
+        { status: statusCode }
       );
     }
 

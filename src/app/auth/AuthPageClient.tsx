@@ -40,6 +40,7 @@ export default function AuthPageClient() {
   const [signupEmail, setSignupEmail] = useState('');
   const [signupOtpCode, setSignupOtpCode] = useState('');
   const [signupOtpVerified, setSignupOtpVerified] = useState(false);
+  const [emailAlreadyExists, setEmailAlreadyExists] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -120,10 +121,21 @@ export default function AuthPageClient() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: signupEmail.trim() }),
           });
+          
+          const data = await sendOtpResponse.json();
+          
+          // Check if email already registered (409 Conflict status)
+          if (sendOtpResponse.status === 409 || (data.error && data.error.toLowerCase().includes('already registered'))) {
+            setEmailAlreadyExists(true);
+            setError('');
+            setMessage('');
+            return;
+          }
+          
           if (!sendOtpResponse.ok) {
-            const data = await sendOtpResponse.json();
             throw new Error(data.error || 'Failed to send OTP');
           }
+          
           setSignupOtpStep('verify');
           setMessage('OTP sent to your email. Check your inbox.');
           return;
@@ -288,6 +300,7 @@ export default function AuthPageClient() {
             setFullName('');
             setPassword('');
             setConfirmPassword('');
+            setEmailAlreadyExists(false);
           }}>
             Sign Up
           </button>
@@ -319,15 +332,48 @@ export default function AuthPageClient() {
           {/* SIGNUP: Email Input */}
           {tab === 'signup' && signupOtpStep === 'email' && (
             <>
-              <label>
-                <span>Email address</span>
-                <input
-                  type="email"
-                  value={signupEmail}
-                  onChange={(e) => setSignupEmail(e.target.value)}
-                  placeholder="your.email@gmail.com"
-                />
-              </label>
+              {emailAlreadyExists ? (
+                <div className={styles.existingAccountInfo}>
+                  <p className={styles.infoText}>This email <strong>{signupEmail}</strong> is already registered with us.</p>
+                  <p className={styles.infoSubtext}>Would you like to sign in instead?</p>
+                  <button
+                    type="button"
+                    className={styles.signInButton}
+                    onClick={() => {
+                      setIdentifier(signupEmail);
+                      setTab('signin');
+                      setEmailAlreadyExists(false);
+                      setSignupEmail('');
+                      setMessage('');
+                      setError('');
+                    }}
+                  >
+                    Sign In with this Email
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.tryAnotherButton}
+                    onClick={() => {
+                      setEmailAlreadyExists(false);
+                      setSignupEmail('');
+                      setMessage('');
+                      setError('');
+                    }}
+                  >
+                    Try Another Email
+                  </button>
+                </div>
+              ) : (
+                <label>
+                  <span>Email address</span>
+                  <input
+                    type="email"
+                    value={signupEmail}
+                    onChange={(e) => setSignupEmail(e.target.value)}
+                    placeholder="your.email@gmail.com"
+                  />
+                </label>
+              )}
             </>
           )}
 
