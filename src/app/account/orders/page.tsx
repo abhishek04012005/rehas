@@ -150,6 +150,12 @@ export default function OrdersPage() {
     e.preventDefault();
     if (!selectedOrder || !user) return;
 
+    // Check if order is paid
+    if (selectedOrder.payment_status.toLowerCase() !== 'paid') {
+      setReviewError('You can only add reviews for paid orders. Please complete the payment first.');
+      return;
+    }
+
     setReviewSubmitting(true);
     setReviewError('');
     setReviewSuccess('');
@@ -449,22 +455,24 @@ export default function OrdersPage() {
                             </div>
                           </div>
                           <div className={styles.modalActions}>
-                            <button
-                              className={styles.modalActionButton}
-                              onClick={() => setShowReviewForm(true)}
-                            >
-                              ✎ Edit Review
-                            </button>
-                            {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                            {selectedOrder.payment_status.toLowerCase() === 'paid' ? (
+                              <>
+                                <button
+                                  className={styles.modalActionButton}
+                                  onClick={() => setShowReviewForm(true)}
+                                >
+                                  ✎ Edit Review
+                                </button>
+                                <Link
+                                  href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                                  className={styles.modalActionButton}
+                                >
+                                  Download Receipt
+                                </Link>
+                              </>
+                            ) : (
                               <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
                                 Pay Now
-                              </Link>
-                            ) : (
-                              <Link
-                                href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
-                                className={styles.modalActionButton}
-                              >
-                                Download Receipt
                               </Link>
                             )}
                           </div>
@@ -474,28 +482,31 @@ export default function OrdersPage() {
 
                     return (
                       <div className={styles.modalActions}>
-                        <button
-                          className={styles.modalActionButton}
-                          onClick={() => setShowReviewForm(true)}
-                        >
-                          ⭐ Add Review
-                        </button>
-                        {selectedOrder.payment_status.toLowerCase() !== 'paid' ? (
+                        {selectedOrder.payment_status.toLowerCase() === 'paid' ? (
+                          <>
+                            <button
+                              className={styles.modalActionButton}
+                              onClick={() => setShowReviewForm(true)}
+                            >
+                              ⭐ Add Review
+                            </button>
+                            <Link
+                              href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
+                              className={styles.modalActionButton}
+                            >
+                              Download Receipt
+                            </Link>
+                          </>
+                        ) : (
                           <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
                             Pay Now
-                          </Link>
-                        ) : (
-                          <Link
-                            href={`/payment/success?orderId=${selectedOrder.id}&transactionId=${encodeURIComponent(selectedOrder.razorpay_payment_id || selectedOrder.transaction_id || '')}&amount=${encodeURIComponent(selectedOrder.amount)}&method=${encodeURIComponent(selectedOrder.payment_method || 'razorpay')}`}
-                            className={styles.modalActionButton}
-                          >
-                            Download Receipt
                           </Link>
                         )}
                       </div>
                     );
                   })()
                 ) : (
+                  selectedOrder.payment_status.toLowerCase() === 'paid' ? (
                   <div className={styles.reviewFormContainer}>
                     <h3>Add Review for {selectedOrder.product_title}</h3>
                     
@@ -597,6 +608,14 @@ export default function OrdersPage() {
                       </form>
                     )}
                   </div>
+                  ) : (
+                    <div className={styles.emptyState}>
+                      <p>Please complete the payment to add a review for this order.</p>
+                      <Link href={`/checkout?orderId=${selectedOrder.id}`} className={styles.modalActionButton}>
+                        Pay Now
+                      </Link>
+                    </div>
+                  )
                 )}
               </div>
             </div>
