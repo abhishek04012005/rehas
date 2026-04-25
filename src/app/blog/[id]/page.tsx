@@ -19,7 +19,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   }
 
   const fullTitle = `${post.title} | Blog | REHAS`;
-  const fullUrl = `https://rehas.in/blog/${params.id}`;
+  const fullUrl = `https://www.rehas.in/blog/${params.id}`;
 
   return {
     title: fullTitle,

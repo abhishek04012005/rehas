@@ -1,15 +1,15 @@
 // SEO Configuration for REHAS Website
-// https://rehas.in
+// https://www.rehas.in
 
 import { Metadata } from 'next';
 
 export const siteConfig = {
   name: 'REHAS',
-  domain: 'https://rehas.in',
+  domain: 'https://www.rehas.in',
   description: 'Bridging ancient cosmic wisdom with modern wellness for a better tomorrow.',
   author: 'REHAS',
-  logo: 'https://rehas.in/logo.png',
-  ogImage: 'https://rehas.in/og-image.png',
+  logo: 'https://www.rehas.in/logo.png',
+  ogImage: 'https://www.rehas.in/og-image.png',
   twitter: '@REHAS',
 };
 

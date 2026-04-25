@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://rehas.in/sitemap.xml',
-    host: 'https://rehas.in',
+    sitemap: 'https://www.rehas.in/sitemap.xml',
+    host: 'https://www.rehas.in',
   };
 }

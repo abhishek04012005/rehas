@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://rehas.in/disclaimer',
+    canonical: 'https://www.rehas.in/disclaimer',
   },
 };
 

@@ -47,7 +47,7 @@ export async function generateMetadata(props: {
   }
 
   const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://rehas.in';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.rehas.in';
   const productUrl = generateCityProductUrl(category, productSlug, cityName);
   
   const cityData = cities.find((c) => c.name === cityName);

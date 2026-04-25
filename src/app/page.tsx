@@ -29,13 +29,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services. Connect with cosmic wisdom for spiritual transformation and healing.",
-    url: "https://rehas.in",
+    url: "https://www.rehas.in",
     siteName: "REHAS",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://rehas.in/og-image.png",
+        url: "https://www.rehas.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "REHAS - Cosmic Wellness Platform",
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services.",
-    images: ["https://rehas.in/og-image.png"],
+    images: ["https://www.rehas.in/og-image.png"],
     creator: "@REHAS",
   },
   alternates: {
-    canonical: "https://rehas.in",
+    canonical: "https://www.rehas.in",
   },
 };
 

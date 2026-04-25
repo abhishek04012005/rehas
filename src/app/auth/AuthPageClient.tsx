@@ -557,7 +557,7 @@ export default function AuthPageClient() {
                   <button
                     type="button"
                     className={styles.passwordToggle}
-                    onClick={() => setShowNewPassword((current) => !current)}
+                    onClick={() => setShowNewPassword((current) => !current)} 
                     aria-label={showNewPassword ? 'Hide password' : 'Show password'}
                   >
                     {showNewPassword ? <VisibilityOff /> : <Visibility />}

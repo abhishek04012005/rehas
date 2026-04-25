@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://rehas.in/terms-of-service',
+    canonical: 'https://www.rehas.in/terms-of-service',
   },
 };
 

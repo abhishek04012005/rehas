@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'Vedic Horoscope',
   ],
   alternates: {
-    canonical: 'https://rehas.in/astrology/vedic',
+    canonical: 'https://www.rehas.in/astrology/vedic',
   },
 };
 

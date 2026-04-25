@@ -245,7 +245,7 @@ export const rehasData = {
       zipCode: '800007',
     },
     timezone: 'IST (Indian Standard Time)',
-    bookingUrl: 'https://rehas.in/enquiry',
+    bookingUrl: 'https://www.rehas.in/enquiry',
   },
 
 
