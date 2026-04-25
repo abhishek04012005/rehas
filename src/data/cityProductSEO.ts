@@ -113,7 +113,7 @@ export function generateCityProductUrl(
   productSlug: string,
   city?: string
 ): string {
-  const baseUrl = `https://rehas.in/product/${category}/${productSlug}`;
+  const baseUrl = `https://www.rehas.in/product/${category}/${productSlug}`;
   if (city) {
     // Use path-based URL structure for better SEO
     return `${baseUrl}/${city.toLowerCase().replace(/\s+/g, '-')}`;
@@ -199,6 +199,6 @@ export function generateLocalBusinessSchemaForCity(
       'contactType': 'Customer Service',
       'email': 'support@rehas.in',
     },
-    'url': 'https://rehas.in',
+    'url': 'https://www.rehas.in',
   });
 }

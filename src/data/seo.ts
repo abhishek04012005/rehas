@@ -298,7 +298,7 @@ export function generateLocalBusinessSchema(
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     'name': `REHAS Wellness - ${city}`,
-    'url': `https://rehas.in`,
+    'url': `https://www.rehas.in`,
     'areaServed': city,
     'contactPoint': {
       '@type': 'ContactPoint',
@@ -320,7 +320,7 @@ export function generateSocialMeta(
     'og:title': productName,
     'og:description': description,
     'og:type': 'product',
-    'og:url': `https://rehas.in/product/${productName.toLowerCase().replace(/\s+/g, '-')}`,
+    'og:url': `https://www.rehas.in/product/${productName.toLowerCase().replace(/\s+/g, '-')}`,
     ...(imageUrl ? { 'og:image': imageUrl } : {}),
     'twitter:card': 'summary_large_image',
     'twitter:title': productName,

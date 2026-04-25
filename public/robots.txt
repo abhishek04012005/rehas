@@ -1,5 +1,5 @@
 # Robots.txt for REHAS Website
-# https://rehas.in
+# https://www.rehas.in
 
 # Allow all bots
 User-agent: *
@@ -32,9 +32,9 @@ User-agent: SemrushBot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://rehas.in/sitemap.xml
-Sitemap: https://rehas.in/sitemap-0.xml
-Sitemap: https://rehas.in/sitemap-index.xml
+Sitemap: https://www.rehas.in/sitemap.xml
+Sitemap: https://www.rehas.in/sitemap-0.xml
+Sitemap: https://www.rehas.in/sitemap-index.xml
 
 # Cache directive
 Cache-Control: max-age=604800

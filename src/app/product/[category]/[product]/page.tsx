@@ -39,7 +39,7 @@ export async function generateMetadata(props: {
   }
 
   const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://rehas.in';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.rehas.in';
   const productUrl = `${baseUrl}/product/${category}/${productSlug}`;
 
   // Enhanced keywords including cities and healing modalities

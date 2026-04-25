@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Client Testimonials | REHAS Success Stories',
     description: 'Real stories of transformation and cosmic awakening from our clients.',
-    url: 'https://rehas.in/testimonials',
+    url: 'https://www.rehas.in/testimonials',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://rehas.in/testimonials',
+    canonical: 'https://www.rehas.in/testimonials',
   },
 };
 

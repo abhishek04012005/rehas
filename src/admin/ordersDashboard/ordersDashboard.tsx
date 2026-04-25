@@ -474,7 +474,7 @@ export default function OrdersDashboard() {
                 margin: 12px 0 0 0;
                 color: #333;
                 font-weight: 700;
-              ">https://rehas.in</div>
+              ">https://www.rehas.in</div>
             </div>
 
             <div style="

@@ -4,7 +4,7 @@ import { getCitiesWithSlugs } from "@/data/cities";
 import { productMerchandiseData } from "@/data/productMerchandise";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://rehas.in";
+  const baseUrl = "https://www.rehas.in";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

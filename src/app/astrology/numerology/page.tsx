@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'Spiritual Numbers',
   ],
   alternates: {
-    canonical: 'https://rehas.in/astrology/numerology',
+    canonical: 'https://www.rehas.in/astrology/numerology',
   },
 };
 
