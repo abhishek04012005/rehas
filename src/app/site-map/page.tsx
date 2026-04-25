@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import LineArtBackground from '@/components/lineArtBackground';
+import LineArtBackground from '../../components/lineArtBackground';
 import { ArrowBack, ChevronRight } from '@mui/icons-material';
 import styles from './page.module.css';
 
@@ -73,7 +73,7 @@ export default function Sitemap() {
         { label: 'Privacy Policy', href: '/privacy-policy' },
         { label: 'Terms of Service', href: '/terms-of-service' },
         { label: 'Disclaimer', href: '/disclaimer' },
-        { label: 'Sitemap', href: '/sitemap' },
+        { label: 'Sitemap', href: '/site-map' },
       ],
     },
     {

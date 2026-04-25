@@ -76,7 +76,7 @@ export const footerData = {
         { label: 'Blog', href: '/blog' },
         { label: 'Contact', href: '/contact' },
         { label: 'Support', href: '/support' },
-        { label: 'Sitemap', href: '/sitemap' },
+        { label: 'Sitemap', href: '/site-map' },
       ],
     },
 

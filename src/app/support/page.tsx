@@ -116,7 +116,7 @@ export default function Support() {
           <span>•</span>
           <Link href="/terms-of-service">Terms of Service</Link>
           <span>•</span>
-          <Link href="/sitemap">Sitemap</Link>
+          <Link href="/site-map">Sitemap</Link>
         </div>
       </div>
     </div>
