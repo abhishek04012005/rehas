@@ -243,22 +243,44 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
   const handleAddressSelect = (address: UserAddress) => {
     setSelectedAddressId(address.id);
     setFormData({
-      fullName: address.full_name,
-      email: formData.email, // Keep existing email
-      phoneNumber: address.phone_number || '',
+      fullName: address.full_name || formData.fullName || user?.fullName || '',
+      email: address.email || formData.email || user?.email || '',
+      phoneNumber: address.phone_number || formData.phoneNumber || user?.phone || '',
       addressLine1: address.address_line_1,
       addressLine2: address.address_line_2 || '',
       city: address.city,
       state: address.state,
       postalCode: address.postal_code,
-      country: address.country,
+      country: address.country || formData.country || 'India',
     });
     setAddressMode('saved');
     setShowNewAddressForm(false);
+    setErrors((prev) => ({
+      ...prev,
+      addressSelection: '',
+      addressLine1: '',
+      city: '',
+      state: '',
+      postalCode: '',
+      fullName: '',
+      phoneNumber: '',
+      email: '',
+    }));
   };
 
   const handleAddressModeChange = (mode: 'saved' | 'new') => {
     setAddressMode(mode);
+    setErrors((prev) => ({
+      ...prev,
+      addressSelection: '',
+      addressLine1: '',
+      city: '',
+      state: '',
+      postalCode: '',
+      fullName: '',
+      phoneNumber: '',
+    }));
+
     if (mode === 'new') {
       setSelectedAddressId(null);
       setShowNewAddressForm(true);
@@ -334,6 +356,10 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       newErrors.phoneNumber = 'Phone number must be exactly 10 digits';
     } else if (!/^[6-9]/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = 'Phone number must start with 6, 7, 8, or 9';
+    }
+
+    if (!acceptTerms) {
+      newErrors.acceptTerms = 'You must agree to the Terms of Service';
     }
 
     // if (!formData.birthDate) {
@@ -633,35 +659,32 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
       )}
 
       <form className={styles.form} onSubmit={handleSubmit}>
-        {/* Show Personal Info section only when NOT using saved address mode */}
-
         {savedAddresses.length > 0 && (
-          <h4 className={styles.selectAddressHeading}>Choose how to provide shipping details</h4>
+          <>
+            <h4 className={styles.selectAddressHeading}>Choose how to provide shipping details</h4>
+            <div className={styles.addressModeToggle}>
+              <button
+                type="button"
+                className={`${styles.modeButton} ${addressMode === 'saved' ? styles.activeModeButton : ''}`}
+                onClick={() => handleAddressModeChange('saved')}
+              >
+                Select saved address
+              </button>
+              <button
+                type="button"
+                className={`${styles.modeButton} ${addressMode === 'new' ? styles.activeModeButton : ''}`}
+                onClick={() => handleAddressModeChange('new')}
+              >
+                Fill all details
+              </button>
+            </div>
+          </>
         )}
-        {savedAddresses.length > 0 && (
-          <div className={styles.addressModeToggle}>
-            <button
-              type="button"
-              className={`${styles.modeButton} ${addressMode === 'saved' ? styles.activeModeButton : ''}`}
-              onClick={() => handleAddressModeChange('saved')}
-            >
-              Select saved address
-            </button>
-            <button
-              type="button"
-              className={`${styles.modeButton} ${addressMode === 'new' ? styles.activeModeButton : ''}`}
-              onClick={() => handleAddressModeChange('new')}
-            >
-              Fill all details
-            </button>
-          </div>
-        )}
-        {!(isProduct && savedAddresses.length > 0 && addressMode === 'saved') && (
-          <div className={styles.formSection}>
-            <h3>
-              <FavoriteBorder fontSize="small" />
-              Personal Information
-            </h3>
+        <div className={styles.formSection}>
+          <h3>
+            <FavoriteBorder fontSize="small" />
+            Personal Information
+          </h3>
 
             <div className={styles.formGroup}>
               <label htmlFor="fullName">Full Name *</label>
@@ -709,7 +732,6 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
             </div>
 
           </div>
-        )}
 
         {/* Shipping Address Section - Always show */}
         <div className={styles.formSection}>
@@ -722,10 +744,12 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
               {addressMode === 'saved' && (
                 <div className={styles.addressList}>
                   {savedAddresses.map((address) => (
-                    <div
+                    <button
                       key={address.id}
+                      type="button"
                       className={`${styles.addressOption} ${selectedAddressId === address.id ? styles.selected : ''}`}
                       onClick={() => handleAddressSelect(address)}
+                      aria-pressed={selectedAddressId === address.id}
                     >
                       <div className={styles.addressRadio}>
                         {selectedAddressId === address.id ? (
@@ -750,7 +774,7 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
                           <p className={styles.addressCountry}>{address.country}</p>
                         </div>
                       </div>
-                    </div>
+                    </button>
                   ))}
                 </div>
               )}
@@ -892,7 +916,15 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
             <input
               type="checkbox"
               checked={acceptTerms}
-              onChange={(e) => setAcceptTerms(e.target.checked)}
+              onChange={(e) => {
+                setAcceptTerms(e.target.checked);
+                if (errors.acceptTerms) {
+                  setErrors((prev) => ({
+                    ...prev,
+                    acceptTerms: '',
+                  }));
+                }
+              }}
               className={styles.termsCheckbox}
               required
             />
@@ -901,13 +933,14 @@ export default function EnhancedCheckoutForm({ productTitle, amount = 999, isPro
               acknowledge that this purchase is non-refundable after completion.
             </span>
           </label>
+          {errors.acceptTerms && <span className={styles.errorText}>{errors.acceptTerms}</span>}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
           className={styles.submitBtn}
-          disabled={loading || submitted || !acceptTerms || savingAddress}
+          disabled={loading || submitted || savingAddress}
         >
           {loading || savingAddress ? 'Processing...' : submitted ? 'Order Created!' : 'Continue to Payment'}
           {!loading && !submitted && !savingAddress && <ChevronRight fontSize="small" />}

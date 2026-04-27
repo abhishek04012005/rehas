@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       : serviceDescription;
 
     // Validation
-    if (!fullName || !email || !phoneNumber || !finalAmount) {
+    if (!fullName || !phoneNumber || !finalAmount) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -54,13 +54,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Invalid email address' },
-        { status: 400 }
-      );
+    // Validate email only when provided
+    if (email && email.trim()) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return NextResponse.json(
+          { error: 'Invalid email address' },
+          { status: 400 }
+        );
+      }
     }
 
     // Calculate amount in paise

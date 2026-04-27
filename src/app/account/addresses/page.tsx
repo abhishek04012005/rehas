@@ -197,7 +197,7 @@ export default function AddressesPage() {
 
               <label>
                 <span>Email</span>
-                <input type="email" value={addressForm.email} onChange={(e) => setAddressForm({ ...addressForm, email: e.target.value })} placeholder="your.email@example.com" />
+                <input type="email" value={addressForm.email} onChange={(e) => setAddressForm({ ...addressForm, email: e.target.value })} placeholder="your.email@gmail.com" />
               </label>
 
               <label>
@@ -280,6 +280,7 @@ export default function AddressesPage() {
 
               <div className={styles.addressContent}>
                 <h4 className={styles.addressName}>{address.full_name}</h4>
+                {address.email && <p className={styles.addressEmail}>{address.email}</p>}
                 {address.phone_number && <p className={styles.addressPhone}>{address.phone_number}</p>}
                 <p className={styles.addressLine}>{address.address_line_1}</p>
                 {address.address_line_2 && <p className={styles.addressLine}>{address.address_line_2}</p>}

@@ -215,6 +215,13 @@
   font-size: 0.9rem;
 }
 
+.addressEmail {
+  color: #444;
+  margin: 6px 0;
+  font-size: 0.92rem;
+  word-break: break-all;
+}
+
 .addressLine {
   color: #555;
   margin: 6px 0;

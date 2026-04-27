@@ -127,32 +127,10 @@ export default function CheckoutPageClient() {
   const hasProductData = productData && productData.productTitle;
   const productTitle = existingOrder ? existingOrder.productTitle : hasProductData ? productData.productTitle : hasCart ? 'Cart Items' : 'Service/Product';
   const amount = existingOrder ? existingOrder.amount : hasProductData ? (productData.amount || 0) : hasCart ? totalAmount : 999;
-  const isProduct = existingOrder ? (existingOrder.orderType === 'product' || true) : hasProductData ? (productData.type === 'product') : hasCart ? true : false;
+  const isProduct = existingOrder ? existingOrder.orderType === 'product' : hasProductData ? (productData.type === 'product') : hasCart ? true : false;
 
   if (authLoading || orderLoading || cartLoading) {
     return <div style={{ padding: '60px 24px' }}>Checking your session and order details...</div>;
-  }
-
-  if (!user) {
-    return (
-      <div style={{ padding: '60px 24px', textAlign: 'center' }}>
-        <h1 style={{ color: 'var(--primary)', marginBottom: '16px' }}>Login required for checkout</h1>
-        <p style={{ color: 'var(--text-light)', marginBottom: '24px' }}>
-          Please sign in with Gmail or phone before proceeding to checkout.
-        </p>
-        <Link href="/auth?redirect=/checkout" style={{
-          display: 'inline-block',
-          padding: '14px 24px',
-          background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)',
-          color: 'white',
-          borderRadius: '12px',
-          fontWeight: 700,
-          textDecoration: 'none',
-        }}>
-          Login / Sign Up
-        </Link>
-      </div>
-    );
   }
 
   if (orderError) {

@@ -10,7 +10,7 @@ import styles from './paymentForm.module.css';
 interface PaymentFormProps {
   orderId: number;
   amount: number;
-  customerEmail: string;
+  customerEmail?: string;
   customerPhone: string;
   customerName: string;
   productTitle: string;
@@ -93,7 +93,7 @@ export default function PaymentForm({
         customer_notification: 1,
         prefill: {
           name: customerName,
-          email: customerEmail,
+          email: customerEmail || undefined,
           contact: customerPhone,
         },
         theme: {
@@ -183,7 +183,7 @@ export default function PaymentForm({
 
         <div className={styles.detailRow}>
           <span className={styles.label}>Email</span>
-          <span className={styles.value}>{customerEmail}</span>
+          <span className={styles.value}>{customerEmail || 'N/A'}</span>
         </div>
 
         <div className={styles.detailRow}>
