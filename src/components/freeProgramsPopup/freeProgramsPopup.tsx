@@ -91,7 +91,8 @@ export default function FreeProgramsPopup({
               type="button"
               className={styles.closeBtn}
               onClick={handlePopupClose}
-              aria-label="Close popup"
+              aria-label="Close free programs popup"
+              title="Close free programs popup"
             >
               <Close />
             </button>

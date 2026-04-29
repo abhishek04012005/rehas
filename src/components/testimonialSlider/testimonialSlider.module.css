@@ -260,50 +260,51 @@
 /* Dot Indicators */
 .dotsContainer {
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 400px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--secondary);
-  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(146, 72, 122, 0.4);
+  background: transparent;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease;
   padding: 0;
   transform-origin: center;
   position: relative;
-  overflow: hidden;
-  will-change: transform;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dot::after {
   content: '';
-  position: absolute;
-  inset: 0;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--primary);
-  opacity: 0;
-  transform: scale(0.75);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  background: var(--secondary);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transform: scale(1);
   pointer-events: none;
 }
 
 .dot:hover {
-  transform: scale(1.2);
+  border-color: var(--primary);
 }
 
 .dot.active {
-  transform: scale(2.2);
+  border-color: var(--primary);
 }
 
 .dot.active::after {
-  opacity: 1;
-  transform: scale(1);
+  width: 18px;
+  height: 18px;
+  background: var(--primary);
 }
 
 /* Thumbnail Carousel */
@@ -631,17 +632,23 @@
   }
 
   .dotsContainer {
-    gap: 0.6rem;
+    gap: 0.8rem;
     max-width: 280px;
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 44px;
+    height: 44px;
   }
 
-  .dot.active {
-    width: 24px;
+  .dot::after {
+    width: 14px;
+    height: 14px;
+  }
+
+  .dot.active::after {
+    width: 18px;
+    height: 18px;
   }
 
   .ratingStars {

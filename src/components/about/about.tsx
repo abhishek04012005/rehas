@@ -117,7 +117,7 @@ export default function About() {
           {/* Story Cards */}
           <section className={styles.storySection}>
             <div className={styles.sectionHeader}>
-              {/* <h2>Our Story</h2> */}
+              <h2>Our Story</h2>
               <div className={styles.headerUnderline}></div>
             </div>
             <div className={styles.contentGrid}>
@@ -137,7 +137,7 @@ export default function About() {
         {/* Stats Section */}
         <section className={styles.statsSection}>
           <div className={styles.sectionHeader}>
-            {/* <h2>Our Impact</h2> */}
+            <h2>Our Impact</h2>
             <div className={styles.headerUnderline}></div>
           </div>
           <div className={styles.statsGrid}>
@@ -153,7 +153,7 @@ export default function About() {
         {/* Mission & Vision Section */}
         <section className={styles.missionVisionSection}>
           <div className={styles.sectionHeader}>
-            {/* <h2>Our Purpose</h2> */}
+            <h2>Our Purpose</h2>
             <div className={styles.headerUnderline}></div>
           </div>
           <div className={styles.purposeGrid}>

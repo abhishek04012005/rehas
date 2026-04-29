@@ -112,7 +112,7 @@ export default function TestimonialSlider() {
                                 />
                             </div>
                             <div className={styles.authorInfo}>
-                                <h4 className={styles.authorName}>{currentTestimonial.name}</h4>
+                                <p className={styles.authorName}>{currentTestimonial.name}</p>
                                 <p className={styles.authorRole}>{currentTestimonial.role}</p>
                                 <p className={styles.authorLocation}>{currentTestimonial.location}</p>
                             </div>

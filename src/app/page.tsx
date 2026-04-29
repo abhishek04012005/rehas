@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Hero from '@/components/hero';
-import HomeSections from '@/components/homeSections/homeSections';
+import HomeSectionsClient from '@/components/homeSections/homeSectionsClient';
 
 export const metadata: Metadata = {
   title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <HomeSections />
+      <HomeSectionsClient />
     </>
   );
 }

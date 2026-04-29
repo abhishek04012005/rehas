@@ -223,9 +223,9 @@ export default function Navbar() {
                             href="/cart"
                             className={styles.cartButton}
                             onClick={() => setIsMenuOpen(false)}
-                            aria-label="View cart"
                         >
-                            <ShoppingCartIcon />
+                            <ShoppingCartIcon aria-hidden="true" />
+                            <span className={styles.srOnly}>View cart</span>
                             {!mounted && <span className={styles.cartCountSkeleton}></span>}
                             {mounted && cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
                         </Link>

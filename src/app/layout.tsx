@@ -13,9 +13,7 @@ import { CheckoutProvider } from "@/context/CheckoutContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { organizationSchema } from "@/lib/seoConfig";
 
-const Footer = dynamic(() => import('@/components/footer/footer'), {
-  loading: () => null,
-});
+import Footer from '@/components/footer/footer';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

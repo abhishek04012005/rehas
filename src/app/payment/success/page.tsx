@@ -78,436 +78,96 @@ function PaymentSuccessContent() {
   const billingAddressLine2 = billingLocation?.secondaryText || '';
 
   const handleDownloadPDF = async () => {
-    // Dynamically import html2pdf to avoid SSR issues
-    const html2pdf = (await import('html2pdf.js')).default;
-    // Create a temporary HTML element with the receipt content
-    const receiptElement = document.createElement('div');
-    receiptElement.innerHTML = `
-      <div style="
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background: white;
-        max-width: 210mm;
-        margin: 0 auto;
-        line-height: 1.4;
-        color: #333;
-      ">
-        <div style="
-          border: 2px solid #560067;
-          padding: 30px;
-          background: white;
-          border-radius: 8px;
-          position: relative;
-          overflow: hidden;
-        ">
-          <div style="
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #560067, #7b1fa2);
-          "></div>
+    try {
+      const { jsPDF } = await import('jspdf');
+      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+      const margin = 40;
+      const lineHeight = 18;
+      let y = margin;
 
-          <div style="
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            position: relative;
-          ">
-            <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 12px;
-            ">
-              <div style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-              ">
-                <img src="/logohalf.svg" alt="REHAS Logo" style="
-                  width: 60px;
-                  height: 30px;
-                  object-fit: contain;
-                ">
-                <div style="
-                  color: #560067;
-                  font-size: 18px;
-                  font-weight: 700;
-                ">REHAS</div>
-              </div>
-              <div style="text-align: right; font-size: 12px; color: #666;">
-                <div style="font-weight: 700; color: #560067; font-size: 14px; margin-bottom: 2px;">Order #${orderId || 'N/A'}</div>
-                <div>${orderDate}</div>
-              </div>
-            </div>
-            <div style="
-              text-align: center;
-              margin-bottom: 8px;
-            ">
-              <p style="
-                color: #000;
-                margin: 0;
-                font-size: 25px;
-                font-weight: 700;
-              ">Order Confirmation Receipt</p>
-            </div>
-          </div>
+      const orderDateString = orderDate || new Date().toLocaleDateString('en-IN');
+      const orderTimeString = orderTime || new Date().toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      });
 
-          <div style="
-            background: #f9f9f9;
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #e0e0e0;
-          ">
-            <div style="
-              color: #560067;
-              font-size: 12px;
-              font-weight: 700;
-              margin: 0 0 8px 0;
-              text-transform: uppercase;
-              letter-spacing: 0.5px;
-            ">Ship From</div>
-            <div style="
-              font-size: 12px;
-              color: #666;
-              line-height: 1.4;
-            ">
-              <div>REHAS, Chanakya Nagar Road, Agam Kua</div>
-              <div>Patna, Bihar, India - 800007</div>
-            </div>
-          </div>
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(18);
+      doc.text('REHAS Order Receipt', margin, y);
+      y += lineHeight * 2;
 
-          <div style="
-            margin-bottom: 20px;
-            text-align: center;
-          ">
-            <div style="
-              display: inline-flex;
-              align-items: center;
-              gap: 6px;
-              background: rgba(34, 197, 94, 0.1);
-              color: #16a34a;
-              padding: 6px 12px;
-              border-radius: 20px;
-              font-size: 12px;
-              font-weight: 600;
-            ">
-              <span>✓</span>
-              <span>${method === 'cod' ? 'Order Confirmed' : 'Payment Successful'}</span>
-            </div>
-          </div>
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      const receiptDetails = [
+        `Order ID: ${orderId || 'N/A'}`,
+        `Order Date: ${orderDateString}`,
+        `Order Time: ${orderTimeString}`,
+        `Payment Mode: ${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}`,
+        `Payment ID: ${transactionId || 'N/A'}`,
+      ];
 
-          <div style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-          ">
-            <div style="
-              background: #f9f9f9;
-              border-radius: 6px;
-              padding: 12px;
-              border: 1px solid #e0e0e0;
-            ">
-              <div style="
-                color: #560067;
-                font-size: 12px;
-                font-weight: 700;
-                margin: 0 0 8px 0;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              ">Customer Details</div>
-              <div style="
-                font-weight: 600;
-                color: #333;
-                font-size: 14px;
-                margin-bottom: 6px;
-              ">${customerInfo?.full_name || 'N/A'}</div>
-              <div style="
-                font-size: 12px;
-                color: #666;
-                line-height: 1.4;
-              ">
-                <div>${customerInfo?.email || 'N/A'}</div>
-                <div>${customerInfo?.phone_number || 'N/A'}</div>
-              </div>
-            </div>
-            ${customerInfo?.order_type === 'product' ? `
-            <div style="
-              background: #f9f9f9;
-              border-radius: 6px;
-              padding: 12px;
-              border: 1px solid #e0e0e0;
-            ">
-              <div style="
-                color: #560067;
-                font-size: 12px;
-                font-weight: 700;
-                margin: 0 0 8px 0;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              ">Delivery Address</div>
-              <div style="
-                font-size: 12px;
-                color: #666;
-                line-height: 1.4;
-              ">
-                <div>${customerInfo?.address_line_1} ${customerInfo?.address_line_2}</div>
-                <div>${customerInfo?.city}, ${customerInfo?.state} - ${customerInfo?.postal_code || customerInfo?.postalCode || 'N/A'}</div>
-              </div>
-            </div>
-            ` : ''}
-          </div>
+      receiptDetails.forEach((line) => {
+        doc.text(line, margin, y);
+        y += lineHeight;
+      });
 
-          <div style="margin-bottom: 20px;">
-            <div style="
-              color: #560067;
-              font-size: 13px;
-              font-weight: 700;
-              letter-spacing: 0.5px;
-              border-bottom: 1px solid #e0e0e0;
-              padding-bottom: 6px;
-              margin: 0 0 10px 0;
-              text-transform: uppercase;
-            ">Order Summary</div>
-            <div style="
-              border: 1px solid #e0e0e0;
-              border-radius: 6px;
-              overflow: hidden;
-            ">
-              <div style="
-                display: grid;
-                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
-                gap: 12px;
-                align-items: center;
-                padding: 12px 16px;
-                background: #f9f9f9;
-                color: #560067;
-                font-weight: 700;
-                font-size: 11px;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-              ">
-                <span>Product</span>
-                <span>Qty</span>
-                <span>Unit Price</span>
-                <span>Amount</span>
-              </div>
-              <div style="
-                display: grid;
-                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
-                gap: 12px;
-                align-items: center;
-                padding: 12px 16px;
-                background: white;
-                border-top: 1px solid #e0e0e0;
-              ">
-                <div style="flex: 1;">
-                  <div style="
-                    font-weight: 600;
-                    color: #333;
-                    font-size: 12px;
-                  ">${productData?.productTitle || 'N/A'}</div>
-                </div>
-                <span style="font-size: 12px; color: #666;">1</span>
-                <span style="font-size: 12px; color: #666;">₹${amount || '0.00'}</span>
-                <span style="
-                  font-weight: 700;
-                  color: #560067;
-                  font-size: 13px;
-                ">₹${amount || '0.00'}</span>
-              </div>
-            </div>
-            ${productData?.isPoojaSelected && productData?.poojaLabel ? `
-            <div style="
-              border: 1px solid #e0e0e0;
-              border-radius: 6px;
-              overflow: hidden;
-              margin-top: 8px;
-            ">
-              <div style="
-                display: grid;
-                grid-template-columns: minmax(120px, 1fr) 60px 80px 80px;
-                gap: 12px;
-                align-items: center;
-                padding: 12px 16px;
-                background: white;
-                border-top: 1px solid #e0e0e0;
-              ">
-                <div style="flex: 1;">
-                  <div style="
-                    font-weight: 600;
-                    color: #333;
-                    font-size: 12px;
-                  ">${productData.poojaLabel}</div>
-                </div>
-                <span style="font-size: 12px; color: #666;">1</span>
-                <span style="font-size: 12px; color: #666;">${productData.poojaPrice}</span>
-                <span style="
-                  font-weight: 700;
-                  color: #560067;
-                  font-size: 13px;
-                ">${productData.poojaPrice}</span>
-              </div>
-            </div>
-            ` : ''}
-          </div>
+      y += lineHeight;
+      doc.setFont('helvetica', 'bold');
+      doc.text('Customer Details', margin, y);
+      y += lineHeight;
+      doc.setFont('helvetica', 'normal');
+      const customerLines = [
+        customerInfo?.full_name || 'N/A',
+        customerInfo?.email || 'N/A',
+        customerInfo?.phone_number || 'N/A',
+      ];
+      customerLines.forEach((line) => {
+        doc.text(line, margin, y);
+        y += lineHeight;
+      });
 
-           <div style="margin-bottom: 20px;">
-            <div style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 16px;
-              background: linear-gradient(135deg, #560067, #7b1fa2);
-              color: white;
-              border-radius: 6px;
-              font-size: 16px;
-              font-weight: 700;
-            ">
-              <span>Total Amount</span>
-              <span>₹${parseFloat(amount || '0').toFixed(2)}</span>
-            </div>
-          </div>
+      if (customerInfo?.order_type === 'product') {
+        y += lineHeight;
+        doc.setFont('helvetica', 'bold');
+        doc.text('Delivery Address', margin, y);
+        y += lineHeight;
+        doc.setFont('helvetica', 'normal');
 
-          <div style="margin-bottom: 20px;">
-            <div style="
-              color: #560067;
-              font-size: 13px;
-              font-weight: 700;
-              letter-spacing: 0.5px;
-              border-bottom: 1px solid #e0e0e0;
-              padding-bottom: 6px;
-              margin: 0 0 10px 0;
-              text-transform: uppercase;
-            ">Payment Details</div>
-            <div style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-              gap: 12px;
-            ">
-              <div style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 12px;
-                background: #f9f9f9;
-                border-radius: 4px;
-                border: 1px solid #e0e0e0;
-              ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Mode</span>
-                <span style="font-size: 11px; color: #333; font-weight: 600;">${method === 'cod' ? 'Cash on Delivery' : 'Online Payment'}</span>
-              </div>
-              <div style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 12px;
-                background: #f9f9f9;
-                border-radius: 4px;
-                border: 1px solid #e0e0e0;
-              ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment ID</span>
-                <span style="font-size: 11px; color: #333; font-weight: 600;">${transactionId || 'N/A'}</span>
-              </div>
-              <div style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 12px;
-                background: #f9f9f9;
-                border-radius: 4px;
-                border: 1px solid #e0e0e0;
-              ">
-                <span style="font-size: 11px; color: #666; font-weight: 500;">Payment Status</span>
-                <span style="
-                  padding: 3px 6px;
-                  border-radius: 10px;
-                  font-size: 10px;
-                  font-weight: 600;
-                  text-transform: uppercase;
-                  ${method === 'cod' ? 'background: rgba(251, 191, 36, 0.1); color: #d97706;' : 'background: rgba(34, 197, 94, 0.1); color: #16a34a;'}
-                ">${method === 'cod' ? 'Pending' : 'Completed'}</span>
-              </div>
-            </div>
-          </div>
+        const addressParts = [
+          `${customerInfo?.address_line_1 || ''} ${customerInfo?.address_line_2 || ''}`.trim(),
+          `${customerInfo?.city || ''}${customerInfo?.state ? ', ' + customerInfo?.state : ''}`.trim(),
+          `${customerInfo?.postal_code || customerInfo?.postalCode || ''}`.trim(),
+        ].filter(Boolean);
 
-         
+        addressParts.forEach((line) => {
+          doc.text(line, margin, y);
+          y += lineHeight;
+        });
+      }
 
-          <div style="
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(86, 0, 103, 0.05);
-            border-radius: 6px;
-            border: 1px solid rgba(86, 0, 103, 0.1);
-          ">
-            <h3 style="
-              color: #560067;
-              font-size: 16px;
-              margin: 0 0 6px 0;
-              font-weight: 700;
-            ">Thank you for choosing REHAS!</h3>
-            <p style="
-              color: #666;
-              font-size: 12px;
-              margin: 0;
-              line-height: 1.4;
-            ">Your order has been ${method === 'cod' ? 'confirmed' : 'successfully processed'}.
-            ${method === 'cod' ? 'Payment will be collected upon delivery.' : 'We hope you enjoy your cosmic wellness journey.'}</p>
-          </div>
+      y += lineHeight;
+      doc.setFont('helvetica', 'bold');
+      doc.text('Order Summary', margin, y);
+      y += lineHeight;
+      doc.setFont('helvetica', 'normal');
+      doc.text(`Product: ${productData?.productTitle || 'N/A'}`, margin, y);
+      y += lineHeight;
+      if (productData?.isPoojaSelected && productData?.poojaLabel) {
+        doc.text(`Service: ${productData.poojaLabel}`, margin, y);
+        y += lineHeight;
+      }
+      doc.text(`Total Amount: ₹${parseFloat(amount || '0').toFixed(2)}`, margin, y);
 
-          <div style="
-            border-top: 1px solid #e0e0e0;
-            padding-top: 15px;
-            text-align: center;
-          ">
-            <div style="
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              gap: 12px;
-              margin-bottom: 12px;
-            ">
-              <div style="display: flex; flex-direction: column; gap: 2px;">
-                <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Need Help?</span>
-                <span style="font-size: 12px; color: #333; font-weight: 600;">${rehasData.contact.phone}</span>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 2px;">
-                <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Email</span>
-                <span style="font-size: 12px; color: #333; font-weight: 600;">${rehasData.contact.email}</span>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 2px;">
-                <span style="font-size: 10px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Website</span>
-                <span style="font-size: 12px; color: #333; font-weight: 600;">www.rehas.in</span>
-              </div>
-            </div>
-            <p style="
-              font-size: 9px;
-              color: #999;
-              margin: 0;
-              font-style: italic;
-            ">This is an electronically generated receipt. No signature required.</p>
-          </div>
-        </div>
-      </div>
-    `;
+      y += lineHeight * 2;
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(10);
+      doc.text('Generated by REHAS. Keep this receipt for your records.', margin, y);
 
-    // Configure PDF options
-    const options = {
-      margin: 0.5,
-      filename: `REHAS_Order_Receipt_${orderId || 'N/A'}.pdf`,
-      image: { type: 'jpeg' as const, quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' as const }
-    };
-
-    // Generate and download PDF
-    html2pdf().set(options).from(receiptElement).save();
+      doc.save(`REHAS_Order_Receipt_${orderId || 'N/A'}.pdf`);
+    } catch (error) {
+      console.error('Error generating receipt PDF:', error);
+    }
   };
 
   return (
