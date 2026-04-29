@@ -52,12 +52,14 @@ export default function Policy() {
       {/* Navigation Tabs */}
       <section className={styles.navigation}>
         <div className={styles.container}>
-          <nav className={styles.navTabs}>
+          <nav className={styles.navTabs} role="tablist">
             {policyData.sections.map((section) => {
               const IconComponent = iconMap[section.icon as keyof typeof iconMap];
               return (
                 <button
                   key={section.id}
+                  role="tab"
+                  aria-selected={expandedSection === section.id}
                   onClick={() => {
                     setExpandedSection(section.id);
                     document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
@@ -90,6 +92,8 @@ export default function Policy() {
                 <button
                   onClick={() => setExpandedSection(isExpanded ? null : section.id)}
                   className={styles.sectionHeader}
+                  aria-expanded={isExpanded}
+                  aria-controls={`${section.id}-content`}
                 >
                   <div className={styles.headerLeft}>
                     {IconComponent && <IconComponent className={styles.sectionIcon} />}
@@ -102,7 +106,7 @@ export default function Policy() {
 
                 {/* Section Content */}
                 {isExpanded && (
-                  <div className={styles.sectionBody}>
+                  <div id={`${section.id}-content`} className={styles.sectionBody}>
                     {section.content.map((subsection: any, idx: number) => (
                       <div key={idx} className={styles.subsection}>
                         <h3>{subsection.subtitle}</h3>

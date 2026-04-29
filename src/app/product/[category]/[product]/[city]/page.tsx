@@ -81,7 +81,17 @@ export async function generateMetadata(props: {
     authors: [{ name: 'REHAS Wellness' }],
     creator: 'REHAS',
     publisher: 'REHAS Wellness Platform',
-    robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-image-preview': 'large',
+        'max-video-preview': -1,
+      },
+    },
     alternates: {
       canonical: productUrl,
     },

@@ -271,22 +271,39 @@
   height: 12px;
   border-radius: 50%;
   border: 2px solid var(--secondary);
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
   padding: 0;
+  transform-origin: center;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
 }
 
 .dot:hover {
-  background: var(--secondary);
   transform: scale(1.2);
 }
 
 .dot.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  width: 32px;
-  border-radius: 6px;
+  transform: scale(2.2);
+}
+
+.dot.active::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Thumbnail Carousel */

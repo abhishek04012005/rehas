@@ -232,7 +232,7 @@ export const mantraData = {
     subtitle: 'Discover the transformative power of sacred sound',
     buttons: [
       { label: 'Book a Session', href: '/enquiry', type: 'primary' },
-      { label: 'Learn More', href: '/about', type: 'secondary' },
+      { label: 'Learn more about REHAS', href: '/about', type: 'secondary' },
     ],
   },
 } as const;

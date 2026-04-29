@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import dynamic from 'next/dynamic';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavbarWrapper from "@/components/navbarWrapper/navbarWrapper";
-import PageLoadingWrapper from "@/components/pageLoadingWrapper/pageLoadingWrapper";
-import AutoEnquiryPopup from "@/components/autoEnquiryPopup/autoEnquiryPopup";
-import Footer from "@/components/footer/footer";
+const NavbarWrapper = dynamic(() => import('@/components/navbarWrapper/navbarWrapper'), {
+  loading: () => null,
+});
+const DeferredLayout = dynamic(() => import('@/components/deferredLayout/deferredLayout'), {
+  loading: () => null,
+});
 import SchemaComponent from "@/components/schemaComponent/schemaComponent";
 import { CheckoutProvider } from "@/context/CheckoutContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { organizationSchema } from "@/lib/seoConfig";
+
+const Footer = dynamic(() => import('@/components/footer/footer'), {
+  loading: () => null,
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +27,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadataBase = new URL('https://www.rehas.in');
+
 export const metadata: Metadata = {
-  title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
+  title: "REHAS - Reiki | Yoga | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Kundalini Energy | Chakra | Mudra | Mind Reading | Energy Merchandise",
   description: "Explore cosmic wisdom through astrology, meditation, and wellness services. Book your consultation with REHAS experts for personalized spiritual guidance and healing.",
   keywords: "astrology, meditation, wellness, spiritual guidance, birth chart reading, yoga, cosmic wisdom",
   authors: [{ name: "REHAS" }],
@@ -39,7 +48,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
+    title: "REHAS - Reiki | Yoga | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Kundalini Energy | Chakra | Mudra | Mind Reading | Energy Merchandise",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services. Book your consultation with REHAS experts.",
     url: "https://www.rehas.in",
     siteName: "REHAS",
@@ -47,7 +56,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://www.rehas.in/og-image.png",
+        url: "https://www.rehas.in/logo.png",
         width: 1200,
         height: 630,
         alt: "REHAS - Cosmic Wellness Platform",
@@ -56,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
+    title: "REHAS - Reiki | Yoga | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Kundalini Energy | Chakra | Mudra | Mind Reading | Energy Merchandise",
     description: "Explore cosmic wisdom through astrology, meditation, and wellness services.",
-    images: ["https://www.rehas.in/og-image.png"],
+    images: ["https://www.rehas.in/logo.png"],
     creator: "@REHAS",
   },
   alternates: {
@@ -89,8 +98,7 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           <CheckoutProvider>
-            <PageLoadingWrapper />
-            <AutoEnquiryPopup />
+            <DeferredLayout />
             <NavbarWrapper />
             {children}
             <Footer />
@@ -98,6 +106,5 @@ export default function RootLayout({
         </AuthProvider>
       </body>
     </html>
-    
   );
 }

@@ -2,8 +2,19 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ChevronRight, EmojiEvents, AutoStories } from '@mui/icons-material';
-import * as MuiIcons from '@mui/icons-material';
+import ChevronRight from '@mui/icons-material/ChevronRight';
+import EmojiEvents from '@mui/icons-material/EmojiEvents';
+import AutoStories from '@mui/icons-material/AutoStories';
+import AutoStoriesOutlined from '@mui/icons-material/AutoStoriesOutlined';
+import AudiotrackOutlined from '@mui/icons-material/AudiotrackOutlined';
+import AutoAwesome from '@mui/icons-material/AutoAwesome';
+import EmojiEventsOutlined from '@mui/icons-material/EmojiEventsOutlined';
+import Favorite from '@mui/icons-material/Favorite';
+import Psychology from '@mui/icons-material/Psychology';
+import Spa from '@mui/icons-material/Spa';
+import StarOutlined from '@mui/icons-material/StarOutlined';
+import CalculateOutlined from '@mui/icons-material/CalculateOutlined';
+import CasinoOutlined from '@mui/icons-material/CasinoOutlined';
 import styles from './courseCard.module.css';
 
 interface CourseCardProps {
@@ -34,8 +45,21 @@ export default function CourseCard({
     router.push(href);
   };
 
-  // Get the MUI icon component by name
-  const IconComponent = (MuiIcons as any)[image] || MuiIcons.AutoStoriesOutlined;
+  const iconMap = {
+    AutoStoriesOutlined,
+    AudiotrackOutlined,
+    AutoAwesome,
+    EmojiEventsOutlined,
+    Favorite,
+    Psychology,
+    Spa,
+    StarOutlined,
+    CalculateOutlined,
+    CasinoOutlined,
+    PokerOutlined: CasinoOutlined,
+  } as const;
+
+  const IconComponent = iconMap[image as keyof typeof iconMap] || AutoStoriesOutlined;
 
   return (
     <div className={styles.card}>

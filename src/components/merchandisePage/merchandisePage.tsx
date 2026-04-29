@@ -182,6 +182,7 @@ export default function MerchandisePage() {
                   type="button"
                   className={`${styles.categoryButton} ${selectedCategory === tab.id ? styles.categoryButtonActive : ''}`}
                   onClick={() => setSelectedCategory(tab.id as 'all' | 'bracelet' | 'yantra')}
+                  aria-pressed={selectedCategory === tab.id}
                 >
                   {tab.title}
                   <span className={styles.categoryCount}>{tab.count}</span>

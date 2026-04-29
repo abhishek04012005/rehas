@@ -99,6 +99,7 @@ export default function Blog() {
                   selectedCategory === category ? styles.active : ''
                 }`}
                 onClick={() => setSelectedCategory(category)}
+                aria-pressed={selectedCategory === category}
               >
                 {category}
               </button>

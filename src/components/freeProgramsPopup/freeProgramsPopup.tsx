@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import EnquiryModal from '@/components/enquiryModal';
 import styles from './freeProgramsPopup.module.css';
 import { Close, Favorite, ArrowForward, LocalFireDepartment, Star } from '@mui/icons-material';
@@ -41,6 +41,25 @@ export default function FreeProgramsPopup({
   programs = DEFAULT_PROGRAMS,
 }: FreeProgramsPopupProps) {
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
+  const popupRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen || showEnquiryModal) return;
+    popupRef.current?.focus();
+  }, [isOpen, showEnquiryModal]);
+
+  useEffect(() => {
+    if (!isOpen && !showEnquiryModal) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        handlePopupClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, showEnquiryModal]);
 
   const handlePopupClose = () => {
     onClose();
@@ -59,15 +78,27 @@ export default function FreeProgramsPopup({
       {!showEnquiryModal && (
         <>
           <div className={styles.overlay} onClick={handlePopupClose} />
-          <div className={styles.modal}>
+          <div
+            className={styles.modal}
+            ref={popupRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="free-programs-title"
+            tabIndex={-1}
+          >
             {/* Close Button */}
-            <button className={styles.closeBtn} onClick={handlePopupClose}>
+            <button
+              type="button"
+              className={styles.closeBtn}
+              onClick={handlePopupClose}
+              aria-label="Close popup"
+            >
               <Close />
             </button>
 
             {/* CTA Section - Top */}
             <div className={styles.topCTA}>
-              <h2>Join Our Free Program</h2>
+              <h2 id="free-programs-title">Join Our Free Program</h2>
               <button
                 className={styles.enquiryBtn}
                 onClick={() => setShowEnquiryModal(true)}

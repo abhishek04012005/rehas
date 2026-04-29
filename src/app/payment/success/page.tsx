@@ -3,6 +3,7 @@
 import { Suspense, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { CheckCircle, FileDownload } from '@mui/icons-material';
 import { useCheckout } from '@/context/CheckoutContext';
 import { supabase } from '@/lib/supabase';

@@ -437,16 +437,20 @@
     border-bottom: 1px solid rgba(86, 0, 103, 0.1);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, visibility 0.3s ease;
     padding: 0;
     margin: 0;
     border-radius: 0;
     justify-content: flex-start;
     align-items: stretch;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .menu.open {
     max-height: 600px;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .navItems {
@@ -482,11 +486,12 @@
     max-height: 0;
     overflow: hidden;
     padding: 0;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, visibility 0.3s ease;
     margin: 0;
     border-radius: 0;
     opacity: 1;
-    visibility: visible;
+    visibility: hidden;
+    pointer-events: none;
     transform: none;
   }
 
@@ -494,12 +499,15 @@
     max-height: none;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   /* Mobile dropdown - click to expand */
   .dropdownContainer.open .submenu {
     max-height: 500px;
     padding: 0.5rem 0;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .submenu a {

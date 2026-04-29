@@ -32,5 +32,14 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "last 2 Safari versions",
+    "iOS >= 16",
+    "not dead",
+    "not op_mini all"
+  ]
 }

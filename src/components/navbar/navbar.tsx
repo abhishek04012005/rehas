@@ -9,68 +9,58 @@ import { navbarData } from '@/data/navbar';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/context/AuthContext';
 import { useCheckout } from '@/context/CheckoutContext';
-import {
-    WhatsApp,
-    ExpandMore,
-    Brightness3,
-    Nightlight,
-    FavoriteBorder,
-    RoomService,
-    PublicOutlined,
-    Description,
-    CreditCard,
-    PanTool,
-    MedicalInformation,
-    LocalHospital,
-    Grain,
-    Notifications,
-    Diamond,
-    AutoAwesome,
-    Terrain,
-    AccountBalance,
-    SchoolOutlined,
-    Numbers,
-    MicOutlined,
-    MenuBook,
-    Star,
-    ElectricBolt,
-    Healing,
-    Hearing,
-    Casino,
-    BackHand,
-    AccountCircle,
-    ShoppingCart,
-    Storefront
-} from '@mui/icons-material';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Brightness3Icon from '@mui/icons-material/Brightness3';
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import RoomServiceIcon from '@mui/icons-material/RoomService';
+import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
+import DescriptionIcon from '@mui/icons-material/Description';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import PanToolIcon from '@mui/icons-material/PanTool';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import DiamondIcon from '@mui/icons-material/Diamond';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import TerrainIcon from '@mui/icons-material/Terrain';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import NumbersIcon from '@mui/icons-material/Numbers';
+import MicOutlinedIcon from '@mui/icons-material/MicOutlined';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import StarIcon from '@mui/icons-material/Star';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import HealingIcon from '@mui/icons-material/Healing';
+import HearingIcon from '@mui/icons-material/Hearing';
+import CasinoIcon from '@mui/icons-material/Casino';
+import BackHandIcon from '@mui/icons-material/BackHand';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 const iconMap: Record<string, React.ComponentType<any>> = {
-    Brightness3,
-    Nightlight,
-    FavoriteBorder,
-    RoomService,
-    PublicOutlined,
-    Description,
-    CreditCard,
-    PanTool,
-    MedicalInformation,
-    LocalHospital,
-    Grain,
-    Notifications,
-    Diamond,
-    AutoAwesome,
-    Terrain,
-    AccountBalance,
-    SchoolOutlined,
-    Numbers,
-    MicOutlined,
-    MenuBook,
-    Star,
-    ElectricBolt,
-    Healing,
-    Hearing,
-    Casino,
-    BackHand,
-    Storefront
+    Brightness3: Brightness3Icon,
+    Nightlight: NightlightIcon,
+    FavoriteBorder: FavoriteBorderIcon,
+    RoomService: RoomServiceIcon,
+    PublicOutlined: PublicOutlinedIcon,
+    Description: DescriptionIcon,
+    CreditCard: CreditCardIcon,
+    PanTool: PanToolIcon,
+    Notifications: NotificationsIcon,
+    Diamond: DiamondIcon,
+    AutoAwesome: AutoAwesomeIcon,
+    Terrain: TerrainIcon,
+    SchoolOutlined: SchoolOutlinedIcon,
+    Numbers: NumbersIcon,
+    MicOutlined: MicOutlinedIcon,
+    MenuBook: MenuBookIcon,
+    Star: StarIcon,
+    ElectricBolt: ElectricBoltIcon,
+    Healing: HealingIcon,
+    Hearing: HearingIcon,
+    Casino: CasinoIcon,
+    BackHand: BackHandIcon,
+    Storefront: StorefrontIcon,
 };
 
 const getIconComponent = (iconName: string) => {
@@ -80,6 +70,7 @@ const getIconComponent = (iconName: string) => {
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<number | null>(null);
     const [profileOpen, setProfileOpen] = useState(false);
@@ -92,6 +83,18 @@ export default function Navbar() {
     // Ensure component is mounted before rendering dynamic content
     useEffect(() => {
         setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
+        const handleMediaChange = (event: MediaQueryListEvent | MediaQueryList) => {
+            setIsMobile(event.matches);
+        };
+
+        handleMediaChange(mediaQuery);
+        mediaQuery.addEventListener('change', handleMediaChange);
+
+        return () => mediaQuery.removeEventListener('change', handleMediaChange);
     }, []);
 
     useEffect(() => {
@@ -161,6 +164,8 @@ export default function Navbar() {
                         className={`${styles.menuToggle} ${isMenuOpen ? styles.active : ''}`}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
+                        aria-expanded={isMenuOpen}
+                        aria-controls="navbar-menu"
                     >
                         <span></span>
                         <span></span>
@@ -168,7 +173,11 @@ export default function Navbar() {
                     </button>
 
                     {/* Navigation Menu */}
-                    <div className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>
+                    <div
+                        id="navbar-menu"
+                        className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}
+                        aria-hidden={isMobile && !isMenuOpen}
+                    >
                         <ul className={styles.navItems}>
                             {navbarData.links.map((link, idx) => (
                                 <li key={idx} className={'submenu' in link ? styles.navGroup : ''}>
@@ -177,11 +186,14 @@ export default function Navbar() {
                                             <button 
                                                 className={styles.dropdownTrigger}
                                                 onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
+                                                aria-haspopup="menu"
+                                                aria-expanded={openDropdown === idx}
+                                                aria-controls={`submenu-${idx}`}
                                             >
                                                 {link.label}
-                                                <ExpandMore className={styles.dropdownIcon} />
+                                                <ExpandMoreIcon className={styles.dropdownIcon} />
                                             </button>
-                                            <div className={styles.submenu}>
+                                            <div id={`submenu-${idx}`} className={styles.submenu} role="menu">
                                                 {link.submenu.map((item, subIdx) => (
                                                     <Link 
                                                         key={subIdx}
@@ -207,16 +219,27 @@ export default function Navbar() {
                     </div>
 
                     <div className={styles.actionsRight}>
-                        <Link href="/cart" className={styles.cartButton} onClick={() => setIsMenuOpen(false)}>
-                            <ShoppingCart />
+                        <Link
+                            href="/cart"
+                            className={styles.cartButton}
+                            onClick={() => setIsMenuOpen(false)}
+                            aria-label="View cart"
+                        >
+                            <ShoppingCartIcon />
                             {!mounted && <span className={styles.cartCountSkeleton}></span>}
                             {mounted && cartCount > 0 && <span className={styles.cartCount}>{cartCount}</span>}
                         </Link>
 
                         {user && mounted ? (
                             <div className={styles.profileContainer}>
-                                <button type="button" className={styles.profileButton} onClick={() => setProfileOpen(!profileOpen)}>
-                                    <AccountCircle />
+                                <button
+                                    type="button"
+                                    className={styles.profileButton}
+                                    onClick={() => setProfileOpen(!profileOpen)}
+                                    aria-haspopup="menu"
+                                    aria-expanded={profileOpen}
+                                >
+                                    <AccountCircleIcon />
                                     <span>{user.email?.split('@')[0] || user.phone || 'Profile'}</span>
                                 </button>
                                 {profileOpen && (
@@ -238,7 +261,7 @@ export default function Navbar() {
                             </div>
                         ) : (
                             <Link href="/auth" className={styles.profileButton} onClick={() => setIsMenuOpen(false)}>
-                                <AccountCircle />
+                                <AccountCircleIcon />
                                 <span>Sign In</span>
                             </Link>
                         )}
@@ -260,7 +283,7 @@ export default function Navbar() {
                 title="Chat on WhatsApp"
                 onClick={trackWhatsAppClick}
             >
-                <WhatsApp className={styles.whatsappIcon} />
+                <WhatsAppIcon className={styles.whatsappIcon} />
             </a>
         </>
     );

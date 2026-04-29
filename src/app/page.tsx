@@ -1,12 +1,6 @@
 import { Metadata } from 'next';
 import Hero from '@/components/hero';
-import About from '@/components/about';
-import Contact from '@/components/contact';
-import Healing from '@/components/healing';
-import Therapy from '@/components/therapy';
-import BlogPreview from '@/components/blogPreview';
-import Founder from '@/components/founder';
-import TestimonialSlider from '@/components/testimonialSlider';
+import HomeSections from '@/components/homeSections/homeSections';
 
 export const metadata: Metadata = {
   title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
@@ -35,7 +29,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://www.rehas.in/og-image.png",
+        url: "https://www.rehas.in/logo.png",
         width: 1200,
         height: 630,
         alt: "REHAS - Cosmic Wellness Platform",
@@ -46,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "REHAS - Reiki | Mantra | Tantra | Astrology | Therapy | M.Y.T. Wisdom | Mind Reading",
     description: "Discover personalized astrology readings, meditation guidance, and wellness services.",
-    images: ["https://www.rehas.in/og-image.png"],
+    images: ["https://www.rehas.in/logo.png"],
     creator: "@REHAS",
   },
   alternates: {
@@ -58,13 +52,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <Founder />
-      <Healing />
-      <Therapy />
-      <BlogPreview />
-      <TestimonialSlider />
-      <Contact />
+      <HomeSections />
     </>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const BASE_URL = "https://www.rehas.in";
 const SITE_NAME = "REHAS";
-const OG_IMAGE = `${BASE_URL}/og-image.png`;
+const OG_IMAGE = `${BASE_URL}/logo.png`;
 
 export interface SEOMetadataParams {
   title: string;

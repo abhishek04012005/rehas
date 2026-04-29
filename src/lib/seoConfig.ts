@@ -9,7 +9,7 @@ export const siteConfig = {
   description: 'Bridging ancient cosmic wisdom with modern wellness for a better tomorrow.',
   author: 'REHAS',
   logo: 'https://www.rehas.in/logo.png',
-  ogImage: 'https://www.rehas.in/og-image.png',
+  ogImage: 'https://www.rehas.in/logo.png',
   twitter: '@REHAS',
 };
 

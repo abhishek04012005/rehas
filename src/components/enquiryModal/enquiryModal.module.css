@@ -52,9 +52,9 @@
 
 /* Close Button */
 .closeBtn {
-  background: rgba(255, 255, 255, 0.2);
+  background: white;
   border: none;
-  color: white;
+  color: var(--primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -67,8 +67,9 @@
 }
 
 .closeBtn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: white;
   transform: rotate(90deg);
+  color: var(--primary);
 }
 
 /* Form Container */

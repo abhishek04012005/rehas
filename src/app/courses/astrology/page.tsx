@@ -43,7 +43,7 @@ export default function AstrologyCoursesPage() {
       description: 'Master tarot card reading, interpretation, and intuitive guidance for yourself and clients',
       price: '₹2,099 - ₹10,999',
       href: '/courses/astrology/tarot',
-      image: 'PokerOutlined',
+      image: 'CasinoOutlined',
       imageUrl: '/assets/course/astrology/tarrot.png',
       level: 'Beginner to Intermediate',
     },

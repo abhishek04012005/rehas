@@ -7,10 +7,10 @@ export const footerData = {
     tagline:
       'Bridging ancient cosmic wisdom with modern wellness for a better tomorrow.',
     social: [
-      { icon: 'Facebook', href: '#', title: 'Facebook' },
-      { icon: 'Twitter', href: '#', title: 'Twitter' },
-      { icon: 'Instagram', href: '#', title: 'Instagram' },
-      { icon: 'LinkedIn', href: '#', title: 'LinkedIn' },
+      { icon: 'Facebook', href: 'https://facebook.com/rehascosmic', title: 'Facebook' },
+      { icon: 'Twitter', href: 'https://twitter.com/rudraaabhisingh', title: 'Twitter' },
+      { icon: 'Instagram', href: 'https://instagram.com/rudraaabhisingh.rehas', title: 'Instagram' },
+      { icon: 'LinkedIn', href: 'https://linkedin.com/in/rudra-aabhi-singh-rehas', title: 'LinkedIn' },
     ],
   },
   sections: [

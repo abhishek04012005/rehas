@@ -110,12 +110,15 @@
 }
 
 .badgeIcon {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   animation: float 3s ease-in-out infinite;
+  display: flex;
+  color: var(--primary);
 }
 
 .badgeIcon svg {
   color: var(--primary);
+  width: 1.2rem;
 }
 
 /* Heading */
@@ -146,7 +149,7 @@
 /* Description */
 .description {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-light);
   line-height: 1.8;
   max-width: 500px;
   margin: 0;
@@ -251,7 +254,7 @@
 
 .statLabel {
   font-size: 0.9rem;
-  color: #999;
+  color: var(--text-muted);
   margin-top: 0.5rem;
 }
 
@@ -359,7 +362,7 @@
 
 .cardText {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-light);
   text-align: center;
   font-weight: 600;
 }

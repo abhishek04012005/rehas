@@ -39,10 +39,10 @@
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
-  background: rgba(86, 0, 103, 0.08);
+  background: white;
   border: none;
   cursor: pointer;
-  color: #560067;
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,8 +55,8 @@
 }
 
 .closeBtn:hover {
-  background: #560067;
-  color: white;
+  background: white;
+  color: var(--primary);
   transform: rotate(90deg);
 }
 

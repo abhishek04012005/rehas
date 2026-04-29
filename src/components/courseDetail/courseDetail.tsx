@@ -2,23 +2,29 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import {
-  SchoolOutlined,
-  EmojiEventsOutlined,
-  CheckCircle,
-  ChevronRight,
-  AutoStories,
-  AccessTime,
-  Group,
-  EmojiEvents,
-  School,
-  EmojiEventsRounded,
-  PeopleAlt,
-  Repeat,
-  FolderOpen,
-  Rocket
-} from '@mui/icons-material';
-import * as MuiIcons from '@mui/icons-material';
+import SchoolOutlined from '@mui/icons-material/SchoolOutlined';
+import EmojiEventsOutlined from '@mui/icons-material/EmojiEventsOutlined';
+import CheckCircle from '@mui/icons-material/CheckCircle';
+import ChevronRight from '@mui/icons-material/ChevronRight';
+import AutoStories from '@mui/icons-material/AutoStories';
+import AccessTime from '@mui/icons-material/AccessTime';
+import Group from '@mui/icons-material/Group';
+import EmojiEvents from '@mui/icons-material/EmojiEvents';
+import School from '@mui/icons-material/School';
+import EmojiEventsRounded from '@mui/icons-material/EmojiEventsRounded';
+import PeopleAlt from '@mui/icons-material/PeopleAlt';
+import Repeat from '@mui/icons-material/Repeat';
+import FolderOpen from '@mui/icons-material/FolderOpen';
+import Rocket from '@mui/icons-material/Rocket';
+import AutoStoriesOutlined from '@mui/icons-material/AutoStoriesOutlined';
+import AudiotrackOutlined from '@mui/icons-material/AudiotrackOutlined';
+import AutoAwesome from '@mui/icons-material/AutoAwesome';
+import Favorite from '@mui/icons-material/Favorite';
+import Psychology from '@mui/icons-material/Psychology';
+import Spa from '@mui/icons-material/Spa';
+import StarOutlined from '@mui/icons-material/StarOutlined';
+import CalculateOutlined from '@mui/icons-material/CalculateOutlined';
+import CasinoOutlined from '@mui/icons-material/CasinoOutlined';
 import { useCheckout } from '@/context/CheckoutContext';
 import LineArtBackground from '../lineArtBackground/lineArtBackground';
 import styles from './courseDetail.module.css';
@@ -85,8 +91,21 @@ export default function CourseDetail({
   const categoryPath = `/courses/${category}`;
   const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1);
 
-  // Get the MUI icon component by name
-  const IconComponent = (MuiIcons as any)[image] || MuiIcons.AutoStoriesOutlined;
+  const iconMap = {
+    AutoStoriesOutlined,
+    AudiotrackOutlined,
+    AutoAwesome,
+    EmojiEventsOutlined,
+    Favorite,
+    Psychology,
+    Spa,
+    StarOutlined,
+    CalculateOutlined,
+    CasinoOutlined,
+    PokerOutlined: CasinoOutlined,
+  } as const;
+
+  const IconComponent = iconMap[image as keyof typeof iconMap] || AutoStoriesOutlined;
 
   // Extract numeric amount from price string (e.g., "₹8,000" -> 8000)
   const amount = parseFloat(price.replace(/[₹,]/g, '')) || 999;

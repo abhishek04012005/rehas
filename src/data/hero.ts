@@ -11,7 +11,7 @@ export const heroData = {
       type: 'primary',
     },
     {
-      label: 'Learn More',
+      label: 'Learn more about REHAS',
       href: '/about',
       type: 'secondary',
     },

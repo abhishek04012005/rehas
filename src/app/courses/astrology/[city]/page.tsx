@@ -109,7 +109,7 @@ export default async function CityAstrologyCourses({ params }: CityAstrologyCour
       description: `Advanced tarot training in ${cityData.name}. Master card reading, interpretation, and intuitive guidance.`,
       price: '₹2,099 - ₹10,999',
       href: '/courses/astrology/tarot',
-      image: 'PokerOutlined',
+      image: 'CasinoOutlined',
       imageUrl: '/assets/course/astrology/tarrot.png',
       level: 'Beginner to Intermediate',
     },

@@ -29,6 +29,7 @@ export default function Founder() {
             <div className={styles.imageContainer}>
               {/* Cosmic Ring Animation */}
               <div className={styles.cosmicRing}></div>
+              <div className={styles.cosmicGlow}></div>
 
               {/* Image Background Gradient Orbs */}
               <div className={styles.imageBgOrb1}></div>

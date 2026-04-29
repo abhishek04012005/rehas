@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Close, Send, CheckCircle } from '@mui/icons-material';
 import { supabase } from '@/lib/supabase';
 import { servicesData } from '@/data/services';
@@ -12,6 +12,7 @@ interface EnquiryModalProps {
 }
 
 export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
+  const modalRef = useRef<HTMLDivElement | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     number: '',
@@ -36,6 +37,24 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
     }));
     setError('');
   };
+
+  useEffect(() => {
+    if (!isOpen || !modalRef.current) return;
+    modalRef.current.focus();
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,11 +116,18 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
       <div className={styles.backdrop} onClick={onClose}></div>
 
       {/* Modal */}
-      <div className={styles.modal}>
+      <div
+        className={styles.modal}
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="enquiry-modal-title"
+        tabIndex={-1}
+      >
         <div className={styles.modalContent}>
           {/* Header */}
           <div className={styles.modalHeader}>
-            <h2>Quick Enquiry</h2>
+            <h2 id="enquiry-modal-title">Quick Enquiry</h2>
             <button
               className={styles.closeBtn}
               onClick={onClose}

@@ -6,8 +6,8 @@
   --accent: #d4a5d9;
   --light-bg: #fafafa;
   --border: #e5e5e5;
-  --text-light: #666666;
-  --text-muted: #999999;
+  --text-light: #4a4a4a;
+  --text-muted: #4d4d4d;
 }
 
 
@@ -45,6 +45,41 @@ a {
 
 a:hover {
   color: var(--secondary);
+}
+
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+[role="link"] {
+  outline-offset: 3px;
+}
+
+button,
+a,
+[role="button"],
+[role="link"] {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible {
+  outline: 3px solid rgba(86, 0, 103, 0.85);
+  outline-offset: 4px;
+}
+
+button:hover,
+a:hover,
+[role="button"]:hover,
+[role="link"]:hover {
+  filter: brightness(1.03);
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -158,6 +158,7 @@
 .readTime {
   display: flex;
   align-items: center;
+  color: var(--text-muted);
 }
 
 /* CTA Section - Modern Design */

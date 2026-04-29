@@ -48,7 +48,7 @@ export const homepageData = {
     description: 'Join thousands discovering their path through astrology and holistic wellness.',
     buttons: [
       { label: 'Book Now', href: '/consultation', type: 'primary' },
-      { label: 'Learn More', href: '/about', type: 'secondary' },
+      { label: 'Learn more about REHAS', href: '/about', type: 'secondary' },
     ],
   },
 } as const;
