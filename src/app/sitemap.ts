@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { blogData } from "@/data/blog";
 import { getCitiesWithSlugs } from "@/data/cities";
 import { productMerchandiseData } from "@/data/productMerchandise";
+import { getAllSeoAstrologySlug } from "@/data/seoAstrology";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.rehas.in";
@@ -235,6 +236,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  // SEO Astrology pages
+  const seoAstrologyRoutes: MetadataRoute.Sitemap = getAllSeoAstrologySlug().map(slug => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   // Combine all routes
-  return [...staticRoutes, ...blogPosts, ...cityServiceRoutes, ...merchandiseProductRoutes, ...merchandiseProductsCityRoutes];
+  return [...staticRoutes, ...blogPosts, ...cityServiceRoutes, ...merchandiseProductRoutes, ...merchandiseProductsCityRoutes, ...seoAstrologyRoutes];
 }

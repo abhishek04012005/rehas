@@ -1,132 +1,230 @@
 {
-  "categories": [
-    {
-      "description": "Short-tail keywords with massive monthly search volumes, highly competitive.",
-      "page_meta": {
-        "title": "Free Online Kundli Matching & Daily Rashifal | Astrology Tools",
-        "description": "Check your daily horoscope, calculate Shani Sade Sati, or perform accurate online Kundli matching for marriage with our accurate Vedic astrology tools.",
-        "slug": "free-online-kundli-matching-daily-rashifal",
-        "slug_hinglish": "free-online-kundli-milan-aur-daily-rashifal"
-      },
-      "keywords": [
-        "Kundli matching",
-        "Online Kundli free",
-        "Aaj ka Rashifal",
-        "Daily Horoscope",
-        "Sade Sati calculator",
-        "Rahu Kaal today",
-        "Janam Kundli",
-        "Kundli Milan for marriage"
-      ],
-      "keywords_hinglish": [
-        "Kundli milan",
-        "Free kundali kaise banaye",
-        "Aaj ka rashifal batao",
-        "Daily horoscope in hindi",
-        "Shani ki sade sati calculator",
-        "Aaj ka rahu kaal samay",
-        "Janam kundli dikhana hai",
-        "Shadi ke liye kundali milan"
-      ]
-    },
-    {
-      "description": "High-intent transactional queries regarding professional growth and timing.",
-      "page_meta": {
-        "title": "Government Job & Career Predictions by Date of Birth | Astrology Remedies",
-        "description": "Wondering when you will get a job or business success? Discover career path insights and powerful financial improvement remedies based on your Janam Kundli.",
-        "slug": "government-job-career-predictions-astrology-remedies",
-        "slug_hinglish": "sarkari-naukri-kab-milegi-career-prediction-by-date-of-birth"
-      },
-      "keywords": [
-        "When will I get a government job astrology",
-        "Job or business prediction by date of birth",
-        "When will my financial condition improve astrology",
-        "Foreign settlement combinations in kundli",
-        "Which planet is responsible for business success",
-        "Career prediction by gemstone"
-      ],
-      "keywords_hinglish": [
-        "Sarkari naukri kab milegi astrology",
-        "Job milegi ya business date of birth se jane",
-        "Paisa kab aayega kundli prediction",
-        "Videsh yatra yoga in kundli",
-        "Business me success ke liye kaun sa grah hai",
-        "Naukri ke liye kaun sa ratna pehne"
-      ]
-    },
-    {
-      "category_name": "Marriage & Relationships",
-      "description": "Emotional and culturally significant long-tail search queries in India.",
-      "page_meta": {
-        "title": "Astrology Remedies for Delay in Marriage & Future Spouse Predictions",
-        "description": "Find effective Vedic remedies for late marriage and learn how to identify your future spouse's characteristics and appearance using your 7th house lord.",
-        "slug": "astrology-remedies-delay-marriage-spouse-predictions",
-        "slug_hinglish": "shadi-me-deri-ke-upay-aur-future-spouse-prediction"
-      },
-      "keywords": [
-        "Why is my marriage delaying astrology remedies",
-        "Love marriage or arranged marriage calculator",
-        "Future spouse characteristics from kundli",
-        "Remedies for late marriage for females",
-        "Is Kundli matching necessary for love marriage",
-        "7th house lord in different houses spouse appearance"
-      ],
-      "keywords_hinglish": [
-        "Shadi me deri ke upay",
-        "Love marriage hogi ya arranged calculator",
-        "Mera jeevan sathi kaisa hoga kundli",
-        "Ladki ki shadi jaldi hone ke upay",
-        "Kya love marriage ke liye kundali milana jaruri hai",
-        "7th house se spouse ki photo ya look kaise jane"
-      ]
-    },
-    {
-      "description": "Problem-solving queries where users are looking for active solutions and rituals.",
-      "page_meta": {
-        "title": "How to Remove Manglik Dosh & Kaal Sarp Dosh | Lal Kitab Remedies",
-        "description": "Get simple, powerful remedies to remove Manglik Dosh permanently, negate Kaal Sarp Dosh effects, and survive Shani Sade Sati or Dhaiya periods safely.",
-        "slug": "remove-manglik-dosh-kaal-sarp-dosh-lal-kitab-remedies",
-        "slug_hinglish": "manglik-dosh-aur-kaal-sarp-dosh-nivaran-ke-upay"
-      },
-      "keywords": [
-        "Kaal Sarp Dosh effects and permanent remedies",
-        "How to remove Manglik Dosh permanently",
-        "Simple remedies to strengthen weak Jupiter",
-        "What to do during Sade Sati period",
-        "Lal Kitab remedies for wealth and money",
-        "Shani ki Dhaiya remedies"
-      ],
-      "keywords_hinglish": [
-        "Kaal sarp dosh nivaran ke saral upay",
-        "Manglik dosh kaise khatam kare permanently",
-        "Guru grah ko majboot karne ke upay",
-        "Sade sati me kya karna chahiye aur kya nahi",
-        "Lal kitab ke chamatkari upay dhan ke liye",
-        "Shani ki dhaiya se bachne ke upay"
-      ]
-    },
-    {
-      "description": "Keywords used by consumers who are ready to pay for consultations.",
-      "page_meta": {
-        "title": "Best Online Astrology Consultation | Top Vedic Astrologers Near Me",
-        "description": "Connect with famous celebrity astrologers for accurate career, marriage, and financial predictions via online chat or phone consultation.",
-        "slug": "best-online-astrology-consultation-vedic-astrologers",
-        "slug_hinglish": "sabse-accha-online-astrologer-aur-jyotish-near-me"
-      },
-      "keywords": [
-        "Best astrologer in Delhi NCR",
-        "Famous celebrity astrologer near me",
-        "Best online astrology consultation app",
-        "Accurate career prediction by phone",
-        "Vedic astrology chart analysis online"
-      ],
-      "keywords_hinglish": [
-        "Delhi me sabse accha jyotish kaun hai",
-        "Famous astrologer mere pass me",
-        "Online kundali dekhne wala sabse best app",
-        "Phone par sahi kundli prediction",
-        "Online vedic astrology chart check karna"
-      ]
-    }
-  ]
+    "categories": [
+        {
+            "description": "Short-tail keywords with massive monthly search volumes, highly competitive.",
+            "page_meta": {
+                "title": "Free Online Kundli Matching & Daily Rashifal | Astrology Tools",
+                "description": "Check your daily horoscope, calculate Shani Sade Sati, or perform accurate online Kundli matching for marriage with our accurate Vedic astrology tools.",
+                "slug": "free-online-kundli-matching-daily-rashifal"
+            },
+            "keywords": [
+                "Kundli matching",
+                "Online Kundli free",
+                "Aaj ka Rashifal",
+                "Daily Horoscope",
+                "Sade Sati calculator",
+                "Rahu Kaal today",
+                "Janam Kundli",
+                "Kundli Milan for marriage"
+            ]
+        },
+        {
+            "description": "High-intent transactional queries regarding professional growth and timing.",
+            "page_meta": {
+                "title": "Government Job & Career Predictions by Date of Birth | Astrology Remedies",
+                "description": "Wondering when you will get a job or business success? Discover career path insights and powerful financial improvement remedies based on your Janam Kundli.",
+                "slug": "government-job-career-predictions-astrology-remedies"
+            },
+            "keywords": [
+                "When will I get a government job astrology",
+                "Job or business prediction by date of birth",
+                "When will my financial condition improve astrology",
+                "Foreign settlement combinations in kundli",
+                "Which planet is responsible for business success",
+                "Career prediction by gemstone"
+            ]
+        },
+        {
+            "category_name": "Marriage & Relationships",
+            "description": "Emotional and culturally significant long-tail search queries in India.",
+            "page_meta": {
+                "title": "Astrology Remedies for Delay in Marriage & Future Spouse Predictions",
+                "description": "Find effective Vedic remedies for late marriage and learn how to identify your future spouse's characteristics and appearance using your 7th house lord.",
+                "slug": "astrology-remedies-delay-marriage-spouse-predictions"
+            },
+            "keywords": [
+                "Why is my marriage delaying astrology remedies",
+                "Love marriage or arranged marriage calculator",
+                "Future spouse characteristics from kundli",
+                "Remedies for late marriage for females",
+                "Is Kundli matching necessary for love marriage",
+                "7th house lord in different houses spouse appearance"
+            ]
+        },
+        {
+            "description": "Problem-solving queries where users are looking for active solutions and rituals.",
+            "page_meta": {
+                "title": "How to Remove Manglik Dosh & Kaal Sarp Dosh | Lal Kitab Remedies",
+                "description": "Get simple, powerful remedies to remove Manglik Dosh permanently, negate Kaal Sarp Dosh effects, and survive Shani Sade Sati or Dhaiya periods safely.",
+                "slug": "remove-manglik-dosh-kaal-sarp-dosh-lal-kitab-remedies"
+            },
+            "keywords": [
+                "Kaal Sarp Dosh effects and permanent remedies",
+                "How to remove Manglik Dosh permanently",
+                "Simple remedies to strengthen weak Jupiter",
+                "What to do during Sade Sati period",
+                "Lal Kitab remedies for wealth and money",
+                "Shani ki Dhaiya remedies"
+            ]
+        },
+        {
+            "description": "Keywords used by consumers who are ready to pay for consultations.",
+            "page_meta": {
+                "title": "Best Online Astrology Consultation | Top Vedic Astrologers Near Me",
+                "description": "Connect with famous celebrity astrologers for accurate career, marriage, and financial predictions via online chat or phone consultation.",
+                "slug": "best-online-astrology-consultation-vedic-astrologers"
+            },
+            "keywords": [
+                "Best astrologer in Delhi NCR",
+                "Famous celebrity astrologer near me",
+                "Best online astrology consultation app",
+                "Accurate career prediction by phone",
+                "Vedic astrology chart analysis online"
+            ]
+        },
+        {
+            "description": "Shadi, jeevan sathi aur relationship prediction se judi high-search astrology queries.",
+            "page_meta": {
+                "title": "Shadi Kab Hogi? | Future Life Partner Prediction Astrology",
+                "description": "Janiye aapki shadi kab hogi, love marriage hogi ya arranged marriage, aur aapka jeevan sathi kaisa hoga kundli ke anusaar.",
+                "slug": "shadi-kab-hogi-future-life-partner-prediction"
+            },
+            "keywords": [
+                "Shadi kab hogi astrology",
+                "Love marriage hogi ya arranged",
+                "Future spouse prediction",
+                "Mera jeevan sathi kaisa hoga",
+                "Future husband prediction",
+                "Future wife prediction",
+                "Kundli se shadi prediction",
+                "Marriage compatibility calculator"
+            ]
+        },
+        {
+            "description": "Naukri, promotion aur career growth ke liye astrology prediction keywords.",
+            "page_meta": {
+                "title": "Sarkari Naukri Kab Milegi? | Career Prediction Astrology",
+                "description": "Date of birth aur kundli ke anusaar career growth, promotion aur sarkari naukri ke yog jane.",
+                "slug": "sarkari-naukri-career-prediction-astrology"
+            },
+            "keywords": [
+                "Sarkari naukri kab milegi",
+                "Career prediction by date of birth",
+                "Promotion kab milega",
+                "Job change prediction",
+                "Career horoscope",
+                "Business ya job prediction",
+                "Naukri ke yog kundli me",
+                "Career astrology consultation"
+            ]
+        },
+        {
+            "description": "Dhan, paisa aur financial growth se judi astrology searches.",
+            "page_meta": {
+                "title": "Paisa Kab Aayega? | Dhan Yog & Wealth Astrology",
+                "description": "Janiye aapki financial condition kab improve hogi aur kundli me dhan yog ke baare me vistaar se.",
+                "slug": "paisa-kab-aayega-dhan-yog-astrology"
+            },
+            "keywords": [
+                "Paisa kab aayega",
+                "Dhan yog kundli me",
+                "Financial growth astrology",
+                "Wealth prediction",
+                "Money horoscope",
+                "Business profit astrology",
+                "Dhan prapti ke yog",
+                "Financial success prediction"
+            ]
+        },
+        {
+            "description": "Manglik, Kaal Sarp aur anya doshon ke nivaran se judi searches.",
+            "page_meta": {
+                "title": "Manglik Dosh Aur Kaal Sarp Dosh Nivaran Ke Upay",
+                "description": "Manglik dosh, kaal sarp dosh, sade sati aur shani dhaiya ke prabhavi upay aur remedies jane.",
+                "slug": "manglik-kaal-sarp-dosh-nivaran-upay"
+            },
+            "keywords": [
+                "Manglik dosh ke upay",
+                "Kaal sarp dosh nivaran",
+                "Sade sati ke upay",
+                "Shani dhaiya ke upay",
+                "Guru grah majboot kaise kare",
+                "Rahu ketu dosh nivaran",
+                "Lal kitab ke upay",
+                "Astrology remedies online"
+            ]
+        },
+        {
+            "description": "Numerology aur lucky number se judi popular searches.",
+            "page_meta": {
+                "title": "Numerology Prediction | Lucky Number Aur Name Analysis",
+                "description": "Numerology ke madhyam se lucky number, career, relationship aur future prediction jane.",
+                "slug": "numerology-lucky-number-prediction"
+            },
+            "keywords": [
+                "Numerology prediction",
+                "Lucky number prediction",
+                "Name numerology",
+                "Mobile number numerology",
+                "Business numerology",
+                "Relationship numerology",
+                "Life path number calculator",
+                "Numerology consultation"
+            ]
+        },
+        {
+            "description": "Ratna, lucky color aur astrology guidance ke liye searches.",
+            "page_meta": {
+                "title": "Kaunsa Ratna Pehne? | Lucky Gemstone Astrology Guide",
+                "description": "Janam kundli ke anusaar kaunsa ratna pehne aur kaunsa gemstone aapke liye shubh hai jane.",
+                "slug": "kaunsa-ratna-pehne-gemstone-guide"
+            },
+            "keywords": [
+                "Kaunsa ratna pehne",
+                "Lucky gemstone by date of birth",
+                "Career ke liye ratna",
+                "Dhan ke liye ratna",
+                "Marriage ke liye gemstone",
+                "Lucky color astrology",
+                "Gemstone recommendation",
+                "Online gemstone consultation"
+            ]
+        },
+        {
+            "description": "Videsh yatra aur settlement se judi astrology queries.",
+            "page_meta": {
+                "title": "Videsh Jane Ke Yog | Foreign Settlement Astrology",
+                "description": "Kundli ke anusaar videsh yatra, visa approval aur foreign settlement ke yog jane.",
+                "slug": "videsh-jane-ke-yog-foreign-settlement"
+            },
+            "keywords": [
+                "Videsh jane ke yog",
+                "Foreign settlement astrology",
+                "Visa approval astrology",
+                "Foreign travel prediction",
+                "Abroad job prediction",
+                "Overseas settlement",
+                "Foreign education yoga",
+                "International relocation astrology"
+            ]
+        },
+        {
+            "description": "Daily rashifal aur zodiac predictions ke liye evergreen keywords.",
+            "page_meta": {
+                "title": "Aaj Ka Rashifal | Daily Horoscope In Hindi",
+                "description": "Sabhi rashiyon ka aaj ka rashifal, lucky number, lucky color aur grahon ka prabhav jane.",
+                "slug": "aaj-ka-rashifal-daily-horoscope-hindi"
+            },
+            "keywords": [
+                "Aaj ka rashifal",
+                "Daily horoscope hindi",
+                "Weekly rashifal",
+                "Monthly rashifal",
+                "Lucky number today",
+                "Lucky color today",
+                "Rashi bhavishya",
+                "Horoscope prediction"
+            ]
+        }
+    ]
 }
