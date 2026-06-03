@@ -78,7 +78,7 @@ export const aboutData = {
         type: 'primary',
       },
       {
-        label: 'Learn More',
+        label: 'Contact REHAS',
         href: '/contact',
         type: 'secondary',
       },
